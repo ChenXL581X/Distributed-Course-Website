@@ -1,0 +1,62 @@
+body{
+	padding-top:50px;
+}
+.login-layout{
+	background: #fff;
+}
+.login-layout .login-box div.widget-main {
+    
+    background: none;
+}
+.login-layout .widget-box .widget-body .toolbar > div > a.forgot-password-link {
+    color: #838383;
+    text-shadow: none;
+    font-size:14px;
+}
+input[type=checkbox]+.lbl, input[type=radio]+.lbl {
+    font-size: 14px;
+    margin-top: 7px;
+    color:#838383;
+}
+.login-layout .widget-box .widget-body .toolbar > div > a.user-signup-link {
+    color: #838383;
+    text-shadow: none;
+    font-size:14px;
+}
+div.toolbar.clearfix {
+    background: #fff;
+    color: #ccc;
+    border-top: 1px #ccc dashed;
+}
+div#login-box.login-box.widget-box.no-border.visible {
+    border: none;
+    outline: none;
+    background: none;
+}
+.login-layout input.span12 {
+    
+    
+    font-size: 12px;
+    background: #FCFCFC;
+    border-radius: 3px;
+    box-shadow: 0 0 4px rgba(221, 216, 216, 0.74), 0 0 0px 1002px #FCFCFC inset;
+}
+h4.header.black.smaller.lighter {
+    color: #636363;
+    font-size: 16px;
+    font-weight: 600;
+}
+button.width-70.btn.btn-small.login {
+    margin-bottom: 20px;
+    
+    background-color: #2575ed !important;
+    padding:5px;
+    border-radius: 20px;
+    border: none;
+}
+div#forgot-box.forgot-box.widget-box.no-border.visible {
+    background: none;
+}
+div#signup-box.forgot-box.widget-box.no-border.visible {
+    background: none;
+}
