@@ -17,6 +17,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     -o-transition-duration: .1s;
     transition-duration: .1s;
 }
+
 .login-layout input[type="text"], .login-layout input[type="password"], .login-layout input[type="datetime"], .login-layout input[type="datetime-local"], .login-layout input[type="date"], .login-layout input[type="month"], .login-layout input[type="time"], .login-layout input[type="week"], .login-layout input[type="number"], .login-layout input[type="email"], .login-layout input[type="url"], .login-layout input[type="search"], .login-layout input[type="tel"], .login-layout input[type="color"] {
     line-height:inherit;
     height:auto;
@@ -30,3 +31,4 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     right: 3px;
     margin-top: 5px;
 }
+

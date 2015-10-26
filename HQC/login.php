@@ -58,24 +58,22 @@ include 'includes/header.php';
 																<input type="checkbox" />
 																<span class="lbl"> 记住密码</span>
 															</label>
-														</div>
-														<div class="clearfix align-center ">
-															
-															<button onclick="return false;" class="login width-70  btn btn-small">
+															<button onclick="return false;" class="login width-35 pull-right btn-primary  btn btn-small">
 																<i class="icon-key"></i>
 																登录
 															</button>
 														</div>
+														
 
 														<div class="space-4"></div>
 													</fieldset>
 												</form>
 
-												<div class="hidden social-or-login center">
+												<div class=" social-or-login center">
 													<span class="bigger-110">使用以下账号登录</span>
 												</div>
 
-												<div class="hidden social-login center">
+												<div class=" social-login center">
 													<a class="btn btn-primary">
 														<i class="icon-facebook"></i>
 													</a>
