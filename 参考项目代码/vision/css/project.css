@@ -1,0 +1,141 @@
+.card-actions {
+    position: relative;
+    float: right;
+    margin-right: 5%;
+}
+.card.company-project-card{
+    /* border: 1px solid #E6E6E6; */
+    padding: 10px;
+    line-height: 1.8em;
+    cursor: hand;
+    margin: 10px;
+    min-width: 170px;
+    margin-left: 0px;
+    margin-right: 20px;
+/*    height: 170px;
+    overflow: hidden;*/
+    
+    transition:all .3s ease-in-out;
+}
+
+.card.company-project-card.unit-100 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+ 
+    border-radius: 0px;
+    margin: 0;
+}
+
+.unit-100 #project-details {
+    padding-left: 5%;
+    padding-right: 5%;
+    max-height: 40px;
+    overflow: hidden;
+}
+.card.company-project-card .date{
+    float: right;
+    color: #727272;
+    margin-right: 5%;
+}
+.card.company-project-card .check{
+    float: left;
+    margin-top: 8px;
+    margin-right: 5px;
+}
+.card.company-project-card.unit-20 .date{
+    display: none;
+}
+.card.company-project-card.unit-20 .check{
+    display: none;
+}
+.unit-100 #title-bloc {
+    float: left;
+}
+.desc-bloc.dark {
+    font-size: 12px;  line-height: 1.8em;
+    color: #4E4E4E;
+}
+.title-bloc span {
+    color: #242222;
+}
+#title-bloc {
+    margin-bottom: 10px;
+    color: #ccc;
+}
+.project-manage ul {
+    list-style: none;
+}
+.project-manage ul li {
+    width: 100%;
+    display: inline-block;
+    line-height: 30px;
+}
+
+.project-manage ul li a{
+    text-decoration: none;
+}
+.project-manage ul li a:hover{
+    text-decoration: underline;
+}
+.divider{
+    height:20px;
+}
+.underline{
+    border-bottom: 1px solid #E7E7E7;
+}
+.btn-tools{
+    width: 100px;
+
+}
+.btn-tools{
+    width: 50%;
+
+}
+.btn-group.btn-tools {
+    width: 100px;
+}
+.btn.btn-tool {
+    width: 50%;
+    padding: 10px;
+}
+.modal{
+    margin-top: 100px;
+}
+h1 {
+width: 100%;
+border-bottom: solid 1px #EBEBEB;
+font-weight: 100;
+color: #636363;
+font-size: 18px;
+line-height: 40px;
+margin-bottom: 40px;
+}
+.input-groups.width-70 {
+    min-width: 300px;
+    max-width: 400px;
+}
+h4 {
+width: 100%;
+border-bottom: solid 1px #EBEBEB;
+font-weight: 100;
+color: #636363;
+font-size: 16px;
+line-height: 30px;
+margin-bottom: 40px;
+}
+.btn.btn-red {
+    padding: 5px;
+    font-family: 微软雅黑;
+    font-size: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 30px;
+}
+.units-row.search{
+    border-bottom: solid 1px #EBEBEB;
+}
+
+.units-row.operate{
+    display: none;
+
+}

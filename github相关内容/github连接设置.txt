@@ -1,0 +1,5 @@
+1.创建github账号
+2.下载github for Windows/Mac 客户端
+3.打开客户端
+4.右上角设置-Repository Settings-Remote
+5.输入https://github.com/ChenXL581X/Distributed-Course-Website

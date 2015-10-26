@@ -1,0 +1,75 @@
+.main{
+    text-align: center;
+}
+.log-reg-box{
+    
+    min-width: 300px;
+    margin: auto;
+    position: relative;
+
+}
+.logbox,.regbox{
+    margin: auto;
+    width: 300px;
+    position: absolute;
+
+    font-size: 14px;
+    color: #838383;
+    min-height: 600px;
+}
+h4 {
+    width: 100%;  
+    border-bottom: solid 1px #EBEBEB;  
+    font-weight: 100;  color: #636363;  
+    font-size: 16px;  line-height: 30px;  
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+h5 {
+    width: 100%;  
+     
+    font-weight: 100;  color: #636363;  
+    font-size: 16px;  line-height: 30px;  
+    margin-bottom: 30px;
+    text-align: center;
+    margin-top: 150px;
+    margin-left: -6px;
+    font-weight: 600;
+}
+.regbox {
+    display: none;
+}
+#remember {
+    float: left;
+    margin-top:7px;
+}
+.formbox p label {
+    float: left;
+    margin: 20px;
+    margin-left: 10px;
+    margin-top: 0px;
+}
+#forget{
+    float: right;
+    color: #706F6F;
+    text-decoration: none;
+}
+.formbox input[type="text"],.formbox input[type="password"],.formbox input[type="email"] {
+    font-family: 微软雅黑;
+    font-size: 12px;
+    padding: 8px;
+    background: #F8F8F8;
+    border-radius: 3px;
+    box-shadow: 0 0 3px rgba(224, 220, 220, 0.74),0 0 0px 1002px #F8F8F8 inset;
+}
+.formbox input[type="text"]:focus,.formbox input[type="password"]:focus,.formbox input[type="email"]:focus{
+    box-shadow: 0 0 3px rgba(224, 220, 220, 0.74),0 0 0px 1002px #DBE7FF inset;
+} 
+.formbox .btn.btn-blue {
+    border-radius: 20px;
+    margin-left: 60px;
+}
+.formbox a {
+    text-decoration: none;
+    color: #E56767;
+}

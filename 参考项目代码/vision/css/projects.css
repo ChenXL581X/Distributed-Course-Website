@@ -1,0 +1,168 @@
+body{
+}
+#main{
+	text-align:center;
+
+}
+.logo .fa{
+	font-size: 30px;
+	color: #B3B3B3;
+	margin: 20px;
+	margin-top: 40px;
+}
+.logo h4 {
+    color: #797979;
+    font-weight: 600;
+    font-size: 15px;
+}
+.logo p {
+    font-size: 12px;
+    color: #949393;
+    margin-top: 10px;
+}
+.logo .btn{
+	margin: 10px;
+	background: transparent;
+	border: 1px solid #BDBDBD;
+	color: #535353;
+	font-size: 12px;
+	border-radius: 20px;
+	padding: 5px;
+	padding-left: 35px;
+	padding-right: 35px;
+}
+.logo .btn.btn-blue{
+	background: #2575ed;
+	color:#fff;
+	border: none;
+
+}
+.toolbar .btn.btn-blue{
+	background: transparent;
+	color: #A2A2A2;
+	border: none;
+	border-radius: 5px;
+	padding: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
+	font-size: 12px;
+	border: 1px solid #ccc;
+	margin-left: 20px;
+	margin-top: 10px;
+	min-width: 100px;
+	max-width: 200px;
+}
+a{
+	color:#E55136;
+	text-decoration: none;
+}
+.probox{
+	border-top: 1px solid #ccc; 
+	margin: 10px auto;
+	min-width: 300px;
+}
+.tablebox{
+	margin: 20px auto;
+	
+}
+.toolbar{
+	margin: auto;
+	margin-top: 30px;
+
+}
+.toolbar .input-search{
+	float: left;
+	font-family: "微软雅黑";
+	font-size: 12px;
+	background: transparent;
+	border-radius: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	min-width: 300px;
+	margin-top: 10px;
+}
+.toolbar .input-search:hover,.toolbar .input-search:focus{
+	background: transparent;
+	box-shadow: none;
+	font-family: "微软雅黑";
+
+}
+.check-all{
+	float: left;
+	padding-top: 7px;
+}
+.check-all label{
+}
+.toolbar .fa{
+	
+	color: #7A7676;
+	font-size: 17px;
+}
+#ch-all {
+
+}
+.toolbar a{
+	float: left;
+	margin-top: 7px;
+
+}
+table th, table td {
+    font-size: 12px;
+    border-bottom: 1px solid #E6E6E6;
+}
+tr{cursor: pointer;
+
+
+}
+/*td{display: inline-block;
+float: left;}*/
+tr:hover {
+    background: #5083F0;
+    color:#fff
+
+}
+#check-fa {
+    position: absolute;
+    margin-left: -20px;
+    margin-top: 4px;
+    font-size: 18px;
+    color: #5083F0;
+}
+.fa.fa-check-square{
+}
+label{
+	cursor: pointer;
+}
+.toggle-tr{
+   
+	
+	display: none;
+/*    max-height: 0px;
+	overflow: hidden;*/
+	cursor: pointer;
+	font-size:0;
+	vertical-align: top;
+    /*transition:max-height .4s ease-in-out;*/
+    
+}
+.trash{
+	display: none;
+	border: none;
+	position: absolute;
+	margin-left: -50px;
+	color: #fff;
+}
+.trash .fa{
+	color: #fff;
+	font-size: 14px;
+}
+tr:hover  .trash{
+	display:inline-block;
+}
+tr:hover + .toggle-tr{
+	display:table-row;
+	
+	
+}
+
+
