@@ -5,6 +5,7 @@ include 'includes/header.php';
 <link rel="stylesheet" type="text/css" href="css/login.css">
 
 	<body class="login-layout">
+	
 		<div class="main-container container-fluid">
 			<div class="main-content">
 				<div class="row-fluid">
