@@ -4,21 +4,21 @@ include 'includes/header.php';
 <!-- css local-->
 <link rel="stylesheet" type="text/css" href="css/login.css">
 
-	<body class="login-layout">
 	
+	<div class="login-layout">
 		<div class="main-container container-fluid">
 			<div class="main-content">
 				<div class="row-fluid">
 					<div class="span12">
 						<div class="login-container">
-							<div class="row-fluid">
+							<div class="row-fluid hidden">
 								<div class="center">
 									<h1>
 										<i class="icon-leaf green"></i>
-										<span class="red">Ace</span>
-										<span class="black">Application</span>
+										<span class="red">分布式</span>
+										<span class="black">精品课程</span>
 									</h1>
-									<h4 class="blue">&copy; Company Name</h4>
+									<h4 class="blue">&copy; 理工大学软件工程专业</h4>
 								</div>
 							</div>
 
@@ -237,7 +237,7 @@ include 'includes/header.php';
 			 $('#'+id).addClass('visible');
 			}
 		</script>
-	</body>
+	</div>
 <?php
 include "includes/footer.php";
 ?>

@@ -1,5 +1,12 @@
 *{
-	font-family: "微软雅黑";font-family:;
+	font-family: "微软雅黑";
+    margin:0;
+    padding:0;
+
+}
+body{
+    margin: 0 !important;
+    padding: 0 !important;
 }
 textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
     -webkit-border-radius: 0 !important;
@@ -52,4 +59,33 @@ label{
 .input-icon {
     position:relative;
 }
+.center, .align-center {
+    text-align:center;
+}
+.forgot-box .back-to-login-link, .signup-box .back-to-login-link {
+    color:#FE9;
+    font-size:14px;
+    font-weight:bold;
 
+    text-shadow:1px 0 1px rgba(0,0,0,0.25);
+}
+
+.toolbar {
+    
+    padding: 9px 18px;
+}
+.inline{
+    display: inline;
+}
+
+div.social-login.center > .btn{
+    width: 40px;
+    height: 40px;
+    
+    border-radius: 50%;
+}
+
+div.social-login.center > .btn >i{
+   font-size: 16px;
+   line-height: 25px;
+}

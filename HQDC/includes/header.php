@@ -18,5 +18,8 @@
     <![endif]-->
     <link rel="stylesheet" type="text/css" href="css/custom.css">
   </head>
-  
+  <body>
+  <?php 
+ include "nav.php"
+  ?>
 
