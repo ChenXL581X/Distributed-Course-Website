@@ -1,0 +1,69 @@
+.forum-table{
+	border:1px solid #f3f3f3;
+}
+.forum-table tr{
+	cursor: pointer;
+	font-size: 12px;
+	transition:all .3s;
+}
+.forum-table tr:hover{
+	background: #337ab7;
+	color:#fff;
+
+}
+.forum-table tr:hover a{
+	
+	color:#fff;
+
+}
+h6{
+	font-size: 14px;
+	background: #337ab7;
+	color:#fff;
+	border-radius: 2px;
+	padding: 10px;
+	
+}
+.btn.new{
+background: #65C7AC;
+padding:11px;
+width: 100%;
+color:#fff;
+text-shadow:0 0 5px #ccc;	
+border:none;
+border-radius: 2px;
+}
+.btn.new i{
+	
+	margin-left: 10px;
+
+	margin-top: 3px;
+}
+.btn.new span{
+	margin-left: -30px;
+	font-size: 13px;
+}
+.section{
+	padding: 10px;
+	border-bottom: 1px dashed #ccc;
+}
+.right{
+	padding-left: 20px;
+	font-size: 12px;
+}
+.right .section b{
+
+}
+
+.section .form-control{
+	margin-top:10px;
+	font-size: 12px;
+	box-shadow: none;
+
+}
+.section textarea{
+	height:100px;
+}
+.section .btn{
+	margin-top: 10px;
+}

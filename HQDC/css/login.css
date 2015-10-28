@@ -48,7 +48,7 @@ body{
 .login-layout .widget-box .widget-body .toolbar > span > a.user-signup-link{
     color: #838383;
     text-shadow: none;
-    font-size:14px;
+    font-size:12px;
 }
 input[type=checkbox]+.lbl, input[type=radio]+.lbl {
     font-size: 12px;
@@ -76,6 +76,9 @@ div.toolbar.clearfix {
     color: #ccc;
     border-top: 1px #ccc dashed;
     margin-top: -20px;
+    background: #f7f7f7;
+    border-top: none;
+    font-size: 12px;
 }
 div#login-box.login-box.widget-box.no-border.visible {
     border: none;
@@ -149,4 +152,7 @@ p{
     color: #838383;
     font-weight: 600;
 
+}
+p.intro-p{
+    margin: 5px;
 }

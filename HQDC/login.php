@@ -33,7 +33,7 @@ include 'includes/header.php';
 													<i class="fa fa-coffee icon-coffee"></i>
 													您的登录信息
 												</h4>
-												<p>
+												<p class="intro-p">
 													请输入管理员提供的用户名和密码
 												</p>
 												<div class="space-6"></div>
