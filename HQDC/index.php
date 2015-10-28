@@ -6,7 +6,7 @@ include 'includes/header.php';
 
 
 
-<i class="icon-tag"></i>
+
 </body>
 <?php
 include "includes/footer.php";

@@ -1,0 +1,28 @@
+i.fa.fa-bell-o.toggle-img {
+    font-size: 22px;
+  
+    color: #C5C8E5;
+    
+}
+.fa.toggle-img font {
+    position:absolute;
+    background: #F7411F;
+    color: #fff;
+    padding: 2px;
+    font-size: 12px;
+    margin-left: -10px;
+    margin-top: -10px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+}
+.head-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+   	position: absolute;
+    margin-left: -5px;
+    margin-top: -5px;
+}
+.head-container > font{
+margin-left: 35px !important;	
+}

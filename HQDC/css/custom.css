@@ -4,9 +4,23 @@
     padding:0;
 
 }
-body{
+html,body{
     margin: 0 !important;
     padding: 0 !important;
+    position: relative;
+    overflow-x: hidden; 
+}
+.nav{
+    overflow-x:visible !important; 
+}
+html, body, div, span, object, iframe, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
 }
 textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
     -webkit-border-radius: 0 !important;
@@ -15,10 +29,10 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     border-width: 1px;
     color: #858585;
     background-color: #fff;
-    border-color: #d5d5d5;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
+    border:1px solid #ccc ;
+    -webkit-box-shadow: -webkit-box-shadow: 0 0 4px rgba(221, 216, 216, 0.74), 0 0 0px 1002px #FCFCFC inset;;
+    -moz-box-shadow: -moz-box-shadow: 0 0 4px rgba(221, 216, 216, 0.74), 0 0 0px 1002px #FCFCFC inset;;
+    box-shadow: box-shadow: 0 0 4px rgba(221, 216, 216, 0.74), 0 0 0px 1002px #FCFCFC inset;;
     -webkit-transition-duration: .1s;
     -moz-transition-duration: .1s;
     -o-transition-duration: .1s;
@@ -33,13 +47,19 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     margin-bottom:4px;
     padding: 8px;
     border-radius: 3px;
-    border:1px solid #ccc !important;
+    border:1px solid #ccc ;
     width: 100% !important;
 }
 .input-icon.input-icon-right > [class*="icon-"] {
     left: auto;
     right: 3px;
     margin-top: -2px;
+}
+input:focus,textarea:focus {
+    border-color: #66afe9 !important;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6) !important;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6) !important;
 }
 label{
     width: 100% !important;
@@ -56,11 +76,17 @@ label{
     color: #909090;
     font-size: 16px;
 }
+.clear-both{
+    clear:both;
+}
 .input-icon {
     position:relative;
 }
 .center, .align-center {
     text-align:center;
+}
+.margin-auto{
+    margin: auto;
 }
 .forgot-box .back-to-login-link, .signup-box .back-to-login-link {
     color:#FE9;
@@ -88,4 +114,44 @@ div.social-login.center > .btn{
 div.social-login.center > .btn >i{
    font-size: 16px;
    line-height: 25px;
+}
+.green{
+    color:#4EB529; 
+}
+nav.navbar.navbar-default {
+    font-size: 12px;
+    font-weight: 600;
+}
+nav.navbar .form-control{
+    font-size: 12px;
+    height:30px;
+    margin-top: 2px;
+    width: 180px !important;
+}
+nav.navbar .btn{
+    font-size: 12px;
+}
+.fa-animate {
+    -webkit-animation: pulse 0.6s infinite alternate;
+    animation: pulse 0.6s infinite alternate;
+}
+@-webkit-keyframes pulse {
+    from { -webkit-transform: scale3d(0.8,0.8,1); }
+    to { -webkit-transform: scale3d(1.1,1.1,1); }
+}
+@keyframes pulse {
+    from {transform: scale3d(0.8,0.8,1); }
+    to {transform: scale3d(1.1,1.1,1); }
+}
+.fa-spin {
+    -webkit-animation: spin 0.6s infinite alternate;
+    animation: spin 0.6s infinite alternate;
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {transform: rotate(0deg); }
+    to {transform: rotate(360deg); }
 }

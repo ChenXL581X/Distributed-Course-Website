@@ -14,7 +14,7 @@ include 'includes/header.php';
 							<div class="row-fluid hidden">
 								<div class="center">
 									<h1>
-										<i class="icon-leaf green"></i>
+										<i class="fa fa-leaf icon-leaf green"></i>
 										<span class="red">分布式</span>
 										<span class="black">精品课程</span>
 									</h1>
@@ -30,10 +30,12 @@ include 'includes/header.php';
 										<div class="widget-body">
 											<div class="widget-main">
 												<h4 class="header black smaller lighter">
-													<i class="icon-coffee green"></i>
-													请输入您的登录信息
+													<i class="fa fa-coffee icon-coffee"></i>
+													您的登录信息
 												</h4>
-
+												<p>
+													请输入管理员提供的用户名和密码
+												</p>
 												<div class="space-6"></div>
 
 												<form>
@@ -41,14 +43,14 @@ include 'includes/header.php';
 														<label>
 															<span class="block input-icon input-icon-right">
 																<input type="text" class="span12" placeholder="用户名" />
-																<i class="icon-user"></i>
+																<i class="fa fa-user icon-user"></i>
 															</span>
 														</label>
 
 														<label>
 															<span class="block input-icon input-icon-right">
 																<input type="password" class="span12" placeholder="密码" />
-																<i class="icon-lock"></i>
+																<i class="fa fa-lock icon-lock"></i>
 															</span>
 														</label>
 
@@ -60,7 +62,7 @@ include 'includes/header.php';
 																<span class="lbl"> 记住密码</span>
 															</label>
 															<button onclick="return false;" class="login width-35 pull-right btn-primary  btn btn-small">
-																<i class="icon-key"></i>
+																<i class="fa fa-key icon-key"></i>
 																登录
 															</button>
 														</div>
@@ -76,15 +78,15 @@ include 'includes/header.php';
 
 												<div class=" social-login center">
 													<a class="btn btn-primary">
-														<i class="icon-facebook"></i>
+														<i class="fa fa-facebook icon-facebook"></i>
 													</a>
 
 													<a class="btn btn-info">
-														<i class="icon-twitter"></i>
+														<i class="fa fa-twitter icon-twitter"></i>
 													</a>
 
 													<a class="btn btn-danger">
-														<i class="icon-google-plus"></i>
+														<i class="fa fa-google-plus icon-google-plus"></i>
 													</a>
 												</div>
 											</div> <!--/widget-main-->
@@ -92,7 +94,7 @@ include 'includes/header.php';
 											<div class="toolbar clearfix">
 												<span>
 													<a href="#" onclick="show_box('forgot-box'); return false;" class="forgot-password-link">
-														<i class="icon-arrow-left"></i>
+														<i class="fa fa-arrow-left icon-arrow-left"></i>
 														忘记密码？
 													</a>
 												</span>
@@ -100,7 +102,7 @@ include 'includes/header.php';
 												<span class="pull-right">
 													<a href="#" onclick="show_box('signup-box'); return false;" class="user-signup-link">
 														注册
-														<i class="icon-arrow-right"></i>
+														<i class="fa fa-arrow-right icon-arrow-right"></i>
 													</a>
 												</span>
 											</div>
@@ -111,7 +113,7 @@ include 'includes/header.php';
 										<div class="widget-body">
 											<div class="widget-main">
 												<h4 class="header red lighter bigger">
-													<i class="icon-key"></i>
+													<i class="fa fa-key icon-key"></i>
 													Retrieve Password
 												</h4>
 
@@ -125,13 +127,13 @@ include 'includes/header.php';
 														<label>
 															<span class="block input-icon input-icon-right">
 																<input type="email" class="span12" placeholder="Email" />
-																<i class="icon-envelope"></i>
+																<i class="fa fa-envelope icon-envelope"></i>
 															</span>
 														</label>
 
 														<div class="clearfix">
 															<button onclick="return false;" class="width-35 pull-right btn btn-small btn-danger">
-																<i class="icon-lightbulb"></i>
+																<i class="fa fa-lightbulb icon-lightbulb"></i>
 																Send Me!
 															</button>
 														</div>
@@ -142,7 +144,7 @@ include 'includes/header.php';
 											<div class="toolbar center">
 												<a href="#" onclick="show_box('login-box'); return false;" class="back-to-login-link">
 													Back to login
-													<i class="icon-arrow-right"></i>
+													<i class="fa fa-arrow-right icon-arrow-right"></i>
 												</a>
 											</div>
 										</div><!--/widget-body-->
@@ -152,7 +154,7 @@ include 'includes/header.php';
 										<div class="widget-body">
 											<div class="widget-main">
 												<h4 class="header green lighter bigger">
-													<i class="icon-group blue"></i>
+													<i class="fa fa-group icon-group blue"></i>
 													New User Registration
 												</h4>
 
@@ -164,28 +166,28 @@ include 'includes/header.php';
 														<label>
 															<span class="block input-icon input-icon-right">
 																<input type="email" class="span12" placeholder="Email" />
-																<i class="icon-envelope"></i>
+																<i class="fa fa-envelope icon-envelope"></i>
 															</span>
 														</label>
 
 														<label>
 															<span class="block input-icon input-icon-right">
 																<input type="text" class="span12" placeholder="Username" />
-																<i class="icon-user"></i>
+																<i class="fa fa-user icon-user"></i>
 															</span>
 														</label>
 
 														<label>
 															<span class="block input-icon input-icon-right">
 																<input type="password" class="span12" placeholder="Password" />
-																<i class="icon-lock"></i>
+																<i class="fa fa-lock icon-lock"></i>
 															</span>
 														</label>
 
 														<label>
 															<span class="block input-icon input-icon-right">
 																<input type="password" class="span12" placeholder="Repeat password" />
-																<i class="icon-retweet"></i>
+																<i class="fa fa-retweet icon-retweet"></i>
 															</span>
 														</label>
 
@@ -201,13 +203,13 @@ include 'includes/header.php';
 
 														<div class="clearfix">
 															<button type="reset" class="width-30 pull-left btn btn-small">
-																<i class="icon-refresh"></i>
+																<i class="fa fa-refresh icon-refresh"></i>
 																Reset
 															</button>
 
 															<button onclick="return false;" class="width-65 pull-right btn btn-small btn-success">
 																Register
-																<i class="icon-arrow-right icon-on-right"></i>
+																<i class="fa fa-arrow-right icon-arrow-right icon-on-right"></i>
 															</button>
 														</div>
 													</fieldset>
@@ -216,7 +218,7 @@ include 'includes/header.php';
 
 											<div class="toolbar center">
 												<a href="#" onclick="show_box('login-box'); return false;" class="back-to-login-link">
-													<i class="icon-arrow-left"></i>
+													<i class="fa fa-arrow-left icon-arrow-left"></i>
 													Back to login
 												</a>
 											</div>

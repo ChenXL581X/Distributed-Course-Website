@@ -93,7 +93,7 @@ div#login-box.login-box.widget-box.no-border.visible {
 h4.header.black.smaller.lighter {
     color: #636363;
     font-size: 16px;
-    font-weight: 600;
+    
 }
 /*button.width-35.btn.btn-small.login {
     
@@ -142,4 +142,11 @@ div#signup-box.signup-box.widget-box.no-border.visible {
 }
 .login-layout .widget-box{
     display: none;
+}
+
+p{
+    font-size: 12px;
+    color: #838383;
+    font-weight: 600;
+
 }
