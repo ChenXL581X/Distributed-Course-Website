@@ -10,21 +10,40 @@ include "includes/header.php"
 		<tbody>
 			
 		</tbody>	
-			<tr>
-				<td>100</td>
-				<td>this is a title</td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea c</td>
-				<td>
-					<a href="#">jack</a>
-					<a href="#">john</a>
+			<tr class="row">
+				<td class="col-md-1">100</td>
+				
+				<td class="col-md-8"><a class='title' href="#">【音乐疯】要刷经验的来这里！！！！刷刷刷刷！！</a>
+				<p>虽然已经不怎么关注电台了。。但还是会看看派台时间啥的。。也方便知道什么歌... </p>
+				<div class="imgs">
+					<ul>
+						<li><img src="images/forum/0ff41bd5ad6eddc43bb8e6873fdbb6fd5266336a.jpg"></li>
+					</ul>
+				</div>
 				</td>
-				<td>
-					<span>2015/2/4 18:49</span>
-					<span>2015/2/5 20:23</span>
+				<td class="col-md-3">
+					<a href="#">jack steve  </a><span class="pull-right">18:49</span><br>
+					<a href="#">john  </a><span class="pull-right">2/5 20:23</span>
 				</td>
+				
 			</tr>
+			<tr class="row">
+				<td class="col-md-1">100</td>
+				
+				<td class="col-md-8"><a class='title' href="#">【音乐疯】耳熟能详的欧美歌曲"</a>
+				<p>TOP 15: 5SOS FEELS THE POWER Capitol’s 5 Seconds of Summer will...</p>
+				<div class="imgs">
+					<ul>
+						<li><img src="images/portraits/hp10.jpg"></li>
+						<li><img src="images/portraits/hp12.jpg"></li>
+					</ul>
+				</div>
+				</td>
+				<td class="col-md-3">
+					<a href="#">jack steve  </a><span class="pull-right">18:49</span><br>
+					<a href="#">john  </a><span class="pull-right">2/5 20:23</span>
+				</td>
+			</tr>			
 		</table>
       </div>
       <div class="right col-md-3">
@@ -33,22 +52,16 @@ include "includes/header.php"
       		<span>点此创建新话题</span>
       	</a>
       	<div class="section">
-      	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.	
+      		
       	</div>
       	<div class="section">
-      		<b>快速发帖</b>
+      		<b>键入标题和内容以快速发帖</b>
       		<form>
 			  <input class="form-control" type="text" placeholder="输入标题" />
-			  <textarea class="form-control" placeholder="内容"></textarea>
+			  <textarea class="form-control" placeholder="输入内容"></textarea>
 			  <button type="submit" class="btn btn-primary pull-right">
 
-			  <i class="fa fa-envelope"></i>
-			  发帖</button>
+			  发起新话题</button>
 			  <div class="clear-both"></div>
 			</form>
       	</div>

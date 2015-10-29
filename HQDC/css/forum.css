@@ -2,27 +2,31 @@
 	border:1px solid #f3f3f3;
 }
 .forum-table tr{
-	cursor: pointer;
+	color:#666;
 	font-size: 12px;
-	transition:all .3s;
+	
+}
+table.forum-table tbody tr td{
+	padding: 15px;
 }
 .forum-table tr:hover{
-	background: #337ab7;
-	color:#fff;
+	background: #F3F7FB;
+	
 
 }
 .forum-table tr:hover a{
 	
-	color:#fff;
+	
 
 }
-h6{
-	font-size: 14px;
-	background: #337ab7;
-	color:#fff;
-	border-radius: 2px;
-	padding: 10px;
-	
+h6 {
+    font-size: 14px;
+    background: #eef5fc;
+    font-weight: normal;
+    padding: 10px;
+    border: 1px solid #dae5e5;
+    border-bottom:none;
+    color: #2d64b3;
 }
 .btn.new{
 background: #65C7AC;
@@ -52,6 +56,8 @@ border-radius: 2px;
 	font-size: 12px;
 }
 .right .section b{
+	line-height: 40px;
+color: #7b7b7b;
 
 }
 
@@ -59,7 +65,8 @@ border-radius: 2px;
 	margin-top:10px;
 	font-size: 12px;
 	box-shadow: none;
-	background: #f8f8f8;
+	background: #fff;
+	border-color:#e1e1e1;
 
 }
 .section textarea{
@@ -75,4 +82,27 @@ button.btn.btn-primary.pull-right {
     color: #777;
     border: 1px solid #ccc;
     border-radius: 0px;
+}
+a.title{
+	color: #2d64b3;
+font-size: 14px
+}
+.imgs ul{
+	display: inline;
+	list-style: none;
+
+}
+.imgs ul li{
+	display: inline;
+	list-style: none;
+
+}
+.imgs ul li img{
+	width: 30%;
+	margin: 5px;
+}
+.forum-head-img{
+	height: 20px;
+	width: 20px;
+	border-radius: 50%;
 }
