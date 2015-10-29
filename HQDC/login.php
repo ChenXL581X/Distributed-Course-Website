@@ -1,5 +1,8 @@
-<?php
-include 'includes/header.php';
+﻿<?php
+require_once 'core/init.php';
+include "includes/header.php";
+$token = Token::generate();
+
 ?>
 <!-- css local-->
 <link rel="stylesheet" type="text/css" href="css/login.css">
@@ -40,18 +43,18 @@ include 'includes/header.php';
 												</p>
 												<div class="space-6"></div>
 
-												<form>
+												<form method="POST" action="login_run.php">
 													<fieldset>
 														<label>
 															<span class="block input-icon input-icon-right">
-																<input type="text" class="span12" placeholder="用户名" />
+																<input type="text" name="username" class="span12" placeholder="用户名" />
 																<i class="fa fa-user icon-user"></i>
 															</span>
 														</label>
 
 														<label>
 															<span class="block input-icon input-icon-right">
-																<input type="password" class="span12" placeholder="密码" />
+																<input type="password" name="password" class="span12" placeholder="密码" />
 																<i class="fa fa-lock icon-lock"></i>
 															</span>
 														</label>
@@ -63,7 +66,8 @@ include 'includes/header.php';
 																<input type="checkbox" />
 																<span class="lbl"> 记住密码</span>
 															</label>
-															<button onclick="return false;" class="login width-35 pull-right btn-primary  btn btn-small">
+															<input type="hidden" name="token" value="<?php echo $token; ?>">
+															<button  class="login width-35 pull-right btn-primary  btn btn-small">
 																<i class="fa fa-key icon-key"></i>
 																登录
 															</button>
