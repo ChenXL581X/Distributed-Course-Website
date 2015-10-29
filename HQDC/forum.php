@@ -5,6 +5,7 @@ include "includes/header.php"
 <div class="main">
 	<div class="row show-grid">
       <div class="col-md-7 col-md-offset-1">
+
 		<h6>今日有<span>12</span>个新话题</h5>
       	<table class="table forum-table">
 		<tbody>
@@ -47,21 +48,23 @@ include "includes/header.php"
 		</table>
       </div>
       <div class="right col-md-3">
-      	<a class="btn btn-smaller new">
-      		<i class="fa fa-plus pull-left"></i>
-      		<span>点此创建新话题</span>
-      	</a>
+      	
       	<div class="section">
-      		
+      	<button class="btn btn-smaller btn-default new">
+      		<i class="fa fa-plus"></i>
+      		<span>点此创建新话题</span>
+      	</button>	
       	</div>
       	<div class="section">
       		<b>键入标题和内容以快速发帖</b>
       		<form>
 			  <input class="form-control" type="text" placeholder="输入标题" />
 			  <textarea class="form-control" placeholder="输入内容"></textarea>
-			  <button type="submit" class="btn btn-primary pull-right">
+			  <button type="submit" class="btn btn-default pull-left">
 
-			  发起新话题</button>
+			  发起新话题
+			  <i class="fa fa-arrow-right icon-arrow-right icon-on-right"></i>
+			  </button>
 			  <div class="clear-both"></div>
 			</form>
       	</div>
