@@ -12,8 +12,14 @@ include "includes/header.php"
 			
 		</tbody>	
 			<tr class="row">
-				<td class="col-md-1">100</td>
-				
+				<td >
+					<div class="col-md-2 forum-head-img ">
+                            <img src="images/portraits/hp1.jpg"><a>jack john</a>
+                    </div>
+                    
+                    
+                </td>
+
 				<td class="col-md-8"><a class='title' href="#">【音乐疯】要刷经验的来这里！！！！刷刷刷刷！！</a>
 				<p>虽然已经不怎么关注电台了。。但还是会看看派台时间啥的。。也方便知道什么歌... </p>
 				<div class="imgs">
@@ -22,14 +28,21 @@ include "includes/header.php"
 					</ul>
 				</div>
 				</td>
-				<td class="col-md-3">
-					<a href="#">jack steve  </a><span class="pull-right">18:49</span><br>
-					<a href="#">john  </a><span class="pull-right">2/5 20:23</span>
+				<td class="col-md-2">
+					<span class="pull-right">18:49</span><br>
+					<span class="pull-right">2/5 20:23</span>
 				</td>
+				<td class="col-md-1">100</td>
 				
 			</tr>
 			<tr class="row">
-				<td class="col-md-1">100</td>
+				<td >
+					<div class="col-md-2 forum-head-img ">
+                            <img src="images/portraits/hp3.jpg"><a>jack john</a>
+                    </div>
+                    
+                    
+                </td>
 				
 				<td class="col-md-8"><a class='title' href="#">【音乐疯】耳熟能详的欧美歌曲"</a>
 				<p>TOP 15: 5SOS FEELS THE POWER Capitol’s 5 Seconds of Summer will...</p>
@@ -40,10 +53,11 @@ include "includes/header.php"
 					</ul>
 				</div>
 				</td>
-				<td class="col-md-3">
-					<a href="#">jack steve  </a><span class="pull-right">18:49</span><br>
-					<a href="#">john  </a><span class="pull-right">2/5 20:23</span>
+				<td class="col-md-2">
+					<span class="pull-right">18:49</span><br>
+					<span class="pull-right">2/5 20:23</span>
 				</td>
+				<td class="col-md-1">100</td>
 			</tr>			
 		</table>
       </div>
