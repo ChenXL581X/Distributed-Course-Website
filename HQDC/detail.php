@@ -1,7 +1,7 @@
 <?php
 include 'includes/header.php';
 ?>
-<div>
+<div class="main">
 	<h2>第一次实验/作业</h2>
 	<p>实验/作业截止时间：2015/2/20 23:00</p>
 	<a href="">第一次实验/作业要求.pdf</a>
