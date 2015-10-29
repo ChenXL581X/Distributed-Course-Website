@@ -3,7 +3,9 @@ include 'includes/header.php';
 ?>
 <!-- css local-->
 <link rel="stylesheet" type="text/css" href="css/login.css">
-
+	<div class="main">
+		
+	
 	
 	<div class="login-layout">
 		<div class="main-container container-fluid">
@@ -232,7 +234,7 @@ include 'includes/header.php';
 			</div>
 		</div><!--/.main-container-->
 		<!--inline scripts related to this page-->
-
+	</div>	
 		<script type="text/javascript">
 			function show_box(id) {
 			 $('.widget-box.visible').removeClass('visible');

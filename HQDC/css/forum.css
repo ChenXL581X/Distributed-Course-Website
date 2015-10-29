@@ -59,6 +59,7 @@ border-radius: 2px;
 	margin-top:10px;
 	font-size: 12px;
 	box-shadow: none;
+	background: #f8f8f8;
 
 }
 .section textarea{
@@ -66,4 +67,12 @@ border-radius: 2px;
 }
 .section .btn{
 	margin-top: 10px;
+}
+
+button.btn.btn-primary.pull-right {
+    font-size: 12px;
+    background: none;
+    color: #777;
+    border: 1px solid #ccc;
+    border-radius: 0px;
 }
