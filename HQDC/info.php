@@ -2,7 +2,7 @@
 include 'includes/header.php';
 ?>
 <link rel="stylesheet" type="text/css" href="css/info.css">
-<div id="main">
+<div id="main" class="main">
 		<div class="setting">
 			<i class="fa fa-gear fa-animate"></i>
 			<p>用户信息与设置</p>
