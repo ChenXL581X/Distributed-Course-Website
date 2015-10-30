@@ -24,11 +24,11 @@
                 <li><a href="calendar.php">教学日历</a></li>
                 
                 <li role="separator" class="divider"></li>
-                <li><a href="#">课件</a></li>
-                <li><a href="#">课程实验</a></li>
-                <li><a href="#">作业</a></li>
+                <li><a href="courseware.php">课件</a></li>
+                <li><a href="exam.php">课程实验</a></li>
+                <li><a href="homework.php">作业</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#">文献资料</a></li>
+                <li><a href="document.php">文献资料</a></li>
               </ul>
             </li>        
            
