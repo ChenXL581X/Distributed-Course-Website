@@ -1,7 +1,7 @@
 <?php
 include 'includes/header.php';
 ?>
-<div class="main">
+<div class="main center">
 	<div>
 		<p>选择学年</p>
 		<select>

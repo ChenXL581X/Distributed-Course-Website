@@ -2,6 +2,8 @@
 include 'includes/header.php';
 ?>
 <div class="main">
+
+<div class="center">
 	<p>文献列表</p>
 	<ul>
 	    <li><a href="">参考文献1.pdf</a></li>
@@ -17,6 +19,7 @@ include 'includes/header.php';
 	<a href="">精品课程1</a>
 	<a href="">精品课程1</a>
 	<a href="">精品课程1</a>
+</div>
 </div>
 <?php
 include "includes/footer.php";

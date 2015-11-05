@@ -2,6 +2,7 @@
 include 'includes/header.php';
 ?>
 <div class="main">
+<div class="center">
 	<ul>
 		<li>
 			<div>
@@ -32,6 +33,7 @@ include 'includes/header.php';
 			</div>
 		</li>
 	</ul>
+	</div>
 </div>
 <?php
 include "includes/footer.php";
