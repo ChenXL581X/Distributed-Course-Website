@@ -21,7 +21,7 @@ require_once "core/init.php";
     <![endif]-->
     <link rel="stylesheet" type="text/css" href="css/custom.css">
     <link rel="stylesheet" type="text/css" href="css/nav.css">
-
+    <link rel="stylesheet" type="text/css" href="css/loader.css">
      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery-2.0.3.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

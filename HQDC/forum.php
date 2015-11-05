@@ -91,6 +91,7 @@ include "includes/header.php"
 				</td>
 			</tr>			
 		</table>
+		<div class="sk-spinner sk-spinner-rotating-plane"></div>
       </div>
       <div class="right col-md-3"  >
       	<div id="affix-right" class="affix">
