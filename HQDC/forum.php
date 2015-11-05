@@ -35,25 +35,32 @@ include "includes/header.php"
 					<div class="col-md-2 forum-head-img ">
                             <img src="images/portraits/hp1.jpg">
                             <div class="clear-both"></div>
+                            
+
                             <span class="teacher">师</span><a class="name">马锐</a>
+                             <div class="clear-both"></div>
+                            <span class="reply-num">100</span>
                     </div>
                     
                     
                 </td>
 
-				<td class="col-md-8"><a class='title' href="#">【音乐疯】要刷经验的来这里！！！！刷刷刷刷！！</a>
-				<p>虽然已经不怎么关注电台了。。但还是会看看派台时间啥的。。也方便知道什么歌... </p>
+				<td class="col-md-10"><a class='title' href="#">想用 GO 写一个开源分布式数据处理相关的系统，并学习 GO，有什么建议？</a>
+				<p>Update：原问题还请教了有哪些开源项目可以参与实践，这个我了解不多，请有需要的看其它人的回答。
+				1. Distributed-systems-readings这个网址里收集了一堆美帝各TOP大学分布式相关的课程，我就是从这找到MIT的那门课的。
+				2. Paxos算法要问为啥单独把这个算法…... </p>
 				<div class="imgs">
 					<ul>
 						<li><img src="images/forum/0ff41bd5ad6eddc43bb8e6873fdbb6fd5266336a.jpg"></li>
 					</ul>
 				</div>
+				<div>
+					
+					<span class="pull-left">昨日 20:23</span>
+				</div>
+				
 				</td>
-				<td class="col-md-2">
-					<span class="pull-right">今日 18:49</span><br>
-					<span class="pull-right">昨日 20:23</span>
-				</td>
-				<td class="col-md-1">100</td>
+				
 				
 			</tr>
 			<tr class="row">
@@ -62,25 +69,26 @@ include "includes/header.php"
                             <img src="images/portraits/hp3.jpg">
                             <div class="clear-both"></div>
                             <span class="student">学</span><a class="name">陈晓磊</a>
+                            <span class="reply-num">50</span>
                     </div>
                     
                     
                 </td>
 				
-				<td class="col-md-8"><a class='title' href="#">【音乐疯】耳熟能详的欧美歌曲"</a>
-				<p>TOP 15: 5SOS FEELS THE POWER Capitol’s 5 Seconds of Summer will...</p>
+				<td class="col-md-8"><a class='title' href="#">分布式系统领域有哪些经典论文？</a>
+				<p>分布式系统是一个很大的领域，里面包含很多方向。既然你都要读paper了，应该也有一定基础了。伊利诺伊大学的Advanced Distributed Systems 里把各个方向重要papers...</p>
 				<div class="imgs">
 					<ul>
 						<li><img src="images/portraits/hp10.jpg"></li>
 						<li><img src="images/portraits/hp12.jpg"></li>
 					</ul>
 				</div>
+				<div>
+					<span class="pull-left">今日 18:49</span>
+					
+				</div>
+				
 				</td>
-				<td class="col-md-2">
-					<span class="pull-right">2/3 18:49</span><br>
-					<span class="pull-right">2/5 20:23</span>
-				</td>
-				<td class="col-md-1">100</td>
 			</tr>			
 		</table>
       </div>
