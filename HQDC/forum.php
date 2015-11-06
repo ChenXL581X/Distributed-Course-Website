@@ -14,25 +14,22 @@ include "includes/header.php"
 	      		<i class="fa fa-plus"></i>
 	      		<span>发帖</span>
 	      	</button>
-      		<div class="btn-group" role="group" aria-label="...">
-			  <button type="button" class="btn btn-default">发帖时间</button>
-			  
-			  <button type="button" class="btn btn-default">回帖数</button>
-			</div>
+      		
 			
       		<div class="btn-group" role="group" aria-label="...">
 			  <button type="button" class="btn btn-default">学生发帖</button>
 			  <button type="button" class="btn btn-default">教师发帖</button>
 			  <button type="button" class="btn btn-default">全部</button>
 			</div>	
-
-      	</div>
-		<h6>今日有<span>12</span>个新话题
 			<div class="input-group forum-search">
-		      <i class="fa fa-search"></i>
-		      <input type="text" class="form-control input-sm" placeholder="搜索新话题" aria-describedby="basic-addon1">
-		    </div>
-		</h5>
+			      <i class="fa fa-search"></i>
+			      <input type="text" class="form-control input-sm" placeholder="搜索帖子" aria-describedby="basic-addon1">
+			</div>
+      	</div>
+      	
+		<h6>今日有<span>12</span>个新话题
+			
+		</h6>
       	<table class="table forum-table">
 		<tbody>
 			
@@ -52,7 +49,7 @@ include "includes/header.php"
                     
                 </td>
 
-				<td class="col-md-10"><a class='title' href="#">想用 GO 写一个开源分布式数据处理相关的系统，并学习 GO，有什么建议？</a>
+				<td class="col-md-10"><a class='title' href="forumContent.php">想用 GO 写一个开源分布式数据处理相关的系统，并学习 GO，有什么建议？</a>
 				<p>Update：原问题还请教了有哪些开源项目可以参与实践，这个我了解不多，请有需要的看其它人的回答。
 				1. Distributed-systems-readings这个网址里收集了一堆美帝各TOP大学分布式相关的课程，我就是从这找到MIT的那门课的。
 				2. Paxos算法要问为啥单独把这个算法…... </p>

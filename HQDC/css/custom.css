@@ -17,6 +17,8 @@ html,body{
 }
 .main{
     margin-top: 100px;
+    min-height: 400px;
+    
 }
 .nav{
     overflow-x:visible !important; 
