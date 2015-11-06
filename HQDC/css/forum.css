@@ -163,3 +163,24 @@ div#affix-right.affix{
     -webkit-text-size-adjust:none;
 
 }
+.forum-search{
+	float: right;
+	width: 300px;
+	margin-top: -5px;
+	
+}
+.forum-search input.form-control{
+	box-shadow: none;
+	background: rgba(255, 255, 255, 0.5);
+	padding-left: 25px;
+	border-color: #fff;
+	color:#777;
+}
+.forum-search i.fa.fa-search {
+    position: absolute;
+	font-size: 16px;
+	z-index: 10;
+	margin-top: 6px;
+	margin-left: 6px;
+	color: #a1a1a1;
+}

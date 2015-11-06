@@ -35,23 +35,22 @@
             <li><a href="forum.php">论坛</a></li>
             <li><a href="#">联系我们</a></li>
           </ul>
-          <form class="navbar-form navbar-left" role="search" action="#" type="post">
+  <!--         <form class="navbar-form navbar-left" role="search" action="#" type="post">
             <div class="form-group">
               <input type="text" class="form-control" placeholder="搜索帖子">
             </div>
             
-          </form>
+          </form> -->
           <ul class="nav navbar-nav navbar-right">
             <li class="hidden"><a href="login.php">登录</a></li>
-            <li class="head">
-              <a href="info.php#tab44">
+            
+            
+            <li>  
+              <a class="message" href="info.php#tab44">
                 <i class="fa fa-bell-o toggle-img"><font>3</font></i>
               </a>
-
-            </li>
-            <li>
               <a class="head-container" href="info.php#tab11">
-                <img class="head-img" src="images/portraits/hp3.jpg"><font>您好：Steve Johnson</font>
+                <img class="head-img" src="images/portraits/hp3.jpg"><font>您好：蔡建宇</font>
               </a> 
             </li>
             

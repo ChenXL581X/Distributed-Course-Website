@@ -19,13 +19,20 @@ include "includes/header.php"
 			  
 			  <button type="button" class="btn btn-default">回帖数</button>
 			</div>
+			
       		<div class="btn-group" role="group" aria-label="...">
 			  <button type="button" class="btn btn-default">学生发帖</button>
 			  <button type="button" class="btn btn-default">教师发帖</button>
 			  <button type="button" class="btn btn-default">全部</button>
-			</div>			
+			</div>	
+
       	</div>
-		<h6>今日有<span>12</span>个新话题</h5>
+		<h6>今日有<span>12</span>个新话题
+			<div class="input-group forum-search">
+		      <i class="fa fa-search"></i>
+		      <input type="text" class="form-control input-sm" placeholder="搜索新话题" aria-describedby="basic-addon1">
+		    </div>
+		</h5>
       	<table class="table forum-table">
 		<tbody>
 			

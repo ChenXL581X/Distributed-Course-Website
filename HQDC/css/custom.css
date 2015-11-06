@@ -32,7 +32,11 @@ html, body, div, span, object, iframe, p, blockquote, pre, a, abbr, acronym, add
 }
 .navbar-default .navbar-nav>li>a {
     color: #6d6767;
-    font-weight: bold;
+    font-weight: normal;
+    font-size: 12px;
+}
+.navbar-default .navbar-nav.navbar-right>li>a{
+    font-size: 12px;
 }
 textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
     -webkit-border-radius: 0 !important;
@@ -148,7 +152,7 @@ nav.navbar.navbar-default {
 nav.navbar .form-control{
     font-size: 12px;
     height:30px;
-    margin-top: 2px;
+    margin-top: 3px;
     width: 180px !important;
 }
 nav.navbar .btn{

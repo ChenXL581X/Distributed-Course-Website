@@ -1,8 +1,9 @@
 i.fa.fa-bell-o.toggle-img {
     font-size: 22px;
-  
     color: #C5C8E5;
-    
+    position: absolute;
+    margin-top: 2px;
+    margin-left: -10px;
 }
 .fa.toggle-img font {
     position:absolute;
@@ -25,4 +26,11 @@ i.fa.fa-bell-o.toggle-img {
 }
 .head-container > font{
 margin-left: 35px !important;	
+}
+a.head-container{
+    display: inline-block !important;
+}
+a.message{
+    
+    display: inline-block !important;
 }
