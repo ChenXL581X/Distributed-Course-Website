@@ -6,7 +6,7 @@
 							for( var key in dateProperties ) {
 								console.log( key + ' = ' + dateProperties[ key ] );
 							}
-						
+
 
 						},
 						caldata : codropsEvents
@@ -44,5 +44,9 @@
 
 				} );
 				*/
-			
+			$("#new-event").click(function(){
+				$('#modal').modal();
 			});
+			
+			
+	});
