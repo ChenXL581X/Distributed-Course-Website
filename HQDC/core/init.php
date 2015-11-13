@@ -7,7 +7,7 @@ $GLOBALS['config'] =  array(
 		'port'=>'80',
 		'username'  => 'root',
 		'password' => '',
-		'db' => 'distributedcourse'
+		'db' => 'distributed_course'
 	),
 	'remember' => array(
 		'cookie_name' => 'hash' ,

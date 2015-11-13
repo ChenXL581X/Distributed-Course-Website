@@ -1,5 +1,10 @@
 <?php
-include "includes/header.php"
+include "includes/header.php";
+$user = new User();
+$post = new Post();
+$post = $post->find(1);
+$postData = $post->data();
+
 ?>
 <link rel="stylesheet" type="text/css" href="css/forum.css">
 <div class="main">
@@ -49,10 +54,8 @@ include "includes/header.php"
                     
                 </td>
 
-				<td class="col-md-10"><a class='title' href="forumContent.php">想用 GO 写一个开源分布式数据处理相关的系统，并学习 GO，有什么建议？</a>
-				<p>Update：原问题还请教了有哪些开源项目可以参与实践，这个我了解不多，请有需要的看其它人的回答。
-				1. Distributed-systems-readings这个网址里收集了一堆美帝各TOP大学分布式相关的课程，我就是从这找到MIT的那门课的。
-				2. Paxos算法要问为啥单独把这个算法…... </p>
+				<td class="col-md-10"><a class='title' href="forumContent.php"><?php echo $postData->title?></a>
+				<p><?php echo $postData->context;?> </p>
 				<div class="imgs">
 					<ul>
 						<li><img src="images/forum/0ff41bd5ad6eddc43bb8e6873fdbb6fd5266336a.jpg"></li>
