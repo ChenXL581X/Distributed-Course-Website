@@ -8,7 +8,19 @@ include 'includes/header.php';
 
 
 		<div class="center row col-md-10 col-md-offset-1">
+
 			<div class="col-md-10 col-md-offset-1 row">
+				<div class="progress">
+				  <div class="progress-bar progress-bar-success progress-bar-striped" style="width: 35%">
+				    <span class="">35% Complete (success)</span>
+				  </div>
+				  <div class="progress-bar progress-bar-warning progress-bar-striped active" style="width: 20%">
+				    <span class="sr-only">20% Complete (warning)</span>
+				  </div>
+				  <div class="progress-bar progress-bar-danger progress-bar-striped" style="width: 10%">
+				    <span class="sr-only">10% Complete (danger)</span>
+				  </div>
+				</div>
 				<div class="col-md-4">
 					<div class="small-box">
 						<i class="fa fa-th"></i>

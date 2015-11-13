@@ -9,7 +9,7 @@ class DB{
 		$_count = 0;
 	private function __construct(){
 		try{
-			echo 'mysql:host = '.Config::get('mysql/host').'; db = '.Config::get('mysql/db') ,Config::get('mysql/username'), Config::get('mysql/password');
+			//echo 'mysql:host = '.Config::get('mysql/host').'; db = '.Config::get('mysql/db') ,Config::get('mysql/username'), Config::get('mysql/password');
 		   $this->_pdo = new  PDO('mysql:host=' . Config::get('mysql/host') . ';dbname=' . Config::get('mysql/db') ,Config::get('mysql/username'), Config::get('mysql/password'));
            $this->_pdo ->exec("SET names UTF8"); 
 		}catch(PDOException $e){

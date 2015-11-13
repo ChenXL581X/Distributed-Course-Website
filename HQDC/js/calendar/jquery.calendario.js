@@ -165,9 +165,9 @@
 						if( dayData ) {
 							content = dayData;
 						}
-
+						
 						if( content !== '' ) {
-							inner += '<div>' + content + '</div>';
+							inner += '<div class="event-content">' + content + '</div>';
 						}
 
 						++day;
