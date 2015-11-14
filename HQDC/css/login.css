@@ -1,5 +1,7 @@
 body{
 	padding-top:50px;
+    background: url("../images/Pink Forest.jpg");
+    background-size: cover;
 }
 .login-layout .widget-box.visible {
     visibility: visible;
@@ -38,7 +40,10 @@ body{
     background:#f7f7f7;
 }
 .login-layout{
-	background: #fff;
+	
+}
+div.widget-body{
+    background: rgba(252, 252, 252, 0.82);
 }
 .login-layout .login-box div.widget-main {
     
@@ -155,4 +160,7 @@ p{
 p.intro-p{
     margin: 5px;
     
+}
+fieldset label{
+    margin-top: 5px;
 }

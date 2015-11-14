@@ -108,6 +108,9 @@ label{
 .clear-both{
     clear:both;
 }
+.space{
+    height: 5px;
+}
 .input-icon {
     position:relative;
 }
@@ -183,7 +186,7 @@ footer span {
     font-size: 14px;
     padding: 20px;
 
-    font-weight: 600;
+    font-weight: normal;
     color: #ccc;
 }
 footer span::before {
@@ -193,7 +196,7 @@ footer span::before {
     width: -o-calc(50% - 100px);
     width: calc(40% - 100px);
     margin: auto;
-    background: #E5E5E5;
+    background:  rgba(206, 206, 206, 0.4);
     position: absolute;
     left: 10%;
     margin-top: 10px;
@@ -205,7 +208,7 @@ footer span::after {
     width: -o-calc(50% - 100px);
     width: calc(40% - 100px);
     margin: auto;
-    background: #E5E5E5;
+    background:  rgba(206, 206, 206, 0.4);
     position: absolute;
     margin-top: 10px;
     margin-left: 11px;

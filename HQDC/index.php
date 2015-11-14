@@ -24,28 +24,28 @@ include 'includes/header.php';
 				<div class="col-md-4">
 					<div class="small-box">
 						<i class="fa fa-th"></i>
-						<h5>项目</h5>
+						<h5>简介</h5>
 						<i class="to-right fa fa-angle-right"></i>
-						<p>管理或配置项目</p>
+						<p>教师团队和课程简介</p>
 					</div>
 						
 				</div>
 
-				<div class="col-md-4 " onclick="location='newProject.php'">
+				<div class="col-md-4 " onclick="location='.php'">
 					<div class="small-box">
 						<i class="fa fa-plus"></i>
-						<h5>新建</h5>
+						<h5>课程</h5>
 						<i class="to-right fa fa-angle-right"></i>	
-						<p>导入.nessus文件并新建项目</p>
+						<p>查看课程资料，教师可添加资料</p>
 					</div>
 						
 				</div>				
-				<div class="col-md-4 " onclick="location='https://localhost:8834/nessus6.html' ">
+				<div class="col-md-4 " onclick="location='contact.php'">
 					<div class="small-box">
-						<i class="fa fa-repeat"></i>
-						<h5>扫描</h5>
+						<i class="fa fa-envelope"></i>
+						<h5>联系</h5>
 						<i class="to-right fa fa-angle-right"></i>
-						<p>使用NESSUS对目标系统扫描</p></div>
+						<p>联系我们,获取帮助</p></div>
 					</div>
 					
 			</div>

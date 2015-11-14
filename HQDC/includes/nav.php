@@ -33,7 +33,7 @@
             </li>        
            
             <li><a href="forum.php">论坛</a></li>
-            <li><a href="#">联系我们</a></li>
+            <li><a href="contact.php">联系我们</a></li>
           </ul>
   <!--         <form class="navbar-form navbar-left" role="search" action="#" type="post">
             <div class="form-group">

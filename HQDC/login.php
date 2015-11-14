@@ -60,7 +60,7 @@ $token = Token::generate();
 														</label>
 
 														<div class="space"></div>
-
+														
 														<div class="clearfix">
 															<label class="inline">
 																<input type="checkbox" />
@@ -78,11 +78,11 @@ $token = Token::generate();
 													</fieldset>
 												</form>
 
-												<div class=" social-or-login center">
+												<div class="hidden social-or-login center">
 													<span class="bigger-110">使用以下账号登录</span>
 												</div>
 
-												<div class=" social-login center">
+												<div class="hidden social-login center">
 													<a class="btn btn-primary">
 														<i class="fa fa-facebook icon-facebook"></i>
 													</a>
