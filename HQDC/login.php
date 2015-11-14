@@ -7,7 +7,7 @@ $token = Token::generate();
 <!-- css local-->
 <link rel="stylesheet" type="text/css" href="css/login.css">
 	<div class="main">
-		
+	
 	
 	
 	<div class="login-layout">
@@ -36,7 +36,7 @@ $token = Token::generate();
 											<div class="widget-main">
 												<h4 class="header black smaller lighter">
 													<i class="fa fa-coffee icon-coffee"></i>
-													您的登录信息
+													登入系统
 												</h4>
 												<p class="intro-p">
 													请输入管理员提供的用户名和密码
@@ -120,12 +120,12 @@ $token = Token::generate();
 											<div class="widget-main">
 												<h4 class="header red lighter bigger">
 													<i class="fa fa-key icon-key"></i>
-													Retrieve Password
+													找回密码
 												</h4>
 
 												<div class="space-6"></div>
 												<p>
-													Enter your email and to receive instructions
+													输入您的电子邮箱
 												</p>
 
 												<form>
@@ -238,6 +238,12 @@ $token = Token::generate();
 			</div>
 		</div><!--/.main-container-->
 		<!--inline scripts related to this page-->
+
+		<div class="center nav-bar">
+	<a href="index.php"><i class="fa fa-book "></i><br><span>课程</span></a>	
+	<a href="index.php"><i class="fa fa-leaf "></i><br><span>主页</span></a>	
+	<a href="index.php"><i class="fa fa-question "></i><br><span>帮助</span></a>	
+	</div>	
 	</div>	
 		<script type="text/javascript">
 			function show_box(id) {
