@@ -4,6 +4,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 .container{
 	margin-top: 50px;
 }
@@ -144,6 +145,7 @@
     background: rgba(246, 255, 250, 0.97);
     z-index: 100;
     box-shadow: 0 0 5px #6f6f6f;
+    max-width: 500px;
     width: auto;
     height: auto;
     padding: 10px;
