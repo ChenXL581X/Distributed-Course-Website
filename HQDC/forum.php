@@ -1,7 +1,8 @@
 <?php
 include "includes/header.php";
 $user = new User();
-$post = new Post();
+$postTable = new PostTable();
+$post = new Post($postTable);
 $post = $post->find(1);
 $postData = $post->data();
 
@@ -13,26 +14,26 @@ $postData = $post->data();
       	<div class="tools">
       		<button class="btn btn-success">
       			<i class="fa fa-refresh"></i>
-      			刷新
+      			鍒锋柊
       		</button>
       		<button class="btn btn-smaller btn-primary new">
 	      		<i class="fa fa-plus"></i>
-	      		<span>发帖</span>
+	      		<span>鍙戝笘</span>
 	      	</button>
       		
 			
       		<div class="btn-group" role="group" aria-label="...">
-			  <button type="button" class="btn btn-default">学生发帖</button>
-			  <button type="button" class="btn btn-default">教师发帖</button>
-			  <button type="button" class="btn btn-default">全部</button>
+			  <button type="button" class="btn btn-default">瀛︾敓鍙戝笘</button>
+			  <button type="button" class="btn btn-default">鏁欏笀鍙戝笘</button>
+			  <button type="button" class="btn btn-default">鍏ㄩ儴</button>
 			</div>	
 			<div class="input-group forum-search">
 			      <i class="fa fa-search"></i>
-			      <input type="text" class="form-control input-sm" placeholder="搜索帖子" aria-describedby="basic-addon1">
+			      <input type="text" class="form-control input-sm" placeholder="鎼滅储甯栧瓙" aria-describedby="basic-addon1">
 			</div>
       	</div>
       	
-		<h6>今日有<span>12</span>个新话题
+		<h6>浠婃棩鏈�<span>12</span>涓柊璇濋
 			
 		</h6>
       	<table class="table forum-table">
@@ -46,7 +47,7 @@ $postData = $post->data();
                             <div class="clear-both"></div>
                             
 
-                            <span class="teacher">师</span><a class="name">马锐</a>
+                            <span class="teacher">甯�</span><a class="name">椹攼</a>
                              <div class="clear-both"></div>
                             <span class="reply-num">100</span>
                     </div>
@@ -63,7 +64,7 @@ $postData = $post->data();
 				</div>
 				<div>
 					
-					<span class="pull-left">昨日 20:23</span>
+					<span class="pull-left">鏄ㄦ棩 20:23</span>
 				</div>
 				
 				</td>
@@ -75,15 +76,15 @@ $postData = $post->data();
 					<div class="col-md-2 forum-head-img ">
                             <img src="images/portraits/hp3.jpg">
                             <div class="clear-both"></div>
-                            <span class="student">学</span><a class="name">陈晓磊</a>
+                            <span class="student">瀛�</span><a class="name">闄堟檽纾�</a>
                             <span class="reply-num">50</span>
                     </div>
                     
                     
                 </td>
 				
-				<td class="col-md-8"><a class='title' href="#">分布式系统领域有哪些经典论文？</a>
-				<p>分布式系统是一个很大的领域，里面包含很多方向。既然你都要读paper了，应该也有一定基础了。伊利诺伊大学的Advanced Distributed Systems 里把各个方向重要papers...</p>
+				<td class="col-md-8"><a class='title' href="#">鍒嗗竷寮忕郴缁熼鍩熸湁鍝簺缁忓吀璁烘枃锛�</a>
+				<p>鍒嗗竷寮忕郴缁熸槸涓�涓緢澶х殑棰嗗煙锛岄噷闈㈠寘鍚緢澶氭柟鍚戙�傛棦鐒朵綘閮借璇籶aper浜嗭紝搴旇涔熸湁涓�瀹氬熀纭�浜嗐�備紛鍒╄浼婂ぇ瀛︾殑Advanced Distributed Systems 閲屾妸鍚勪釜鏂瑰悜閲嶈papers...</p>
 				<div class="imgs">
 					<ul>
 						<li><img src="images/portraits/hp10.jpg"></li>
@@ -91,7 +92,7 @@ $postData = $post->data();
 					</ul>
 				</div>
 				<div>
-					<span class="pull-left">今日 18:49</span>
+					<span class="pull-left">浠婃棩 18:49</span>
 					
 				</div>
 				
@@ -107,17 +108,17 @@ $postData = $post->data();
 	      	<div class="section">
 	      	<button class="btn btn-smaller btn-default new">
 	      		<i class="fa fa-plus"></i>
-	      		<span>点此创建新话题</span>
+	      		<span>鐐规鍒涘缓鏂拌瘽棰�</span>
 	      	</button>	
 	      	</div>
 	      	<div class="section">
-	      		<b>键入标题和内容以快速发帖</b>
+	      		<b>閿叆鏍囬鍜屽唴瀹逛互蹇�熷彂甯�</b>
 	      		<form>
-				  <input class="form-control" type="text" placeholder="输入标题" />
-				  <textarea class="form-control" placeholder="输入内容"></textarea>
+				  <input class="form-control" type="text" placeholder="杈撳叆鏍囬" />
+				  <textarea class="form-control" placeholder="杈撳叆鍐呭"></textarea>
 				  <button type="submit" class="btn btn-default pull-left">
 
-				  发起新话题
+				  鍙戣捣鏂拌瘽棰�
 				  <i class="fa fa-arrow-right icon-arrow-right icon-on-right"></i>
 				  </button>
 				  <div class="clear-both"></div>
