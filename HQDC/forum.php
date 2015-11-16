@@ -53,7 +53,7 @@ $postData = $post->data();
                     
                     
                 </td>
-
+                
 				<td class="col-md-10"><a class='title' href="forumContent.php"><?php echo $postData->title?></a>
 				<p><?php echo $postData->context;?> </p>
 				<div class="imgs">
