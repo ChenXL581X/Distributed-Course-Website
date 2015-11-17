@@ -105,10 +105,10 @@ $postData = $post->data();
       		
       	
 	      	<div class="section">
-	      	<button class="btn btn-smaller btn-default new">
+	      	<a href="newPost.php" class="btn btn-smaller btn-default new">
 	      		<i class="fa fa-plus"></i>
 	      		<span>点此创建新话题</span>
-	      	</button>	
+	      	</a>	
 	      	</div>
 	      	<div class="section">
 	      		<b>键入标题和内容以快速发帖</b>

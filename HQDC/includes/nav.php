@@ -1,4 +1,7 @@
+<?php
+$user = new User();
 
+?>
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="row">
@@ -41,11 +44,14 @@
             </div>
             
           </form> -->
+                
           <ul class="nav navbar-nav navbar-right">
-            <li class="hidden"><a href="login.php">登录</a></li>
             
             
-            <li>  
+            <?php if($user->isLoggedIn()){
+
+              ?>
+            <li >  
               <a class="message" href="info.php#tab44">
                 <i class="fa fa-bell-o toggle-img"><font>3</font></i>
               </a>
@@ -55,9 +61,17 @@
             </li>
             
             <li>
-              <a href="login.php">注销</a>
+              <a class="log" href="logout.php">注销</a>
             </li>
-            <li class="hidden dropdown">
+            <?php
+
+            }else{
+            ?>
+            <li><a class="log" href="login.php">登录系统</a></li>
+            <?php
+              }
+            ?>
+          <!--   <li class="hidden dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Action</a></li>
@@ -66,7 +80,7 @@
                 <li role="separator" class="divider"></li>
                 <li><a href="#">Separated link</a></li>
               </ul>
-            </li>
+            </li> -->
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

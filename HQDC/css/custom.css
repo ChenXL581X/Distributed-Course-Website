@@ -1,8 +1,9 @@
 *{
-	font-family: "微软雅黑";
+	
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: normal;
-
+    font-family: "微软雅黑";
+    
     margin:0;
     padding:0;
 
@@ -20,6 +21,7 @@ html,body{
     min-height: 400px;
     
 }
+
 .nav{
     overflow-x:visible !important; 
 }
@@ -39,7 +41,7 @@ html, body, div, span, object, iframe, p, blockquote, pre, a, abbr, acronym, add
     background: transparent;
 }
 .navbar-default .navbar-nav>li>a {
-    color: #6d6767;
+    color: #4c4c4c;
     font-weight: bold;
     font-size: 12px;
 }
@@ -110,6 +112,9 @@ label{
 }
 .space{
     height: 5px;
+}
+.padding{
+    padding:20px;
 }
 .input-icon {
     position:relative;

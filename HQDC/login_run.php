@@ -31,7 +31,7 @@ if (Input::exists('post')) {
 
             if ($login) {
 
-            	Session::flash('home',"您已经成功登陆");
+            	Session::flash('index',"您已经成功登陆");
 
                 Redirect::to('index.php');
             } else {

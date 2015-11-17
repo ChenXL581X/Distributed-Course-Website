@@ -34,3 +34,6 @@ a.message{
     
     display: inline-block !important;
 }
+.navbar-default .navbar-nav.navbar-right>li>a.log{
+        color: #72A3DB;
+}
