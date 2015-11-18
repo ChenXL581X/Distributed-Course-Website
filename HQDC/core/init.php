@@ -20,12 +20,13 @@ $GLOBALS['config'] =  array(
 
 );
 
+require_once 'phpExcel/PHPExcel.php';
+require_once 'phpExcel/PHPExcel/Writer/Excel2007.php';
 spl_autoload_register(function($class){
-
 	require_once 'class/' . $class . '.php';
 });
-
 require_once 'function/sanitize.php';
+
 
 if(Cookie::exists(Config::get('remember/cookie_name'))&& !Session::exists(Config::get('session/session_name'))){
 	$hash =Cookie::get(Config::get('remember/cookie_name'));
