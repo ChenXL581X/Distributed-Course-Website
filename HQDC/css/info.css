@@ -93,18 +93,16 @@ margin-bottom: 10px;
 .forms label {
     text-align: left;
 }
-.centerbox input,.centerbox textarea{
-font-family: 微软雅黑;
-font-size: 12px;
-padding: 9px;
-background: #F8F8F8;
-border-radius: 3px;
-
-color: #222;
-
+.centerbox input, .centerbox textarea {
+    font-size: 12px;
+    padding: 9px;
+    background: #F8F8F8;
+    border-radius: 3px;
+    color: #525252;
+    font-weight: normal;
 }
 .centerbox button{
-	font-family: 微软雅黑;
+	
 	font-size: 12px;
 	outline: none;
 	

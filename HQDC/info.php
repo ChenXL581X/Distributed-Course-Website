@@ -49,7 +49,7 @@ include 'includes/header.php';
 			<div id="tab11" class="centerbox" style="display: block;">
 				<div class="head-big">
 					<img class="head-chooce" id="head" src="images/portraits/hp3.jpg">
-					<p>Steve Johnson</p>
+					<p>蔡建宇</p>
 					
 					<a class="head-chooce" href="#">更换头像</a>
 
@@ -59,7 +59,7 @@ include 'includes/header.php';
 					<input type="hidden" id="portrait" name="portrait" value="images/portraits/hp3.jpg">
 					<label>
 				        <p>姓名 </p>
-				        <input type="text" name="name" value="Steve Johnson" class="width-100">
+				        <input type="text" name="name" value="蔡建宇" class="width-100">
 				    </label>
 				    <label>
 				        <p>电子邮箱</p>
@@ -71,7 +71,7 @@ include 'includes/header.php';
 				    </label>
 				    <label for="text">
 				        <p>个人简介</p>
-				        <textarea rows="4" class="width-100">我的简介；</textarea>
+				        <textarea rows="4" class="width-100">我的简介</textarea>
 				    </label>
 				    <input type="hidden" name="token" value="07b841c848dc22c445104a6bfb350089">
 

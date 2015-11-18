@@ -42,11 +42,47 @@ include 'includes/header.php';
 				</div>				
 				<div class="col-md-4 " onclick="location='contact.php'">
 					<div class="small-box">
-						<i class="fa fa-envelope"></i>
-						<h5>联系</h5>
+						<i class="fa fa-comments"></i>
+						<h5>论坛</h5>
 						<i class="to-right fa fa-angle-right"></i>
-						<p>联系我们,获取帮助</p></div>
+						<p>查看和回复最新帖子</p>
 					</div>
+				</div>
+				<div class="clear-both"></div>
+				<div class="notice-box notice col-md-6">
+					<div class="panel panel-default">
+					  <div class="panel-heading">最近通知</div>
+					  <div class="panel-body">
+					    <ul>
+					    	<li>
+					    		<a href="#" target="_blank">各位领导，各位老师，关于学院国庆、中秋假期放假安全稳定工作的...</a>
+					    		<p>2015年3月3日11:00 <a href="#">马锐</a></p>
+					    	</li>
+					    	<li>
+					    		<a href="#" target="_blank">请各位同学将作业发到以下邮箱...</a>
+					    		<p>2015年3月3日11:00 <a href="#">马锐</a></p>
+					    	</li>
+					    </ul>
+					  </div>
+					</div>
+
+					
+				</div>
+				<div class="notice-box  state col-md-6 ">
+					
+
+					<div class="panel panel-default">
+					  <div class="panel-heading">最新动态</div>
+					  <div class="panel-body">
+					    <ul>
+					    	<li>
+					    		<a href="#" target="_blank">各位领导，各位老师，关于学院国庆、中秋假期放假安全稳定工作的...</a>
+					    		<p>2015年3月3日11:00 <a href="#">马锐</a></p>
+					    	</li>
+					    </ul>
+					  </div>
+					</div>
+				</div>
 					
 			</div>
 		</div>

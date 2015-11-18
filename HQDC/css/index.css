@@ -67,3 +67,24 @@ i.fa.fa-angle-right.to-right {
     padding-right: 7px;
     border-radius: 50%;
 }
+.notice,.state{
+    text-align: left;
+    
+   
+    margin-top: 20px;
+}
+.panel-heading{
+    font-weight: normal;
+    font-size: 14px;
+    
+}
+.panel-body{
+    font-size: 12px;
+}
+.panel-body ul{
+    list-style: none;
+}
+.panel-body ul li{
+    margin-bottom: 5px;
+    /*border-bottom: 1px solid #efefef;*/
+}
