@@ -4,6 +4,7 @@ include 'includes/header.php';
 	
 ?>
 <link rel="stylesheet" type="text/css" href="css/index.css">
+
 <div class="main row">
 
 
@@ -31,7 +32,7 @@ include 'includes/header.php';
 						
 				</div>
 
-				<div class="col-md-4 " onclick="location='.php'">
+				<div class="col-md-4 " onclick="location='course.php'">
 					<div class="small-box">
 						<i class="fa fa-plus"></i>
 						<h5>课程</h5>
@@ -49,6 +50,7 @@ include 'includes/header.php';
 					</div>
 				</div>
 				<div class="clear-both"></div>
+				<hr>
 				<div class="notice-box notice col-md-6">
 					<div class="panel panel-default">
 					  <div class="panel-heading">最近通知</div>
