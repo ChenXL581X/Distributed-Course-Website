@@ -40,7 +40,7 @@ include 'includes/header.php';
 					</div>
 						
 				</div>				
-				<div class="col-md-4 " onclick="location='contact.php'">
+				<div class="col-md-4 " onclick="location='forum.php'">
 					<div class="small-box">
 						<i class="fa fa-comments"></i>
 						<h5>论坛</h5>

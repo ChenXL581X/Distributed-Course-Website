@@ -15,8 +15,8 @@ body {
 
 body{
 	padding-top:50px;
-    background: url("../images/smoke.jpg");
-    /*background: #fff;*/
+    /*background: url("../images/smoke.jpg");
+    background: #fff;*/
     background-size: cover;
 }
 .custom-calendar-full {
