@@ -17,10 +17,16 @@ h6{
 	font-size: 14px;
 	color: #2d64b3;
 	margin-bottom: 10px;
+    font-weight: normal;
 
 }
 p{
-	margin-bottom: 10px;
+	margin-bottom: 5px;
+    font-size: 13px;
+    color: #666;
+}
+a{
+    margin-bottom: 5px;
 }
 .cbp_tmtimeline > li .cbp_tmlabel{
 	font-size: 12px;
@@ -31,20 +37,23 @@ p{
 	background: #fff;
 	color: #666;
 	padding: 0;
+    margin-top: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #efefef;
 
 }
 .cbp_tmtimeline > li .cbp_tmlabel:after{
 	border-right-color: #fff;
 }
 .cbp_tmtimeline > li .cbp_tmicon {
-    width: 10px;
-    height: 10px;
+    width: 16px;
+    height: 16px;
     font-family: 'ecoico';
     speak: none;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
-    text-transform: none;
+    text-transfom: none;
     font-size: 1.4em;
     line-height: 40px;
     -webkit-font-smoothing: antialiased;
@@ -53,36 +62,44 @@ p{
     background: #fff;
     border-radius: 50%;
     box-shadow: 0 0 0 4px #89c7f8, 0 0 0 6px #fff;
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #3594cb;
+    background: #3594cb;
+    color: white;
     text-align: center;
     left: 20%;
     margin: 0 0 0 -10px;
 }
 .cbp_tmtimeline > li .cbp_tmtime span:first-child{
 	margin-top: -5px;
-	font-size: 20px;
+	font-size: 16px;
+    font-weight: normal;
 	color: #3594cb;
+    color: #2D64B3;
 }
 .cbp_tmtimeline::before {
     content: '';
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 5px;
+    width: 2px;
     background: #afdcf8;
 
     left: 20%;
-    margin-left: -7px;
+    margin-left: -3px;
 }
 .cbp_tmtimeline > li .cbp_tmtime span:last-child {
     font-size: 12px;
     color: #3594cb;
+    color: #737373;
 }
 .cbp_tmtimeline > li .cbp_tmtime {
     
     padding-right: 60px;
     
 }
-
+.notice-box{
+    margin-top: 20px;
+}
 
 .notice,.state{
     text-align: left;
@@ -105,13 +122,26 @@ p{
     margin-bottom: 5px;
     /*border-bottom: 1px solid #efefef;*/
 }
+
 h3{
 	margin-left: 8%;
-	margin-right: 5%;
+	/*margin-right: 5%;*/
 	font-weight: normal;
 	color: #666;
 	padding-bottom: 5px;
-	padding-left: 5px;
+	/*padding-left: 5px;*/
 	border-bottom: 1px solid #efefef;
 
+}
+div.info{
+    margin-top: 10px;
+}
+div.tool-box{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.tool-box label{
+    font-weight: normal;
+    color: #666;
+    margin-top: 10px;
 }
