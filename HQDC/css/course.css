@@ -71,10 +71,11 @@ body {
 }
 .cbp_tmtimeline > li .cbp_tmtime span:first-child{
 	margin-top: -5px;
-	font-size: 16px;
+	font-size: 14px;
     font-weight: normal;
 	color: #3594cb;
     color: #2D64B3;
+    color: #666;
 }
 .cbp_tmtimeline::before {
     content: '';
@@ -83,7 +84,7 @@ body {
     bottom: 0;
     width: 2px;
     background: #afdcf8;
-
+    /*background: #A9E8E8;*/
     left: 20%;
     margin-left: -3px;
 }
@@ -144,4 +145,22 @@ div.tool-box{
     font-weight: normal;
     color: #666;
     margin-top: 10px;
+}
+.download{
+    margin-top: 5px;
+    background: #f9f9f9;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+div.cbp_tmicon.cbp_tmicon-last{
+    box-shadow: none;
+    background: none;
+    color: #afdcf8;
+    margin-top: -20px;
+    font-size: 30px;
+    margin-left: -11px;
+}
+.progress{
+   height: 15px;
 }

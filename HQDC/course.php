@@ -19,9 +19,11 @@ include "includes/header.php"
 
 								
 								<p>Update：原问题还请教了有哪些开源项目可以参与实践，这个我了解不多，请有需要的看其它人的回答。 1. Distributed-systems-readings这个网址里收集了一堆美帝各TOP大学分布式相关的课程，我就是从这找到MIT的那门课的。 2. Paxos算法要问为啥单独把这个算法</p>
-								<a class="" onclick="" href="http://online.bit.edu.cn/moodle/mod/resource/view.php?id=45244"><img src="http://online.bit.edu.cn/moodle/theme/image.php/acebit/core/1445217457/f/spreadsheet-24" class="iconlarge activityicon" alt=" " role="presentation">第三周实验明细.pdf</a>
+								<div class="download">
+									<a class="" onclick=""><i class="fa fa-download"></i> 第三周实验明细.pdf</a>
+								</div>
 								<div class="operate tool-box">
-								<label>该试验已完成</label>
+								<label>该实验已完成</label>
 								<div class="progress">
 								  
 								  <div class="progress-bar progress-bar-success progress-bar-striped " style="width: 100%">
@@ -30,7 +32,7 @@ include "includes/header.php"
 								  
 								</div>
 
-									<button class="btn btn-primary">查看已提交附件</button>
+									<button class="btn btn-default">查看已提交附件</button>
 								</div>
 								<div class="info">
 									
@@ -47,8 +49,11 @@ include "includes/header.php"
 
 								
 								<p>Update：原问题还请教了有哪些开源项目可以参与实践，这个我了解不多，请有需要的看其它人的回答。 1. Distributed-systems-readings这个网址里收集了一堆美帝各TOP大学分布式相关的课程，我就是从这找到MIT的那门课的。 2. Paxos算法要问为啥单独把这个算法</p>
-								<a class="" onclick="" href="http://online.bit.edu.cn/moodle/mod/assign/view.php?id=45588"><img src="http://online.bit.edu.cn/moodle/theme/image.php/acebit/assign/1445217457/icon" class="iconlarge activityicon" alt=" " role="presentation"><span class="instancename">模拟器实验提交（11月22日前）<span class="accesshide "> 作业</span></span></a>
-								<br><a class="" onclick="" href="http://online.bit.edu.cn/moodle/mod/assign/view.php?id=45588"><img src="http://online.bit.edu.cn/moodle/theme/image.php/acebit/assign/1445217457/icon" class="iconlarge activityicon" alt=" " role="presentation"><span class="instancename">模拟器实验提交（11月22日前）<span class="accesshide "> 作业</span></span></a>
+								<div class="download">
+									<a class="" onclick=""><i class="fa fa-download"></i> 模拟器实验提交（11月22日前） 作业.pdf</a><br>
+									<a class="" onclick=""><i class="fa fa-download"></i> 模拟器实验提交（11月22日前） 作业.pdf</a>	
+								</div>
+								
 								<div class="operate tool-box">
 								<label>已有20%同学提交作业</label>
 								<div class="progress">
@@ -67,6 +72,12 @@ include "includes/header.php"
 									<span class="pull-right">由<a href="">马锐</a>老师发起</span>
 								</div>
 							</div>
+						</li>
+						<li>
+							<div class="cbp_tmicon cbp_tmicon-last">
+								<i class="fa fa-angle-double-down fa-animate"></i>
+							</div>
+							
 						</li>
 						
 					</ul>

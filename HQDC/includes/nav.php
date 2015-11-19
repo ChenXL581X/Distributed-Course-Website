@@ -23,6 +23,8 @@ $user = new User();
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">分布式课程<span class="caret"></span></a>
               <ul class="dropdown-menu">
+                <li><a href="course.php">课程首页</a></li>
+                <li role="separator" class="divider"></li>
                 <li><a href="outline.php">教学大纲</a></li>
                 <li><a href="calendar.php">教学日历</a></li>
                 
