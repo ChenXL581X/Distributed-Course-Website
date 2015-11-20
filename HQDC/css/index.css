@@ -88,3 +88,6 @@ i.fa.fa-angle-right.to-right {
     margin-bottom: 5px;
     /*border-bottom: 1px solid #efefef;*/
 }
+.progress{
+    height: 10px;
+}

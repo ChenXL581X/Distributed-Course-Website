@@ -32,12 +32,15 @@ include "includes/header.php"
 								  
 								</div>
 
-									<button class="btn btn-default">查看已提交附件</button>
+									<button class="btn btn-default"><i class="fa fa-search"></i> 查看已提交附件</button>
+									<button class="btn btn-default"><i class="fa fa-search"></i> 查看评分</button>
 								</div>
 								<div class="info">
 									
 									<span>截止时间:11/16 12:00</span>
+									<a href="#" class="edit pull-right">编辑 <i class="fa fa-pencil"></i></a>
 									<span class="pull-right">由<a href="">马锐</a>老师发起</span>
+
 								</div>
 							</div>
 						</li>
@@ -64,11 +67,12 @@ include "includes/header.php"
 								  
 								</div>
 
-									<button class="btn btn-primary">提交作业</button>
+									<button class="btn btn-primary"><i class="fa fa-upload"></i> 提交作业</button>
 								</div>
 								<div class="info">
 									
 									<span>截止时间:11/16 12:00</span>
+									<a href="#" class="edit pull-right">编辑 <i class="fa fa-pencil"></i></a>
 									<span class="pull-right">由<a href="">马锐</a>老师发起</span>
 								</div>
 							</div>

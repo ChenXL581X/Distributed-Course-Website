@@ -1,3 +1,8 @@
+<!--  <div class="progress progress-global">
+ 	<div class="progress-bar progress-bar-info progress-bar-striped active" style="width: 50%;">
+ 		
+ 	</div>
+ </div> -->
  <footer>
 	<span>版权所有:北京理工大学软件学院</span>
 </footer>   
