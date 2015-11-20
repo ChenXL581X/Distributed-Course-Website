@@ -18,7 +18,7 @@ div.messages-box{
 div.messages-box.show{
 	right: 10px;
 }
-.progress-global{
+.progress-global.progress{
     position: fixed;
     top: 0;
     border-radius: 0 !important;

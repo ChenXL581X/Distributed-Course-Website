@@ -49,9 +49,9 @@
 		},100);
 	}
 	//showProgress("20%",'info','active');
-	showProgress("30%",'info','active');
+	//showProgress("30%",'info','active');
 	
 	//var int=self.setInterval("updateProgress(80)",50);
-	updateProgress("80%");
+	//updateProgress("80%");
 	
 })();
