@@ -127,10 +127,16 @@
 }*/
 
 /* Example Media Queries */
+h3{
+	margin-left: 20%;
+}
 @media screen and (max-width: 65.375em) {
 	
 	.cbp_tmtimeline > li .cbp_tmtime span:last-child {
 		font-size: 1.5em;
+	}
+	.main{
+		padding-right: 10%;
 	}
 }
 
@@ -139,7 +145,12 @@
 	.cbp_tmtimeline:before {
 		display: none;
 	}
-
+	h3{
+		margin-left: 0px;
+	}
+	.main{
+		padding-right: 5%;
+	}
 	.cbp_tmtimeline > li .cbp_tmtime {
 		width: 100%;
 		position: relative;
