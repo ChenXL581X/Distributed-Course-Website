@@ -15,19 +15,19 @@
 	                throw new Exception('There was a problem creating an item.');
 	            }        	
 	        }
-        public function delete($ID = null){
-        	if(!$this->_db->delete('post',array('ID','=', $ID))){
+        public function delete($id = null){
+        	if(!$this->_db->delete('post',array('id','=', $id))){
         		throw new Exception('There was a problem deleting the item.');
         	}
 
         }
-        public function update($ID,$fields){
-        	if(!$this->_db->update('post',$ID,$fields)){
+        public function update($id,$fields){
+        	if(!$this->_db->update('post',$id,$fields)){
         		throw new Exception('There was a problem updating the item.');
         	}	        	
         }	        
-        public function find($ID = null){
-        	$data = $this->_db->get('post', array('ID', '=', $ID));
+        public function find($id = null){
+        	$data = $this->_db->get('post', array('id', '=', $id));
             if ($data->count()) {
                 $this->_data = $data->first();
                 return $this;
@@ -38,12 +38,12 @@
 
         }
         public function lastInsert(){
-        	if(!$this -> _db->query ('SELECT LAST_INSERT_ID() as ID')->error()){
+        	if(!$this -> _db->query ('SELECT LAST_INSERT_ID() as id')->error()){
 				$result = $this->_db->results();
 			}
       		
       		
-        	return $result[0]->ID;
+        	return $result[0]->id;
         }
 
 

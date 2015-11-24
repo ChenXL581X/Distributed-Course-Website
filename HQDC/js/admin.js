@@ -10,9 +10,11 @@
 	logIn = function(){
 		
 		left.addClass('logged');
+		
 		login.fadeOut().promise().done(function(){
 			navLeft.fadeIn();
 			nav.fadeIn();
+			//left.addClass('bg');
 		});
 		
 		portrait.addClass("logged");
@@ -22,9 +24,10 @@
 	logOut = function(){
 		
 		left.removeClass('logged');
-		login.fadeIn().promise().done(function(){
-			navLeft.fadeOut();
+		navLeft.fadeOut().promise().done(function(){
+			login.fadeIn();
 			nav.fadeOut();
+			left.removeClass("bg");
 		});
 		
 		portrait.removeClass("logged");
