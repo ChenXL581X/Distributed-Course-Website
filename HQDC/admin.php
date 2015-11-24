@@ -51,10 +51,10 @@ $user = new User();
 				</form>
 				<div class="nav-box">
 					<ul>
-						<li><a href="#">个人信息</a></li>
-						<li><a href="#">个人信息</a></li>
-						<li><a href="#">个人信息</a></li>
-						<li><a href="#">个人信息</a></li>
+						<li><a href="#"><i class="fa fa-user"></i>个人信息</a></li>
+						<li><a href="#"><i class="fa fa-lock"></i>安全设置</a></li>
+						<li><a href="#"><i class="fa fa-file-o"></i>作业实验</a></li>
+						<li><a href="#"><i class="fa fa-bell-o"></i>消息</a></li>
 					</ul>
 				</div>
 			</div>

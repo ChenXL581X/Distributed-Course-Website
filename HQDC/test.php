@@ -1,48 +1,16 @@
 <?php
-class MyClass
-{
-    public $var1 = 'value 1';
-    public $var2 = 'value 2';
-    public $var3 = 'value 3';
+include "includes/header.php";
 
-    protected $protected = 'protected var111111';
-    private   $private   = 'private var1111';
-    function show() {
-     
-       foreach($this as $key => $value) {
-           print "$key => $value\n";
-       }
-    }
-    
-}
-
-/**
-* 
-*/
-class Class1
-{
-
-    private  $myClass;
-    public function __construct(){
-      $this->myClass = new Myclass();
-    }
-    function show(){
-      
-      foreach($this->myClass as $key => $value) {
-          print "$key => $value\n";
-      }
-   }
-    
-}
-
-$class1 = new Class1();
-$myclass = new MyClass();
-
-$class1->show();
-
-echo "\n";
-
-
-
-
+$taskSubmit = new TaskSubmit();
+$user = new User();
+$taskS = $taskSubmit->findWithUserAndTask($user->data()->id,'2');
+var_dump($taskS->data());
+?>
+<style type="text/css">
+  nav{
+    display: none;
+  }
+</style>
+<?php
+include "includes/footer.php";
 ?>

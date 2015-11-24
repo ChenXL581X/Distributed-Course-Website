@@ -13,7 +13,7 @@ include "includes/header.php";
 		<a href="#"class="btn btn-default"><i class="fa fa-search"></i> 查看作业内容</a>
 	</div>
 	<div class="table-box col-md-8 col-md-offset-2">	
-		<table>
+		<table class="score">
 			<thead>
 				<tr>
 					<th>学号</th>
@@ -22,21 +22,23 @@ include "includes/header.php";
 					<th>评分</th>
 				</tr>
 			</thead>
-				<tr>
-					<td>2220150544</td>
-					<td>蔡建宇</td>
-					<td><a href="#">1120112038_蔡建宇.zip</a></td>
-					<td> <input class="score" type="text" value="80"></td>
 					
-				</tr>	
 				
 			<tbody>
+				<tr>
+					<td class="number">2220150544</td>
+					<td class="name">蔡建宇</td>
+					<td class="file_link"><a href="1120112038_蔡建宇.zip">1120112038_蔡建宇.zip</a></td>
+					<td class="score"> <input class="score" type="text" value="80"></td>
+					
+				</tr>
 			</tbody>
 		</table>
 	</div>
 </div>
 <script src="js/jquery.ba-throttle-debounce.min.js"></script>
 <script src="js/jquery.stickyheader.js"></script>
+<script src="js/workScore.js"></script>
 <?php
 include "includes/footer.php";
 ?>

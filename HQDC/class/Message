@@ -1,0 +1,50 @@
+<?php
+	class Message{
+		private $_messageArray,
+				$_calendarArray,
+				$_replyArray,
+				$_db,
+				$_user;
+
+		public function __construct(){
+			$this->_db = DB::getInstance();
+			$this->_user = new User();
+		}
+
+		public function getMessage(){
+			if($this->_user->isLoggedIn){
+				$task = new Task();
+				$reply = new Reply();
+				$taskSubmit = new TaskSubmit();
+				$date = new Date();
+				$taskArray = $task.findWithDateBetween($date,$date+1);	//在task里寻找截止时间在$date和$date+1的；
+				foreach ($taskArray as $key => $value) {
+					if(!$taskSubmit->findWithUserAndTask($this->_user->data()->id,$value->id)){//查找数据库里有没有改学生提交作业的记录
+					
+						array_push($this->_calendarArray, $value); 
+						array_push($this->_messageArray, $value); 
+
+					}
+				}
+
+				$replyArray = $reply->findNotRead();
+
+				foreach ($replyArray as $key => $value) {
+					if($value->receiver == $this->_user->data()->id){
+						array_push($this->_replyArray, $value); 
+						array_push($this->_messageArray, $value); 
+					}
+				}
+
+			return $this->_messageArray();	
+			}else{
+				return false;
+			}
+
+
+
+		}
+
+	
+	}
+?>
