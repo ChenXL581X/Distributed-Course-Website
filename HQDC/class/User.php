@@ -1,6 +1,6 @@
-<?php
+﻿<?php
         class User {
-            private $_db,
+            protected $_db,
                     $_data,
                     $_sessionName,
                     $_cookieName,
