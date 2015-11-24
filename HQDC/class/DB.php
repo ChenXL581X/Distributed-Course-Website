@@ -61,20 +61,23 @@ class DB{
 			$value      =  $where[2];
 			if(in_array($oprator, $oprators)){
 				$sql = "{$action} from {$table} where {$field} {$oprator} ?";
-				
 				if(!$this -> query ($sql , array($value))->error()){
 					
 					return $this;
 				}
 			}
-
+		}
+		else if ($where == '') {
+		    $sql = "{$action} from {$table}";
+		    if ($this->query($sql)) {
+		        return $this;
+		    }
 		}
 		return false;
 	}
 
-	public function get($table,$where){
+	public function get($table,$where = ''){
 		return $this -> action('select * ', $table ,$where);
-
 	}
 	public function delete($table,$where){
 		return $this -> action('delete', $table ,$where);
