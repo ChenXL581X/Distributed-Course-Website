@@ -66,8 +66,9 @@ class Excel {
             $result = array();
             for ($j = 1; $j <= $highestRow; $j++) 
                 for ($k = 'A'; $k <= $highestColumn; $k++) { 
-                $str = iconv('GBK', 'UTF-8', $objPHPExcel->getActiveSheet()->getCell("$k$j")->getValue());  //如果中文乱码需要使用这段话
-                   // $str = $objPHPExcel->getActiveSheet()->getCell("$k$j")->getValue();
+                    $str = $objPHPExcel->getActiveSheet()->getCell("$k$j")->getValue();
+                    //这个地方的字符处理有问题，当把array传递到createAccount_run页面的时候会出现乱码
+                    $str = iconv('utf-8','gb2312',$str);
                     $result[$j][$k] = $str;     
                 }
             return $result;

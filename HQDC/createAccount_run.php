@@ -1,12 +1,9 @@
 <?php
 
-// include 'phpExcel/PHPExcel.php';
-// include 'phpExcel/PHPExcel/Writer/Excel2007.php';
 require_once 'core/init.php';
 if(Input::exists('post')){
-	if(Token::check(Input::get('token'))){
-// 	    echo "hello world";
-// 	    echo $_POST['submitreg'];
+// 	if(Token::check(Input::get('token'))){
+    if (Input::get('token')){
 	    if ($_POST['submitreg'] == "createAccount")
 	    {
 	        $validate = new Validate();
@@ -14,14 +11,9 @@ if(Input::exists('post')){
 	            'userreg' => array(
 	                'name' =>'username' ,           //in the table
 	                'required' => true,
-	                'min' => 6,
-	                'max' => 20,
+	                'min' => 10,
+	                'max' => 10,
 	                'unique' => 'users',
-	            ),
-	            'password_reg' => array(
-	                'name' =>'password' ,
-	                'required' =>true,
-	                'min' => 6
 	            ),
 	            'name' => array(
 	                'name' =>'name' ,
@@ -33,12 +25,10 @@ if(Input::exists('post')){
 	        if($validation->passed()){
 	            $user = new User();
 	            $salt = Hash::salt(32);
-	            	
-	        
 	            try{
 	                $user->create(array(
 	                    'username'=> Input::get('userreg'),
-	                    'password'=>Hash::make(Input::get('password_reg'),$salt),
+	                    'password'=>Hash::make(Input::get('userreg'),$salt),
 	                    'salt'=>$salt,
 	                    'name'=>Input::get('name'),
 	                    'joined'=>date('Y-m-d H:i:s'),
@@ -67,20 +57,22 @@ if(Input::exists('post')){
 	        // $excel->setPath($path);
 
 	        $resultArr = $excel->importExcel();
-
+	        array_shift($resultArr);
 	        $user = new User();
 	        $salt = Hash::salt(32);
 
-	        foreach ($$resultArr as $value) {
+	       print_r($resultArr) ;
+	        foreach ($resultArr as $value) {
+	            $temp = array(
+	                'username' => $value['A'],
+	                'password' => Hash::make(Input::get($value['A'],$salt)),
+	                'salt' => $salt,
+	                'name' => $value['B'],
+	                'joined' => date('Y-m-d H:i:s'),
+	                'group' => $value['C']
+	            );
 	        	try{
-	        		$user->create(array(
-	        			'username' => $value[1],
-	        			'password' => $value[1],
-	        			'salt' => $sqlt,
-	        			'name' => $value[2],
-	        			'joined' => date('Y-m-d H:i:s'),
-	        			'group' => $value[3]
-	        			));
+	        		$user->create($temp);
 	        		Session::flash('home' , 'create {$value[1]} account successfully');
 	        	}catch(Exception $e) {
 	        		die($e->getMessage());
@@ -88,9 +80,6 @@ if(Input::exists('post')){
 	        }
 
 	    }
-	    
-
-		
 	}
 }
 
