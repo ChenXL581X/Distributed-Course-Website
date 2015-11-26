@@ -1,5 +1,9 @@
 <?php
 include "includes/header.php";
+$taskSubmit = new TaskSubmit();
+$taskSubmit = $taskSubmit->findWithTaskId(Input::get('taskId'));
+$user = new User();
+
 ?>
 <link rel="stylesheet" type="text/css" href="css/table/component.css">
 <link rel="stylesheet" type="text/css" href="css/workScore.css">
@@ -25,19 +29,29 @@ include "includes/header.php";
 					
 				
 			<tbody>
+			<?php if($taskSubmit){
+				$data = $taskSubmit->data();
+				foreach ($data as $key => $value) {
+				$number = $user->find($value->user_id)->data()->username;
+				$name = $user->find($value->user_id)->data()->name;
+
+			?>
 				<tr>
-					<td class="number">2220150544</td>
-					<td class="name">蔡建宇</td>
-					<td class="file_link"><a href="1120112038_蔡建宇.zip">1120112038_蔡建宇.zip</a></td>
-					<td class="score"> <input class="score" type="text" value="80"></td>
+					<td submitId=<?php echo $value->id?> class="number"><?php echo $number?></td>
+					<td class="name"><?php echo $name?></td>
+					<td class="file_link"><a href=<?php echo $value->file_link?>> <?php echo $number."_".$name.".zip"?></a></td>
+					<td class="score"> <input class="score" type="text" value=<?php echo $value->score?>></td>
 					
 				</tr>
+				
+			<?php  }}?>
 			</tbody>
 		</table>
 	</div>
 </div>
 <script src="js/jquery.ba-throttle-debounce.min.js"></script>
 <script src="js/jquery.stickyheader.js"></script>
+
 <script src="js/workScore.js"></script>
 <?php
 include "includes/footer.php";

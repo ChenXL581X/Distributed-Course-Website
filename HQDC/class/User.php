@@ -51,7 +51,7 @@
 
                     if ($data->count()) {
                         $this->_data = $data->first();
-                        return true;
+                        return $this;
                     }
                 }
                 return false;

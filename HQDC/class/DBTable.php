@@ -32,6 +32,13 @@ class DBTable{
         }
         else return false;	 
 	}
+	public function findWithDateBetween($date1,$date2){
+		$data = $this->_db->action('select *','task',array('end_time','>',$date1,'and','end_time','<=',$date2));
+		if($data->count()){
+			return $data->results();
+		}
+		else return false;
+	}
 	public function findAll()
 	{
 		$sql="select * from ".$this->_tablename;

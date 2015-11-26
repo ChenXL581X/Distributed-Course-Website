@@ -54,17 +54,34 @@ class DB{
 	}
 	public function action($action, $table, $where = array()){
 		if(count($where)===3){
-			$oprators = array('=','>','<','>=','<=');
+			$operators = array('=','>','<','>=','<=');
 
 			$field        =  $where[0];
-			$oprator   =  $where[1];
+			$operator   =  $where[1];
 			$value      =  $where[2];
-			if(in_array($oprator, $oprators)){
-				$sql = "{$action} from {$table} where {$field} {$oprator} ?";
+			if(in_array($operator, $operators)){
+				$sql = "{$action} from {$table} where {$field} {$operator} ?";
 				if(!$this -> query ($sql , array($value))->error()){
 					
 					return $this;
 				}
+			}
+		}
+		else if(count($where)===7){
+			$operators = array('=','>','<','>=','<=');
+			$connectors = array('and','or');
+			$field        =  array($where[0],$where[4]);
+			$operator = array($where[1],$where[5]);
+			$value = array($where[2],$where[6]);
+			$connector = $where[3];
+			if(in_array($connector,$connectors)&&in_array($operator[0], $operators)&&in_array($operator[1], $operators)){
+				$sql = "{$action} from {$table} where {$field[0]} {$operator[0]} ? {$connector} {$field[1]} {$operator[1]} ?";
+				
+				if(!$this -> query ($sql , $value)->error()){
+					
+					return $this;
+				}
+				
 			}
 		}
 		else if ($where == '') {

@@ -13,12 +13,14 @@
 
 		public function getMessage(){
 			if($this->_user->isLoggedIn){
-				$task = new Task();
+				$task = new DBTask();
 				$reply = new Reply();
 				$taskSubmit = new TaskSubmit();
-				$date = new Date();
-				$taskArray = $task.findWithDateBetween($date,$date+1);	//在task里寻找截止时间在$date和$date+1的；
-				foreach ($taskArray as $key => $value) {
+				//$date = new Date();
+				$date = 1448060300;
+				$date1 = 1448060500;
+				$taskArray = $task->findWithDateBetween($date,$date1);	//在task里寻找截止时间在$date和$date+1的；
+				if($taskArray)foreach ($taskArray as $key => $value) {
 					if(!$taskSubmit->findWithUserAndTask($this->_user->data()->id,$value->id)){//查找数据库里有没有改学生提交作业的记录
 					
 						array_push($this->_calendarArray, $value); 
@@ -29,7 +31,7 @@
 
 				$replyArray = $reply->findNotRead();
 
-				foreach ($replyArray as $key => $value) {
+				if($replyArray)foreach ($replyArray as $key => $value) {
 					if($value->receiver == $this->_user->data()->id){
 						array_push($this->_replyArray, $value); 
 						array_push($this->_messageArray, $value); 
