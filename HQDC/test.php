@@ -1,10 +1,10 @@
 <?php
 include "includes/header.php";
 
-$taskSubmit = new TaskSubmit();
-$user = new User();
-$taskS = $taskSubmit->findWithUserAndTask($user->data()->id,'1');
-var_dump($taskS);
+// $taskSubmit = new TaskSubmit();
+// $user = new User();
+// $taskS = $taskSubmit->findWithUserAndTask($user->data()->id,'1');
+// var_dump($taskS);
 
 // $task = new DBTask();
 // $date = 1448060300;

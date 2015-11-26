@@ -14,7 +14,7 @@
 		public function getMessage(){
 			if($this->_user->isLoggedIn){
 				$task = new DBTask();
-				$reply = new Reply();
+				$reply = new DBReply();
 				$taskSubmit = new TaskSubmit();
 				//$date = new Date();
 				$date = 1448060300;

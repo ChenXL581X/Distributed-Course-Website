@@ -1,0 +1,17 @@
+<?php
+/**
+* 
+*/
+class DBTask extends DBTable
+{
+	
+	function __construct()
+	{
+		parent::__construct();
+		$this->_tablename='post_reply';
+	}
+	public function findNotRead(){
+		
+	}
+}
+?>
