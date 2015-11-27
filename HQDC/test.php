@@ -11,6 +11,10 @@ include "includes/header.php";
 // $date1 = 1448060500;
 // $taskArray = $task->findWithDateBetween($date,$date1);
 // var_dump($taskArray);
+
+$message = new Message();
+$m1 = $message->getMessage();
+var_dump($m1);
 ?>
 <style type="text/css">
   nav{
