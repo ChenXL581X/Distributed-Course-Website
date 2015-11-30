@@ -1,12 +1,11 @@
 <?php
 class DB{
-
 	private static $_instance = null;
-	private $_results
-		, $_pdo,
-		$_query,
-		$_error = false,
-		$_count = 0;
+	private $_results,
+	        $_pdo,
+		    $_query,
+		    $_error = false,
+		    $_count = 0;
 	private function __construct(){
 		try{
 			//echo 'mysql:host = '.Config::get('mysql/host').'; db = '.Config::get('mysql/db') ,Config::get('mysql/username'), Config::get('mysql/password');
