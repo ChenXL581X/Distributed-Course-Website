@@ -32,6 +32,7 @@ class DBTable{
         }
         else return false;	 
 	}
+
 	public function findAll()
 	{
 		$sql="select * from ".$this->_tablename;

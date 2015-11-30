@@ -1,6 +1,6 @@
 <?php
 include 'includes/header.php';
-$user = new User();
+
 
 ?>
 <link rel="stylesheet" type="text/css" href="css/admin.css">

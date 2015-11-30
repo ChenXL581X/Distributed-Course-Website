@@ -1,12 +1,13 @@
 <?php
-
+require_once "core/init.php";
 $taskSubmit = new TaskSubmit();
-
-$taskSubmit->transJson($_POST['data']);
-
-if ($taskSubmit->update()) {
-    echo "success";
+$data = Input::get('data');
+$success = Array("info"=>"success");
+$fail = Array("info"=>"fail");
+//echo json_encode($data);
+if ($taskSubmit->update($data)) {
+    echo json_encode($success);
 }
 else {
-    echo "fail";
+    echo json_encode($fail);
 }

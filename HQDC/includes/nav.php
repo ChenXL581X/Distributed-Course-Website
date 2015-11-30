@@ -1,5 +1,7 @@
 <?php
 $user = new User();
+$message = new Message();
+$m1 = $message->getMessage();
 
 ?>
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -55,7 +57,7 @@ $user = new User();
               ?>
             <li >  
               <a class="message" href="info.php#tab44">
-                <i class="fa fa-bell-o toggle-img"><font>3</font></i>
+                <i class="fa fa-bell-o toggle-img"><font><?php echo count($m1)?></font></i>
               </a>
               <a class="head-container" href="info.php#tab11">
                 <img class="head-img" src="images/portraits/hp3.jpg"><font>您好：蔡建宇</font>
