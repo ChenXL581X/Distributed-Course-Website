@@ -27,3 +27,8 @@ div.messages-box.show{
     z-index: 10000;
 
 }
+.progress-bar {
+    -webkit-transition: width .3s ease;
+    -o-transition: width .3s ease;
+    transition: width .3s ease;
+}

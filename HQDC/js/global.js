@@ -37,14 +37,14 @@
 		},
 		
 		 hideProgress : function(){
-			$(".progress-global").fadeOut();
+			$(".progress-global").fadeOut('slow');
 			
 		},
 
 		 updateProgress : function(percent){
 			$(".progress-global").show();
 
-			$(".progress-global .progress-bar").animate({
+			$(".progress-global .progress-bar").css({
 				"width": percent
 			},100);
 		}

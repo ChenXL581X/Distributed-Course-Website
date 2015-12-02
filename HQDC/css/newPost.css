@@ -61,11 +61,35 @@ p{
 }
 .tools-droparea {
     float: left;
-    width: 150px;
+    width: 100px;
     height: 100px;
 
     overflow:hidden;
     text-align: center;
-    padding:15px;
+    cursor: pointer;
     border:3px dashed rgba(0,0,0,0.1);
+}
+input#fileUpload{
+  opacity: 0;
+  filter: alpha(opacity=0);
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  cursor: pointer;
+  padding:15px;
+  z-index: 1;
+
+}
+.tools-droparea span{
+  display: block;
+  margin-top: 20px;
+  position: absolute;
+  margin-left: 20px;
+  z-index: -1;
+  cursor: pointer;
+}
+.tools-droparea span .fa{
+  font-size: 50px;
+  color:#b1b1b1;
+  margin-left: 5px;
 }
