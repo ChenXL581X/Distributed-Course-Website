@@ -56,7 +56,34 @@
                 }
                 return false;
             }
+            
 
+            public function findLike($user = null) {
+                if ($user) {
+                    $field = (is_numeric($user)) ? 'username' : 'name';
+                    $data = $this->_db->get('user', array($field, 'like', '%'.$user.'%'));
+
+                    if ($data->count()) {
+                        $this->_data = $data->results();
+                        return $this->_db->count();
+                    }
+                }
+                return false;
+            }
+            
+            public function delete($field) {
+                if ($field) {
+                    try {
+                        $this->_db->delete('user', $field);
+                    } catch (Exception $e) {
+                        die($e->getMessage());
+                        return false;
+                    }
+                    return $this->_db->count();
+                }
+                return false;
+            }
+            
             public function login($username = null, $password = null, $remember = false) {  
 
                 if (!$username && !$password && $this->exists()) {
