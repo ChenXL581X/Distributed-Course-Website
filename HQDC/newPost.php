@@ -25,7 +25,7 @@
 			  <div class="form-group ">
 			    <label for="exampleInputFile">添加图片</label>
 			    <div class="img-box">
-			    	<img src="images/portraits/hp17.jpg">
+			    	
 			    </div>
 			    <div class="tools-droparea">
 				    <div class="tools-droparea-placeholder">

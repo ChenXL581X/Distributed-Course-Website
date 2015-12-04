@@ -1,8 +1,8 @@
 <?php
 include "includes/header.php";
-$user = new User();
+
 $post = new Post();
-$post = $post->find(1);
+$post = $post->findAll();
 $postData = $post->data();
 
 ?>
@@ -39,14 +39,25 @@ $postData = $post->data();
 		<tbody>
 			
 		</tbody>	
+		<?php 
+			if($postData)foreach ($postData as $key => $value) {
+				$sender = $user->find($value->release_people)->data()->name;
+				$senderPortrait = $user->find($value->release_people)->data()->portraits;
+
+				$imgArray = explode("|", $value->imgs);
+
+
+			
+
+		?>
 			<tr class="row">
 				<td >
 					<div class="col-md-2 forum-head-img ">
-                            <img src="images/portraits/hp1.jpg">
+                            <img src=<?php echo Config::get('images/portraits').$senderPortrait;?>>
                             <div class="clear-both"></div>
                             
 
-                            <span class="teacher">师</span><a class="name">马锐</a>
+                            <span class="teacher">师</span><a class="name"><?php echo $sender;?></a>
                              <div class="clear-both"></div>
                             <span class="reply-num">100</span>
                     </div>
@@ -54,49 +65,34 @@ $postData = $post->data();
                     
                 </td>
                 
-				<td class="col-md-10"><a class='title' href="forumContent.php"><?php echo $postData->title?></a>
-				<p><?php echo $postData->context;?> </p>
+				<td class="col-md-10"><a class='title' href=<?php echo "post.php?postId=".$value->id;?>><?php echo $value->title?></a>
+				<p><?php echo $value->context;?> </p>
 				<div class="imgs">
 					<ul>
-						<li><img src="images/forum/0ff41bd5ad6eddc43bb8e6873fdbb6fd5266336a.jpg"></li>
+						<li>
+							<?php
+								foreach ($imgArray as $key1 => $value1) {
+									echo "<img src=".Config::get('images/post').$value1.">";
+								}
+							?>
+					
+
+						</li>
 					</ul>
 				</div>
 				<div>
 					
-					<span class="pull-left">昨日 20:23</span>
+					<span class="pull-left"><?php echo $value->release_time;?></span>
 				</div>
 				
 				</td>
 				
 				
 			</tr>
-			<tr class="row">
-				<td >
-					<div class="col-md-2 forum-head-img ">
-                            <img src="images/portraits/hp3.jpg">
-                            <div class="clear-both"></div>
-                            <span class="student">学</span><a class="name">陈晓磊</a>
-                            <span class="reply-num">50</span>
-                    </div>
-                    
-                    
-                </td>
+		<?php
+			}
+		?>
 				
-				<td class="col-md-8"><a class='title' href="#">分布式系统领域有哪些经典论文？</a>
-				<p>分布式系统是一个很大的领域，里面包含很多方向。既然你都要读paper了，应该也有一定基础了。伊利诺伊大学的Advanced Distributed Systems 里把各个方向重要papers...</p>
-				<div class="imgs">
-					<ul>
-						<li><img src="images/portraits/hp10.jpg"></li>
-						<li><img src="images/portraits/hp12.jpg"></li>
-					</ul>
-				</div>
-				<div>
-					<span class="pull-left">今日 18:49</span>
-					
-				</div>
-				
-				</td>
-			</tr>			
 		</table>
 		<div class="sk-spinner sk-spinner-rotating-plane"></div>
       </div>

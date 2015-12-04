@@ -18,5 +18,12 @@ class DBReply extends DBTable
 		else return false;
 
 	}
+	public function findWithPost($postId){
+		$data = $this->_db->get('post_reply',array('post_id',"=",$postId));
+        if ($data->count()) {
+            $this->_data = $data->results();
+            return $this;
+        }else return false; 
+	}
 }
 ?>

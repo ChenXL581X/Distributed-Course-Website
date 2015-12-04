@@ -108,11 +108,20 @@ span.type{
 
 	
 }
+
 a{
 	font-size: 13px;
 
 }
 .imgs img{
+	height: 120px;
+	max-width: 300px;
+	margin: 10px;
+}
+.imgs img.show{
+	height: auto;
+	width: auto;
+	
 	max-width: 500px;
 	max-height: 400px;
 	margin: 10px;

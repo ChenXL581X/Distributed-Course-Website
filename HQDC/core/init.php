@@ -16,6 +16,10 @@ $GLOBALS['config'] =  array(
 	'session' => array(
 		'session_name' => 'user',
 		'token_name' => 'token'
+	),
+	'images'=>array(
+		'portraits' => 'images/portraits/',
+		'post' => 'upfile/postImages/'
 	)
 
 );

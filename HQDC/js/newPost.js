@@ -24,6 +24,7 @@
         		$.updateProgress(percentVal);
     		},
 			success: function(data) {
+				
 				files.html("<b>"+data.name+"("+data.size+"k)</b> <span class='delimg' rel='"+data.pic+"'>删除</span>");
 				
 				var img = $('<img/>',{

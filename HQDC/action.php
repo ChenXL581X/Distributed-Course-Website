@@ -1,4 +1,5 @@
 <?php
+
 $action = isset($_GET['act']) ? trim($_GET['act']) : '';
 if($action=='delimg'){
 	$filename = $_POST['imagename'];
