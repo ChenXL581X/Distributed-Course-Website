@@ -31,6 +31,13 @@
         		throw new Exception('There was a problem updating the item.');
         	}	        	
         }	        
+        public function findAll(){
+            $data = $this->_db->get('post');
+            if ($data->count()) {
+                $this->_data = $data->results();
+                return $this;
+            }else return false;  
+        }
         public function find($id = null){
         	$data = $this->_db->get('post', array('id', '=', $id));
             if ($data->count()) {

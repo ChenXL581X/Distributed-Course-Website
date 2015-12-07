@@ -25,21 +25,28 @@
 			  <div class="form-group ">
 			    <label for="exampleInputFile">添加图片</label>
 			    <div class="img-box">
-			    	<img src="images/portraits/hp17.jpg">
+			    	
 			    </div>
 			    <div class="tools-droparea">
-			    <div class="tools-droparea-placeholder">
-			    	上传图片<input placeholder="拖拽文件以上传" id="file" type="file" tabindex="5" name="file" data-tools="upload" data-url="upload.php">
-			    	</div>
+				    <div class="tools-droparea-placeholder">
+				    	
+				    	<input id="fileUpload" type="file" tabindex="5" name="postPic" data-tools="upload" data-url="upload.php">
+				    	<span><i class="fa fa-file-image-o"></i></span>
+				    </div>
 			    </div>
 			    
+			    <div class="files"></div>
+			  	<div id="showfile"></div>
+
 			  </div>
+
 			 	<div class="clear-both"></div>
 		
-
+			  <input type="hidden" id="token" name="token" value="<?php echo $token; ?>">
+			  												
 			  <div class="center">
 			  	
-			  	<button type="submit" class="btn btn-default">发帖</button>
+			  	<button id="submit" class="btn btn-default">发帖</button>
 			  </div>
 			  
 			</form>	
@@ -49,7 +56,7 @@
 
 
 </div>
-
+<script src="js/jquery.form.js"></script>
 <script src="js/newPost.js"></script>
 
 <?php

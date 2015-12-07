@@ -1,77 +1,43 @@
-(function(){
-
-
-	var file = $('#fileUpload');
-	var showimg = $('.img-box');
+$(function () {
+	var bar = $('.bar');
+	var percent = $('.percent');
+	var showimg = $('#showimg');
+	var progress = $(".progress");
 	var files = $(".files");
-
-	file.wrap("<form id='myupload' action='action.php' method='post' enctype='multipart/form-data'></form>");
-    file.change(function(){
+	var btn = $(".btn span");
+	$("#fileupload").wrap("<form id='myupload' action='action.php' method='post' enctype='multipart/form-data'></form>");
+    $("#fileupload").change(function(){
 		$("#myupload").ajaxSubmit({
 			url: './action.php',
 			dataType:  'json',
 			beforeSend: function() {
-        		
-				
+        		showimg.empty();
+				progress.show();
         		var percentVal = '0%';
-        	
-        		$.showProgress();
-				
+        		bar.width(percentVal);
+        		percent.html(percentVal);
+				btn.html("上传中...");
     		},
     		uploadProgress: function(event, position, total, percentComplete) {
         		var percentVal = percentComplete + '%';
-        	
-        		$.updateProgress(percentVal);
+        		bar.width(percentVal);
+        		percent.html(percentVal);
     		},
 			success: function(data) {
-				
 				files.html("<b>"+data.name+"("+data.size+"k)</b> <span class='delimg' rel='"+data.pic+"'>删除</span>");
-				
-				var img = $('<img/>',{
-					src : data.pic
-					});
-
-				showimg.append(img);
-				$.hideProgress();
-				
+				var img = data.pic;
+				showimg.html("<img src='"+img+"'>");
+				btn.html("添加附件");
 			},
 			error: function(xhr){
 //		alert(xhr);
-				
+				btn.html("上传失败");
 				bar.width('0')
 				files.html(xhr.responseText);
 			}
 		});
 	});
-
-    $("#submit").click(function(e){
-		e.preventDefault();
-		var title = $('#title').val(),
-			context = $('#context').val(),
-			imgs = [];
-		$('.img-box img').each(function(){
-			var src = $(this).attr('src');
-			imgs.push(src);
-		});
-
-		var data = {
-			title : title,
-			context : context,
-			imgs : imgs
-
-		}
-		$.ajax({
-			url: 'newPost_run.php',
-			type: "POST",
-			data: {data:data},
-			success: function(data){
-				location='forum.php';
-
-			}
-		});
-
-	});
-
+	
 	$(".delimg").live('click',function(){
 		var pic = $(this).attr("rel");
 		$.post("action.php?act=delimg",{imagename:pic},function(msg){
@@ -86,7 +52,4 @@
 			}
 		});
 	});
-
-
-
-})();
+});
