@@ -38,7 +38,7 @@ if ($type == 'fromhand') {
             'group' => Input::get('group')
         );
         $user = new User();
-        $count = $user->find($record['username']);
+        $count = $user->findWithUsername($record['username']);
         if ($count == false) {
             try{
                 
@@ -78,11 +78,76 @@ if ($type == 'fromhand') {
 }
 
 elseif ($type == 'fromExcel') {
-    echo "success";
+    $fileID = 'file_stu';
+//     echo json_encode($_FILES);
+//     echo json_encode($_REQUEST);
+    $excel = new Excel();
+    $resultArr = array();
+    $resultArr = $excel->importExcel($fileID);
+    array_shift($resultArr);
+    $result = array(
+        'state' => 'success',
+        'successNum' => 0,
+        'failedNum' => 0,
+        'message' => array(),
+    );
+    if ($resultArr != false) {
+        foreach ($resultArr as $value) {
+            $salt = Hash::salt(32);
+            if (Input::get('passwordType') == 'default_password') {
+                $record = array(
+                    'username' => $value['A'],
+                    'password' => Hash::make($value['A'],$salt),
+                    'salt' => $salt,
+                    'name' => $value['B'],
+                    'joined' => date('Y-m-d H:i:s'),
+                    'group' => $value['C']
+                );
+            }
+            else {
+                $record = array(
+                    'username' => $value['A'],
+                    'password' => Hash::make(Input::get('defined_password'),$salt),
+                    'salt' => $salt,
+                    'name' => $value['B'],
+                    'joined' => date('Y-m-d H:i:s'),
+                    'group' => $value['C']
+                );
+            }
+            
+            $user = new User();
+            $count = $user->findWithUsername($record['username']);
+            if ($count == false) {
+                try{
+                    $user->create($record);
+                    $result['successNum'] += 1;
+                }catch(Exception $e){
+                    $result['failedNum'] += 1;
+                    $result['message'][] = $record['username'] . ' : 重复创建账号';
+                }
+            }
+            else {
+                $result['failedNum'] += 1;
+                $result['message'][] = $record['username'] . ' : 重复创建账号';
+            }
+            
+        }
+    }
+    else {
+        $result['state'] = 'failed';
+        $result['message'] = $excel->getError();
+    }
+    
+    echo json_encode($result);
 }
 
-
-
+else if($type == 'exportExcelModel') {
+    $model = array(
+        array('学号','姓名','身份（S表示学生，T表示老师）')
+    );
+    $excel = new Excel();
+    $excel->exportExcel($model,"账号表模板");
+}
 // $result = array(
 //     'state' => 'success',
 //     'context' => 'success'

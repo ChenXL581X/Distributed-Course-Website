@@ -26,8 +26,9 @@ require_once 'core/init.php';
 
 <div>
     <form method="post"  action="createAccount_run.php" enctype="multipart/form-data" id="form">
-        <h3>导入Excel表：</h3><input  type="file" id="file" name="file_stu" /><br>
-        <progress></progress><br>
+        <h3>导入Excel表：</h3>
+        <input type="button" id="exportExcelModel" value="导出Excel模板"/><br>
+        <input type="file" id="file_stu" name="file_stu" /><br>
      <!-- <input type="submit"  value="fromExcel" /> -->
 <!--         <input name = "token" type="hidden"> -->
      密码类型：<input type="radio" name="radio_password" id="radio_password" value="default_password" checked> 默认密码（与用户名相同）<br>
@@ -36,6 +37,7 @@ require_once 'core/init.php';
         <button type="button" id="fromExcel" name="submitreg" value="fromExcel">导入</button>
     </form>
 </div>
+<div id="message"></div>
 
 <script src="js/createAccount.js"></script>
 <script src="js/jquery.form.js"></script>

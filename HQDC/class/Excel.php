@@ -1,12 +1,16 @@
 <?php
 class Excel {
     private $path = './upfile/Excel/';
-    
+    private $error = array();
     public function setPath($path) {
         $this->path = $path;
     }
     public function getPath($path) {
         return $this->path;
+    }
+    
+    public function getError() {
+        return $this->error;
     }
     //
     public function storeExcel($fileID) {
@@ -17,7 +21,8 @@ class Excel {
             /*判别是不是.xls文件，判别是不是excel文件*/
             if (strtolower ( $file_type ) != "xlsx")
             {
-                $this->error ( '不是Excel文件，重新上传' );
+                $this->error[] = '不是Excel文件，重新上传';
+                return false;
             }
             /*设置上传路径*/
           //  $savePath = SITE_PATH . './upfile/Excel/';
@@ -27,7 +32,8 @@ class Excel {
             /*是否上传成功*/
             if (! copy ( $tmp_file, $this->path . $filename ))
             {
-                $this->error ( '上传失败' );
+                $this->error[] = '上传失败';
+                return false;
             }
             return $filename;
         }
@@ -37,7 +43,7 @@ class Excel {
     //提供文件的路径和文件名，将Excel表格里的数据导出到数组中去
     public function importExcel($fileID) {
         $filename = $this->storeExcel($fileID);
-        if ($filename != null) {
+        if ($filename != false) {
             $objReader = PHPExcel_IOFactory::createReader('Excel2007');
             $objPHPExcel = PHPExcel_IOFactory::load($this->path . $filename);
         
@@ -52,10 +58,13 @@ class Excel {
 //                     $str = iconv('gbk','utf-8',$str);
                     $result[$j][$k] = $str;     
                 }
-            unlink($filename);   //删除文件
+            unlink($this->path.$filename);   //删除文件
             return $result;
             
         }    
+        else {
+            return false;
+        }
     }
     
     //将数组中的数据导入到EXCEl表格中去
@@ -67,7 +76,7 @@ class Excel {
         foreach ($input as $keyRow => $Row)
             foreach ($Row as $keyCol => $value) {
                // $value = iconv('gb2312', 'utf-8', $value);
-                $objPHPExcel->getActiveSheet()->setCellValue($keyCol.$keyRow,$value);
+                $objPHPExcel->getActiveSheet()->setCellValue(chr(ord('A') + $keyCol).($keyRow+'1'),$value);
             }
         
         $ua = $_SERVER["HTTP_USER_AGENT"];
@@ -82,5 +91,6 @@ class Excel {
         header('Cache-Control: max-age=0');
         $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');  
         $objWriter->save('php://output');
+        return ture;
     }
 }

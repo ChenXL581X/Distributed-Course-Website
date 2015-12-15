@@ -51,6 +51,20 @@ $(document).ready(function(){
 		}
 	});
 
+	$("#exportExcelModel").click(function() {
+//		$.ajax({
+//			url: "createAccount_run.php",
+//			data: {
+//				type:'exportExcelModel',
+//			},
+//			type : "POST",
+//			
+//			success : function(result) {
+//				console.log(result);
+//			}
+//		});
+		window.location.href="./createAccount_run.php? type=exportExcelModel"; 
+	}); 
 	$(":radio").click(function() {
 		if($("#radio_password:checked").val() == 'user_defined') {
 			$('#defined_password').show();
@@ -61,15 +75,49 @@ $(document).ready(function(){
 	});
 
 	$('#fromExcel').click(function() {
-		var file = $("#file");
+		var file = $("#file_stu");
         if($.trim(file.val())==''){
                alert("请先选择文件");
                return false;
         }
         else {
-        	var formData = new FromData($('#form')[0]);
+        	var formData = new FormData($("#form")[0]);
         	var passwordType = $("#radio_password:checked").val();
-        	
+        	formData.append('type','fromExcel');
+        	formData.append('passwordType',passwordType);
+        	if(passwordType == 'user_defined') {
+        		formData.append('defined_password',$("#defined_password").val());
+        	}
+        	 $.ajax({
+                 url: './createAccount_run.php' ,
+                 type: 'POST',
+                 data: formData,
+                 async: false,
+                 cache: false,
+                 contentType: false,
+                 processData: false,
+                 success: function (result) {
+                	 result = JSON.parse(result);
+                	 alert(result.state);
+                	 console.log(result);
+                	 if(result.state == 'success') {
+                		 alert(result);
+                		 $("#message").append("<p>导入成功"+result.successNum+"条。</p>");
+                		 $("#message").append("<p>导入失败"+result.failedNum+"条.</p>");
+                		 if(result.failedNum != 0) {
+                			 $.each(result.message, function(name,value) {
+                				 $("#message").append("<p>" + name + " " +value + "</p>");
+                			 });
+                		 }
+                	 }
+                	 else if(result.state == 'failed') {
+                		 alert(result.message);
+                	 }
+                 },
+                 error: function (result) {
+                     alert(result);
+                 }
+            });
         }
         
 	});
