@@ -9,11 +9,10 @@ class Excel {
         return $this->path;
     }
     //
-    public function storeExcel() {
-        echo "hello world";
-        if (! empty ( $_FILES ['file_stu'] ['name'] )) {
-            $tmp_file = $_FILES ['file_stu'] ['tmp_name'];
-            $file_types = explode ( ".", $_FILES ['file_stu'] ['name'] );
+    public function storeExcel($fileID) {
+        if (! empty ( $_FILES [$fileID] ['name'] )) {
+            $tmp_file = $_FILES [$fileID] ['tmp_name'];
+            $file_types = explode ( ".", $_FILES [$fileID] ['name'] );
             $file_type = $file_types [count ( $file_types ) - 1];
             /*判别是不是.xls文件，判别是不是excel文件*/
             if (strtolower ( $file_type ) != "xlsx")
@@ -36,27 +35,9 @@ class Excel {
    
     
     //提供文件的路径和文件名，将Excel表格里的数据导出到数组中去
-    public function importExcel() {
-        if (! empty ( $_FILES ['file_stu'] ['name'] )) {
-            $tmp_file = $_FILES ['file_stu'] ['tmp_name'];
-            $file_types = explode ( ".", $_FILES ['file_stu'] ['name'] );
-            $file_type = $file_types [count ( $file_types ) - 1];
-            /*判别是不是.xls文件，判别是不是excel文件*/
-            if (strtolower ( $file_type ) != "xlsx")
-            {
-                $this->error ( '不是Excel文件，重新上传' );
-            }
-            /*设置上传路径*/
-            //  $savePath = SITE_PATH . './upfile/Excel/';
-            /*以时间来命名上传的文件*/
-            $str = date ( 'Ymdhis' );
-            $filename = $str . "." . $file_type;
-            /*是否上传成功*/
-            if (! copy ( $tmp_file, $this->path . $filename ))
-            {
-                $this->error ( '上传失败' );
-            }
-            
+    public function importExcel($fileID) {
+        $filename = $this->storeExcel($fileID);
+        if ($filename != null) {
             $objReader = PHPExcel_IOFactory::createReader('Excel2007');
             $objPHPExcel = PHPExcel_IOFactory::load($this->path . $filename);
         
@@ -68,13 +49,13 @@ class Excel {
                 for ($k = 'A'; $k <= $highestColumn; $k++) { 
                     $str = $objPHPExcel->getActiveSheet()->getCell("$k$j")->getValue();
                     //这个地方的字符处理有问题，当把array传递到createAccount_run页面的时候会出现乱码
-                    $str = iconv('utf-8','gb2312',$str);
+//                     $str = iconv('gbk','utf-8',$str);
                     $result[$j][$k] = $str;     
                 }
+            unlink($filename);   //删除文件
             return $result;
-        }
-        
-        
+            
+        }    
     }
     
     //将数组中的数据导入到EXCEl表格中去

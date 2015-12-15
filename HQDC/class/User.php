@@ -58,6 +58,18 @@
             }
             
 
+            public function findWithUsername($user = null) {
+                if ($user) {
+                    $field = 'username';
+                    $data = $this->_db->get('user', array($field, '=', $user));
+
+                    if ($data->count()) {
+                        $this->_data = $data->first();
+                        return $this;
+                    }
+                }
+                return false;
+            }
             public function findLike($user = null) {
                 if ($user) {
                     $field = (is_numeric($user)) ? 'username' : 'name';
@@ -89,11 +101,12 @@
                 if (!$username && !$password && $this->exists()) {
                     Session::put($this->_sessionName, $this->data()->id);
                 } else {
-                    $user = $this->find($username);
+                   
+                    $user = $this->findWithUsername($username);
                     if ($user) {
-                        // var_dump($this->data()->password );
-                        // var_dump($this->data()->salt );
-                        // var_dump(Hash::make($password, $this->data()->salt));
+                         var_dump($this->data()->password );
+                       //  var_dump($this->data()->salt );
+                         var_dump(Hash::make($password, $this->data()->salt));
                         // die();
                         if ($this->data()->password === Hash::make($password, $this->data()->salt)) {
                             Session::put($this->_sessionName, $this->data()->id);

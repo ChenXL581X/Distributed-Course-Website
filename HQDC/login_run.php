@@ -24,6 +24,7 @@ if (Input::exists('post')) {
 
         if ($validation->passed()) {
 
+           
             $user = new User();
 
             $remember = (Input::get('remember') === 'on') ? true : false;
