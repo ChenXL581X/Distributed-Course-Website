@@ -35,15 +35,15 @@ if(Input::exists('post')&& $user->isLoggedIn()){
                 'release_people' => $user->data()->id
             ));
             Session::flash('post'  ,  'create post successfully');
-            	
+            echo 'success';	
             //Redirect::to('index.php');
         }catch(Exception $e){
             die($e->getMessage());
         }
     }else{
-    	echo 'error';
+    	echo 'empty';
     }
 
-}
+}else echo 'noLogin';
 
 ?>

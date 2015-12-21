@@ -53,6 +53,7 @@ $postData = $post->data();
 			<tr class="row">
 				<td >
 					<div class="col-md-2 forum-head-img ">
+							
                             <img src=<?php echo Config::get('images/portraits').$senderPortrait;?>>
                             <div class="clear-both"></div>
                             

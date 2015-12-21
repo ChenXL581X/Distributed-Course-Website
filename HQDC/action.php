@@ -31,7 +31,8 @@ if($action=='delimg'){
 	$size = round($picsize/1024,2);
 	$arr = array(
 	    'name'=>$picname,
-	    'pic'=>$pic_path,
+	    'pic'=>$pics,
+	    'pic_path' => $pic_path,
 	    'size'=>$size
 	);
 	$arr = json_encode($arr);

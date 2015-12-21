@@ -26,9 +26,10 @@
 			success: function(data) {
 				
 				files.html("<b>"+data.name+"("+data.size+"k)</b> <span class='delimg' rel='"+data.pic+"'>删除</span>");
-				
+				//console.log(data);
 				var img = $('<img/>',{
-					src : data.pic
+					src : data.pic_path,
+					ref : data.pic
 					});
 
 				showimg.append(img);
@@ -50,7 +51,7 @@
 			context = $('#context').val(),
 			imgs = [];
 		$('.img-box img').each(function(){
-			var src = $(this).attr('src');
+			var src = $(this).attr('ref');
 			imgs.push(src);
 		});
 
@@ -59,13 +60,21 @@
 			context : context,
 			imgs : imgs
 
-		}
+		};
 		$.ajax({
 			url: 'newPost_run.php',
 			type: "POST",
 			data: {data:data},
 			success: function(data){
-				location='forum.php';
+				if(data == 'noLogin'){
+					alert('请先登录');
+				}else if(data == 'empty'){
+					alert('不能为空');
+				}else if(data == "success"){
+					alert('发帖成功');
+				}
+				console.log(data);
+				//location='forum.php';
 
 			}
 		});
