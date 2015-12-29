@@ -1,0 +1,28 @@
+.main{
+	font-size: 12px;
+	margin-top: 50px;
+}
+input.title{
+	border: none;
+	margin-bottom:10px; 
+	font-size: 14px;
+
+
+}
+textarea.context{
+	font-size: 12px;
+	border: 1px dashed #ccc;
+	padding:5px;
+	height: 100px;
+	margin-bottom:10px; 
+}
+
+.download{
+	margin-bottom:10px; 
+}
+div.files{
+	margin-bottom: 5px;
+}
+.info{
+	margin-top: 5px;
+}
