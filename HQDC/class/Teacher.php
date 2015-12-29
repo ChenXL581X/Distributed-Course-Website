@@ -17,7 +17,7 @@ class Teacher extends User
 		}
 		else
 		{ 
-			echo "<script>alert('权限不足');location.href='admin.php';</script>";
+			// echo "<script>alert('权限不足');location.href='admin.php';</script>";
 		}
 	}
 

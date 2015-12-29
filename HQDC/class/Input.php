@@ -25,4 +25,11 @@ class Input{
 		}
 		return  '';
 	}
+	public static function getFile($item){
+		if(isset($_FILES[$item])){
+			
+			return $_FILES[$item];
+		}
+		return  '';
+	}
 }

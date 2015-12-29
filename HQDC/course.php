@@ -18,7 +18,7 @@ if($teacher->data()->id)
 
 				
 				<div class="main ">
-				<h3><i class="fa fa-list"></i> 本学期课程教学安排<a href="#" class="pull-right"><i class="fa fa-refresh"></i> </a></h3>
+				<h3><i class="fa fa-list"></i> 本学期课程教学安排<a href="#" class="pull-right"><i class="fa fa-refresh"></i> </a> <span class="new-task"><a href="#"><i class="fa fa-plus"></i> 新建课程或作业</a></span></h3>
 
 
 					<ul class="cbp_tmtimeline">
@@ -49,7 +49,7 @@ if($teacher->data()->id)
 						      	</div>
 				      	      	<?php
 				      	      		$files = $teacher->_taskOperation->taskFindTaskFiles($data[$i]->id);
-				      	      		foreach ($files as $file) {
+				      	      		if($files)foreach ($files as $file) {
 				      	      	?>
 				      	      <div class="download">
 				      	      	<a class="" target="_blank" href="<?php echo $file->url; ?>"><i class="fa fa-download"></i> <?php echo $file->name; ?></a>
