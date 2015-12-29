@@ -21,6 +21,7 @@ class DBTable{
 	    if (!$this->_db->insert($this->_tablename, $fields)) {
 	        throw new Exception("There was a problem inserting in $_tablename");
 	    }
+	    return true;
 	}
 
 	public function findByID($id) 
@@ -32,7 +33,16 @@ class DBTable{
         }
         else return false;	 
 	}
-
+	public function findByAnd($fields,$ops,$values)
+	{
+		$sql="select * from ".$this->_tablename;
+		$data = $this->_db->findByAnd($sql, $fields,$ops,$values);
+        if ($data != false && $data->count()) {
+            //$this->_data = $data->first();
+            return $data->results();
+        }
+        else return false;	
+	}
 	public function findAll()
 	{
 		$sql="select * from ".$this->_tablename;
@@ -42,6 +52,15 @@ class DBTable{
             return $data->results();
         }
         else return false;	 
+	}
+	public function delete($ID = null)
+	{
+		if(!$this->_db->delete($this->_tablename,array('ID','=', $ID))){
+			throw new Exception('There was a problem deleting the file.');
+			return false;
+		}
+		return true;
+
 	}
 	public function data(){
 		return $this->_data;

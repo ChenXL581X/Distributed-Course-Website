@@ -15,28 +15,61 @@ class TaskOperation
 	{
 		$this->_dbtask->create($fields);
 	}
-	public function taskUpdate($fields = array())
+	public function taskUpdate($fields = array(),$id)
 	{
-		$this->_dbtask->update($fields);
+		$this->_dbtask->update($fields,$id);
 	}
-	public function taskDelete($fields = array())
+	public function taskDelete($id)
 	{
-		$this->_dbtask->delete($fields);
+		$this->_dbtask->delete($id);
 	}
 	public function taskFindById($id)
 	{
 		return $this->_dbtask->findById($id);
 	}
+	public function taskFindByAnd($fields,$ops,$values)
+	{
+		return $this->_dbtask->findByAnd($fields,$ops,$values);
+	}
 	public function taskFindAll()
 	{
 		return $this->_dbtask->findAll();
 	}
+	public function taskFindTaskFiles($taskId)
+	{
+		$f = new DBFile();
+		return $f->findFile($taskId);
+	}
+	public function fileFindById($id)
+	{
+		$f = new DBFile();
+		return $f->findById($id);
+	}
+	public function deleteFile($id)
+	{
+		$f = new DBFile();
+		$data=$this->fileFindById($id);
+		if($data!=null) $filename=$data[0]->url;
+		if($f->delete($id))
+		{
+			if(FileUtils::Delete($filename))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 	public function upfile($file,$fields)
 	{
-		FileUtils::upfile($file);
+		$rs=FileUtils::upfile($file,true);
+		if($rs != false) $fields['name']=$rs;
 		$f = new DBFile();
-		$fields['task_id']= $this->_dbtask->lastInsert();
+		if(!isset($fields['task_id'])) $fields['task_id']= $this->_dbtask->lastInsert();
 		$f->create($fields);
+	}
+	public function getLastId()
+	{
+		return $this->_dbtask->lastInsert();
 	}
 }
 ?>
