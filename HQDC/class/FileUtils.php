@@ -4,7 +4,7 @@
 */
 class FileUtils
 {	
-	private static $_filepath="upload";
+	private static $_filepath="upfile/file";
 	
 	function __construct()
 	{
