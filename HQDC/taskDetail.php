@@ -6,6 +6,7 @@ include "includes/header.php";
 	<div class="col-md-10 col-md-offset-1 row">
 	<div class="col-md-8 col-md-offset-2 row padding">
 		<div class="task">
+
 			<input type="text" class="title"  value="作业1" disabled>
 			<textarea class="context" id="context" placeholder="" disabled>
 Update：原问题还请教了有哪些开源项目可以参与实践，这个我了解不多，请有需要的看其它人的回答。 1. Distributed-systems-readings这个网址里收集了一堆美帝各TOP大学分布式相关的课程，我就是从这找到MIT的那门课的。 2. Paxos算法要问为啥单独把这个算法
@@ -37,7 +38,9 @@ Update：原问题还请教了有哪些开源项目可以参与实践，这个�
 			<div class="info">
 				
 				<span>截止时间:11/16 12:00</span>
-				<a href="#" class="edit pull-right">编辑 <i class="fa fa-pencil"></i></a>
+
+				<a href="#" class="edit pull-right"><i class="fa fa-pencil"></i> 编辑 </a>
+				<a href="#" class="delete-task pull-right"><i class="fa fa-times"></i><span>删除此任务</span></a>
 				<span class="pull-right">由<a href=""> 马锐 </a>老师发起</span>
 			</div>
 		</div>

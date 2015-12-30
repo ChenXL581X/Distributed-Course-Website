@@ -26,3 +26,7 @@ div.files{
 .info{
 	margin-top: 5px;
 }
+a.delete-task{
+	margin-left: 10px;
+	margin-right: 10px;
+}

@@ -41,7 +41,9 @@ if($teacher->data()->id)
 						            <?php 
 						            echo $data[$i]->title; 
 						            ?>
+
 								<a href="#" class="showContext pull-right"><i class="fa fa-arrow-down"></i><span>展开</span></a>
+								<a href="#" class="delete-task pull-right"><i class="fa fa-times"></i><span>删除此任务</span></a>
 								</h6>
 						      	<div class="context">
 						      		<p><?php echo $data[$i]->context; ?>
