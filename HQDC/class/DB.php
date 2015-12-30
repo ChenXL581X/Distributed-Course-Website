@@ -116,6 +116,7 @@ class DB{
 		// var_dump($fields);
 		// die();
 		$sql = "insert into {$table} (`"   .  implode('`,`', $keys)  .    "`) values ({$values})";
+		
 
 		if (!$this -> query($sql , $fields)->error()){
 			return true;
