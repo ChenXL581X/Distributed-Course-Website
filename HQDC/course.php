@@ -49,14 +49,19 @@ if($teacher->data()->id)
 						      	</div>
 				      	      	<?php
 				      	      		$files = $teacher->_taskOperation->taskFindTaskFiles($data[$i]->id);
-				      	      		if($files)foreach ($files as $file) {
+				      	      		if($files)
+				      	      		{
+				      	      			?>
+				      	      			<div class="download">
+				      	      				<?php
+				      	      			foreach ($files as $file) {
 				      	      	?>
-				      	      <div class="download">
-				      	      	<a class="" target="_blank" href="<?php echo $file->url; ?>"><i class="fa fa-download"></i> <?php echo $file->name; ?></a>
-								</div>
+				      	      	<a class="" target="_blank" href="<?php echo $file->url; ?>"><i class="fa fa-download"></i> <?php echo $file->name; ?></a><br />
 				      	      	<?php
 				      	      		}
 				      	      	?>
+								</div>
+								<?php } ?>
 								<div class="operate tool-box">
 								<label>该实验已完成</label>
 								<div class="progress">
@@ -73,7 +78,7 @@ if($teacher->data()->id)
 								
 								<div class="info">
 									<span>截止时间:<?php echo date("d/m H:i",$data[$i]->end_time); ?></span>
-									<a href="<?php echo 'setTask.php?taskmark='.$data[$i]->id; ?>" class="edit pull-right">编辑 <i class="fa fa-pencil"></i></a>
+									<a href="<?php echo 'taskdetail.php?taskmark='.$data[$i]->id; ?>" class="edit pull-right">编辑 <i class="fa fa-pencil"></i></a>
 									<span class="pull-right">由<a href=""><?php echo $name; ?></a>老师发起</span>
 								</div>
 
