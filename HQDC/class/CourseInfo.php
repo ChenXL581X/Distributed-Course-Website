@@ -9,13 +9,26 @@ class CourseInfo {
         $this->_tableName = 'course_info';
         $this->_db = DB::getInstance();
     }
-    public function update($context) {
+    public function update($choose, $context) {
+        $field = array(
+            $choose => $context
+            
+        );
         if (!$this->_db->get($this->_tableName)) {
-            $this->_db->insert($this->_tableName, $context);
+            try {
+                $this->_db->insert($this->_tableName, $field);
+            } catch (Exception $e) {
+                return $this->_db->error();
+            }
             return true;
         }
         else {
-            $this->_db->update($this->_tableName, 1, $context);
+            try {
+                $this->_db->update($this->_tableName, 1, $field);
+            } catch (Exception $e) {
+                return $this->_db->error();
+            }
+            return true;
         }	        	
     }
     

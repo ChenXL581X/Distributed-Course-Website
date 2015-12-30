@@ -5,9 +5,9 @@ include 'includes/header.php';
 	<div class="col-md-8 col-md-offset-2">
 		
 	
-		<h5 class="center">
+		<h2 class="center">
 			教学大纲
-		</h5>
+		</h2>
 		<div>
 			<?php 
 			$courseInfo = new CourseInfo();
