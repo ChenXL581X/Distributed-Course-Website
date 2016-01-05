@@ -5,7 +5,7 @@ $choose = $_POST['choose'];
 $context = $_POST['context'];
 $courseInfo = new CourseInfo();
 $mes = $courseInfo->update($choose,$context);
-if ($mes == true) {
+if ($mes == 1) {
     $state = 'success';
     $message = 'Submit Success!';
 }

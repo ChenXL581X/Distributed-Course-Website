@@ -95,6 +95,27 @@ class DB{
 	public function get($table,$where = ''){
 		return $this -> action('select * ', $table ,$where);
 	}
+	
+	public function getLimit($table, $limit, $long = -1) {
+	    if ($long == -1) {
+	        $sql = 'select * from '.$table.' LIMIT ' .$limit;
+	        if ($this->query($sql)) {
+	            return $this;
+	        }
+	        else {
+	            return false;
+	        }
+	    }
+	    else {
+	        $sql = 'select * from '.$table.'LIMIT ' .$limit. '' .$long;
+	        if ($this->query($sql)) {
+	            return $this;
+	        }
+	        else {
+	            return false;
+	        }
+	    }
+	}
 	public function delete($table,$where){
 		return $this -> action('delete', $table ,$where);
 

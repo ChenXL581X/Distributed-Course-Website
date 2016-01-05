@@ -4,6 +4,14 @@ include 'includes/header.php';
 
 ?>
 <link rel="stylesheet" type="text/css" href="css/admin.css">
+<link rel="stylesheet" type="text/css" href="simditor-2.3.6/styles/simditor.css" />
+        
+<script src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="simditor-2.3.6/scripts/module.js"></script>
+<script type="text/javascript" src="simditor-2.3.6/scripts/hotkeys.js"></script>
+<script type="text/javascript" src="simditor-2.3.6/scripts/uploader.js"></script>
+<script type="text/javascript" src="simditor-2.3.6/scripts/simditor.js"></script>
+
 <div class="main">
 	
 		<div class="left info">
@@ -53,8 +61,8 @@ include 'includes/header.php';
 					<ul>
 						<li><a href="createAccount.php"><i class="fa fa-user"></i>账号设置</a></li>
 						<li><a href="courseInfo.php"><i class="fa fa-lock"></i>课程信息</a></li>
-						<li><a href="#"><i class="fa fa-file-o"></i>动态新闻</a></li>
-						<li><a href="#"><i class="fa fa-bell-o"></i>消息</a></li>
+						<li><a href="news.php"><i class="fa fa-file-o"></i>动态新闻</a></li>
+						<li><a href="message.php"><i class="fa fa-bell-o"></i>消息</a></li>
 					</ul>
 				</div>
 			</div>
@@ -62,16 +70,23 @@ include 'includes/header.php';
 		</div>
 		<div class="right content row">
 			<div class="col-md-8 col-md-offset-3">
-				<h1>welcome to page</h1>
+				<select id="type">
+                    <option value="notice">通知</option>
+                    <option value="news">动态</option>
+                </select>
+                <input type="text" id="title" placeholder="输入标题">
+                <textarea id="editor" placeholder="输入内容" autofocus></textarea><br>
+                <button id="button">提交</button>
 			</div>
 		</div>
 
 	
 </div>
 
-<script src="js/admin.js"></script>
+<script src="js/createNews.js"></script>
+<script src="js/admin.js"></script> 
 <?php if($user->isLoggedIn()){?>
-	<script type="text/javascript">
+<script type="text/javascript">
 		
 			
 		

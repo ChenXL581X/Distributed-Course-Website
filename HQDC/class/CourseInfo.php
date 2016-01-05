@@ -14,13 +14,15 @@ class CourseInfo {
             $choose => $context
             
         );
-        if (!$this->_db->get($this->_tableName)) {
+        $this->_db->get($this->_tableName);
+        
+        if ($this->_db->count() == 0) {
             try {
                 $this->_db->insert($this->_tableName, $field);
             } catch (Exception $e) {
                 return $this->_db->error();
             }
-            return true;
+            return $this->_db->count();
         }
         else {
             try {
@@ -28,32 +30,49 @@ class CourseInfo {
             } catch (Exception $e) {
                 return $this->_db->error();
             }
-            return true;
+            return $this->_db->count();
         }	        	
     }
     
     public function get(){
         $res = $this->_db->get($this->_tableName);
+        if ($this->_db->count() == 0) {
+            return false;
+        }
         $res = $res->first();
         
         $this->_courseIntroduce = $res->course_introduce;
         $this->_teachingEnvironment = $res->teaching_environment;
         $this->_teachingProgram = $res->teaching_program;
+        return true;
        // echo  $this->_teachingProgram;
     }
     
     public function getCourseIntroduce() {
-        $this->get();
-        return $this->_courseIntroduce;
+        if ($this->get()) {
+             return $this->_courseIntroduce;
+        }
+        else {
+            return '(＞﹏＜)管理员还没有写';
+        }
+       
     }
     
     public function getTeachingEnvironment() {
-        $this->get();
-        return $this->_teachingEnvironment;
+        if ($this->get()) {
+            return $this->_teachingEnvironment;
+        }
+        else {
+            return '(＞﹏＜)管理员还没有写';
+        }
     }
     
     public function getTeachingProgram() {
-        $this->get();
-        return $this->_teachingProgram;
+        if ($this->get()) {
+            return $this->_teachingProgram;
+        }
+        else {
+            return '(＞﹏＜)管理员还没有写';
+        }
     }
 }

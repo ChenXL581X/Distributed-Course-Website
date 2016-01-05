@@ -11,6 +11,7 @@ include 'includes/header.php';
 		<div>
 			<?php 
 			$courseInfo = new CourseInfo();
+			
 			echo $courseInfo->getTeachingProgram();
 			?>
 		</div>
