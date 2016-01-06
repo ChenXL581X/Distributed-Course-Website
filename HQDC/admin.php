@@ -4,6 +4,14 @@ include 'includes/header.php';
 
 ?>
 <link rel="stylesheet" type="text/css" href="css/admin.css">
+<link rel="stylesheet" type="text/css" href="css/admin.css">
+<link rel="stylesheet" type="text/css" href="simditor-2.3.6/styles/simditor.css" />
+        
+<script src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="simditor-2.3.6/scripts/module.js"></script>
+<script type="text/javascript" src="simditor-2.3.6/scripts/hotkeys.js"></script>
+<script type="text/javascript" src="simditor-2.3.6/scripts/uploader.js"></script>
+<script type="text/javascript" src="simditor-2.3.6/scripts/simditor.js"></script>
 <div class="main">
 	
 		<div class="left info">
@@ -62,7 +70,94 @@ include 'includes/header.php';
 		</div>
 		<div class="right content row">
 			<div class="col-md-8 col-md-offset-3">
-				<h1>welcome to page</h1>
+				<h1>创建账号</h1>
+				<br>
+				<div>
+                	<form   method="post">
+<!--     <fieldset> -->
+<!--     <legend>注册信息</legend> -->
+                    	<h3>输入账号信息：</h3>
+		                用户名：<input type="text" name="username" id="username" placeholder="请输入10位学号或教职工号">*<br>
+		                姓名：<input type="text" name="name" id="name" placeholder="请输入真实姓名"><br>
+                        密码：<input type="password" placeholder="请输入账号密码" name="password" id="password">*<br>
+                        确认密码：<input type="password" placeholder="请确认账号密码" name="password_confirm" id="password_confirm">*<br>
+		                账号类型：<input type="radio" name="group" id="group" value="S" checked> 学生
+		            			<input type="radio" name="group" id="group" value="T" > 教师  *   <br> 
+		            	<button name="submitreg"  value="createAccount" type="button" id="fromhand">创建</button>
+<!-- 	</fieldset> -->
+                	</form>
+
+
+                	<form method="post"  action="createAccount_run.php" enctype="multipart/form-data" id="form">
+                    	<h3>导入Excel表：</h3>
+                    	<input type="button" id="exportExcelModel" value="导出Excel模板"/><br>
+                    	<input type="file" id="file_stu" name="file_stu" /><br>
+     <!-- <input type="submit"  value="fromExcel" /> -->
+<!--         <input name = "token" type="hidden"> -->
+                        密码类型：<input type="radio" name="radio_password" id="radio_password" value="default_password" checked> 默认密码（与用户名相同）<br>
+                    			<input type="radio" name="radio_password" id="radio_password" value="user_defined"> 自定义 
+                    			<input type="text" name="defined_password" id="defined_password" placeholder="请输入自定义密码"><br>
+                    	<button type="button" id="fromExcel" name="submitreg" value="fromExcel">导入</button>
+                	</form>
+				</div>
+
+				<br>
+				<h1>搜索、删除账号 </h1>
+				<br>
+				<div>
+					<div>
+        				<p>请输入需要搜索的学号或姓名</p>
+        				<input type="text" id="searchContext" name="searchContext" placeholder="搜索内容">
+        				<button type="submit" id="search" name="search" value="search">搜索</button>
+    				</div> 
+    				<div id="serachRes">
+        				<p>搜索结果如下:</p>
+        				<table id="table">
+        				<thead>
+        					<tr>
+            					<th>用户名</th>
+            					<th>姓名</th>
+            					<th>添加时间</th>
+            					<th>身份</th>
+            					<th>操作</th>
+        					</tr>
+        				</thead>
+        				<tbody>
+      
+       					</tbody>
+        				</table>
+    				</div> 
+				</div>
+
+
+
+
+				<br><br>	
+				<h1>更新课程信息</h1>
+				<br>
+				<div>
+					<select id="course_info">
+                    	<option value="teaching_program">教学大纲</option>
+                    	<option value="teaching_environment">教学条件</option>
+                    	<option value="course_introduce">课程简介</option>
+                	</select>
+                	<textarea id="editor_course" placeholder="输入内容" autofocus></textarea><br>
+                	<button id="button_course">提交</button>
+				</div>
+
+
+				<br><br>
+				<h1>发布新闻、动态</h1>
+				<br>
+				<div>
+					<select id="type">
+                    	<option value="notice">通知</option>
+                    	<option value="news">动态</option>
+                	</select>
+                	<input type="text" id="title" placeholder="输入标题">
+                	<textarea id="editor_news" placeholder="输入内容" autofocus></textarea><br>
+                	<button id="button_news">提交</button>
+				</div>
 			</div>
 		</div>
 
@@ -70,6 +165,11 @@ include 'includes/header.php';
 </div>
 
 <script src="js/admin.js"></script>
+<script src="js/createAccount.js"></script>
+<script src="js/jquery.form.js"></script>
+<script src="js/global.js"></script>
+<script src="js/createNews.js"></script>
+<script src="js/courseInfo.js"></script>
 <?php if($user->isLoggedIn()){?>
 	<script type="text/javascript">
 		

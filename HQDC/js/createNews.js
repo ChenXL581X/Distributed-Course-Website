@@ -1,6 +1,6 @@
 $(document).ready(function(){ 
 	var editor = new Simditor({
-		  textarea: $('#editor'),
+		  textarea: $('#editor_news'),
 		  placeholder: '',
 		  defaultImage: 'images/image.png',
 		  params: {},
@@ -16,7 +16,7 @@ $(document).ready(function(){
 	$("#type").change(function() {
 		editor.setValue("");
 	});
-	$("#button").click(function() {
+	$("#button_news").click(function() {
 		var type = $('#type').val();
 		var title = $('#title').val();
 		var context = editor.getValue();
