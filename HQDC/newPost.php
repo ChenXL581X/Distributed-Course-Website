@@ -26,7 +26,7 @@
 			  
 			  <div class="form-group">
 			    <label for="editor">帖子内容</label>
-			    <textarea class = "form-control" id="editor" placeholder="输入内容" autofocus></textarea><br>
+			    <textarea class = "form-control" id="editor" placeholder="" autofocus></textarea><br>
 			  </div>
 			  <div class="form-group ">
 			    <label for="exampleInputFile">添加图片</label>
