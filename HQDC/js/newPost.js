@@ -1,5 +1,18 @@
 (function(){
-
+	var editor = new Simditor({
+		  textarea: $('#editor'),
+		  placeholder: '',
+		  defaultImage: 'images/image.png',
+		  params: {},
+		  upload: false,
+		  tabIndent: true,
+		  toolbar: true,
+		  toolbarFloat: true,
+		  toolbarFloatOffset: 0,
+		  toolbarHidden: false,
+		  pasteImage: false,
+		  cleanPaste: false
+		});
 
 	var file = $('#fileUpload');
 	var showimg = $('.img-box');
@@ -48,7 +61,7 @@
     $("#submit").click(function(e){
 		e.preventDefault();
 		var title = $('#title').val(),
-			context = $('#context').val(),
+			context = editor.getValue(),
 			imgs = [];
 		$('.img-box img').each(function(){
 			var src = $(this).attr('ref');

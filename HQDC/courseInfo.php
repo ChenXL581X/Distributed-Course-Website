@@ -98,7 +98,7 @@ include 'includes/header.php';
                     <option value="teaching_environment">教学条件</option>
                     <option value="course_introduce">课程简介</option>
                 </select>
-                <textarea id="editor" placeholder="输入内容" autofocus></textarea><br>
+                <textarea id="editor_course" placeholder="输入内容" autofocus></textarea><br>
                 <button id="button">提交</button>
         
 			</div>

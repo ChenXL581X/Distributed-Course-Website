@@ -2,6 +2,12 @@
 	include "includes/header.php";
 ?>
 <link rel="stylesheet" type="text/css" href="css/newPost.css">
+<link rel="stylesheet" type="text/css" href="simditor-2.3.6/styles/simditor.css" />
+        
+        <script type="text/javascript" src="simditor-2.3.6/scripts/module.js"></script>
+        <script type="text/javascript" src="simditor-2.3.6/scripts/hotkeys.js"></script>
+        <script type="text/javascript" src="simditor-2.3.6/scripts/uploader.js"></script>
+        <script type="text/javascript" src="simditor-2.3.6/scripts/simditor.js"></script>
 <div class="main row">
 		<div class="center">
 			<i class="fa fa-edit fa-animate"></i>
@@ -19,8 +25,8 @@
 			  </div>
 			  
 			  <div class="form-group">
-			    <label for="context">帖子内容</label>
-			    <textarea class="form-control" id="context" placeholder=""></textarea>
+			    <label for="editor">帖子内容</label>
+			    <textarea class = "form-control" id="editor" placeholder="输入内容" autofocus></textarea><br>
 			  </div>
 			  <div class="form-group ">
 			    <label for="exampleInputFile">添加图片</label>
