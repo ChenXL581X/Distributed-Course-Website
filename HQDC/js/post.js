@@ -10,4 +10,12 @@
 		}
 		isShow = true;
 	});
+
+
+
+	$(".new-event").click(function(){
+				$('#modal').modal();
+			});
+
+
 })();

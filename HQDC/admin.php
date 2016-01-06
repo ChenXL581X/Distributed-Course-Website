@@ -49,7 +49,7 @@ include 'includes/header.php';
 							<input type="hidden" name="token" value="c95ab5d475c48afaee64eaeff08328a2">
 							<button class="login-button width-35 pull-right btn-primary  btn btn-small">
 								<i class="fa fa-key icon-key"></i>
-								登录
+								验证
 							</button>
 						</div>
 						
@@ -59,8 +59,8 @@ include 'includes/header.php';
 				</form>
 				<div class="nav-box">
 					<ul>
-						<li><a href="createAccount.php"><i class="fa fa-user"></i>账号设置</a></li>
-						<li><a href="courseInfo.php"><i class="fa fa-lock"></i>课程信息</a></li>
+						<li><a href="#" class="to-account"><i class="fa fa-user"></i>账号设置</a></li>
+						<li><a href="#"><i class="fa fa-lock"></i>课程信息</a></li>
 						<li><a href="#"><i class="fa fa-file-o"></i>动态新闻</a></li>
 						<li><a href="#"><i class="fa fa-bell-o"></i>消息</a></li>
 					</ul>
@@ -69,96 +69,106 @@ include 'includes/header.php';
 			
 		</div>
 		<div class="right content row">
-			<div class="col-md-8 col-md-offset-3">
+			<div class="">
+			<div class="account row">
+				
+			
 				<h1>创建账号</h1>
-				<br>
-				<div>
+				
+				<div class="col-md-8 col-md-offset-2">
+
                 	<form   method="post">
 <!--     <fieldset> -->
 <!--     <legend>注册信息</legend> -->
                     	<h3>输入账号信息：</h3>
-		                用户名：<input type="text" name="username" id="username" placeholder="请输入10位学号或教职工号">*<br>
-		                姓名：<input type="text" name="name" id="name" placeholder="请输入真实姓名"><br>
-                        密码：<input type="password" placeholder="请输入账号密码" name="password" id="password">*<br>
-                        确认密码：<input type="password" placeholder="请确认账号密码" name="password_confirm" id="password_confirm">*<br>
-		                账号类型：<input type="radio" name="group" id="group" value="S" checked> 学生
-		            			<input type="radio" name="group" id="group" value="T" > 教师  *   <br> 
-		            	<button name="submitreg"  value="createAccount" type="button" id="fromhand">创建</button>
+		                <label>用户名：</label>
+		                <input type="text" name="username" id="username" placeholder="请输入10位学号或教职工号">
+		                <label>姓名：</label>
+		                <input type="text" name="name" id="name" placeholder="请输入真实姓名">
+                        <label>密码：</label>
+                        <input type="password" placeholder="请输入账号密码" name="password" id="password">
+                        <label>确认密码：</label>
+                        <input type="password" placeholder="请确认账号密码" name="password_confirm" id="password_confirm">
+		                <label>账号类型：</label>
+		                <input type="radio" name="group" id="group" value="S" checked> 学生
+		            	<input type="radio" name="group" id="group" value="T" > 教师  *  
+		            	<button  class='btn btn-default' name="submitreg"  value="createAccount" type="button" id="fromhand">创建</button>
 <!-- 	</fieldset> -->
                 	</form>
 
 
                 	<form method="post"  action="createAccount_run.php" enctype="multipart/form-data" id="form">
                     	<h3>导入Excel表：</h3>
-                    	<input type="button" id="exportExcelModel" value="导出Excel模板"/><br>
+                    	<input type="button"  class='btn btn-default' id="exportExcelModel" value="导出Excel模板"/><br>
                     	<input type="file" id="file_stu" name="file_stu" /><br>
      <!-- <input type="submit"  value="fromExcel" /> -->
 <!--         <input name = "token" type="hidden"> -->
-                        密码类型：<input type="radio" name="radio_password" id="radio_password" value="default_password" checked> 默认密码（与用户名相同）<br>
+                        <label>密码类型：<input type="radio" name="radio_password" id="radio_password" value="default_password" checked> 默认密码（与用户名相同）<br>
                     			<input type="radio" name="radio_password" id="radio_password" value="user_defined"> 自定义 
                     			<input type="text" name="defined_password" id="defined_password" placeholder="请输入自定义密码"><br>
-                    	<button type="button" id="fromExcel" name="submitreg" value="fromExcel">导入</button>
+                    	<button class='btn btn-default' type="button" id="fromExcel" name="submitreg" value="fromExcel">导入</button>
                 	</form>
 				</div>
+				<div class="clear-both"></div>
+				<div class="search-box">
+					
+				
+						<h1>搜索、删除账号 </h1>
+						
+						<div class="col-md-8 col-md-offset-2">
+							<div>
+		        				<label>请输入需要搜索的学号或姓名</label>
+		        				<input type="text" id="searchContext" name="searchContext" placeholder="搜索内容"/>
+		        				<button class='btn btn-default' type="submit" id="search" name="search" value="search">搜索</button>
+		    				</div> 
+		    				<div id="serachRes">
+		        				<p>搜索结果如下:</p>
+		        				<table id="table">
+		        				<thead>
+		        					<tr>
+		            					<th>用户名</th>
+		            					<th>姓名</th>
+		            					<th>添加时间</th>
+		            					<th>身份</th>
+		            					<th>操作</th>
+		        					</tr>
+		        				</thead>
+		        				<tbody>
+		      
+		       					</tbody>
+		        				</table>
+		    				</div> 
+						</div>
+					</div>
+				</div><!-- 账号设置 -->
 
-				<br>
-				<h1>搜索、删除账号 </h1>
-				<br>
-				<div>
+				<div class="courses row">
+					<h1>更新课程信息</h1>
+					
 					<div>
-        				<p>请输入需要搜索的学号或姓名</p>
-        				<input type="text" id="searchContext" name="searchContext" placeholder="搜索内容">
-        				<button type="submit" id="search" name="search" value="search">搜索</button>
-    				</div> 
-    				<div id="serachRes">
-        				<p>搜索结果如下:</p>
-        				<table id="table">
-        				<thead>
-        					<tr>
-            					<th>用户名</th>
-            					<th>姓名</th>
-            					<th>添加时间</th>
-            					<th>身份</th>
-            					<th>操作</th>
-        					</tr>
-        				</thead>
-        				<tbody>
-      
-       					</tbody>
-        				</table>
-    				</div> 
+						<select class="form-control" id="course_info">
+	                    	<option value="teaching_program">教学大纲</option>
+	                    	<option value="teaching_environment">教学条件</option>
+	                    	<option value="course_introduce">课程简介</option>
+	                	</select>
+	                	<textarea id="editor_course" placeholder="输入内容" autofocus></textarea><br>
+	                	<button class='btn btn-default' id="button_course">提交</button>
+					</div>
+				</div><!--课程信息-->
+				<div class="news row">
+					<h1>发布新闻、动态</h1>
+					
+					<div>
+						<select class="form-control"  id="type">
+	                    	<option value="notice">通知</option>
+	                    	<option value="news">动态</option>
+	                	</select>
+	                	<input type="text" id="title" placeholder="输入标题">
+	                	<textarea id="editor_news" placeholder="输入内容" autofocus></textarea><br>
+	                	<button class='btn btn-default' id="button_news">提交</button>
+					</div>
+				</div>	
 				</div>
-
-
-
-
-				<br><br>	
-				<h1>更新课程信息</h1>
-				<br>
-				<div>
-					<select id="course_info">
-                    	<option value="teaching_program">教学大纲</option>
-                    	<option value="teaching_environment">教学条件</option>
-                    	<option value="course_introduce">课程简介</option>
-                	</select>
-                	<textarea id="editor_course" placeholder="输入内容" autofocus></textarea><br>
-                	<button id="button_course">提交</button>
-				</div>
-
-
-				<br><br>
-				<h1>发布新闻、动态</h1>
-				<br>
-				<div>
-					<select id="type">
-                    	<option value="notice">通知</option>
-                    	<option value="news">动态</option>
-                	</select>
-                	<input type="text" id="title" placeholder="输入标题">
-                	<textarea id="editor_news" placeholder="输入内容" autofocus></textarea><br>
-                	<button id="button_news">提交</button>
-				</div>
-			</div>
 		</div>
 
 	

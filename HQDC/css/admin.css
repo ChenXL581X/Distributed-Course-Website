@@ -124,7 +124,9 @@ nav{
 }
 .right{
 	transition:all 1s;
-	margin-top: 1000px
+	margin-top: 1000px;
+	padding-left:300px;
+	padding-right:100px;
 }
 .right.logged{
 	margin-top: 0px;
@@ -145,4 +147,37 @@ div.text-left{
 	position: absolute;
 	left: 30px;
 	margin-top: 9px;
+}
+h1{
+	font-size: 16px;
+	margin-bottom: 40px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #ccc;
+}
+.right label{
+	font-weight: normal;
+	margin-top: 10px;
+	margin-bottom: 5px;
+
+}
+input{
+	padding: 8px;
+	box-shadow: 0 0 0px 1002px #FCFCFC inset;
+}
+.right{
+	min-width: 800px !important; 
+
+}
+.btn{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.simditor.simditor-mac{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+select{
+	box-shadow: none !important;
+	margin-bottom: 10px;
+	max-width: 200px;
 }

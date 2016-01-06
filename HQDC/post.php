@@ -17,6 +17,45 @@ $senderData = $sender->find($postData->release_people)->data();
 
 ?>
 <link rel="stylesheet" type="text/css" href="css/post.css">
+	<div id="modal" class="modal fade" role="dialog" aria-labelledby="newEventModal">
+	  <div class="modal-dialog" role="document">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+	          <h4 class="modal-title" id="gridModalLabel">回复帖子</h4>
+	        </div>
+	        <div class="modal-body">
+	          <form>
+					 
+					  <textarea class="form-control" placeholder="输入内容"></textarea>
+					  
+					  <div class="form-group ">
+					    <label for="exampleInputFile">添加图片</label>
+					    <div class="img-box">
+					    	
+					    </div>
+					    <div class="tools-droparea">
+						    <div class="tools-droparea-placeholder">
+						    	
+						    	<input id="fileUpload" type="file" tabindex="5" name="postPic" data-tools="upload" data-url="upload.php">
+						    	<span><i class="fa fa-file-image-o"></i></span>
+						    </div>
+					    </div>
+					    
+					    <div class="files"></div>
+					  	<div id="showfile"></div>
+
+					  </div>
+					  <div class="clear-both"></div>
+				</form>
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+	          <button type="button" class="btn btn-primary">确认</button>
+	        </div>
+	      </div><!-- /.modal-content -->
+	    </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 <div class="main row">
 	<div class="row show-grid col-md-10 col-md-offset-1">
     	<div class="col-md-7 col-md-offset-1">
@@ -50,7 +89,7 @@ $senderData = $sender->find($postData->release_people)->data();
 						
 					</div>
 					<span><?php echo '发布于'.$postData->release_time;?></span>
-					<a href="#" class="pull-right"><span><i class="fa fa-comment-o"></i> 回复</span></a>
+					<a href="#" class="pull-right new-event" data-toggle="modal" data-target="#gridSystemModal"><span><i class="fa fa-comment-o"></i> 回复</span></a>
 	    		</div>
 
 	    		<?php
@@ -74,7 +113,9 @@ $senderData = $sender->find($postData->release_people)->data();
 						
 					</div>
 					<span>发布于 <?php echo $value->reply_time;?></span>
-					<a href="#" class="pull-right"><span><i class="fa fa-comment-o"></i> 回复</span></a>
+					<a href="#" class="pull-right new-event"  data-toggle="modal" data-target="#gridSystemModal"><span><i class="fa fa-comment-o"></i> 回复</span></a>
+					
+						
 	    		</div>
 	    		<?php
 	    			}}
@@ -93,13 +134,13 @@ $senderData = $sender->find($postData->release_people)->data();
 		      	</button>	
 		      	</div>
 		      	<div class="section">
-		      		<b>键入标题和内容以快速发帖</b>
+		      		<b>快速回复本帖</b>
 		      		<form>
-					  <input class="form-control" type="text" placeholder="输入标题" />
+					
 					  <textarea class="form-control" placeholder="输入内容"></textarea>
 					  <button type="submit" class="btn btn-primary pull-left">
 
-					  发起新话题
+					  确认回复
 					  <i class="fa fa-arrow-right icon-arrow-right icon-on-right"></i>
 					  </button>
 					  <div class="clear-both"></div>
