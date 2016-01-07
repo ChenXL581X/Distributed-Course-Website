@@ -3,7 +3,7 @@ include 'includes/header.php';
 
 
 ?>
-<link rel="stylesheet" type="text/css" href="css/admin.css">
+
 <link rel="stylesheet" type="text/css" href="css/admin.css">
 <link rel="stylesheet" type="text/css" href="simditor-2.3.6/styles/simditor.css" />
  
