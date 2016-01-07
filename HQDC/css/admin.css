@@ -149,10 +149,15 @@ div.text-left{
 	margin-top: 9px;
 }
 h1{
+	font-weight: bold;
 	font-size: 16px;
 	margin-bottom: 40px;
 	padding-bottom: 10px;
 	border-bottom: 1px solid #ccc;
+}
+
+h3{
+	font-size: 16px;
 }
 .right label{
 	font-weight: normal;

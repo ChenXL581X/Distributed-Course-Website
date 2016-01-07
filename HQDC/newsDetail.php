@@ -2,7 +2,11 @@
 include "includes/header.php";
 ?>
 
-<h1>hello world</h1>
+<div class="main row">
+	<div class="col-md-8 col-md-offset-2">
+		hello world
+	</div>
+</div>
 
 <?php
 include "includes/footer.php";
