@@ -4,11 +4,11 @@ include 'includes/header.php';
 
 ?>
 <link rel="stylesheet" type="text/css" href="css/admin.css">
-<link rel="stylesheet" type="text/css" href="css/admin.css">
+
 <link rel="stylesheet" type="text/css" href="simditor-2.3.6/styles/simditor.css" />
  
 <script src="js/jquery.ba-throttle-debounce.min.js"></script>
-<script src="js/jquery.stickyheader.js"></script>       
+     
 <script src="js/jquery-2.0.3.min.js"></script>
 <script type="text/javascript" src="simditor-2.3.6/scripts/module.js"></script>
 <script type="text/javascript" src="simditor-2.3.6/scripts/hotkeys.js"></script>
@@ -133,7 +133,7 @@ include 'includes/header.php';
 		    				</div> 
 		    				<div id="serachRes">
 		        				<p>搜索结果如下:</p>
-		        				<table id="table">
+		        				<table class="table table-striped" id="table">
 		        				<thead>
 		        					<tr>
 		            					<th>用户名</th>
