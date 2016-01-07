@@ -24,7 +24,7 @@ include 'includes/header.php';
 				    <span class="sr-only">10% Complete (danger)</span>
 				  </div>
 				</div>
-				<div class="col-md-4" onclick="location='courseIntroduce.php'">
+				<div class="col-md-4">
 					<div class="small-box">
 						<i class="fa fa-th"></i>
 						<h5>简介</h5>
