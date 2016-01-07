@@ -45,4 +45,22 @@
 	portrait.click(function(){
 		logOut();
 	});
+	//滑动控制
+	$('.left .nav-box a').click(function(e){
+		e.preventDefault();
+		
+		var str = "."+$(this).attr('class').substring(3);
+		console.log(str);
+		var obj = $(str);
+		var top = obj.offset().top-100;
+		console.log(top);
+		$('html,body').animate({scrollTop:top});
+	});
+	// $('.left .nav-box .to-account').click(function(e){
+	// 	e.preventDefault();
+
+	// 	$('html,body').animate({scrollTop:$('.right .account').offset().top-100});
+	// });
+
+
 })();

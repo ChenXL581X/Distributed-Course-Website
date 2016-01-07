@@ -60,8 +60,8 @@ include 'includes/header.php';
 				<div class="nav-box">
 					<ul>
 						<li><a href="#" class="to-account"><i class="fa fa-user"></i>账号设置</a></li>
-						<li><a href="#"><i class="fa fa-lock"></i>课程信息</a></li>
-						<li><a href="#"><i class="fa fa-file-o"></i>动态新闻</a></li>
+						<li><a href="#" class="to-courses"><i class="fa fa-lock"></i>课程信息</a></li>
+						<li><a href="#" class="to-news"><i class="fa fa-file-o"></i>动态新闻</a></li>
 						<li><a href="#"><i class="fa fa-bell-o"></i>消息</a></li>
 					</ul>
 				</div>

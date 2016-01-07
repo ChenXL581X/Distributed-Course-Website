@@ -181,3 +181,6 @@ select{
 	margin-bottom: 10px;
 	max-width: 200px;
 }
+.account,.courses,.news{
+	margin-bottom: 100px;
+}
