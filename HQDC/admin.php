@@ -3,8 +3,13 @@ include 'includes/header.php';
 
 
 ?>
+<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="css/admin.css">
 
+=======
+
+<link rel="stylesheet" type="text/css" href="css/admin.css">
+>>>>>>> origin/master
 <link rel="stylesheet" type="text/css" href="simditor-2.3.6/styles/simditor.css" />
  
 <script src="js/jquery.ba-throttle-debounce.min.js"></script>
