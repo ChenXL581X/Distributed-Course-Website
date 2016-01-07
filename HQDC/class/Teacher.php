@@ -33,7 +33,7 @@ class Teacher extends User
 		}
 		return false;
 	}
-
+	
 	function getInfo()
 	{
 		return $this->_info;

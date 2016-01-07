@@ -6,7 +6,9 @@ include 'includes/header.php';
 <link rel="stylesheet" type="text/css" href="css/admin.css">
 <link rel="stylesheet" type="text/css" href="css/admin.css">
 <link rel="stylesheet" type="text/css" href="simditor-2.3.6/styles/simditor.css" />
-        
+ 
+<script src="js/jquery.ba-throttle-debounce.min.js"></script>
+<script src="js/jquery.stickyheader.js"></script>       
 <script src="js/jquery-2.0.3.min.js"></script>
 <script type="text/javascript" src="simditor-2.3.6/scripts/module.js"></script>
 <script type="text/javascript" src="simditor-2.3.6/scripts/hotkeys.js"></script>
@@ -59,10 +61,12 @@ include 'includes/header.php';
 				</form>
 				<div class="nav-box">
 					<ul>
+
 						<li><a href="#" class="to-account"><i class="fa fa-user"></i>账号设置</a></li>
 						<li><a href="#" class="to-courses"><i class="fa fa-lock"></i>课程信息</a></li>
 						<li><a href="#" class="to-news"><i class="fa fa-file-o"></i>动态新闻</a></li>
 						<li><a href="#"><i class="fa fa-bell-o"></i>消息</a></li>
+
 					</ul>
 				</div>
 			</div>
@@ -72,7 +76,7 @@ include 'includes/header.php';
 			<div class="">
 			<div class="account row">
 				
-			
+			<div id="top1"></div>
 				<h1>创建账号</h1>
 				
 				<div class="col-md-8 col-md-offset-2">
@@ -92,10 +96,12 @@ include 'includes/header.php';
 		                <label>账号类型：</label>
 		                <input type="radio" name="group" id="group" value="S" checked> 学生
 		            	<input type="radio" name="group" id="group" value="T" > 教师  *  
+		            	<br>
 		            	<button  class='btn btn-default' name="submitreg"  value="createAccount" type="button" id="fromhand">创建</button>
 <!-- 	</fieldset> -->
                 	</form>
 
+                	<br><br>
 
                 	<form method="post"  action="createAccount_run.php" enctype="multipart/form-data" id="form">
                     	<h3>导入Excel表：</h3>
@@ -103,17 +109,20 @@ include 'includes/header.php';
                     	<input type="file" id="file_stu" name="file_stu" /><br>
      <!-- <input type="submit"  value="fromExcel" /> -->
 <!--         <input name = "token" type="hidden"> -->
-                        <label>密码类型：<input type="radio" name="radio_password" id="radio_password" value="default_password" checked> 默认密码（与用户名相同）<br>
+                                                                                           密码类型：<input type="radio" name="radio_password" id="radio_password" value="default_password" checked> 默认密码（与用户名相同）
                     			<input type="radio" name="radio_password" id="radio_password" value="user_defined"> 自定义 
                     			<input type="text" name="defined_password" id="defined_password" placeholder="请输入自定义密码"><br>
                     	<button class='btn btn-default' type="button" id="fromExcel" name="submitreg" value="fromExcel">导入</button>
                 	</form>
 				</div>
 				<div class="clear-both"></div>
+				
+				
+				<br><br><br><br>
 				<div class="search-box">
 					
 				
-						<h1>搜索、删除账号 </h1>
+						<h1 >搜索、删除账号 </h1>
 						
 						<div class="col-md-8 col-md-offset-2">
 							<div>
@@ -142,6 +151,8 @@ include 'includes/header.php';
 					</div>
 				</div><!-- 账号设置 -->
 
+				<div id="top2"></div>
+				<br><br><br><br>
 				<div class="courses row">
 					<h1>更新课程信息</h1>
 					
@@ -155,6 +166,9 @@ include 'includes/header.php';
 	                	<button class='btn btn-default' id="button_course">提交</button>
 					</div>
 				</div><!--课程信息-->
+				
+				<div id="top3"></div>
+				<br><br><br><br>
 				<div class="news row">
 					<h1>发布新闻、动态</h1>
 					
@@ -163,7 +177,7 @@ include 'includes/header.php';
 	                    	<option value="notice">通知</option>
 	                    	<option value="news">动态</option>
 	                	</select>
-	                	<input type="text" id="title" placeholder="输入标题">
+	                	<input type="text" id="title" placeholder="输入标题"><br>
 	                	<textarea id="editor_news" placeholder="输入内容" autofocus></textarea><br>
 	                	<button class='btn btn-default' id="button_news">提交</button>
 					</div>
@@ -179,6 +193,7 @@ include 'includes/header.php';
 <script src="js/jquery.form.js"></script>
 <script src="js/global.js"></script>
 <script src="js/createNews.js"></script>
+<script src="js/searchAccount.js"></script>
 <script src="js/courseInfo.js"></script>
 <?php if($user->isLoggedIn()){?>
 	<script type="text/javascript">
