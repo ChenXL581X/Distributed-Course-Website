@@ -77,14 +77,14 @@ include 'includes/header.php';
 			<div class="account row">
 				
 			<div id="top1"></div>
-				<h1>创建账号</h1>
+				<h1>账号管理</h1>
 				
 				<div class="col-md-8 col-md-offset-2">
 
                 	<form   method="post">
 <!--     <fieldset> -->
 <!--     <legend>注册信息</legend> -->
-                    	<h3>输入账号信息：</h3>
+                    	<h3>输入账号信息以创建账号：</h3>
 		                <label>用户名：</label>
 		                <input type="text" name="username" id="username" placeholder="请输入10位学号或教职工号">
 		                <label>姓名：</label>
@@ -122,9 +122,10 @@ include 'includes/header.php';
 				<div class="search-box">
 					
 				
-						<h1 >搜索、删除账号 </h1>
+						
 						
 						<div class="col-md-8 col-md-offset-2">
+						<h3 >搜索、删除账号 </h3>
 							<div>
 		        				<label>请输入需要搜索的学号或姓名</label>
 		        				<input type="text" id="searchContext" name="searchContext" placeholder="搜索内容"/>
