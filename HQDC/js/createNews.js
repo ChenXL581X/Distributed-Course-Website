@@ -26,17 +26,17 @@ $(document).ready(function(){
 		else {
 			if(context == "") {
 				if(confirm("您并没有输入内容，确认继续提交？")) {
-					submit(type, title, context);
+					submitNews(type, title, context);
 				}
 			}
 			else {
-				submit(type, title, context);
+				submitNews(type, title, context);
 			}
 		}
 	});
 });
 
-function submit(type, title, context) {
+function submitNews(type, title, context) {
 	$.ajax({
 		url: "createNews_run.php",
 		data: {
@@ -47,6 +47,7 @@ function submit(type, title, context) {
 		type : "POST",
 		
 		success : function(result) {
+			
 			console.log(result);
 			result = JSON.parse(result);
 			var message = result.message;

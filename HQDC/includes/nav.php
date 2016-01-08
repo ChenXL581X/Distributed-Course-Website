@@ -27,7 +27,7 @@ $m1 = $message->getMessage();
               <ul class="dropdown-menu">
                 <li><a href="course.php">课程首页</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="courseIntroduce.php">课程简介</a></li>
+                <li><a href="courseIntroduce.php">课程信息</a></li>
                 <li><a href="outline.php">教学大纲</a></li>
                 <li><a href="calendar.php">教学日历</a></li>
                 

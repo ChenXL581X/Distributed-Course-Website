@@ -21,17 +21,17 @@ $(document).ready(function(){
 		var context = editor.getValue();
 		if(context == "") {
 			if(confirm("您并没有输入内容，确认继续提交？")) {
-				submit(choose, context);
+				submitCourse(choose, context);
 			}
 		}
 		else {
-			submit(choose, context);
+			submitCourse(choose, context);
 		}
 		
 	});
 });
 
-function submit(choose, context) {
+function submitCourse(choose, context) {
 	$.ajax({
 		url: "courseInfo_run.php",
 		data: {

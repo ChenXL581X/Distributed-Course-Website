@@ -16,6 +16,7 @@ $fields = array(
     'type' => $type,
     'upload_people' => "chenxiaolei"
 );
+
 $news = new News();
 $mes = $news->insertInfo($fields);
 

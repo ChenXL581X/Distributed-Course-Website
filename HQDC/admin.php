@@ -3,22 +3,17 @@ include 'includes/header.php';
 
 
 ?>
-<<<<<<< HEAD
-<link rel="stylesheet" type="text/css" href="css/admin.css">
-
-=======
 
 <link rel="stylesheet" type="text/css" href="css/admin.css">
->>>>>>> origin/master
-<link rel="stylesheet" type="text/css" href="simditor-2.3.6/styles/simditor.css" />
+<link rel="stylesheet" type="text/css" href="application/simditor-2.3.6/styles/simditor.css" />
  
 <script src="js/jquery.ba-throttle-debounce.min.js"></script>
      
 <script src="js/jquery-2.0.3.min.js"></script>
-<script type="text/javascript" src="simditor-2.3.6/scripts/module.js"></script>
-<script type="text/javascript" src="simditor-2.3.6/scripts/hotkeys.js"></script>
-<script type="text/javascript" src="simditor-2.3.6/scripts/uploader.js"></script>
-<script type="text/javascript" src="simditor-2.3.6/scripts/simditor.js"></script>
+<script type="text/javascript" src="application/simditor-2.3.6/scripts/module.js"></script>
+<script type="text/javascript" src="application/simditor-2.3.6/scripts/hotkeys.js"></script>
+<script type="text/javascript" src="application/simditor-2.3.6/scripts/uploader.js"></script>
+<script type="text/javascript" src="application/simditor-2.3.6/scripts/simditor.js"></script>
 <div class="main">
 	
 		<div class="left info">
@@ -102,7 +97,7 @@ include 'includes/header.php';
 		                <input type="radio" name="group" id="group" value="S" checked> 学生
 		            	<input type="radio" name="group" id="group" value="T" > 教师  *  
 		            	<br>
-		            	<button  class='btn btn-default' name="submitreg"  value="createAccount" type="button" id="fromhand">创建</button>
+		            	<button  class='btn btn-default' name="submitreg"  value="createAccount" type="button" id="fromhand">创建账号</button>
 <!-- 	</fieldset> -->
                 	</form>
 
@@ -117,7 +112,7 @@ include 'includes/header.php';
                                                                                            密码类型：<input type="radio" name="radio_password" id="radio_password" value="default_password" checked> 默认密码（与用户名相同）
                     			<input type="radio" name="radio_password" id="radio_password" value="user_defined"> 自定义 
                     			<input type="text" name="defined_password" id="defined_password" placeholder="请输入自定义密码"><br>
-                    	<button class='btn btn-default' type="button" id="fromExcel" name="submitreg" value="fromExcel">导入</button>
+                    	<button class='btn btn-default' type="button" id="fromExcel" name="submitreg" value="fromExcel">导入账号</button>
                 	</form>
 				</div>
 				<div class="clear-both"></div>

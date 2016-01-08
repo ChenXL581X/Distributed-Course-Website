@@ -24,8 +24,8 @@ $GLOBALS['config'] =  array(
 
 );
 
-require_once 'phpExcel/PHPExcel.php';
-require_once 'phpExcel/PHPExcel/Writer/Excel2007.php';
+require_once 'application/phpExcel/PHPExcel.php';
+require_once 'application/phpExcel/PHPExcel/Writer/Excel2007.php';
 spl_autoload_register(function($class){
 	require_once 'class/' . $class . '.php';
 });
