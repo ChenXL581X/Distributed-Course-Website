@@ -1,23 +1,64 @@
-<?php 
+<?php
+require_once 'core/init.php';
 include "includes/header.php";
+$token = Token::generate();
+$teacher = new teacher();
+if(Input::exists('get')&&$teacher->data()->id)
+{
+      $id = Input::get('taskmark');
+      $data = $teacher->_taskOperation->taskFindById($id);
+      $title = $data[0]->title;
+      $type = $data[0]->type;
+      $start = $data[0]->start_time;
+      $end = $data[0]->end_time;
+      $desc = $data[0]->context;
+      $files = $teacher->_taskOperation->taskFindTaskFiles($id);
 ?>
 <link rel="stylesheet" type="text/css" href="css/taskDetail.css">
+<script src="js/ajaxfileupload.js"></script>
+<script src="js/taskdetail.js"></script>
 <div class="main row">
 	<div class="col-md-10 col-md-offset-1 row">
 	<div class="col-md-8 col-md-offset-2 row padding">
 		<div class="task">
-
-			<input type="text" class="title"  value="作业1" disabled>
-			<textarea class="context" id="context" placeholder="" disabled>
-Update：原问题还请教了有哪些开源项目可以参与实践，这个我了解不多，请有需要的看其它人的回答。 1. Distributed-systems-readings这个网址里收集了一堆美帝各TOP大学分布式相关的课程，我就是从这找到MIT的那门课的。 2. Paxos算法要问为啥单独把这个算法
-
+			<input type="hidden" id="token" name="token" value="<?php echo $token; ?>">
+			<input type="hidden" id="id" value="<?php echo $id; ?>">
+			<input type="text" id="title" name="title" class="title"  value="<?php if(isset($title)) echo $title; ?>" disabled>
+			<textarea class="context" name="desc" id="context" placeholder="" disabled>
+<?php if(isset($desc)) echo $desc; ?>		
 			</textarea>
-			<label>作业附件</label>
-			<div class="download">
-				<a class="" onclick=""><i class="fa fa-download"></i> 模拟器实验提交（11月22日前） 作业.pdf</a><br>
-				<a class="" onclick=""><i class="fa fa-download"></i> 模拟器实验提交（11月22日前） 作业.pdf</a>	
+			<div id="deadline" style="display:none">
+				<label>截止时间</label>
+				<div class="col-sm-3 deadline">
+					<input type="date" name="endtime" id="endtime" value="<?php echo date("Y-m-d",$end); ?>">
+				</div>
 			</div>
-			
+			<label>作业附件</label>
+			<div class="download"> 
+			<?php   
+			if(count($files))
+			{
+			?>
+			<?php                   
+				foreach ($files as $file) {
+					?>
+				<a class="" href="<?php echo $file->url; ?>" id="<?php echo "fl".$file->id; ?>">
+					<i class="fa fa-download">
+					</i> <?php echo $file->name; ?>
+				</a>
+				<span class='fileDel' style="display:none;" id="<?php echo $file->id; ?>">[删除]</span>
+				<br>
+                    <?php
+                       }
+            ?>
+			<?php
+			}
+			?>
+			<input id="fileToUpload" type="file" name="file" style="display:none;">
+			</div>
+			<div class="tool-box" id="uptask" style="display:none">
+				<button class="btn btn-primary" id="uploadfile"><i class="fa fa-upload"></i> 确定</button>
+			</div>
 			<div class="operate tool-box">
 			<label>已有20%同学提交作业</label>
 			<div class="progress">
@@ -36,17 +77,18 @@ Update：原问题还请教了有哪些开源项目可以参与实践，这个�
 				<button onclick="location='workScore.php?taskId=1'" class="btn btn-default"><i class="fa fa-pencil"></i> 为学生评分</button> 
 			</div>
 			<div class="info">
-				
 				<span>截止时间:11/16 12:00</span>
-
-				<a href="#" class="edit pull-right"><i class="fa fa-pencil"></i> 编辑 </a>
 				<a href="#" class="delete-task pull-right"><i class="fa fa-times"></i><span>删除此任务</span></a>
-				<span class="pull-right">由<a href=""> 马锐 </a>老师发起</span>
+				<a href="#" class="edit pull-right" id="edit">编辑 <i class="fa fa-pencil"></i></a>
+				<span class="pull-right">由<a href=""> <?php echo $teacher->data()->name; ?> </a>老师发起</span>
 			</div>
 		</div>
 	</div>
 	</div>
 </div>
+<?php
+}
+?>
 <?php 
 include "includes/footer.php";
 ?>

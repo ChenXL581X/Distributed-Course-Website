@@ -1,7 +1,7 @@
 <?php
 require_once 'core/init.php';
 if (Input::exists('post')) {
-    if (Token::check(Input::get('token'))) {
+
         $validate = new Validate();
         $validation = $validate->check($_POST, array(
             'taskid' => array(
@@ -15,11 +15,11 @@ if (Input::exists('post')) {
             $id = Input::get('taskid');
             try{
                 $teacher->_taskOperation->taskDelete($id);
-            	Redirect::to('course.php');
+            	echo "success";
             }catch(Exception $e){
                 die('error'.$e->getMessage());
             }
-
+            echo "success";
         }else {
              $errorInfo = '';
             foreach ($validation->errors() as $error) {
@@ -28,7 +28,6 @@ if (Input::exists('post')) {
             }
             echo 'error';
         }
-    }
 }
 
 ?>

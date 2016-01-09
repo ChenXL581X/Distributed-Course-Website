@@ -11,14 +11,6 @@ if (Input::exists('post')) {
                 'required' => true,
                 'name' => 'title'
             ),
-            'type' => array(
-                'required' => true,
-                'name' => 'title'
-            ),
-            'begintime' => array(
-                'required' => true,
-                'name' => 'begintime'
-            ),
             'endtime' => array(
                 'required' => true,
                 'name' => 'endtime'
@@ -36,12 +28,10 @@ if (Input::exists('post')) {
                 $teacher->_taskOperation->taskUpdate(array(
                     'title'=> Input::get('title'),
                     'teacher_id'=>$teacher->data()->id,
-                    'type'=>Input::get('type'),
-                    'start_time'=>strtotime(Input::get('begintime')),
                     'end_time'=>strtotime(Input::get('endtime')),
                     'context'=> Input::get('desc')
                     ),$id);
-            Redirect::to("settask.php?taskmark=$id");
+            echo "success";
             }catch(Exception $e){
                 die($e->getMessage());
             }
@@ -53,8 +43,8 @@ if (Input::exists('post')) {
                 $errorInfo.=($error.'<br>');
             }
             
-            Session::flash('login',$errorInfo);
-            Redirect::to('login.php?tab=toreg');
+            // Session::flash('login',$errorInfo);
+            // Redirect::to('login.php?tab=toreg');
         }
 
     }

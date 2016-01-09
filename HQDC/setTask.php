@@ -16,61 +16,13 @@ if(Input::exists('get')&&$teacher->data()->id)
 }
 ?>
 <script src="js/ajaxfileupload.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-  $(".fileDel").click(function(){
-   var mark;
-   mark=$(this).parent().attr("id");
-   $.post("filedel.php",
-     {
-       'fileId':mark,
-       'token':$("[name$='token']").val()
-     },
-     function(data,status){
-         if(status=='success'){
-            alert(data);
-            $(this).parent().remove();
-            window.location.reload();
-         }
-         else alert('删除失败！');
-     });
-  });
-});
-
-jQuery(function(){   
-    $("#buttonUpload").click(function(){     
-      $.ajaxFileUpload({
-          url:'upfile.php',
-          secureuri :false,
-          fileElementId :'fileToUpload',
-          dataType : 'json',
-          data:{
-            "taskId":"<?php echo $id; ?>",
-            'token':$("[name$='token']").val()
-          },
-          success : function (data, status){
-              if(typeof(data.error) != 'undefined'){
-                  if(data.error != ''){
-                      alert(data.error);
-                  }else{
-                      alert(data.msg);
-                      window.location.reload();
-                  }
-              }
-          },
-          error: function(data, status, e){
-              alert(e);
-          }
-  })
-  return false;
-    }) 
-});
-</script>
+<script src="js/settask.js"></script>
 <div class="main row">
     <div class="col-md-6 col-md-offset-3">
       	<form class="form-horizontal" role="form" method="post" action="<?php if(!Input::exists('get')) echo 'insertTask_run.php'; else echo 'updateTask_run.php';?>"
       	enctype="multipart/form-data" >
         <input type="hidden" id="taskId" name="taskId" value="<?php echo $id; ?>">
+        <input type="hidden" id="action" name="action" value="<?php if(Input::exists('get')) echo 'isget'; ?>">
       	   <div class="form-group">
       	      <label  class="col-sm-2 ">题目</label>
       	      <div class="col-sm-10">
@@ -107,8 +59,8 @@ jQuery(function(){
       	      	<input type="hidden" id="token" name="token" value="<?php echo $token; ?>">
       	         <button type="submit" class="btn btn-default">
                   <?php 
-                    if(!Input::exists('get')) echo '提交'; 
-                    else echo "更新";
+                    if(!Input::exists('get')) echo '创建并提交附件'; 
+                    else echo "完成";
                     ?>
                 </button>
       	      </div>

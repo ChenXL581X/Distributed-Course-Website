@@ -18,7 +18,7 @@ if($teacher->data()->id)
 
 				
 				<div class="main ">
-				<h3><i class="fa fa-list"></i> 本学期课程教学安排<a href="#" class="pull-right"><i class="fa fa-refresh"></i> </a> <span class="new-task"><a href="#"><i class="fa fa-plus"></i> 新建课程或作业</a></span></h3>
+				<h3><i class="fa fa-list"></i> 本学期课程教学安排<a href="#" class="pull-right"><i class="fa fa-refresh"></i> </a> <span class="new-task"><a href="settask.php"><i class="fa fa-plus"></i> 新建课程或作业</a></span></h3>
 
 
 					<ul class="cbp_tmtimeline">
@@ -41,6 +41,7 @@ if($teacher->data()->id)
 						            <?php 
 						            echo $data[$i]->title; 
 						            ?>
+						        <input type="hidden" class="taskid" name="taskid" value="<?php echo $data[$i]->id; ?>">
 
 								<a href="#" class="showContext pull-right"><i class="fa fa-arrow-down"></i><span>展开</span></a>
 								<a href="#" class="delete-task pull-right"><i class="fa fa-times"></i><span>删除此任务</span></a>

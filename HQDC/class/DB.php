@@ -92,6 +92,18 @@ class DB{
 		return false;
 	}
 	
+	public function findByAnd($sql,$fields,$ops,$values)
+	{
+		$sql = $sql." where";
+		for ($i=0; $i < count($fields); $i++) { 
+			$sql = $sql." ".$fields[$i]." ".$ops[$i]." '".$values[$i]."'";
+		}
+		if(!$this -> query ($sql , $value)->error()){
+			
+			return $this;
+		}
+	}
+
 	public function get($table,$where = ''){
 		return $this -> action('select * ', $table ,$where);
 	}

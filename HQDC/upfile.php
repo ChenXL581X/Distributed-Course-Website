@@ -3,7 +3,7 @@ require_once 'core/init.php';
 $res["error"] = "";//错误信息
 $res["msg"] = "";//提示信息
 if (Input::exists('post')) {
-    if (Token::check(Input::get('token'))) {
+    if (1) {
 
         $validate = new Validate();
         $validation = $validate->check($_POST, array(

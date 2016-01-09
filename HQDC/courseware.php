@@ -1,5 +1,11 @@
 <?php
+require_once 'core/init.php';
 include 'includes/header.php';
+$now = time();
+$teacher = new Teacher();
+if($teacher->data()->id) 
+{
+	$data = $teacher->_materialsOperation->taskFindByAnd(array('materialsType'),array('like'),array('C'));
 ?>
 <div class="main center">
 	<div>
@@ -12,14 +18,17 @@ include 'includes/header.php';
 	<div>
 		<p>课件列表</p>
 		<ul>
-			<li><a href="">教学课件1.pdf</a></li>
-		    <li><a href="">教学课件2.pdf</a></li>
-		    <li><a href="">教学课件3.pdf</a></li>
-		    <li><a href="">教学课件4.pdf</a></li>
-		    <li><a href="">教学课件5.pdf</a></li>
+		<?php
+			foreach ($data as $d) {
+				?>
+			<li><a href="<?php echo $d->linkPDF; ?>"><?php echo $d->title; ?></a></li>
+	    <?php
+	    	}
+	    	?>
 	    </ul>
 	</div>
 </div>
+<?php } ?>
 <?php
 include "includes/footer.php";
 ?>
