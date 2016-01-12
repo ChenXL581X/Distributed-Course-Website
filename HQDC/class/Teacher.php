@@ -10,15 +10,19 @@ class Teacher extends User
 	function __construct($user = null)
 	{
 		parent::__construct($user);
-		$this->_taskOperation = new TaskOperation();
-		if($this->findInfo($this->_data->id))
-		{
-			$this->_isLoggedIn = true;
+		if(parent::isLoggedIn()){
+			$this->_taskOperation = new TaskOperation();
+			$id = $this->data()->id;
+			if($this->findInfo($this->_data->id))
+			{
+				$this->_isLoggedIn = true;
+			}
+			else
+			{ 
+				// echo "<script>alert('权限不足');location.href='admin.php';</script>";
+			}	
 		}
-		else
-		{ 
-			// echo "<script>alert('权限不足');location.href='admin.php';</script>";
-		}
+		
 	}
 
 	function findInfo($user)

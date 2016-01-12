@@ -3,7 +3,7 @@ require_once 'core/init.php';
 include "includes/header.php";
 $token = Token::generate();
 $teacher = new Teacher();
-if($teacher->data()->id) 
+if($teacher->isLoggedIn()&&$teacher->data()->id) 
 {
 	$data = $teacher->_taskOperation->taskFindAll($teacher->data()->id);
 	$name = $teacher->data()->name;
@@ -23,7 +23,7 @@ if($teacher->data()->id)
 
 					<ul class="cbp_tmtimeline">
 						<?php 
-						for ($i=0; $i < count($data); $i++) {
+						if($teacher->isLoggedIn()&&$teacher->data()->id)for ($i=0; $i < count($data); $i++) {
 						?>
 						<li> 
 							<time class="cbp_tmtime" datetime="<?php echo date("Y-m-d H:i",$data[$i]->start_time); ?>">
