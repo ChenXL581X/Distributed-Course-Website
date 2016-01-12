@@ -2,6 +2,8 @@
 $user = new User();
 $message = new Message();
 $m1 = $message->getMessage();
+$privilege = new Privilege();
+$role = $privilege->judge($user);
 
 ?>
 <nav class="navbar navbar-default navbar-fixed-top">

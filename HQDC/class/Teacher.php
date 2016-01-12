@@ -37,7 +37,18 @@ class Teacher extends User
 		}
 		return false;
 	}
-	
+	function findByUser($userId){
+		if ($userId) {
+		    $field = 'user_id';
+		    $data = $this->_db->get('teacher', array($field, '=', $userId));
+		    if ($data!=null&&$data->count()) {
+		        $this->_info = $data->first();
+		        return $this;
+		    }
+		}
+		return false;
+
+	}
 	function getInfo()
 	{
 		return $this->_info;

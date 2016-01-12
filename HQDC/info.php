@@ -1,5 +1,6 @@
 <?php
 include 'includes/header.php';
+
 ?>
 <link rel="stylesheet" type="text/css" href="css/info.css">
 <div id="main" class="main">

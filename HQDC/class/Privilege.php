@@ -11,9 +11,9 @@
 			$teacher = new teacher();
 			$student = new student();
 			if($user->isLoggedIn()){
-				if($teacher->findInfo($user->data()->id)){
+				if($teacher->findByUser($user->data()->id)){
 					$this->_result = 'teacher';
-				}else if($student->findInfo($user->data()->id)){
+				}else if($student->findByUser($user->data()->id)){
 					$this->_result = 'student';
 				}else{
 					$this->_result = 'user';
