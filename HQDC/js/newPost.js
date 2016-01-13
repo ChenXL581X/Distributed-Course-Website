@@ -80,11 +80,15 @@
 			data: {data:data},
 			success: function(data){
 				if(data == 'noLogin'){
-					alert('请先登录');
+					
+					$(".main").showMessage("请先登录",4000);
 				}else if(data == 'empty'){
-					alert('不能为空');
+					
+					$(".main").showMessage("不能为空",4000);
 				}else if(data == "success"){
-					alert('发帖成功');
+					//alert("您已成功发帖");
+					//$(".main").showMessage("您已成功发帖",4000);
+					window.location.href="forum.php";
 				}
 				console.log(data);
 				//location='forum.php';
@@ -94,7 +98,7 @@
 
 	});
 
-	$(".delimg").live('click',function(){
+	/*$(".delimg").live('click',function(){
 		var pic = $(this).attr("rel");
 		$.post("action.php?act=delimg",{imagename:pic},function(msg){
 			if(msg==1){
@@ -107,7 +111,7 @@
 				alert(msg);
 			}
 		});
-	});
+	});*/
 
 
 

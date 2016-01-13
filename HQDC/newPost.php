@@ -2,12 +2,12 @@
 	include "includes/header.php";
 ?>
 <link rel="stylesheet" type="text/css" href="css/newPost.css">
-<link rel="stylesheet" type="text/css" href="simditor-2.3.6/styles/simditor.css" />
+<link rel="stylesheet" type="text/css" href="application/simditor-2.3.6/styles/simditor.css" />
         
-        <script type="text/javascript" src="simditor-2.3.6/scripts/module.js"></script>
-        <script type="text/javascript" src="simditor-2.3.6/scripts/hotkeys.js"></script>
-        <script type="text/javascript" src="simditor-2.3.6/scripts/uploader.js"></script>
-        <script type="text/javascript" src="simditor-2.3.6/scripts/simditor.js"></script>
+        <script type="text/javascript" src="application/simditor-2.3.6/scripts/module.js"></script>
+        <script type="text/javascript" src="application/simditor-2.3.6/scripts/hotkeys.js"></script>
+        <script type="text/javascript" src="application/simditor-2.3.6/scripts/uploader.js"></script>
+        <script type="text/javascript" src="application/simditor-2.3.6/scripts/simditor.js"></script>
 <div class="main row">
 		<div class="center">
 			<i class="fa fa-edit fa-animate"></i>

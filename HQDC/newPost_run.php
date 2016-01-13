@@ -24,8 +24,11 @@ if(Input::exists('post')&& $user->isLoggedIn()){
     	$post = new Post();
     	$title = $data['title'];
 		$context = $data['context'];
-		$imgs=implode("|",$data['imgs']);
-		//var_dump($imgs);
+        if(array_key_exists("imgs",$data)){
+            $imgs=implode("|",$data['imgs']);    
+        }else{
+            $imgs = '';
+        }
     	try{
             $post->create(array(
                 'title' => $title,
@@ -34,7 +37,8 @@ if(Input::exists('post')&& $user->isLoggedIn()){
                 'release_time' => date('Y-m-d H:i:s'),
                 'release_people' => $user->data()->id
             ));
-            Session::flash('post'  ,  'create post successfully');
+            //Session::flash('forum','create post successfully');
+            Session::flash('forum',"发帖成功");
             echo 'success';	
             //Redirect::to('index.php');
         }catch(Exception $e){

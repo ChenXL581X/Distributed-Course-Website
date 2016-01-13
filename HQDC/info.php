@@ -1,6 +1,6 @@
 <?php
 include 'includes/header.php';
-
+$data = $user->data();
 ?>
 <link rel="stylesheet" type="text/css" href="css/info.css">
 <div id="main" class="main">
@@ -49,8 +49,8 @@ include 'includes/header.php';
 			 
 			<div id="tab11" class="centerbox" style="display: block;">
 				<div class="head-big">
-					<img class="head-chooce" id="head" src="images/portraits/hp3.jpg">
-					<p>蔡建宇</p>
+					<img class="head-chooce" id="head" src=<?php echo Config::get('images/portraits').$data->portraits;?>>
+					<p><?php echo $data->name;?></p>
 					
 					<a class="head-chooce" href="#">更换头像</a>
 
