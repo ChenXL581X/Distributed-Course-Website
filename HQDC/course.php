@@ -2,7 +2,6 @@
 require_once 'core/init.php';
 include "includes/header.php";
 $token = Token::generate();
-echo $role;
 if($role == 'teacher')
 {
 	$user = new Teacher();
