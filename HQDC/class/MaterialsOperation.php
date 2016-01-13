@@ -6,10 +6,6 @@ class MaterialsOperation
 	{
 		$this->_dbmaterials = new DBMaterials();
 	}
-	public function taskFindByAnd($fields,$ops,$values)
-	{
-		return $this->_dbmaterials->findByAnd($fields,$ops,$values);
-	}
 	public function taskFindAll()
 	{
 		return $this->_dbmaterials->findAll();

@@ -5,13 +5,15 @@
 class Teacher extends User
 {
 	public $_taskOperation;
-	private $_info;
+	private $_info,
+			$_materialsOperation;
 
 	function __construct($user = null)
 	{
 		parent::__construct($user);
 		if(parent::isLoggedIn()){
 			$this->_taskOperation = new TaskOperation();
+			$this->_materialsOperation = new MaterialsOperation();
 			$id = $this->data()->id;
 			if($this->findInfo($this->_data->id))
 			{

@@ -98,7 +98,7 @@ class DB{
 		for ($i=0; $i < count($fields); $i++) { 
 			$sql = $sql." ".$fields[$i]." ".$ops[$i]." '".$values[$i]."'";
 		}
-		if(!$this -> query ($sql , $value)->error()){
+		if(isset($sql)&&isset($value)&&!$this -> query ($sql , $value)->error()){
 			
 			return $this;
 		}

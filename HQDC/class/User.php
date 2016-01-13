@@ -212,4 +212,9 @@
                 // var_dump($array);
                 return json_encode($array);
             }
+            public function wareFindByAnd($fields,$ops,$values)
+            {
+                $materials = new DBMaterials();
+                return $materials->findByAnd($fields,$ops,$values);
+            }
         }

@@ -13,10 +13,6 @@
   	$url = $_SERVER['REQUEST_URI'];
 	$url = substr($url, strrpos($url,'/')+1);
 	$url = substr($url, 0,strrpos($url,'.'));
-<<<<<<< Updated upstream
-=======
-	
->>>>>>> Stashed changes
 	$message =  Session::flash("$url");
 	if($message!=''){
 		?>
