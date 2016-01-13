@@ -38,6 +38,13 @@
                 return $this;
             }else return false;  
         }
+        public function findLimitOrder($limit,$orderBy,$orderType){
+            $data = $this->_db->getLimitOrderby("post", $limit, $orderBy, $orderType);
+            if ($data->count()) {
+                $this->_data = $data->results();
+                return $this;
+            }else return false;  
+        }
         public function find($id = null){
         	$data = $this->_db->get('post', array('id', '=', $id));
             if ($data->count()) {

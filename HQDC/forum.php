@@ -2,7 +2,8 @@
 include "includes/header.php";
 
 $post = new Post();
-$post = $post->findAll();
+$post = $post->findLimitOrder('0,10','release_time','DESC');
+
 if($post) $postData = $post->data();
 
 ?>
@@ -38,7 +39,7 @@ if($post) $postData = $post->data();
       	<table class="table forum-table">
 		<tbody>
 			
-		</tbody>	
+			
 		<?php 
 			if($postData)foreach ($postData as $key => $value) {
 				$sender = $user->find($value->release_people)->data()->name;
@@ -98,7 +99,7 @@ if($post) $postData = $post->data();
 		<?php
 			}
 		?>
-				
+		</tbody>		
 		</table>
 		<div class="sk-spinner sk-spinner-rotating-plane"></div>
       </div>

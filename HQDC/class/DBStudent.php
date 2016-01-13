@@ -2,7 +2,7 @@
 /**
 * 
 */
-class DBTeacher extends DBTable
+class DBStudent extends DBTable
 {
 	
 	function __construct()

@@ -111,6 +111,7 @@ class DB{
 	public function getLimit($table, $limit, $long = -1) {
 	    if ($long == -1) {
 	        $sql = 'select * from '.$table.' LIMIT ' .$limit;
+	        echo $sql;
 	        if ($this->query($sql)) {
 	            return $this;
 	        }
@@ -127,6 +128,19 @@ class DB{
 	            return false;
 	        }
 	    }
+	}
+	public function getLimitOrderby($table, $limit, $orderBy, $orderType) {
+	    
+        $sql = 'select * from '.$table . ' ORDER BY '. $orderBy .' '. $orderType.' LIMIT ' .$limit;
+        
+        if ($this->query($sql)) {
+            return $this;
+        }
+        else {
+            return false;
+        }
+	    
+	    
 	}
 	public function delete($table,$where){
 		return $this -> action('delete', $table ,$where);
