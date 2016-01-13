@@ -23,10 +23,6 @@ class TaskOperation
 	{
 		$this->_dbtask->delete($id);
 	}
-	public function taskFindById($id)
-	{
-		return $this->_dbtask->findById($id);
-	}
 	public function taskFindByAnd($fields,$ops,$values)
 	{
 		return $this->_dbtask->findByAnd($fields,$ops,$values);

@@ -182,6 +182,11 @@
                 $task=new DBTask();
                 return $task->findAll();
             }
+            public function taskFindById($id)
+            {
+                $task=new DBTask();
+                return $task->findById($id);
+            }
             public function findCreateMan($id)
             {
                 $dbuser=new DBUser();
@@ -192,5 +197,19 @@
             {
                 $f = new DBFile();
                 return $f->findFile($taskId);
+            }
+            public function findCalender()
+            {
+                $task = new DBTask();
+                $data = $task->findAll();
+                $array = array();
+                for ($i=0; $i < count($data); $i++) { 
+                    $date = strtotime($data[$i]->start_time);
+                    $date = date('m-d-Y',$date);
+                    if(!isset($array[$date])) $array[$date] = "";
+                    $array[$date] .= "<a href='taskdetail.php?taskmark=".$data[$i]->id."'>".$data[$i]->title."</a>";
+                }
+                // var_dump($array);
+                return json_encode($array);
             }
         }

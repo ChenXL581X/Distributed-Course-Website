@@ -1,6 +1,13 @@
 <?php
 include 'includes/header.php';
+$user = new User();
+$codropsEvents = $user->findCalender();
+
+echo "<script type='text/javascript'>
+var codropsEvents = $codropsEvents;
+</script>";
 ?>
+
 <link rel="stylesheet" type="text/css" href="css/calendar.css">
 <link rel="shortcut icon" href="../favicon.ico"> 
 		<link rel="stylesheet" type="text/css" href="css/calendar.css" />

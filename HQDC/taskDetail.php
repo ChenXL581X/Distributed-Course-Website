@@ -2,17 +2,21 @@
 require_once 'core/init.php';
 include "includes/header.php";
 $token = Token::generate();
-$teacher = new teacher();
-if(Input::exists('get')&&$teacher->data()->id)
+$user = new User();
+if(Input::exists('get'))
 {
       $id = Input::get('taskmark');
-      $data = $teacher->_taskOperation->taskFindById($id);
-      $title = $data[0]->title;
-      $type = $data[0]->type;
-      $start = $data[0]->start_time;
-      $end = $data[0]->end_time;
-      $desc = $data[0]->context;
-      $files = $teacher->_taskOperation->taskFindTaskFiles($id);
+      $data = $user->taskFindById($id);
+      if($data)
+      {
+	      $title = $data[0]->title;
+	      $type = $data[0]->type;
+	      $start = $data[0]->start_time;
+	      $end = $data[0]->end_time;
+	      $desc = $data[0]->context;
+	      $teacher_id = $data[0]->teacher_id;
+	      $files = $user->taskFindTaskFiles($id);
+	  }
 ?>
 <link rel="stylesheet" type="text/css" href="css/taskDetail.css">
 <script src="js/ajaxfileupload.js"></script>
@@ -36,7 +40,7 @@ if(Input::exists('get')&&$teacher->data()->id)
 			<label>作业附件</label>
 			<div class="download"> 
 			<?php   
-			if(count($files))
+			if(isset($files))
 			{
 			?>
  
@@ -81,9 +85,14 @@ if(Input::exists('get')&&$teacher->data()->id)
 			</div>
 			<div class="info">
 				<span>截止时间:11/16 12:00</span>
+				<?php
+				if($role=='teacher')
+				{
+					?>
 				<a href="#" class="delete-task pull-right"><i class="fa fa-times"></i><span>删除此任务</span></a>
 				<a href="#" class="edit pull-right" id="edit">编辑 <i class="fa fa-pencil"></i></a>
-				<span class="pull-right">由<a href=""> <?php echo $teacher->data()->name; ?> </a>老师发起</span>
+				<?php }?>
+				<span class="pull-right">由<a href=""><?php if(isset($teacher_id)) echo $user->findCreateMan($teacher_id); ?></a>老师发起</span>
 			</div>
 		</div>
 	</div>
