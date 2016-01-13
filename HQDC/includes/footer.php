@@ -11,8 +11,8 @@
  <script src="js/global.js"></script>
   <?php
   	$url = $_SERVER['REQUEST_URI'];
-	$url = substr($url, strrpos($url,'/')+1, -4);
-	
+	$url = substr($url, strrpos($url,'/')+1);
+	$url = substr($url, 0,strrpos($url,'.'));
 	$message =  Session::flash("$url");
 	if($message!=''){
 		?>

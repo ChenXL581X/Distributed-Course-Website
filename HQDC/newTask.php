@@ -1,5 +1,7 @@
 <?php
-	include "includes/header.php";
+require_once 'core/init.php';
+include "includes/header.php";
+$token = Token::generate();
 ?>
 <link rel="stylesheet" type="text/css" href="css/newTask.css">
 <div class="main row">
@@ -12,7 +14,8 @@
 		
 
 		<div class="new-post col-md-6 col-md-offset-3">
-			<form action="newTask_run.php" method="post" enctype ="multipart/form-data">
+			<form action="inserttask_run.php" method="post" enctype ="multipart/form-data">
+			<input type="hidden" id="token" name="token" value="<?php echo $token; ?>">
 			  <div class="form-group">
 			    <label for="title">任务标题</label>
 			    <input type="text" class="form-control" id="title" name="title" placeholder="标题">
@@ -20,7 +23,7 @@
 			  <div  class="form-group row">
 			     <div class="col-md-4 ">
     			     <label for="end_time">截止日期</label>
-    			     <input type="date" class="form-control end-time" id="end_date" name="end_date" value="2015-01-01"> 
+    			     <input type="date" class="form-control end-time" id="endtime" name="endtime" value="2015-01-01"> 
     			     
 			     </div>
 			     <div class="col-md-3">
@@ -39,7 +42,7 @@
 			  </div>
 			  <div class="form-group">
 			    <label for="context">任务内容</label>
-			    <textarea class="form-control" id="context" name="context" placeholder="请输入任务内容"></textarea>
+			    <textarea class="form-control" id="context" name="desc" placeholder="请输入任务内容"></textarea>
 			  </div>
 <!-- 			  <div class="form-group "> -->
 <!-- 			    <label for="exampleInputFile">添加附件</label> -->

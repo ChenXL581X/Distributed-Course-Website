@@ -2,11 +2,17 @@
 require_once 'core/init.php';
 include "includes/header.php";
 $token = Token::generate();
-$teacher = new Teacher();
-if($teacher->isLoggedIn()&&$teacher->data()->id) 
+echo $role;
+if($role == 'teacher')
 {
-	$data = $teacher->_taskOperation->taskFindAll($teacher->data()->id);
-	$name = $teacher->data()->name;
+	$user = new Teacher();
+	$data = $user->taskFindAll();
+	$name = $user->data()->name;
+}
+else
+{
+	$user = new User();
+	$data = $user->taskFindAll();
 }
 ?>
 		<link rel="stylesheet" type="text/css" href="css/timeline/default.css" />
@@ -18,17 +24,26 @@ if($teacher->isLoggedIn()&&$teacher->data()->id)
 
 				
 				<div class="main ">
-				<h3><i class="fa fa-list"></i> 本学期课程教学安排<a href="#" class="pull-right"><i class="fa fa-refresh"></i> </a> <span class="new-task"><a href="settask.php"><i class="fa fa-plus"></i> 新建课程或作业</a></span></h3>
+				<h3>
+					<i class="fa fa-list"></i> 本学期课程教学安排<a href="#" class="pull-right"><i class="fa fa-refresh"></i> </a>
+				 	<?php
+				 	if($role=='teacher')
+				 	{
+				 		?>
+				 	<span class="new-task"><a href="newtask.php"><i class="fa fa-plus"></i> 新建课程或作业</a></span>
+					<?php } ?>
+				</h3>
 
 
 					<ul class="cbp_tmtimeline">
 						<?php 
-						if($teacher->isLoggedIn()&&$teacher->data()->id)for ($i=0; $i < count($data); $i++) {
+						for ($i=0; $i < count($data); $i++) {
+							$stamp=(int)$data[$i]->start_time;
 						?>
 						<li> 
-							<time class="cbp_tmtime" datetime="<?php echo date("Y-m-d H:i",$data[$i]->start_time); ?>">
-								<span><?php echo date("d/m/y",$data[$i]->start_time); ?></span>
-								<span><?php echo date("H:i",$data[$i]->start_time); ?></span>
+							<time class="cbp_tmtime" datetime="<?php echo date("Y-m-d H:i",$stamp); ?>">
+								<span><?php echo date("d/m/y",$stamp); ?></span>
+								<span><?php echo date("H:i",$stamp); ?></span>
 							</time>
 							<div class="cbp_tmicon cbp_tmicon-phone"></div>
 							<div class="cbp_tmlabel">
@@ -44,14 +59,19 @@ if($teacher->isLoggedIn()&&$teacher->data()->id)
 						        <input type="hidden" class="taskid" name="taskid" value="<?php echo $data[$i]->id; ?>">
 
 								<a href="#" class="showContext pull-right"><i class="fa fa-arrow-down"></i><span>展开</span></a>
+								<?php
+								if($role=='teacher')
+								{
+									?>
 								<a href="#" class="delete-task pull-right"><i class="fa fa-times"></i><span>删除此任务</span></a>
+								<?php }?>
 								</h6>
 						      	<div class="context">
 						      		<p><?php echo $data[$i]->context; ?>
 						      		</p>	
 						      	</div>
 				      	      	<?php
-				      	      		$files = $teacher->_taskOperation->taskFindTaskFiles($data[$i]->id);
+				      	      		$files = $user->taskFindTaskFiles($data[$i]->id);
 				      	      		if($files)
 				      	      		{
 				      	      			?>
@@ -81,8 +101,13 @@ if($teacher->isLoggedIn()&&$teacher->data()->id)
 								
 								<div class="info">
 									<span>截止时间:<?php echo date("d/m H:i",$data[$i]->end_time); ?></span>
+									<?php
+									if($role=='teacher')
+									{
+										?>
 									<a href="<?php echo 'taskdetail.php?taskmark='.$data[$i]->id; ?>" class="edit pull-right">编辑 <i class="fa fa-pencil"></i></a>
-									<span class="pull-right">由<a href=""><?php echo $name; ?></a>老师发起</span>
+									<?php }?>
+									<span class="pull-right">由<a href=""><?php echo $user->findCreateMan($data[$i]->teacher_id); ?></a>老师发起</span>
 								</div>
 
 							</div>

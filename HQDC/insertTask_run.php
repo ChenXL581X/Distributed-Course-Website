@@ -14,10 +14,6 @@ if (Input::exists('post')) {
                 'required' => true,
                 'name' => 'title'
             ),
-            'begintime' => array(
-                'required' => true,
-                'name' => 'begintime'
-            ),
             'endtime' => array(
                 'required' => true,
                 'name' => 'endtime'
@@ -36,12 +32,11 @@ if (Input::exists('post')) {
                     'title'=> Input::get('title'),
                     'teacher_id'=>$teacher->data()->id,
                     'type'=>Input::get('type'),
-                    'start_time'=>strtotime(Input::get('begintime')),
                     'end_time'=>strtotime(Input::get('endtime')),
                     'context'=> Input::get('desc')
                     ));
-                    Redirect::to('settask.php?taskmark='.$teacher->_taskOperation->getLastId());
-       
+                    // Redirect::to('settask.php?taskmark='.$teacher->_taskOperation->getLastId());
+                Redirect::to('course.php');
             }catch(Exception $e){
                 die($e->getMessage());
             }

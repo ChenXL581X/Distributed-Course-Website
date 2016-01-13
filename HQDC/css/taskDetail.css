@@ -26,13 +26,11 @@ div.files{
 .info{
 	margin-top: 5px;
 }
-<<<<<<< HEAD
 .deadline{
 	margin-top: 5px;
 	margin-bottom: 10px;
-=======
+}
 a.delete-task{
 	margin-left: 10px;
 	margin-right: 10px;
->>>>>>> dcd570535cd4e9ec0b240f7900a27222664f92aa
 }

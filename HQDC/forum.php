@@ -3,7 +3,7 @@ include "includes/header.php";
 
 $post = new Post();
 $post = $post->findAll();
-$postData = $post->data();
+if($post) $postData = $post->data();
 
 ?>
 <link rel="stylesheet" type="text/css" href="css/forum.css">

@@ -31,15 +31,6 @@ class TaskOperation
 	{
 		return $this->_dbtask->findByAnd($fields,$ops,$values);
 	}
-	public function taskFindAll()
-	{
-		return $this->_dbtask->findAll();
-	}
-	public function taskFindTaskFiles($taskId)
-	{
-		$f = new DBFile();
-		return $f->findFile($taskId);
-	}
 	public function fileFindById($id)
 	{
 		$f = new DBFile();

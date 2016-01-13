@@ -19,11 +19,10 @@ $(document).ready(function(){
      },
      function(data,status){
          if(status=='success'){
-            alert(data);
-            $(this).parent().remove();
+          alert(data);
             window.location.reload();
          }
-         else alert('删除失败！');
+         else $('.main').showMessage('删除失败！',4000);
      });
   });
     $("#fileToUpload").change(function(){ 

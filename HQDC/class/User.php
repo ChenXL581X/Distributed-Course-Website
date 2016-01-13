@@ -169,4 +169,20 @@
             public function isLoggedIn() {
                 return $this->_isLoggedIn;
             }
+            public function taskFindAll()
+            {
+                $task=new DBTask();
+                return $task->findAll();
+            }
+            public function findCreateMan($id)
+            {
+                $dbuser=new DBUser();
+                $data=$dbuser->findByID($id);
+                if($data) return $data[0]->name;
+            }
+            public function taskFindTaskFiles($taskId)
+            {
+                $f = new DBFile();
+                return $f->findFile($taskId);
+            }
         }

@@ -17,8 +17,11 @@ if (Input::exists('post')) {
             $teacher = new Teacher();
             try{
                 if($teacher->_taskOperation->deleteFile(Input::get('fileId')))
-            	   echo "Success！";
-                else echo 'Failed';
+            	{
+                    Session::flash("taskdetail","删除成功");
+                    //echo Session::flash("taskdetail");
+                }
+                else Session::flash("taskdetail","删除失败");
        
             }catch(Exception $e){
                 die($e->getMessage());
@@ -30,7 +33,7 @@ if (Input::exists('post')) {
                 //echo $error;
                 $errorInfo.=($error.'<br>');
             }
-            echo 'delete failed';
+            Session::flash("taskdetail","删除失败");
         }
 
     }

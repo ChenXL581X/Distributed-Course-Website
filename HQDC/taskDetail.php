@@ -39,15 +39,18 @@ if(Input::exists('get')&&$teacher->data()->id)
 			if(count($files))
 			{
 			?>
-			<?php                   
+ 
+			<?php  
 				foreach ($files as $file) {
 					?>
+			<div>   
 				<a class="" href="<?php echo $file->url; ?>" id="<?php echo "fl".$file->id; ?>">
 					<i class="fa fa-download">
 					</i> <?php echo $file->name; ?>
 				</a>
 				<span class='fileDel' style="display:none;" id="<?php echo $file->id; ?>">[删除]</span>
 				<br>
+			</div>
                     <?php
                        }
             ?>

@@ -12,14 +12,14 @@ class DBTable{
 	public function update($fields = array(), $id = null) 
 	{
 	    if (!$this->_db->update($this->_tablename, $id, $fields)) {
-	        throw new Exception("There was a problem updating in $_tablename.");
+	        throw new Exception("There was a problem updating in $this->_tablename.");
 	    }
 	}
 
 	public function create($fields = array()) 
 	{
 	    if (!$this->_db->insert($this->_tablename, $fields)) {
-	        throw new Exception("There was a problem inserting in $_tablename");
+	        throw new Exception("There was a problem inserting in $this->_tablename");
 	    }
 	    return true;
 	}

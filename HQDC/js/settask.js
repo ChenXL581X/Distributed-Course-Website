@@ -9,11 +9,11 @@ $(document).ready(function(){
      },
      function(data,status){
          if(status=='success'){
-            alert(data);
+            $('.main').showMessage(data,4000);
             $(this).parent().remove();
             window.location.reload();
          }
-         else alert('删除失败！');
+         else $('.main').showMessage('删除失败！',4000);
      });
   });
 });
