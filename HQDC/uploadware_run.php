@@ -20,6 +20,7 @@ if (Input::exists('post')) {
         	        $res["error"] = "error";
         	    }
         	    else {
+                    echo FileUtils::GetWarePath()."/".$file['name'];
                     $rs=$teacher->_materialsOperation->uploadWare($file,array(
                         'title'=> $file['name'],
                         'materialsType'=>Input::get('type'),
@@ -31,6 +32,7 @@ if (Input::exists('post')) {
                 Redirect::to('courseware.php');
         	}catch(Exception $e){
         	    $res["error"] = "error:".$e->getMessage();
+                echo $res["error"];
         	}
 
         }else {

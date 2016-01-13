@@ -37,7 +37,7 @@ class DBTable{
 	{
 		$sql="select * from ".$this->_tablename;
 		$data = $this->_db->findByAnd($sql, $fields,$ops,$values);
-        if ($data != false && $data->count()) {
+        if ($data && $data->count()) {
             //$this->_data = $data->first();
             return $data->results();
         }

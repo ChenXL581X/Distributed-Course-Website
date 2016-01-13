@@ -4,7 +4,8 @@
 */
 class Teacher extends User
 {
-	public $_taskOperation;
+	public $_taskOperation,
+			$_materialsOperation;
 	private $_info;
 
 	function __construct($user = null)
@@ -12,6 +13,7 @@ class Teacher extends User
 		parent::__construct($user);
 		if(parent::isLoggedIn()){
 			$this->_taskOperation = new TaskOperation();
+			$this->_materialsOperation = new MaterialsOperation();
 			$id = $this->data()->id;
 			if($this->findInfo($this->_data->id))
 			{

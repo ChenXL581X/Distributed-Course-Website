@@ -9,7 +9,7 @@ $(document).ready(function(){
 		var group = $('#group').val();
 
 		if(username == '' || password == '') {
-			alert("用户名和密码不能为空");
+			$('.main').showMessage("用户名和密码不能为空",4000);
 		}
 		else {
 			if(password == password_confirm) {
@@ -28,7 +28,7 @@ $(document).ready(function(){
 						result = JSON.parse(result);
 						console.log(result);
 						if(result.state == 'failed') {
-							alert(result.context);
+							$('main').showMessage(result.context,4000);
 							if(result.stateNum == '102') {
 								$('#username').val("");
 							}
@@ -37,14 +37,14 @@ $(document).ready(function(){
 							}
 						}
 						else {
-							alert(result.context);
+							$('.main').showMessage(result.context,4000);
 							location.reload(); 
 						}
 					}
 				});
 			}
 			else {
-				alert("确认密码不匹配");
+				$('main').showMessage("确认密码不匹配",4000);
 				$('#password').val("");
 				$('#password_confirm').val("");
 			}
@@ -77,7 +77,7 @@ $(document).ready(function(){
 	$('#fromExcel').click(function() {
 		var file = $("#file_stu");
         if($.trim(file.val())==''){
-               alert("请先选择文件");
+               $('.main').showMessage("请先选择文件",4000);
                return false;
         }
         else {
@@ -97,13 +97,12 @@ $(document).ready(function(){
                  contentType: false,
                  processData: false,
                  success: function (result) {
-                	 result = JSON.parse(result);
-                	 alert(result.state);
+                	 result = eval("(" + result + ")");
                 	 console.log(result);
+                	 console.log(result.state);
                 	 if(result.state == 'success') {
-                		 alert(result);
-                		 $("#message").append("<p>导入成功"+result.successNum+"条。</p>");
-                		 $("#message").append("<p>导入失败"+result.failedNum+"条.</p>");
+                		 $("#message").append("<p>导入成功"+result['successNum']+"条。</p>");
+                		 $("#message").append("<p>导入失败"+result['failedNum']+"条.</p>");
                 		 if(result.failedNum != 0) {
                 			 $.each(result.message, function(name,value) {
                 				 $("#message").append("<p>" + name + " " +value + "</p>");

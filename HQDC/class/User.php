@@ -43,6 +43,14 @@
                     throw new Exception('There was a problem creating an account.');
                 }
             }
+            
+            public function lastInsert(){
+                if(!$this -> _db->query ('SELECT LAST_INSERT_ID() as id')->error()){
+                    $result = $this->_db->results();
+                }
+                return $result[0]->id;
+            }
+            
 
             public function find($user = null) {
                 if ($user) {
@@ -174,6 +182,11 @@
                 $task=new DBTask();
                 return $task->findAll();
             }
+            public function taskFindById($id)
+            {
+                $task=new DBTask();
+                return $task->findById($id);
+            }
             public function findCreateMan($id)
             {
                 $dbuser=new DBUser();
@@ -184,5 +197,24 @@
             {
                 $f = new DBFile();
                 return $f->findFile($taskId);
+            }
+            public function findCalender()
+            {
+                $task = new DBTask();
+                $data = $task->findAll();
+                $array = array();
+                for ($i=0; $i < count($data); $i++) { 
+                    $date = strtotime($data[$i]->start_time);
+                    $date = date('m-d-Y',$date);
+                    if(!isset($array[$date])) $array[$date] = "";
+                    $array[$date] .= "<a href='taskdetail.php?taskmark=".$data[$i]->id."'>".$data[$i]->title."</a>";
+                }
+                // var_dump($array);
+                return json_encode($array);
+            }
+            public function wareFindByAnd($fields,$ops,$values)
+            {
+                $materials = new DBMaterials();
+                return $materials->findByAnd($fields,$ops,$values);
             }
         }

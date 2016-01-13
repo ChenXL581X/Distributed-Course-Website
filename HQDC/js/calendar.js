@@ -1,5 +1,5 @@
 	$(function() {
-
+		console.log(codropsEvents);
 				var cal = $( '#calendar' ).calendario( {
 						onDayClick : function( $el, $contentEl, dateProperties ) {
 

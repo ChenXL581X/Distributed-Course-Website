@@ -2,10 +2,10 @@
 require_once 'core/init.php';
 include 'includes/header.php';
 $now = time();
-$teacher = new Teacher();
-if($teacher->data()->id) 
+$user = new Teacher();
+if($user->data()->id) 
 {
-	$data = $teacher->_materialsOperation->taskFindByAnd(array('materialsType'),array('like'),array('C'));
+	$data = $user->wareFindByAnd(array('materialsType'),array('like'),array('C'));
 ?>
 <div class="main center">
 	<div>

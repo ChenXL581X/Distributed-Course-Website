@@ -60,13 +60,15 @@ $(document).ready(function(){
            			 				success : function(data){ 
            			 					console.log(data);
            			 					var message = data.message;
-           			 					alert(message);
+//           			 					alert(message);
+           			 					$('.main').showMessage(message,4000);
            			 					if(message == '删除成功') {
            			 						$('#'+id).remove();
            			 					}
            			 				},
            			 				error : function() {
-           			 					alert('无法开始删除');
+//           			 					alert('无法开始删除');
+           			 					$('.main').showMessage("无法开始删除",4000);
            			 				}
            			 			});
            			 		}
@@ -82,13 +84,15 @@ $(document).ready(function(){
             	}
             	else {
 //            		$('#table').replaceWith("没有结果");
-            		alert('没有结果');
+//            		alert('没有结果');
+            		$('.main').showMessage('没有结果',4000);
             		$('#table').show();
             	}
             	$("#table").show();
             },
             error : function() {
             	alert('搜索失败');
+            	$('.main').showMessage('搜索失败',4000);
             }
        });	
 	});
