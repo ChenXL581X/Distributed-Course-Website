@@ -4,9 +4,9 @@
 */
 class Teacher extends User
 {
-	public $_taskOperation;
-	private $_info,
+	public $_taskOperation,
 			$_materialsOperation;
+	private $_info;
 
 	function __construct($user = null)
 	{

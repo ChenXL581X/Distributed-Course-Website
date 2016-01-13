@@ -98,7 +98,7 @@ class DB{
 		for ($i=0; $i < count($fields); $i++) { 
 			$sql = $sql." ".$fields[$i]." ".$ops[$i]." '".$values[$i]."'";
 		}
-		if(isset($sql)&&isset($value)&&!$this -> query ($sql , $value)->error()){
+		if(!$this -> query ($sql )->error()){
 			
 			return $this;
 		}
@@ -146,10 +146,10 @@ class DB{
 			$x++;
 			
 		}
-		// var_dump($fields);
+		var_dump($fields);
 		// die();
 		$sql = "insert into {$table} (`"   .  implode('`,`', $keys)  .    "`) values ({$values})";
-		
+		echo $sql;
 
 		if (!$this -> query($sql , $fields)->error()){
 			return true;

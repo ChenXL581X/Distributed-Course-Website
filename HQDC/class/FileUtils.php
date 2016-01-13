@@ -59,7 +59,7 @@ class FileUtils
 	    		$tmpstr = strrchr($file['name'], ".");
 	    		$file['name'] = substr($file['name'],0,strrpos($file['name'],'.'))."- 副本".$tmpstr;
 	    		// echo $file['name'];
-	    		return self::UpFile($file,$isExisted);
+	    		return self::UpWare($file,$isExisted);
 	    	}
 	    	// echo "Upload: " . $file["name"] . "<br />";
 	    	// echo "Type: " . $file["type"] . "<br />";
