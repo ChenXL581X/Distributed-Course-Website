@@ -8,7 +8,7 @@ include 'includes/header.php';
 		<ul class="nav nav-tabs">
 		  <li role="presentation" class="active"><a class="to-tab1" href="#">课程简介</a></li>
 		  <li role="presentation"><a class="to-tab2" href="#">教学环境</a></li>
-		  <li role="presentation"><a class="to-tab3" href="#">Messages</a></li>
+		  <li role="presentation"><a class="to-tab3" href="#">教师简介</a></li>
 		</ul>
 		<div id="courseIntroduce" class="tab1">
 		<h1>课程简介</h1>
@@ -17,18 +17,7 @@ include 'includes/header.php';
 			   $courseInfo = new CourseInfo();
 			   echo $courseInfo->getCourseIntroduce();
 			?>	
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			
 		</div>
 		
 
@@ -40,22 +29,19 @@ include 'includes/header.php';
 			<?php 
 			   echo $courseInfo->getTeachingEnvironment();
 			?>	
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			
 		</div>
 		</div>
 		<div class="tab3">
 			<div class="info">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.	
+			<img src="/upload/xxx.jps" />
+			<?php 
+			$teacherInfo = new DBTeacher();
+			$detail = $teacherInfo->getAllIntroduce();
+			foreach ($detail as $value) {
+			    $value = (array)$value;
+			}
+			?>
 			</div>
 			
 		</div>
@@ -69,18 +55,21 @@ include 'includes/header.php';
 			  <div class="panel-heading">最近通知</div>
 			  <div class="panel-body">
 			    <ul>
-			       <?php 
-		                $news = new News();
-		                $record = $news->getInfo();
-		                $count = count($record);
-		                foreach ($record as $value) {
-		                    $value = get_object_vars($value);
-		                    echo "<li><a href='newsDetail.php?id=".$value['id']."' target='_blank'>".$value['title']."</a>";
-		                    echo "<p>".$value['upload_time']."  <a href=''>".$value['upload_people']."</a></p>";
-		                    echo "</li>";
-		                }
-		                
-		            ?>
+			      <?php 
+				                $news = new News();
+				                $record = $news->getInfo();
+				                $count = count($record);
+				                foreach ($record as $value) {
+				                    if ($value->type == 'notice') {
+				                        $value = get_object_vars($value);
+				                        echo "<li><a href='newsDetail.php?id=".$value['id']."' target='_blank'>".$value['title']."</a>";
+				                        echo "<p>".$value['upload_time']."  <a href=''>".$value['upload_people']."</a></p>";
+				                        echo "</li>";
+				                    }
+				                    
+				                }
+				                
+				            ?>
 <!-- 					    	<li> -->
 <!-- 					    		<a href="#" target="_blank">各位领导，各位老师，关于学院国庆、中秋假期放假安全稳定工作的...</a> -->
 <!-- 					    		<p>2015年3月3日11:00 <a href="#">马锐</a></p> -->
@@ -102,17 +91,21 @@ include 'includes/header.php';
 			  <div class="panel-heading">最新动态</div>
 			  <div class="panel-body">
 			    <ul>
-			    <?php 
-			       $notice = new Notice();
-			       $record = $notice->getInfo();
-			       $count = count($record);
-			       foreach ($record as $value) {
-			           $value = get_object_vars($value);
-			           echo "<li><a href='newsDetail.php?id=".$value['id']."' target='_blank'>".$value['title']."</a>";
-			           echo "<p>".$value['upload_time']."  <a href=''>".$value['upload_people']."</a></p>";
-			           echo "</li>";
-			       }
-			    ?>
+			     <?php 
+				                $news = new News();
+				                $record = $news->getInfo();
+				                $count = count($record);
+				                foreach ($record as $value) {
+				                    if ($value->type == 'news') {
+				                        $value = get_object_vars($value);
+				                        echo "<li><a href='newsDetail.php?id=".$value['id']."' target='_blank'>".$value['title']."</a>";
+				                        echo "<p>".$value['upload_time']."  <a href=''>".$value['upload_people']."</a></p>";
+				                        echo "</li>";
+				                    }
+				                    
+				                }
+				                
+				            ?>
 					    	<!-- <li>
 					    		<a href="#" target="_blank">各位领导，各位老师，关于学院国庆、中秋假期放假安全稳定工作的...</a>
 					    		<p>2015年3月3日11:00 <a href="#">马锐</a></p>
@@ -129,6 +122,6 @@ include 'includes/header.php';
 	</div>
 </div>
 <script type="text/javascript" src="js/courseIntroduce.js"></script>
-<?php
+<?php 
 include "includes/footer.php";
 ?>

@@ -1,6 +1,6 @@
 <?php
 include 'includes/header.php';
-	
+	echo $role;
 ?>
 <link rel="stylesheet" type="text/css" href="css/index.css">
 
@@ -64,10 +64,13 @@ include 'includes/header.php';
 				                $record = $news->getInfo();
 				                $count = count($record);
 				                foreach ($record as $value) {
-				                    $value = get_object_vars($value);
-				                    echo "<li><a href='newsDetail.php?id=".$value['id']."' target='_blank'>".$value['title']."</a>";
-				                    echo "<p>".$value['upload_time']."  <a href=''>".$value['upload_people']."</a></p>";
-				                    echo "</li>";
+				                    if ($value->type == 'notice') {
+				                        $value = get_object_vars($value);
+				                        echo "<li><a href='newsDetail.php?id=".$value['id']."' target='_blank'>".$value['title']."</a>";
+				                        echo "<p>".$value['upload_time']."  <a href=''>".$value['upload_people']."</a></p>";
+				                        echo "</li>";
+				                    }
+				                    
 				                }
 				                
 				            ?>
@@ -93,16 +96,20 @@ include 'includes/header.php';
 					  <div class="panel-body">
 					    <ul>
 					    <?php 
-					       $notice = new Notice();
-					       $record = $notice->getInfo();
-					       $count = count($record);
-					       foreach ($record as $value) {
-					           $value = get_object_vars($value);
-					           echo "<li><a href='newsDetail.php?id=".$value['id']."' target='_blank'>".$value['title']."</a>";
-					           echo "<p>".$value['upload_time']."  <a href=''>".$value['upload_people']."</a></p>";
-					           echo "</li>";
-					       }
-					    ?>
+				                $news = new News();
+				                $record = $news->getInfo();
+				                $count = count($record);
+				                foreach ($record as $value) {
+				                    if ($value->type == 'news') {
+				                        $value = get_object_vars($value);
+				                        echo "<li><a href='newsDetail.php?id=".$value['id']."' target='_blank'>".$value['title']."</a>";
+				                        echo "<p>".$value['upload_time']."  <a href=''>".$value['upload_people']."</a></p>";
+				                        echo "</li>";
+				                    }
+				                    
+				                }
+				                
+				            ?>
 <!-- 					    	<li> -->
 <!-- 					    		<a href="#" target="_blank">各位领导，各位老师，关于学院国庆、中秋假期放假安全稳定工作的...</a> -->
 <!-- 					    		<p>2015年3月3日11:00 <a href="#">马锐</a></p> -->

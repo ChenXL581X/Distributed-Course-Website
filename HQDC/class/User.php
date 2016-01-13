@@ -43,6 +43,14 @@
                     throw new Exception('There was a problem creating an account.');
                 }
             }
+            
+            public function lastInsert(){
+                if(!$this -> _db->query ('SELECT LAST_INSERT_ID() as id')->error()){
+                    $result = $this->_db->results();
+                }
+                return $result[0]->id;
+            }
+            
 
             public function find($user = null) {
                 if ($user) {

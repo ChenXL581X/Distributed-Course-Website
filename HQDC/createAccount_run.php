@@ -85,6 +85,7 @@ elseif ($type == 'fromExcel') {
     $resultArr = array();
     $resultArr = $excel->importExcel($fileID);
     array_shift($resultArr);
+//     echo $resultArr;
     $result = array(
         'state' => 'success',
         'successNum' => 0,
@@ -287,6 +288,3 @@ else if($type == 'exportExcelModel') {
 // 	    }
 // 	}
 // }
-
-
-?>

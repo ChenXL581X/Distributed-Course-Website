@@ -46,10 +46,10 @@ function submitCourse(choose, context) {
 			var message = result.message;
 			if(result.state == 'success') {
 				
-				alert(message);
+				$('.main').showMessage(message,4000);
 			}
 			else {
-				alert(message);
+				$('.main').showMessage(message,4000);
 			}
 		}
 	});

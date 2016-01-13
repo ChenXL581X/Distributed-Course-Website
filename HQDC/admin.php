@@ -114,6 +114,7 @@ include 'includes/header.php';
                     			<input type="text" name="defined_password" id="defined_password" placeholder="请输入自定义密码"><br>
                     	<button class='btn btn-default' type="button" id="fromExcel" name="submitreg" value="fromExcel">导入账号</button>
                 	</form>
+                	<div id="message"></div>
 				</div>
 				<div class="clear-both"></div>
 				
