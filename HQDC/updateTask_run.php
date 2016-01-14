@@ -31,7 +31,7 @@ if (Input::exists('post')) {
                     'end_time'=>strtotime(Input::get('endtime')),
                     'context'=> Input::get('desc')
                     ),$id);
-            echo "success";
+                Session::flash("taskdetail","编辑成功");
             }catch(Exception $e){
                 die($e->getMessage());
             }
@@ -42,9 +42,7 @@ if (Input::exists('post')) {
                 //echo $error;
                 $errorInfo.=($error.'<br>');
             }
-            
-            // Session::flash('login',$errorInfo);
-            // Redirect::to('login.php?tab=toreg');
+            Session::flash("taskdetail","编辑失败");
         }
 
     }

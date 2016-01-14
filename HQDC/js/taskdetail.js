@@ -1,4 +1,15 @@
 $(document).ready(function(){
+  if(typeof(editmodel)!='undefined'&&editmodel==true)
+  {
+    $("#title").removeAttr("disabled").css("border","1px solid");
+    $("#context").removeAttr("disabled").css("border","1px solid");
+    $(".operate").hide();
+    $(".info").hide();
+    $("#fileToUpload").show();
+    $("#uptask").show();
+    $("#deadline").show();
+    $(".fileDel").show();
+  }
   $("a#edit").click(function(){
    $("#title").removeAttr("disabled").css("border","1px solid").focus();
    $("#context").removeAttr("disabled").css("border","1px solid");
@@ -65,10 +76,9 @@ $(document).ready(function(){
        },
        function(data,status){
            if(status=='success'){
-              alert(data);
-              window.location.reload();
+              window.location.href="taskdetail.php?taskmark="+taskId;
            }
-           else alert('failed');
+           else $('.main').showMessage('failed',4000);
        });
   });
   $(".delete-task").click(function(){

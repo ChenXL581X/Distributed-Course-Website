@@ -1,6 +1,10 @@
 <?php
 require_once 'core/init.php';
 include "includes/header.php";
+if(Input::get('edit')=='true')
+{
+	echo "<script>var editmodel=true;</script>";
+}
 $token = Token::generate();
 $user = new User();
 if(Input::exists('get'))
