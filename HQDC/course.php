@@ -13,6 +13,7 @@ else
 	$user = new User();
 	$data = $user->taskFindAll();
 }
+$nowtime=strtotime('now');
 ?>
 		<link rel="stylesheet" type="text/css" href="css/timeline/default.css" />
 		<link rel="stylesheet" type="text/css" href="css/timeline/component.css" />
@@ -37,11 +38,12 @@ else
 					<ul class="cbp_tmtimeline">
 						<?php 
 						for ($i=0; $i < count($data); $i++) {
-							$stamp=(int)$data[$i]->start_time;
+							$stamp=strtotime($data[$i]->start_time);
+							$endtime=$data[$i]->end_time;
 						?>
 						<li> 
 							<time class="cbp_tmtime" datetime="<?php echo date("Y-m-d H:i",$stamp); ?>">
-								<span><?php echo date("d/m/y",$stamp); ?></span>
+								<span><?php echo date("d/m/Y",$stamp); ?></span>
 								<span><?php echo date("H:i",$stamp); ?></span>
 							</time>
 							<div class="cbp_tmicon cbp_tmicon-phone"></div>
@@ -85,10 +87,14 @@ else
 								</div>
 								<?php } ?>
 								<div class="operate tool-box">
-								<label>该实验已完成</label>
+									<?php 
+										$percent=($nowtime-$stamp)/($endtime-$stamp);
+										$percent = sprintf("%01.2f", $percent*100).'%';
+									?>
+								<label><?php if($nowtime<$endtime) echo '该实验持续中';else echo '该实验已完成'; ?></label>
 								<div class="progress">
 								  
-								  <div class="progress-bar progress-bar-success progress-bar-striped " style="width: 100%">
+								  <div class="progress-bar progress-bar-success progress-bar-striped " style="width: <?php echo $percent;?>">
 								    
 								  </div>
 								  
