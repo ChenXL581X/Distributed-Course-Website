@@ -8,7 +8,7 @@ require_once 'core/init.php';
 
 if (Input::exists('post')) {
     if (Token::check(Input::get('token'))) {
-    	Session::delete('home');
+    	Session::delete('index');
 
         $validate = new Validate();
         $validation = $validate->check($_POST, array(
@@ -36,13 +36,18 @@ if (Input::exists('post')) {
 
                 Redirect::to('index.php');
             } else {
-                echo '<p>Sorry, logging in failed </p>';
+                Session::flash('login',"用户和密码不匹配");
+
+                Redirect::to('login.php');
+                
             }
 
         } else {
             foreach ($validation->errors() as $error) {
-                echo '<i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;', $error, '<br>';
-                echo '<br />';
+                $str.=($error.'<br>');
+                Session::flash('login',$str);
+
+                Redirect::to('login.php');
             }
         } 
 

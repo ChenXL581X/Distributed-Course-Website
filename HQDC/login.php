@@ -47,14 +47,14 @@ $token = Token::generate();
 													<fieldset>
 														<label>
 															<span class="block input-icon input-icon-right">
-																<input type="text" name="username" class="span12" placeholder="用户名" />
+																<input type="text" name="username" class="span12" placeholder="用户名" required/>
 																<i class="fa fa-user icon-user"></i>
 															</span>
 														</label>
 
 														<label>
 															<span class="block input-icon input-icon-right">
-																<input type="password" name="password" class="span12" placeholder="密码" />
+																<input type="password" name="password" class="span12" placeholder="密码" required/>
 																<i class="fa fa-lock icon-lock"></i>
 															</span>
 														</label>

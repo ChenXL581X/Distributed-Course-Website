@@ -29,14 +29,14 @@ include 'includes/header.php';
 					<fieldset>
 						<label>
 							<span class="block input-icon input-icon-right">
-								<input type="text" name="username" class="span12" placeholder="用户名">
+								<input type="text" name="username" class="span12" placeholder="用户名" required>
 								<i class="fa fa-user icon-user"></i>
 							</span>
 						</label>
 
 						<label>
 							<span class="block input-icon input-icon-right">
-								<input type="password" name="password" class="span12" placeholder="密码">
+								<input type="password" name="password" class="span12" placeholder="密码" required>
 								<i class="fa fa-lock icon-lock"></i>
 							</span>
 						</label>
@@ -86,13 +86,13 @@ include 'includes/header.php';
 <!--     <legend>注册信息</legend> -->
                     	<h3>输入账号信息以创建账号：</h3>
 		                <label>用户名：</label>
-		                <input type="text" name="username" id="username" placeholder="请输入10位学号或教职工号">
+		                <input type="text" name="username" id="username" placeholder="请输入10位学号或教职工号" required>
 		                <label>姓名：</label>
-		                <input type="text" name="name" id="name" placeholder="请输入真实姓名">
+		                <input type="text" name="name" id="name" placeholder="请输入真实姓名" required>
                         <label>密码：</label>
-                        <input type="password" placeholder="请输入账号密码" name="password" id="password">
+                        <input type="password" placeholder="请输入账号密码" name="password" id="password" required>
                         <label>确认密码：</label>
-                        <input type="password" placeholder="请确认账号密码" name="password_confirm" id="password_confirm">
+                        <input type="password" placeholder="请确认账号密码" name="password_confirm" id="password_confirm" required>
 		                <label>账号类型：</label>
 		                <input type="radio" name="group" id="group" value="S" checked> 学生
 		            	<input type="radio" name="group" id="group" value="T" > 教师  *  
@@ -164,7 +164,7 @@ include 'includes/header.php';
 	                    	<option value="teaching_environment">教学条件</option>
 	                    	<option value="course_introduce">课程简介</option>
 	                	</select>
-	                	<textarea id="editor_course" placeholder="输入内容" autofocus></textarea><br>
+	                	<textarea id="editor_course" placeholder="输入内容" autofocus required></textarea><br>
 	                	<button class='btn btn-default' id="button_course">提交</button>
 					</div>
 				</div><!--课程信息-->
@@ -179,8 +179,8 @@ include 'includes/header.php';
 	                    	<option value="notice">通知</option>
 	                    	<option value="news">动态</option>
 	                	</select>
-	                	<input type="text" id="title" placeholder="输入标题"><br>
-	                	<textarea id="editor_news" placeholder="输入内容" autofocus></textarea><br>
+	                	<input type="text" id="title" placeholder="输入标题" required><br>
+	                	<textarea id="editor_news" placeholder="输入内容" autofocus required></textarea><br>
 	                	<button class='btn btn-default' id="button_news">提交</button>
 					</div>
 				</div>	

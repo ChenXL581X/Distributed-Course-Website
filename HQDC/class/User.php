@@ -112,9 +112,9 @@
                    
                     $user = $this->findWithUsername($username);
                     if ($user) {
-                         var_dump($this->data()->password );
+                         //var_dump($this->data()->password );
                        //  var_dump($this->data()->salt );
-                         var_dump(Hash::make($password, $this->data()->salt));
+                        // var_dump(Hash::make($password, $this->data()->salt));
                         // die();
                         if ($this->data()->password === Hash::make($password, $this->data()->salt)) {
                             Session::put($this->_sessionName, $this->data()->id);

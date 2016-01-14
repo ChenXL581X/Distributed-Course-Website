@@ -21,7 +21,7 @@
 			<form>
 			  <div class="form-group">
 			    <label for="title">帖子标题或简介</label>
-			    <input type="text" class="form-control" id="title" placeholder="标题">
+			    <input type="text" class="form-control" id="title" placeholder="标题" required>
 			  </div>
 			  
 			  <div class="form-group">
@@ -36,7 +36,7 @@
 			    <div class="tools-droparea">
 				    <div class="tools-droparea-placeholder">
 				    	
-				    	<input id="fileUpload" type="file" tabindex="5" name="postPic" data-tools="upload" data-url="upload.php">
+				    	<input id="fileUpload" type="file" tabindex="5" name="postPic" data-tools="upload" data-url="upload.php" required>
 				    	<span><i class="fa fa-file-image-o"></i></span>
 				    </div>
 			    </div>

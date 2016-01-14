@@ -1,6 +1,6 @@
 <?php
 include 'includes/header.php';
-	echo $role;
+	//echo $role;
 ?>
 <link rel="stylesheet" type="text/css" href="css/index.css">
 

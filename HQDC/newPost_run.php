@@ -37,6 +37,7 @@ if(Input::exists('post')&& $user->isLoggedIn()){
                 'release_time' => date('Y-m-d H:i:s'),
                 'release_people' => $user->data()->id
             ));
+            Session::delete('forum');
             //Session::flash('forum','create post successfully');
             Session::flash('forum',"发帖成功");
             echo 'success';	

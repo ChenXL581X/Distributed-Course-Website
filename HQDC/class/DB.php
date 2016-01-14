@@ -160,10 +160,10 @@ class DB{
 			$x++;
 			
 		}
-		var_dump($fields);
+		//var_dump($fields);
 		// die();
 		$sql = "insert into {$table} (`"   .  implode('`,`', $keys)  .    "`) values ({$values})";
-		echo $sql;
+		//echo $sql;
 
 		if (!$this -> query($sql , $fields)->error()){
 			return true;
