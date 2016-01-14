@@ -34,3 +34,17 @@ a.delete-task{
 	margin-left: 10px;
 	margin-right: 10px;
 }
+.upbtn{
+	position: absolute;
+	background-color: #ccc;
+	opacity: 0;
+	cursor: pointer;
+}
+.upbtn input{
+	position: absolute;
+    font-size: 100px;
+    height: 31px;
+	width: 89px;
+    opacity: 0;
+    cursor: pointer
+}
