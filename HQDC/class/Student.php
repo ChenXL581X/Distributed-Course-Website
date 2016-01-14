@@ -4,12 +4,13 @@
 */
 class Student extends User
 {
-	public $_taskOperation;
 	private $_info;
+	public $_homework;
 	function __construct($user = null)
 	{
 		parent::__construct($user);
 		if(parent::isLoggedIn()){
+			$this->_homework = new Homework();
 			if($this->findInfo($this->_data->id))
 			{
 				$this->_isLoggedIn = true;

@@ -61,10 +61,10 @@ $token = Token::generate();
 <!-- 			  	<div id="showfile"></div> -->
 
 <!-- 			  </div> -->
-			  <div class="form-group">
+<!-- 			  <div class="form-group">
 			     <label for="inputFile">添加附件</label>
 			     <input type="file" name="inputFile" id="inputFile">
-			  </div>
+			  </div> -->
 
 			 	<div class="clear-both"></div>
 		
@@ -72,7 +72,7 @@ $token = Token::generate();
 			  												
 			  <div class="center">
 			  	
-			  	<button id="submit" class="btn btn-default">创建</button>
+			  	<button id="submit" class="btn btn-default">创建并添加附件</button>
 			  </div>		  
 			</form>	
 		</div>

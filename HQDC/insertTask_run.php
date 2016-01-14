@@ -35,8 +35,8 @@ if (Input::exists('post')) {
                     'end_time'=>strtotime(Input::get('endtime')),
                     'context'=> Input::get('desc')
                     ));
-                    // Redirect::to('settask.php?taskmark='.$teacher->_taskOperation->getLastId());
-                Redirect::to('course.php');
+                    Redirect::to('taskdetail.php?taskmark='.$teacher->_taskOperation->getLastId());
+                // Redirect::to('course.php');
             }catch(Exception $e){
                 die($e->getMessage());
             }

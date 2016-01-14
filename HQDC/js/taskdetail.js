@@ -19,7 +19,6 @@ $(document).ready(function(){
      },
      function(data,status){
          if(status=='success'){
-          alert(data);
             window.location.reload();
          }
          else $('.main').showMessage('删除失败！',4000);
@@ -38,7 +37,7 @@ $(document).ready(function(){
           success : function (data, status){
               if(typeof(data.error) != 'undefined'){
                   if(data.error != ''){
-                      alert(data.error);
+                      $('.main').showMessage(data.error,4000);
                   }else{
                       alert(data.msg);
                       window.location.reload();
@@ -46,7 +45,7 @@ $(document).ready(function(){
               }
           },
           error: function(data, status, e){
-              alert(e);
+              $('.main').showMessage(e,4000);
           }
   })
   return false;
@@ -90,4 +89,34 @@ $(document).ready(function(){
             }
      });
   });
+  $("#homework").change(function(){ 
+    var taskId=$("#id").val(); 
+      $.ajaxFileUpload({
+          url:'uphomework.php',
+          secureuri :false,
+          fileElementId :'homework',
+          dataType : 'JSON',
+          data:{
+            "taskId":taskId
+          },
+          success : function (data, status){
+            console.log(data);
+              if(typeof(data.error) != 'undefined'){
+                  if(data.error != ''){
+                    alert(data.error);
+                      $('.main').showMessage(data.error,4000);
+                  }else{
+                      alert(data.msg);
+                      window.location.reload();
+                  }
+              }
+          },
+          error: function(data, status, e){
+            console.log(data);
+            alert(e);
+              $('.main').showMessage(e,4000);
+          }
+  })
+  return false;
+    }) ;
 });

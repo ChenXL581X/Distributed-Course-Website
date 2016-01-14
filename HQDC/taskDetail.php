@@ -27,10 +27,16 @@ if(Input::exists('get'))
 		<div class="task">
 			<input type="hidden" id="token" name="token" value="<?php echo $token; ?>">
 			<input type="hidden" id="id" value="<?php echo $id; ?>">
+			<div>
+				<label>标题</label>
 			<input type="text" id="title" name="title" class="title"  value="<?php if(isset($title)) echo $title; ?>" disabled>
+			</div>
+			<div>
+				<label>内容</label>
 			<textarea class="context" name="desc" id="context" placeholder="" disabled>
 <?php if(isset($desc)) echo $desc; ?>		
 			</textarea>
+			</div>
 			<div id="deadline" style="display:none">
 				<label>截止时间</label>
 				<div class="col-sm-3 deadline">
@@ -79,7 +85,7 @@ if(Input::exists('get'))
 				<label>你尚未提交作业</label>
 
 			</div>
-
+				<div class="upbtn"><input id="homework" type="file" name='homework'></div>
 				<button class="btn btn-primary"><i class="fa fa-upload"></i> 提交作业</button>
 				<button onclick="location='workScore.php?taskId=1'" class="btn btn-default"><i class="fa fa-pencil"></i> 为学生评分</button> 
 			</div>
