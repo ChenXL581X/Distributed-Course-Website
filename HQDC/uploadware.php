@@ -2,6 +2,7 @@
 require_once 'core/init.php';
 include "includes/header.php";
 $token = Token::generate();
+if(Input::exists('get')) $filetype=Input::get('type')
 ?>
 <div class="main row">
     <div class="col-md-6 col-md-offset-3">
@@ -9,11 +10,7 @@ $token = Token::generate();
         enctype="multipart/form-data" >
         <input type="hidden" id="taskId" name="taskId" value="">
         <div class="form-group">
-           <label  class="col-sm-2 ">类型</label>
-           <div class="col-sm-10">
-              <input type="radio" name="type" value="C" /> 课件
-              <input type="radio" name="type" value="R" /> 参考文献
-           </div>
+           <input type="hidden" name=type value="<?php if($filetype) echo $filetype;?>">
         </div>
            <div class="form-group">
               <label  class="col-sm-2 ">文件</label>

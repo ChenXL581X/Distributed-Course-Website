@@ -11,7 +11,7 @@ $data = $user->wareFindByAnd(array('materialsType'),array('like'),array('C'));
 	if($role=='teacher')
 	{
 	?>
-	<span class="new-task"><a href="uploadware.php"><i class="fa fa-plus"></i> 上传课件</a></span>
+	<span class="new-task"><a href="uploadware.php?type=C"><i class="fa fa-plus"></i> 上传课件</a></span>
 	<?php
 }
 	?>

@@ -29,8 +29,16 @@ if (Input::exists('post')) {
                         ));
         	        $res["msg"] = "ok".$rs;
         	    }
+        	    if(Input::get('type')=='C')
+        	    {
                 Session::flash("courseware","上传成功");
                 Redirect::to('courseware.php');
+        	    }
+        	    else 
+        	    {
+        	        Session::flash("document","上传成功");
+        	        Redirect::to('document.php');
+        	    }
         	}catch(Exception $e){
         	    $res["error"] = "error:".$e->getMessage();
                 echo $res["error"];

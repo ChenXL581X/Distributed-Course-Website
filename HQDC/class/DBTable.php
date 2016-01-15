@@ -49,6 +49,7 @@ class DBTable{
 		$data = $this->_db->query($sql, null);
         if ($data != false && $data->count()) {
             //$this->_data = $data->first();
+            echo "123213".$data->count();
             return $data->results();
         }
         else return false;	 

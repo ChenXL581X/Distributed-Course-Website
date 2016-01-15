@@ -1,25 +1,33 @@
 <?php
+require_once 'core/init.php';
 include 'includes/header.php';
+$now = time();
+if($role=='teacher') $user = new Teacher();
+else $user = new User();
+$data = $user->wareFindByAnd(array('materialsType'),array('like'),array('R'));
 ?>
-<div class="main">
+<div class="main center">
+	<?php
+	if($role=='teacher')
+	{
+	?>
+	<span class="new-task"><a href="uploadware.php?type=R"><i class="fa fa-plus"></i> 上传参考文献</a></span>
+	<?php
+}
+	?>
 
-<div class="center">
-	<p>文献列表</p>
-	<ul>
-	    <li><a href="">参考文献1.pdf</a></li>
-		<li><a href="">参考文献2.pdf</a></li>
-		<li><a href="">参考文献3.pdf</a></li>
-		<li><a href="">参考文献4.pdf</a></li>
-		<li><a href="">参考文献5.pdf</a></li>
-    </ul>
-</div>
-
-<div>
-	<p>国内外精品课程</p>
-	<a href="">精品课程1</a>
-	<a href="">精品课程1</a>
-	<a href="">精品课程1</a>
-</div>
+	<div>
+		<p>参考文献列表</p>
+		<ul>
+		<?php
+			foreach ($data as $d) {
+				?>
+			<li><a href="<?php echo $d->linkPDF; ?>"><?php echo $d->title; ?></a></li>
+	    <?php
+	    	}
+	    	?>
+	    </ul>
+	</div>
 </div>
 <?php
 include "includes/footer.php";
