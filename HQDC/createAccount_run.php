@@ -95,11 +95,11 @@ if ($type == 'fromhand') {
     else {
         $message = null;
         foreach ($validation->errors() as $error) {
-            $message =  $error;
-            break;
+            $message .=  $error;
+      
         }
         $state = 'failed';
-        $state = '103';
+        $stateNum = '103';
     }
     
     $result = array(

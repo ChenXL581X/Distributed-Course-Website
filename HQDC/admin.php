@@ -1,6 +1,18 @@
 <?php
 include 'includes/header.php';
-if($role=='admin'){
+if ($role == 'tourist') {
+    echo "<script type='text/javascript'>
+    
+		window.location.href = 'login.php';
+        if(confirm('您没有登录，是否跳转到登录页面？')){
+        window.location.href = 'login.php';
+        }else{
+        window.location.href = 'index.php';
+        }
+        
+		</script>";
+}
+else if($role=='admin'){
 ?>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -26,17 +38,19 @@ $(document).ready(function(){
 			
 				<div class="login-img">
 					<img src="images/portraits/hp3.jpg">
-					<p>蔡建宇</p>
+					<p><?php 
+					echo $user->data()->name;
+					?></p>
 				</div>
 
 				<form method="POST" action="" id="login">
 					<fieldset>
-						<label>
-							<span class="block input-icon input-icon-right">
-								<input type="text" name="username" class="span12" placeholder="用户名" required>
-								<i class="fa fa-user icon-user"></i>
-							</span>
-						</label>
+<!-- 						<label> -->
+<!-- 							<span class="block input-icon input-icon-right"> -->
+<!-- 								<input type="text" name="username" class="span12" placeholder="用户名" required> -->
+<!-- 								<i class="fa fa-user icon-user"></i> -->
+<!-- 							</span> -->
+<!-- 						</label> -->
 
 						<label>
 							<span class="block input-icon input-icon-right">
@@ -48,15 +62,18 @@ $(document).ready(function(){
 						<div class="space"></div>
 						
 						<div class="clearfix text-left">
-							<label class="inline">
-								<input type="checkbox">
-								<span class="lbl"> 记住密码</span>
-							</label>
+<!-- 							<label class="inline"> -->
+<!-- 								<input type="checkbox"> -->
+<!-- 								<span class="lbl"> 记住密码</span> -->
+<!-- 							</label> -->
 							<input type="hidden" name="token" value="c95ab5d475c48afaee64eaeff08328a2">
-							<button class="login-button width-35 pull-right btn-primary  btn btn-small">
+							<div class="center">
+							<button class="login-button width-35  btn-primary  btn btn-small">
 								<i class="fa fa-key icon-key"></i>
 								验证
 							</button>
+							 </div>
+							
 						</div>
 						
 
