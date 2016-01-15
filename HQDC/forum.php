@@ -2,7 +2,14 @@
 include "includes/header.php";
 
 $post = new Post();
-$post = $post->findLimitOrder('0,10','release_time','DESC');
+if(Input::exists('get'))
+{
+	$param = Input::get('key');
+	echo "<script>var searchcontent='".$param."'</script>";
+	$arr = explode(' ',$param);
+	$post = $post->findWhereLikeLimitOrder($arr,'0,10','release_time','DESC');
+}
+else $post = $post->findLimitOrder('0,10','release_time','DESC');
 
 if($post) $postData = $post->data();
 
@@ -41,7 +48,7 @@ if($post) $postData = $post->data();
 			
 			
 		<?php 
-			if($postData)foreach ($postData as $key => $value) {
+			if(isset($postData)&&$postData)foreach ($postData as $key => $value) {
 				$sender = $user->find($value->release_people)->data()->name;
 				$senderPortrait = $user->find($value->release_people)->data()->portraits;
 				//var_dump($value->imgs);

@@ -132,7 +132,7 @@ class DB{
 	}
 	public function getLimitOrderby($table, $limit, $orderBy, $orderType) {
 	    
-        $sql = 'select * from '.$table . ' ORDER BY '. $orderBy .' '. $orderType.' LIMIT ' .$limit;
+        $sql = 'select * from '.$table.' ORDER BY '.$orderBy.' '.$orderType.' LIMIT '.$limit;
         
         if ($this->query($sql)) {
             return $this;
@@ -140,8 +140,25 @@ class DB{
         else {
             return false;
         }
-	    
-	    
+	}
+	public function findWhereLikeLimitOrder($table,$wheres, $limit, $orderBy, $orderType) {
+	    if(count($wheres))
+	    {
+	    	$where1 = "context like '%$wheres[0]%'";
+	    	$where2 = "title like '%$wheres[0]%'";
+	    }
+	    for ($i=1; $i < count($wheres); $i++) { 
+	    	$where1 .= " and context like '%$wheres[$i]%'";
+	    	$where2 .= " and title like '%$wheres[$i]%'";
+	    }
+        $sql = 'select * from '.$table.' where '.$where1." union ".
+        	'select * from '.$table.' where '.$where2.' ORDER BY '. $orderBy .' '. $orderType.' LIMIT ' .$limit;
+        if ($this->query($sql)) {
+            return $this;
+        }
+        else {
+            return false;
+        }
 	}
 	public function delete($table,$where){
 		return $this -> action('delete', $table ,$where);

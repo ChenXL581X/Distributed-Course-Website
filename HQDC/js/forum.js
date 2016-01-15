@@ -28,6 +28,14 @@
 	
 
 })();
+if(typeof(searchcontent)!="undefined") {
+	$("#search").val(searchcontent);
+	// $("td a.title").each(function(){
+	// 	alert($(this).text());
+		
+	// });
+	// alert($("td p").text())
+}
 $("#search").keydown(function(e){
 	if(e.which==13){
 		var text=$(this).val();

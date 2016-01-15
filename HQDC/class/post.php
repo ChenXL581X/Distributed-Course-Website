@@ -45,6 +45,13 @@
                 return $this;
             }else return false;  
         }
+        public function findWhereLikeLimitOrder($where=array(),$limit,$orderBy,$orderType){
+            $data = $this->_db->findWhereLikeLimitOrder("post",$where, $limit, $orderBy, $orderType);
+            if ($data->count()) {
+                $this->_data = $data->results();
+                return $this;
+            }else return false;  
+        }
         public function find($id = null){
         	$data = $this->_db->get('post', array('id', '=', $id));
             if ($data->count()) {
