@@ -29,6 +29,7 @@ if (Input::exists('post')) {
                         ));
         	        $res["msg"] = "ok".$rs;
         	    }
+                Session::flash("courseware","上传成功");
                 Redirect::to('courseware.php');
         	}catch(Exception $e){
         	    $res["error"] = "error:".$e->getMessage();

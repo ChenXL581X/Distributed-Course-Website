@@ -4,6 +4,7 @@ include "includes/header.php";
 $token = Token::generate();
 ?>
 <link rel="stylesheet" type="text/css" href="css/newTask.css">
+<script src="js/newTask.js"></script>
 <div class="main row">
 		<div class="center">
 			<i class="fa fa-edit fa-animate"></i>

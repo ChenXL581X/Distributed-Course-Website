@@ -2,12 +2,19 @@
 require_once 'core/init.php';
 include 'includes/header.php';
 $now = time();
-$user = new Teacher();
-if($user->data()->id) 
-{
-	$data = $user->wareFindByAnd(array('materialsType'),array('like'),array('C'));
+if($role=='teacher') $user = new Teacher();
+else $user = new User();
+$data = $user->wareFindByAnd(array('materialsType'),array('like'),array('C'));
 ?>
 <div class="main center">
+	<?php
+	if($role=='teacher')
+	{
+	?>
+	<span class="new-task"><a href="uploadware.php"><i class="fa fa-plus"></i> 上传课件</a></span>
+	<?php
+}
+	?>
 	<div>
 		<p>选择学年</p>
 		<select>
@@ -28,7 +35,6 @@ if($user->data()->id)
 	    </ul>
 	</div>
 </div>
-<?php } ?>
 <?php
 include "includes/footer.php";
 ?>
