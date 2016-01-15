@@ -1,10 +1,15 @@
 <?php
 include "includes/header.php";
 $post = new Post();
+
 $postId = Input::get('postId');
 if(!$postId){
 	Session::flash('forum',"帖子不存在");
-	Redirect::to('forum.php');
+	echo "<script type='text/javascript'>
+	
+		window.location.href = 'forum.php';
+		
+		</script>";
 }else{
 	$postData = $post->find($postId)->data();
 
@@ -145,7 +150,7 @@ if(!$postId){
 								<a class="show" href="#">展开图片</a>
 							</div>
 
-							<?
+							<?php
 								$imgArray = explode("|", $value->imgs);
 							}else{
 								$imgArray = false;
