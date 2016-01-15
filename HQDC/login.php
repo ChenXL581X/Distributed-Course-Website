@@ -240,9 +240,9 @@ $token = Token::generate();
 		<!--inline scripts related to this page-->
 
 		<div class="center nav-bar">
-	<a href="index.php"><i class="fa fa-book "></i><br><span>课程</span></a>	
+	<a href="course.php"><i class="fa fa-book "></i><br><span>课程</span></a>	
 	<a href="index.php"><i class="fa fa-leaf "></i><br><span>主页</span></a>	
-	<a href="index.php"><i class="fa fa-question "></i><br><span>帮助</span></a>	
+	<a href="forum.php"><i class="fa fa-comments "></i><br><span>论坛</span></a>	
 	</div>	
 	</div>	
 		<script type="text/javascript">
