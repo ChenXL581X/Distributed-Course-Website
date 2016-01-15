@@ -97,7 +97,7 @@ if($post) $postData = $post->data();
 				<div>
 					
 					<span class="pull-left"><?php echo $value->release_time;?></span>
-					<span class="pull-right"><a href=<?php echo "deletePost.php?postId=".$value->id?>>删除本帖</a></span>
+					<span class="pull-right"><a class="delete-post" href=<?php echo "deletePost.php?postId=".$value->id?>>删除本帖</a></span>
 				</div>
 				
 				</td>

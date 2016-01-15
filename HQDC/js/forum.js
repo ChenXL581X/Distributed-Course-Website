@@ -28,6 +28,14 @@
 	
 
 })();
+$('.delete-post').click(function(e){
+	e.preventDefault();
+	var href = $(this).attr('href');
+	if(confirm('是否删除该帖')){
+		window.location.href = href;
+		
+	}
+});
 if(typeof(searchcontent)!="undefined") {
 	$("#search").val(searchcontent);
 	// $("td a.title").each(function(){

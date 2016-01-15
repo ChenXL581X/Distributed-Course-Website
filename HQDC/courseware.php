@@ -5,6 +5,7 @@ $now = time();
 if($role=='teacher') $user = new Teacher();
 else $user = new User();
 $data = $user->wareFindByAnd(array('materialsType'),array('like'),array('C'));
+
 ?>
 <div class="main center">
 	<?php
@@ -26,7 +27,7 @@ $data = $user->wareFindByAnd(array('materialsType'),array('like'),array('C'));
 		<p>课件列表</p>
 		<ul>
 		<?php
-			foreach ($data as $d) {
+			if($data)foreach ($data as $d) {
 				?>
 			<li><a href="<?php echo $d->linkPDF; ?>"><?php echo $d->title; ?></a></li>
 	    <?php
