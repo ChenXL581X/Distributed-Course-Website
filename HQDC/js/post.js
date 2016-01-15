@@ -60,7 +60,7 @@
     		},
 			success: function(data) {
 				
-				files.html("<b>"+data.name+"("+data.size+"k)</b> <span class='delimg' rel='"+data.pic+"'>删除</span>");
+				//files.html("<b>"+data.name+"("+data.size+"k)</b> <span class='delimg' rel='"+data.pic+"'>删除</span>");
 				//console.log(data);
 				var img = $('<img/>',{
 					src : data.pic_path,
@@ -75,7 +75,7 @@
 //		alert(xhr);
 				
 				//bar.width('0')
-				files.html(xhr.responseText);
+				//files.html(xhr.responseText);
 			}
 		});
 	});

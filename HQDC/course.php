@@ -48,7 +48,7 @@ $nowtime=strtotime('now');
 							</time>
 							<div class="cbp_tmicon cbp_tmicon-phone"></div>
 							<div class="cbp_tmlabel">
-						      <h6>
+						      <h6 onclick="location=<?php echo '\'taskdetail.php?taskmark='.$data[$i]->id.'\''; ?>">
 						            <?php
 						            if($data[$i]->type==='H')
 						            echo "作业：";

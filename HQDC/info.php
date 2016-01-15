@@ -89,9 +89,7 @@ $token = Token::generate();
 			</div>
 			<div id="tab22" class="centerbox" style="display: none;">
 				<form style="margin-top:30px" method="post" action="changePassword.php" class="forms">
-					    <label>
-                            <input type="email" name="user-email" placeholder="邮箱" value="c123123" disabled="" class="width-100">
-					    </label>
+					    
 					    <label>
 					        <input type="password" name="password_current" placeholder="原密码" class="width-100">
 					    </label>
