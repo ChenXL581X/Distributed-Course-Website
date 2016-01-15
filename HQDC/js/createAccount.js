@@ -7,6 +7,7 @@ $(document).ready(function(){
 		var password = $('#password').val();
 		var password_confirm = $('#password_confirm').val();
 		var group = $('#group').val();
+		var sex = $('#sex').val();
 
 		if(username == '' || password == '') {
 			$('.main').showMessage("用户名和密码不能为空",4000);
@@ -20,12 +21,14 @@ $(document).ready(function(){
 						username:username,
 						name:name,
 						password:password,
+						sex:sex,
 						group:group
 					},
 					type : "POST",
 					
 					success : function(result) {
-						result = JSON.parse(result);
+//						result = JSON.parse(result);
+						result = eval("(" + result + ")");
 						console.log(result);
 						if(result.state == 'failed') {
 							$('main').showMessage(result.context,4000);
@@ -33,18 +36,24 @@ $(document).ready(function(){
 								$('#username').val("");
 							}
 							if(result.stateNum == '103') {
-								location.reload();
+//								location.reload();
+								$('#username').val("");
+								$('#password').val("");
+								$('#password_confirm').val("");
 							}
 						}
 						else {
 							$('.main').showMessage(result.context,4000);
-							location.reload(); 
+//							location.reload(); 
+							$('#username').val("");
+							$('#password').val("");
+							$('#password_confirm').val("");
 						}
 					}
 				});
 			}
 			else {
-				$('main').showMessage("确认密码不匹配",4000);
+				$('。main').showMessage("确认密码不匹配",4000);
 				$('#password').val("");
 				$('#password_confirm').val("");
 			}
@@ -97,6 +106,7 @@ $(document).ready(function(){
                  contentType: false,
                  processData: false,
                  success: function (result) {
+                	 console.log(result);
                 	 result = eval("(" + result + ")");
                 	 console.log(result);
                 	 console.log(result.state);

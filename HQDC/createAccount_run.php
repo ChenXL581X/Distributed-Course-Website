@@ -29,12 +29,26 @@ if ($type == 'fromhand') {
     
     if ($validation->passed()) {
         $salt = Hash::salt(32);
+        if (Input::get('sex') == 'F' && Input::get('group') == 'T') {
+            $portraits = 'hp_defalut_tea_female.png';
+        }
+        if (Input::get('sex') == 'F' && Input::get('group') == 'S') {
+            $portraits = 'hp_defalut_stu_female.png';
+        }
+        if (Input::get('sex') == 'M' && Input::get('group') == 'T') {
+            $portraits = 'hp_defalut_tea_male.png';
+        }
+        if (Input::get('sex') == 'M' && Input::get('group') == 'S') {
+            $portraits = 'hp_defalut_stu_male.png';
+        }
         $record = array(
             'username' => Input::get('username'),
             'name' => Input::get('name'),
+            'sex' => Input::get('sex'),
             'salt'=>$salt,
             'password' => Hash::make(Input::get('password'),$salt),
             'joined'=>date('Y-m-d H:i:s'),
+            'portraits' => $portraits,
             'group' => Input::get('group')
         );
         $user = new User();
@@ -95,14 +109,29 @@ elseif ($type == 'fromExcel') {
     if ($resultArr != false) {
         foreach ($resultArr as $value) {
             $salt = Hash::salt(32);
+            $salt = Hash::salt(32);
+            if ($value['C'] == 'F' && $value['D'] == 'T') {
+                $portraits = 'hp_defalut_tea_female.png';
+            }
+            if ($value['C'] == 'F' && $value['D'] == 'S') {
+                $portraits = 'hp_defalut_stu_female.png';
+            }
+            if ($value['C'] == 'M' && $value['D'] == 'T') {
+                $portraits = 'hp_defalut_tea_male.png';
+            }
+            if ($value['C'] == 'M' && $value['D'] == 'S') {
+                $portraits = 'hp_defalut_stu_male.png';
+            }
             if (Input::get('passwordType') == 'default_password') {
                 $record = array(
                     'username' => $value['A'],
                     'password' => Hash::make($value['A'],$salt),
                     'salt' => $salt,
                     'name' => $value['B'],
+                    'sex' => $value['C'],
                     'joined' => date('Y-m-d H:i:s'),
-                    'group' => $value['C']
+                    'portraits' => $portraits,
+                    'group' => $value['D']
                 );
             }
             else {
@@ -111,8 +140,10 @@ elseif ($type == 'fromExcel') {
                     'password' => Hash::make(Input::get('defined_password'),$salt),
                     'salt' => $salt,
                     'name' => $value['B'],
+                    'sex' => $value['C'],
                     'joined' => date('Y-m-d H:i:s'),
-                    'group' => $value['C']
+                    'portraits' => $portraits,
+                    'group' => $value['D']
                 );
             }
             
@@ -144,7 +175,7 @@ elseif ($type == 'fromExcel') {
 
 else if($type == 'exportExcelModel') {
     $model = array(
-        array('学号','姓名','身份（S表示学生，T表示老师）')
+        array('学号','姓名','性别（F表示女，M表示男）','身份（S表示学生，T表示老师）')
     );
     $excel = new Excel();
     $excel->exportExcel($model,"账号表模板");
