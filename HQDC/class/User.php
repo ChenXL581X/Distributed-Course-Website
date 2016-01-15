@@ -232,4 +232,14 @@
                 $materials = new DBMaterials();
                 return $materials->findByAnd($fields,$ops,$values);
             }
+            public function findStudent()
+            {
+                $dbstudent=new DBUser();
+                return $dbstudent->findByAnd(array('user.group'),array('='),array('S'));
+            }
+            public function findMaterailStudent($taskID)
+            {
+                $db=new DBTaskSubmit();
+                return $db->findByAnd(array('task_id'),array('='),array($taskID));
+            }
         }

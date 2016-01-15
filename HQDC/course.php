@@ -88,13 +88,15 @@ $nowtime=strtotime('now');
 								<?php } ?>
 								<div class="operate tool-box">
 									<?php 
-										$percent=($nowtime-$stamp)/($endtime-$stamp);
-										$percent = sprintf("%01.2f", $percent*100).'%';
 									?>
 								<label><?php if($nowtime<$endtime) echo '该实验持续中';else echo '该实验已完成'; ?></label>
 								<div class="progress">
-								  
-								  <div class="progress-bar progress-bar-success progress-bar-striped " style="width: <?php echo $percent;?>">
+								  <?php
+								  $studentData=$user->findStudent();
+								  $submitData=$user->findMaterailStudent($data[$i]->id);
+								  $percent=count($submitData)/count($studentData)*100;
+								  ?>
+								  <div class="progress-bar progress-bar-success progress-bar-striped " style="width: <?php echo $percent."%";?>">
 								    
 								  </div>
 								  

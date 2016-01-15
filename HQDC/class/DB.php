@@ -98,8 +98,8 @@ class DB{
 		for ($i=0; $i < count($fields); $i++) { 
 			$sql = $sql." ".$fields[$i]." ".$ops[$i]." '".$values[$i]."'";
 		}
+		// echo $sql;
 		if(!$this -> query ($sql )->error()){
-			
 			return $this;
 		}
 	}
@@ -111,7 +111,7 @@ class DB{
 	public function getLimit($table, $limit, $long = -1) {
 	    if ($long == -1) {
 	        $sql = 'select * from '.$table.' LIMIT ' .$limit;
-	        echo $sql;
+	        // echo $sql;
 	        if ($this->query($sql)) {
 	            return $this;
 	        }

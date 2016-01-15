@@ -41,7 +41,7 @@ class DBTable{
             //$this->_data = $data->first();
             return $data->results();
         }
-        else return false;	
+        else return null;	
 	}
 	public function findAll()
 	{
@@ -49,7 +49,6 @@ class DBTable{
 		$data = $this->_db->query($sql, null);
         if ($data != false && $data->count()) {
             //$this->_data = $data->first();
-            echo "123213".$data->count();
             return $data->results();
         }
         else return false;	 

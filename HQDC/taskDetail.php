@@ -77,11 +77,16 @@ if(Input::exists('get'))
 				<button class="btn btn-primary" id="uploadfile"><i class="fa fa-upload"></i> 确定</button>
 			</div>
 			<div class="operate tool-box">
-			<label>已有20%同学提交作业</label>
+			<?php
+				$studentData=$user->findStudent();
+				$submitData=$user->findMaterailStudent($id);
+				$percent=count($submitData)/count($studentData)*100;
+			?>
+			<label>已有<?php echo $percent."%";?>同学提交作业</label>
 			<div class="progress">
 			  
-			  <div class="progress-bar progress-bar-info progress-bar-striped active" style="width: 20%">
-			    <span class="sr-only">已有20%同学提交作业</span>
+			  <div class="progress-bar progress-bar-info progress-bar-striped active" style="width: <?php echo $percent."%";?>">
+			    <span class="sr-only">已有<?php echo $percent."%";?>同学提交作业</span>
 			  </div>
 			  
 			</div>
