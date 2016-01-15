@@ -35,6 +35,24 @@ if (Input::exists('post')) {
                     'end_time'=>strtotime(Input::get('endtime')),
                     'context'=> Input::get('desc')
                     ));
+                $validate->check($_POST, array(
+                            'uploadfile' => array(
+                                'required' => true,
+                                'name' => 'uploadfile'
+                            ),
+                        ));
+                if($validation->passed())
+                {
+                    $arr=Input::get('uploadfile');
+                    foreach ($arr as $file) {
+                        echo $file;
+                        $teacher->_taskOperation->insertFile(array(
+                            'name'=>$file,
+                            'teacher_id'=>$teacher->data()->id,
+                            'url'=>FileUtils::GetPath()."/".$file,
+                            ));
+                    }
+                }
                     Redirect::to('taskdetail.php?taskmark='.$teacher->_taskOperation->getLastId());
                 // Redirect::to('course.php');
             }catch(Exception $e){

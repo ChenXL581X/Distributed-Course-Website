@@ -4,6 +4,7 @@ include "includes/header.php";
 $token = Token::generate();
 ?>
 <link rel="stylesheet" type="text/css" href="css/newTask.css">
+<script src="js/ajaxfileupload.js"></script>
 <script src="js/newTask.js"></script>
 <div class="main row">
 		<div class="center">
@@ -62,10 +63,12 @@ $token = Token::generate();
 <!-- 			  	<div id="showfile"></div> -->
 
 <!-- 			  </div> -->
-<!-- 			  <div class="form-group">
+			  <div class="form-group">
 			     <label for="inputFile">添加附件</label>
+			     <div class="filelist">
+			     </div>
 			     <input type="file" name="inputFile" id="inputFile">
-			  </div> -->
+			  </div>
 
 			 	<div class="clear-both"></div>
 		

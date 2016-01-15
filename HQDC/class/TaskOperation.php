@@ -50,6 +50,10 @@ class TaskOperation
 	{
 		$rs=FileUtils::upfile($file,true);
 		if($rs != false) $fields['name']=$rs;
+		insertFile($fields);
+	}
+	public function insertFile($fields)
+	{
 		$f = new DBFile();
 		if(!isset($fields['task_id'])) $fields['task_id']= $this->_dbtask->lastInsert();
 		$f->create($fields);
