@@ -1,9 +1,13 @@
 <?php
 include 'includes/header.php';
-
-
+if($role=='admin'){
 ?>
-
+<script type="text/javascript">
+$(document).ready(function(){
+	logIn();
+});	
+</script>
+<?php }?>
 <link rel="stylesheet" type="text/css" href="css/admin.css">
 <link rel="stylesheet" type="text/css" href="application/simditor-2.3.6/styles/simditor.css" />
  

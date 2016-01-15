@@ -34,7 +34,7 @@
 		
 		right.removeClass("logged");
 	}
-	logIn();
+	//logIn();
 	button.click(function(e){
 		e.preventDefault();
 		logIn();

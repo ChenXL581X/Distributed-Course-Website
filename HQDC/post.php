@@ -2,21 +2,36 @@
 include "includes/header.php";
 $post = new Post();
 $postId = Input::get('postId');
-$postData = $post->find($postId)->data();
+if(!$postId){
+	Session::flash('forum',"帖子不存在");
+	Redirect::to('forum.php');
+}else{
+	$postData = $post->find($postId)->data();
 
-$reply = new DBReply();
-$reply = $reply->findWithPost($postId);
-$replyData = false;
-if($reply){
-	$replyData = $reply->findWithPost($postId)->data();	
+	$reply = new DBReply();
+	$reply = $reply->findWithPost($postId);
+	$replyData = false;
+	if($reply){
+		$replyData = $reply->findWithPost($postId)->data();	
+	}
+
+
+	$sender = new User();
+	$senderData = $sender->find($postData->release_people)->data();	
+	echo "<script type='text/javascript'>
+	
+		var postId = $postId;
+		
+		</script>";
 }
-
-
-$sender = new User();
-$senderData = $sender->find($postData->release_people)->data();
-
 ?>
 <link rel="stylesheet" type="text/css" href="css/post.css">
+<link rel="stylesheet" type="text/css" href="application/simditor-2.3.6/styles/simditor.css" />
+        
+        <script type="text/javascript" src="application/simditor-2.3.6/scripts/module.js"></script>
+        <script type="text/javascript" src="application/simditor-2.3.6/scripts/hotkeys.js"></script>
+        <script type="text/javascript" src="application/simditor-2.3.6/scripts/uploader.js"></script>
+        <script type="text/javascript" src="application/simditor-2.3.6/scripts/simditor.js"></script>
 	<div id="modal" class="modal fade" role="dialog" aria-labelledby="newEventModal">
 	  <div class="modal-dialog" role="document">
 	      <div class="modal-content">
@@ -27,7 +42,9 @@ $senderData = $sender->find($postData->release_people)->data();
 	        <div class="modal-body">
 	          <form>
 					 
-					  <textarea class="form-control" placeholder="输入内容"></textarea>
+					  <div class="editor-box">
+					  	<textarea class = "form-control" id="editor" placeholder="" autofocus required></textarea>	
+					  </div>
 					  
 					  <div class="form-group ">
 					    <label for="exampleInputFile">添加图片</label>
@@ -51,7 +68,7 @@ $senderData = $sender->find($postData->release_people)->data();
 	        </div>
 	        <div class="modal-footer">
 	          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-	          <button type="button" class="btn btn-primary">确认</button>
+	          <button type="button" id="reply" class="btn btn-primary reply">确认</button>
 	        </div>
 	      </div><!-- /.modal-content -->
 	    </div><!-- /.modal-dialog -->
@@ -73,23 +90,33 @@ $senderData = $sender->find($postData->release_people)->data();
 			    	</div>
 					<a><?php echo $senderData->name;?></a> 
 	    			<p><?php echo $postData->context;?></p>
+					
 					<div class="imgs">
-					<div>
-						<a class="show" href="#">展开图片</a>
-					</div>
 
-					<?php
-						$imgArray = explode("|", $postData->imgs);
-						
-						foreach ($imgArray as $key1 => $value1) {
-							echo "<img src=".Config::get('images/post').$value1.">";
-						}
+					
+						<?php
+
+							if($postData->imgs!=''){
+						?>
+							<div>
+								<a class="show" href="#">展开图片</a>
+							</div>
+
+							<?php
+								$imgArray = explode("|", $postData->imgs);
+							}else{
+								$imgArray = false;
+							}
 							
-					?>	
+								if($imgArray)foreach ($imgArray as $key1 => $value1) {
+									echo "<img src=".Config::get('images/post').$value1.">";
+								}
+							?>		
 						
+					
 					</div>
 					<span><?php echo '发布于'.$postData->release_time;?></span>
-					<a href="#" class="pull-right new-event" data-toggle="modal" data-target="#gridSystemModal"><span><i class="fa fa-comment-o"></i> 回复</span></a>
+					<a href="#" ref=<?php echo $postData->release_people;?> class="pull-right new-event" data-toggle="modal" data-target="#gridSystemModal"><span><i class="fa fa-comment-o"></i> 回复</span></a>
 	    		</div>
 
 	    		<?php
@@ -109,11 +136,29 @@ $senderData = $sender->find($postData->release_people)->data();
 					<a><?php echo $sender->name;?></a><span>回复</span><a href="#"><?php echo $receiver->name;?></a> 
 	    			<p> <?php echo $value->context;?> </p>
 					<div class="imgs">
+
+					
+						<?php
+
+							if($value->imgs!=''){?>
+							<div>
+								<a class="show" href="#">展开图片</a>
+							</div>
+
+							<?
+								$imgArray = explode("|", $value->imgs);
+							}else{
+								$imgArray = false;
+							}
 							
+								if($imgArray)foreach ($imgArray as $key1 => $value1) {
+									echo "<img src=".Config::get('images/post').$value1.">";
+								}
+							?>		
 						
 					</div>
 					<span>发布于 <?php echo $value->reply_time;?></span>
-					<a href="#" class="pull-right new-event"  data-toggle="modal" data-target="#gridSystemModal"><span><i class="fa fa-comment-o"></i> 回复</span></a>
+					<a href="#" ref=<?php echo $sender->id;?> class="pull-right new-event"  data-toggle="modal" data-target="#gridSystemModal"><span><i class="fa fa-comment-o"></i> 回复</span></a>
 					
 						
 	    		</div>
@@ -134,22 +179,32 @@ $senderData = $sender->find($postData->release_people)->data();
 		      	</button>	
 		      	</div>
 		      	<div class="section">
-		      		<b>快速回复本帖</b>
-		      		<form>
-					
-					  <textarea class="form-control" placeholder="输入内容"></textarea>
-					  <button type="submit" class="btn btn-primary pull-left">
+		      		<b>最新帖子</b>
+		      		<ul class="new-post">
+		      		<?php
+						$newPost = $post->findLimitOrder('0,10','release_time','DESC');
 
-					  确认回复
-					  <i class="fa fa-arrow-right icon-arrow-right icon-on-right"></i>
-					  </button>
-					  <div class="clear-both"></div>
-					</form>
+						if($newPost) $newPostData = $newPost->data();
+
+						if($newPostData)foreach ($newPostData as $key => $value) {
+		      		?>
+		      			<li><a class='title' href=<?php echo "post.php?postId=".$value->id;?>><?php echo $value->title?></a></li>
+		      		<?php
+		      		}
+		      		?>
+		      		</ul>
+		      	</div>
+		      	<div class="section">
+		      	<a href="forum.php" class="btn btn-smaller btn-primary new">
+		      		<i class="fa fa-arrow-left"></i>
+		      		返回论坛
+		      	</a>	
 		      	</div>
 	      	</div>
       	</div>
     </div>
 </div>
+<script src="js/jquery.form.js"></script>
 <script type="text/javascript" src="js/post.js"></script>
 <?php
 include "includes/footer.php"

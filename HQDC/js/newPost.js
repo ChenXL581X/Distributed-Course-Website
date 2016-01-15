@@ -52,7 +52,7 @@
 			error: function(xhr){
 //		alert(xhr);
 				
-				bar.width('0')
+				//bar.width('0')
 				files.html(xhr.responseText);
 			}
 		});

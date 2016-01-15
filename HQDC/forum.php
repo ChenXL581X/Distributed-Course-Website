@@ -115,17 +115,20 @@ if($post) $postData = $post->data();
 	      	</a>	
 	      	</div>
 	      	<div class="section">
-	      		<b>键入标题和内容以快速发帖</b>
-	      		<form>
-				  <input class="form-control" type="text" placeholder="输入标题" />
-				  <textarea class="form-control" placeholder="输入内容"></textarea>
-				  <button type="submit" class="btn btn-default pull-left">
+	      		<b>最新帖子</b>
+		      		<ul class="new-post">
+		      		<?php
+						$newPost = $post->findLimitOrder('0,10','release_time','DESC');
 
-				  发起新话题
-				  <i class="fa fa-arrow-right icon-arrow-right icon-on-right"></i>
-				  </button>
-				  <div class="clear-both"></div>
-				</form>
+						if($newPost) $newPostData = $newPost->data();
+
+						if($newPostData)foreach ($newPostData as $key => $value) {
+		      		?>
+		      			<li><a class='title' href=<?php echo "post.php?postId=".$value->id;?>><?php echo $value->title?></a></li>
+		      		<?php
+		      		}
+		      		?>
+		      		</ul>
 	      	</div>
       	</div>
       </div>

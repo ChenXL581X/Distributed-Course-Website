@@ -11,9 +11,17 @@
 			$teacher = new teacher();
 			$student = new student();
 			if($user->isLoggedIn()){
-				if($teacher->findByUser($user->data()->id)){
+				if($user->data()->group=='M'){
+					$this->_result = 'admin';
+				}
+				// else if($teacher->findByUser($user->data()->id)){
+				// 	$this->_result = 'teacher';
+				// }else if($student->findByUser($user->data()->id)){
+				// 	$this->_result = 'student';
+				// }
+				else if($user->data()->group=='T'){
 					$this->_result = 'teacher';
-				}else if($student->findByUser($user->data()->id)){
+				}else if($user->data()->group=='S'){
 					$this->_result = 'student';
 				}else{
 					$this->_result = 'user';
