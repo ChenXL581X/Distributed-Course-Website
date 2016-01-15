@@ -11,6 +11,7 @@ class Teacher extends User
 	function __construct($user = null)
 	{
 		parent::__construct($user);
+		$this->_tableName = 'teacher';
 		if(parent::isLoggedIn()){
 			$this->_taskOperation = new TaskOperation();
 			$this->_materialsOperation = new MaterialsOperation();

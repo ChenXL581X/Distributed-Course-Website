@@ -9,6 +9,7 @@ class Student extends User
 	function __construct($user = null)
 	{
 		parent::__construct($user);
+		$this->_tableName = "student";
 		if(parent::isLoggedIn()){
 			$this->_homework = new Homework();
 			if($this->findInfo($this->_data->id))

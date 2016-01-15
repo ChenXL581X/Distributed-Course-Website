@@ -5,6 +5,7 @@ class DB{
 	        $_pdo,
 		    $_query,
 		    $_error = false,
+		    $_tableName,
 		    $_count = 0;
 	private function __construct(){
 		try{

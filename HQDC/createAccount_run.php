@@ -57,6 +57,25 @@ if ($type == 'fromhand') {
             try{
                 
                 $user->create($record);
+                $user_id = $user->lastInsert();
+                $group = $record['group'];
+                if ($group == 'S') {
+                    try {
+                        $student = new Student();
+                        $student->create(array('user_id' => $user_id));
+                    } catch (Exception $e) {
+                        $e->getMessage();
+                    };
+                }
+                else if ($group == 'T') {
+                    try {
+                        $teacher = new Teacher();
+                        $teacher->create(array('user_id' => $user_id));
+                    } catch (Exception $e) {
+                        $e->getMessage();
+                    };
+                }
+                
                 $state = 'success';
                 $stateNum = '100';
                 $message = '成功创建账号';
@@ -152,6 +171,22 @@ elseif ($type == 'fromExcel') {
             if ($count == false) {
                 try{
                     $user->create($record);
+                    if ($group == 'S') {
+                        try {
+                            $student = new Student();
+                            $student->create(array('user_id' => $user_id));
+                        } catch (Exception $e) {
+                            $e->getMessage();
+                        };
+                    }
+                    else if ($group == 'T') {
+                        try {
+                            $teacher = new Teacher();
+                            $teacher->create(array('user_id' => $user_id));
+                        } catch (Exception $e) {
+                            $e->getMessage();
+                        };
+                    }
                     $result['successNum'] += 1;
                 }catch(Exception $e){
                     $result['failedNum'] += 1;

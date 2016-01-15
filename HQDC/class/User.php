@@ -4,11 +4,12 @@
                     $_data,
                     $_sessionName,
                     $_cookieName,
+                    $_tableName,
                     $_isLoggedIn;
 
             public function __construct($user = null) {
                 $this->_db = DB::getInstance();
-
+                $this->_tableName = 'user';
                 $this->_sessionName = Config::get('session/session_name');
                 $this->_cookieName = Config::get('remember/cookie_name');
 
@@ -33,13 +34,13 @@
                     $id = $this->data()->id;
                 }
 
-                if (!$this->_db->update('user', $id, $fields)) {
+                if (!$this->_db->update($this->_tableName, $id, $fields)) {
                     throw new Exception('There was a problem updating');
                 }
             }
 
             public function create($fields = array()) {
-                if (!$this->_db->insert('user', $fields)) {
+                if (!$this->_db->insert($this->_tableName, $fields)) {
                     throw new Exception('There was a problem creating an account.');
                 }
             }
