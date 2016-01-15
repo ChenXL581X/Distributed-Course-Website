@@ -12,12 +12,15 @@ if ($role == 'tourist') {
         
 		</script>";
 }
-$expiretime = time()-Session::get('loginTime');
-if($expiretime<=1800)
-echo "<script type='text/javascript'>
-$(document).ready(function(){
-    logIn();
-});</script>";
+if(Session::exists("loginTime")){
+	$expiretime = time()-Session::get('loginTime');
+	if($expiretime<=1800)
+	echo "<script type='text/javascript'>
+	$(document).ready(function(){
+	    logIn();
+	});</script>";	
+}
+
 
 ?>
 <link rel="stylesheet" type="text/css" href="css/admin.css">
@@ -44,11 +47,7 @@ $(document).ready(function(){
 				</div>
 
 				<form method="POST" action="" id="login">
-<<<<<<< HEAD
 					<fieldset>
-=======
-<fieldset>
->>>>>>> origin/master
 						
 
 						<label class="row">
@@ -56,11 +55,7 @@ $(document).ready(function(){
 								<input type="password" id="admin_password" name="password" class="span12" placeholder="密码" required>
 								<i class="fa fa-lock icon-lock"></i>
 
-<<<<<<< HEAD
-								<span class="login-button width-35 pull-right btn-primary  btn btn-small">
-=======
 								<span  id="admin_login" class="login-button width-35 pull-right btn-primary  btn btn-small">
->>>>>>> origin/master
 								<i class="fa fa-arrow-right icon-key"></i>
 								</span>
 							</span>
