@@ -1,13 +1,25 @@
 <?php
 include 'includes/header.php';
-if($role=='admin'){
-?>
-<script type="text/javascript">
+if ($role == 'tourist') {
+    echo "<script type='text/javascript'>
+    
+		window.location.href = 'login.php';
+        if(confirm('您没有登录，是否跳转到登录页面？')){
+        window.location.href = 'login.php';
+        }else{
+        window.location.href = 'index.php';
+        }
+        
+		</script>";
+}
+$expiretime = time()-Session::get('loginTime');
+if($expiretime<=1800)
+echo "<script type='text/javascript'>
 $(document).ready(function(){
-	logIn();
-});	
-</script>
-<?php }?>
+    logIn();
+});</script>";
+
+?>
 <link rel="stylesheet" type="text/css" href="css/admin.css">
 <link rel="stylesheet" type="text/css" href="application/simditor-2.3.6/styles/simditor.css" />
  
@@ -26,19 +38,29 @@ $(document).ready(function(){
 			
 				<div class="login-img">
 					<img src="images/portraits/hp3.jpg">
-					<p>蔡建宇</p>
+					<p><?php 
+					echo $user->data()->name;
+					?></p>
 				</div>
 
 				<form method="POST" action="" id="login">
+<<<<<<< HEAD
 					<fieldset>
+=======
+<fieldset>
+>>>>>>> origin/master
 						
 
 						<label class="row">
 							<span class="block input-icon input-icon-right">
-								<input type="password" name="password" class="span12" placeholder="密码" required>
+								<input type="password" id="admin_password" name="password" class="span12" placeholder="密码" required>
 								<i class="fa fa-lock icon-lock"></i>
 
+<<<<<<< HEAD
 								<span class="login-button width-35 pull-right btn-primary  btn btn-small">
+=======
+								<span  id="admin_login" class="login-button width-35 pull-right btn-primary  btn btn-small">
+>>>>>>> origin/master
 								<i class="fa fa-arrow-right icon-key"></i>
 								</span>
 							</span>
@@ -55,6 +77,7 @@ $(document).ready(function(){
 
 						<div class="space-4"></div>
 					</fieldset>
+				
 				</form>
 				<div class="nav-box">
 					<ul>

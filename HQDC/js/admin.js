@@ -1,5 +1,30 @@
 
 (function(){
+	$('#admin_login').click(function() {
+//		alert("hello wordl");
+		var admin_password = $("#admin_password").val();
+		$.ajax({
+			url: "adminLogin_run.php",
+			data: {
+				admin_password:admin_password
+			},
+			type : "POST",
+			
+			success : function(result) {
+				console.log(result);
+//				result = JSON.parse(result);
+				result = eval("(" + result + ")");
+				var message = result.message;
+				if(result.state == 'success') {
+					logIn();
+					$('.main').showMessage(message,4000);
+				}
+				else {
+					$('.main').showMessage(message,4000);
+				}
+			}
+		});
+	});
 	var left = $('.left'),
 			button = $('.login-button'),
 			nav = $('nav'), 
@@ -35,13 +60,13 @@
 		right.removeClass("logged");
 	}
 	//logIn();
-	button.click(function(e){
-		e.preventDefault();
-		logIn();
-
-
-
-	});
+//	button.click(function(e){
+//		e.preventDefault();
+//		logIn();
+//
+//
+//
+//	});
 	portrait.click(function(){
 		logOut();
 	});

@@ -38,6 +38,7 @@ body{
 	color: #f0f0f0;
 }
 .login-layout input.span12 {
+	
     font-size: 12px;
     background: transparent;
     border-radius: 3px;
@@ -45,7 +46,11 @@ body{
     box-shadow: 0 0 0px 1002px rgba(252, 252, 252, 0.2) inset;
     border: none;
     color: #fff;
+<<<<<<< HEAD
     width: 90% !important;
+=======
+	width: 80% !important;
+>>>>>>> origin/master
 }
 .login-layout input:focus, .login-layout textarea:focus {
     border-color: none !important;
@@ -179,6 +184,19 @@ input[type='text'],input[type='password']{
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
+span.login-button.width-35.pull-right.btn-primary.btn.btn-small {
+    margin: 0px;
+    border-radius: 50%;
+    padding: 8px;
+    line-height: 0px;
+    padding-left: 9px;
+    padding-right: 9px;
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
+    margin-left: -15px;
+    margin-top: 2px;
+}
+
 .simditor.simditor-mac{
 	margin-top: 10px;
 	margin-bottom: 10px;

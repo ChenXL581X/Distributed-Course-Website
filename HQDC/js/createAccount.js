@@ -29,9 +29,11 @@ $(document).ready(function(){
 					success : function(result) {
 //						result = JSON.parse(result);
 						result = eval("(" + result + ")");
-						console.log(result);
+//						console.log(result);
+//						console.log(result.context);
 						if(result.state == 'failed') {
-							$('main').showMessage(result.context,4000);
+//							alert("hello");
+							$('.main').showMessage(result.context,4000);
 							if(result.stateNum == '102') {
 								$('#username').val("");
 							}
