@@ -31,32 +31,25 @@ $(document).ready(function(){
 
 				<form method="POST" action="" id="login">
 					<fieldset>
-						<label>
-							<span class="block input-icon input-icon-right">
-								<input type="text" name="username" class="span12" placeholder="用户名" required>
-								<i class="fa fa-user icon-user"></i>
-							</span>
-						</label>
+						
 
-						<label>
+						<label class="row">
 							<span class="block input-icon input-icon-right">
 								<input type="password" name="password" class="span12" placeholder="密码" required>
 								<i class="fa fa-lock icon-lock"></i>
+
+								<span class="login-button width-35 pull-right btn-primary  btn btn-small">
+								<i class="fa fa-arrow-right icon-key"></i>
+								</span>
 							</span>
 						</label>
-
+						
 						<div class="space"></div>
 						
 						<div class="clearfix text-left">
-							<label class="inline">
-								<input type="checkbox">
-								<span class="lbl"> 记住密码</span>
-							</label>
+							
 							<input type="hidden" name="token" value="c95ab5d475c48afaee64eaeff08328a2">
-							<button class="login-button width-35 pull-right btn-primary  btn btn-small">
-								<i class="fa fa-key icon-key"></i>
-								验证
-							</button>
+							
 						</div>
 						
 

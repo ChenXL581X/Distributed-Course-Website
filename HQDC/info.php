@@ -62,10 +62,10 @@ $token = Token::generate();
 				</div>
 				<form method="post" action="userUpdate.php" class="forms info_change">
 
-					<input type="hidden" id="portrait" name="portrait" value="hp3.jpg">
+					<input type="hidden" id="portrait" name="portrait" value=<?php echo $data->portraits;?>>
 					<label>
 				        <p>姓名 </p>
-				        <input type="text" name="name" value="蔡建宇" class="width-100">
+				        <input type="text" name="name" value=<?php echo $data->name?> class="width-100">
 				    </label>
 				    <label>
 				        <p>电子邮箱</p>

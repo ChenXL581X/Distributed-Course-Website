@@ -45,6 +45,7 @@ body{
     box-shadow: 0 0 0px 1002px rgba(252, 252, 252, 0.2) inset;
     border: none;
     color: #fff;
+    width: 90% !important;
 }
 .login-layout input:focus, .login-layout textarea:focus {
     border-color: none !important;
