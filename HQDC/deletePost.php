@@ -26,7 +26,6 @@ if (!$user->isLoggedIn()) {
     		Session::flash('forum',"您要删除的帖子已不存在");
 			Redirect::to('forum.php');
     	}else if($post->data()->release_people!=$user->data()->id && $user->data()->group!="M"){
-    	    //$id1 = $post->data()->release_people;$id2 =  $user->data()->id;
     		Session::flash('forum',"您没有删除的权限");
 			Redirect::to('forum.php');
 
