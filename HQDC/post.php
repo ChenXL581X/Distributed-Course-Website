@@ -1,10 +1,13 @@
 <?php
 include "includes/header.php";
 $post = new Post();
+
 $postId = Input::get('postId');
 if(!$postId){
 	Session::flash('forum',"帖子不存在");
+
 echo "<script type='text/javascript'>
+
 	
 		window.location.href = 'forum.php';
 		
