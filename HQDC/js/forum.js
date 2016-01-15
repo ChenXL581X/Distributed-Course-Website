@@ -28,3 +28,15 @@
 	
 
 })();
+$("#search").keydown(function(e){
+	if(e.which==13){
+		var text=$(this).val();
+		var content=text.split(/\s+/);
+		var params="key";
+		$.each(content,function(n,value) {  
+            if(n==0) params=params+"="+value;
+            else params=params+"+"+value;
+        });
+        window.location.href="forum.php?"+params;
+	}
+})

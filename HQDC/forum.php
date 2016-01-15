@@ -29,7 +29,7 @@ if($post) $postData = $post->data();
 			</div>	
 			<div class="input-group forum-search">
 			      <i class="fa fa-search"></i>
-			      <input type="text" class="form-control input-sm" placeholder="搜索帖子" aria-describedby="basic-addon1">
+			      <input type="text" class="form-control input-sm" placeholder="搜索帖子" id="search" aria-describedby="basic-addon1">
 			</div>
       	</div>
       	
