@@ -24,7 +24,7 @@ $token = Token::generate();
 			  <div  class="form-group row">
 			     <div class="col-md-4 ">
     			     <label for="end_time">截止日期</label>
-    			     <input type="date" class="form-control end-time" id="endtime" name="endtime" value="2015-01-01"> 
+    			     <input type="date" class="form-control end-time" id="endtime" name="endtime"> 
     			     
 			     </div>
 			     <div class="col-md-3">
@@ -73,7 +73,7 @@ $token = Token::generate();
 			  												
 			  <div class="center">
 			  	
-			  	<button id="submit" class="btn btn-default">创建并添加附件</button>
+			  	<button id="submit" class="btn btn-default" onclick="checkForm()" disabled>创建并添加附件</button>
 			  </div>		  
 			</form>	
 		</div>

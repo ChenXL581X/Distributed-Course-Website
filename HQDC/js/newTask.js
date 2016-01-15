@@ -1,16 +1,39 @@
 $(document).ready(function(){
-	$("#endtime").blur(function(){
-		alert($(this).val());
-		// checkEndTime($(this).val());
-		alert(new Date())
-	});
 	function checkEndTime(startTime){  
-	    var start=new Date(startTime.replace("-", "/").replace("-", "/"));  
-	    var endtime=new Date();  
-	    var end=endtime.getYear()+"/"+endtime.getMonth()+"/"+endtime.getDay();
-	    if(end<start){  
-	        return false;  
+	    var end=new Date(startTime.replace("-", "/").replace("-", "/"));  
+	    var start=new Date();  
+	    if(end>start){  
+	        return false;
 	    }  
-	    return true;  
+	    return true;
 	};
+	function checkFrom(){
+		alert();
+		if($("#title").val()=='')
+		{
+			$("#title").focus();
+		}
+		else if(checkEndTime($("#endtime").val())){
+			$("#endtime").focus();
+		}
+		else if($("#context").val()=='')
+		{
+			$("#context").focus();
+		}
+		else $("#submit").removeAttr("disabled");
+	}
+	$('form :input').blur(function(){
+		if($("#title").val()=='')
+		{
+			$("#title").focus();
+		}
+		else if(checkEndTime($("#endtime").val())){
+			$("#endtime").focus();
+		}
+		else if($("#context").val()=='')
+		{
+			$("#context").focus();
+		}
+		else $("#submit").removeAttr("disabled");
+	});
 })

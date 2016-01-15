@@ -1,4 +1,17 @@
 $(document).ready(function(){
+  function checkEndTime(startTime){  
+      var end=new Date(startTime.replace("-", "/").replace("-", "/"));  
+      var start=new Date();  
+      if(end>start){  
+          return false;
+      }  
+      return true;
+  };
+  $("#endtime").blur(function(){
+    if(checkEndTime($(this).val())){
+      $(this).focus();
+    }
+  });
   if(typeof(editmodel)!='undefined'&&editmodel==true)
   {
     $("#title").removeAttr("disabled").css("border","1px solid");
@@ -30,7 +43,7 @@ $(document).ready(function(){
      },
      function(data,status){
          if(status=='success'){
-            window.location.reload();
+            window.location.href="taskdetail.php?taskmark="+$("#id").val()+"&edit=true";
          }
          else $('.main').showMessage('删除失败！',4000);
      });
@@ -51,7 +64,7 @@ $(document).ready(function(){
                       $('.main').showMessage(data.error,4000);
                   }else{
                       alert(data.msg);
-                      window.location.reload();
+                      window.location.href="taskdetail.php?taskmark="+taskId+"&edit=true";
                   }
               }
           },
