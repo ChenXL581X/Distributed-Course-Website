@@ -91,6 +91,9 @@ $(document).ready(function(){
                     	<h3>输入账号信息以创建账号：</h3>
 		                <label>用户名：</label>
 		                <input type="text" name="username" id="username" placeholder="请输入10位学号或教职工号" required>
+		                <label>性别：</label>
+		                <input type="radio" name="sex" id="sex" value="M" checked> 男
+		            	<input type="radio" name="sex" id="sex" value="F" > 女 
 		                <label>姓名：</label>
 		                <input type="text" name="name" id="name" placeholder="请输入真实姓名" required>
                         <label>密码：</label>
