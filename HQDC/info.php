@@ -1,6 +1,7 @@
 <?php
 include 'includes/header.php';
 $data = $user->data();
+$token = Token::generate();
 ?>
 <link rel="stylesheet" type="text/css" href="css/info.css">
 <div id="main" class="main">
@@ -13,6 +14,10 @@ $data = $user->data();
 			<i class="to-left fa fa-angle-double-left"></i>
 
 			<div class="scroll-img" style="margin-left: 0px;">
+			<img src="images/portraits/hp_defalut_stu_female.png" style="margin-left: -70px;">
+    		<img src="images/portraits/hp_defalut_tea_female.png" style="margin-left: -70px;">
+    		<img src="images/portraits/hp_defalut_stu_male.png" style="margin-left: -70px;">
+    		<img src="images/portraits/hp_defalut_tea_male.png" style="margin-left: -70px;">
     		<img src="images/portraits/hp1.jpg" style="margin-left: -70px;">
     		<img src="images/portraits/hp2.jpg" style="margin-left: -70px;">
     		<img src="images/portraits/hp3.jpg" style="margin-left: -70px;">
@@ -57,7 +62,7 @@ $data = $user->data();
 				</div>
 				<form method="post" action="userUpdate.php" class="forms info_change">
 
-					<input type="hidden" id="portrait" name="portrait" value="images/portraits/hp3.jpg">
+					<input type="hidden" id="portrait" name="portrait" value="hp3.jpg">
 					<label>
 				        <p>姓名 </p>
 				        <input type="text" name="name" value="蔡建宇" class="width-100">
@@ -74,7 +79,7 @@ $data = $user->data();
 				        <p>个人简介</p>
 				        <textarea rows="4" class="width-100">我的简介</textarea>
 				    </label>
-				    <input type="hidden" name="token" value="07b841c848dc22c445104a6bfb350089">
+				    <input type="hidden" name="token" value=<?php echo $token?>>
 
 				    <p>
 				        <button class="btn btn-small btn-danger">保存修改</button>
@@ -83,7 +88,7 @@ $data = $user->data();
 				</form>
 			</div>
 			<div id="tab22" class="centerbox" style="display: none;">
-				<form style="margin-top:30px" method="post" action="changePassword_run.php" class="forms">
+				<form style="margin-top:30px" method="post" action="changePassword.php" class="forms">
 					    <label>
                             <input type="email" name="user-email" placeholder="邮箱" value="c123123" disabled="" class="width-100">
 					    </label>
@@ -91,16 +96,16 @@ $data = $user->data();
 					        <input type="password" name="password_current" placeholder="原密码" class="width-100">
 					    </label>
 					    <label>
-					        <input type="password" name="password_agan" placeholder="新密码" class="width-100">
+					        <input type="password" name="password_new" placeholder="新密码" class="width-100">
 					    </label>
 					    <label>
-					        <input type="password" name="user-password" placeholder="确认新密码" class="width-100">
+					        <input type="password" name="password_agan" placeholder="确认新密码" class="width-100">
                             
 					    </label>					    
 					    <p>
 					        <button class="btn btn-primary">提交</button>
 					    </p>
-					    <input type="hidden" name="token" value="07b841c848dc22c445104a6bfb350089">
+					    <input type="hidden" name="token" value=<?php echo $token?>>
 					</form>		
 			</div>
 			<div id="tab33" class="centerbox" style="display: none;">

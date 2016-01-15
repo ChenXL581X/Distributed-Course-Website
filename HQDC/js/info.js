@@ -62,7 +62,7 @@
 	$('.to-left').click(function(){
 		var left = parseInt($('.scroll-img').css('margin-left'))-310;
 
-		if(left>-2100){
+		if(left>-2500){
 			left=left+'px';
 			$('.scroll-img').css({'margin-left':left});
 		}
@@ -88,7 +88,8 @@
 	$('.scroll-img img').click(function(){
 		console.log($(this));
 		var url = $(this).attr('src');
-		$('#portrait').val(url);
+		var imgUrl = url.substring(url.lastIndexOf('/')+1);
+		$('#portrait').val(imgUrl);
 		$('.scroll-img').css({'margin-left':0});	
 		$('.head-choices img').css({'margin-left':'-70px'});
 		$('.head-choices').css({left:'100%'});

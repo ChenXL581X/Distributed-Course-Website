@@ -45,10 +45,10 @@ if (Input::exists('post')) {
         } else {
             foreach ($validation->errors() as $error) {
                 $str.=($error.'<br>');
-                Session::flash('login',$str);
-
-                Redirect::to('login.php');
+                
             }
+            Session::flash('login',$str);
+            Redirect::to('login.php');
         } 
 
     }
