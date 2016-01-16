@@ -1,7 +1,6 @@
 
 (function(){
-	$('#admin_login').click(function() {
-//		alert("hello wordl");
+	var logAjax = function(){
 		var admin_password = $("#admin_password").val();
 		$.ajax({
 			url: "adminLogin_run.php",
@@ -24,6 +23,17 @@
 				}
 			}
 		});
+	};
+	$('#admin_login').click(function() {
+//		alert("hello wordl");
+		logAjax();
+	});
+	$('#admin_password').keydown(function(e){
+	if(e.which==13){
+		e.preventDefault();
+		logAjax();
+	}
+
 	});
 	var left = $('.left'),
 			button = $('.login-button'),

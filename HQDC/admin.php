@@ -40,13 +40,13 @@ if(Session::exists("loginTime")){
 				
 			
 				<div class="login-img">
-					<img src="images/portraits/hp3.jpg">
+					<img src=<?php echo Config::get('images/portraits').$user->data()->portraits;?>>
 					<p><?php 
 					echo $user->data()->name;
 					?></p>
 				</div>
 
-				<form method="POST" action="" id="login">
+				<form id="login">
 					<fieldset>
 						
 
