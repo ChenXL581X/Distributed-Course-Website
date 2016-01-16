@@ -48,32 +48,42 @@ $(document).ready(function(){
          else $('.main').showMessage('删除失败！',4000);
      });
   });
-    $("#fileToUpload").change(function(){ 
+  function ajaxFileUp(){
     var taskId=$("#id").val(); 
       $.ajaxFileUpload({
           url:'upfile.php',
           secureuri :false,
           fileElementId :'fileToUpload',
-          dataType : 'json',
+          dataType : 'JSON',
           data:{
             "taskId":taskId
           },
           success : function (data, status){
+            console.log(data);
               if(typeof(data.error) != 'undefined'){
                   if(data.error != ''){
                       $('.main').showMessage(data.error,4000);
                   }else{
                       alert(data.msg);
-                      window.location.href="taskdetail.php?taskmark="+taskId+"&edit=true";
                   }
               }
+              $("#fileToUpload").change('change', function(){
+                ajaxFileUp();
+              });
+              window.location.reload();
           },
           error: function(data, status, e){
               $('.main').showMessage(e,4000);
+              $("#fileToUpload").change('change', function(){
+                ajaxFileUp();
+              });
+              window.location.reload();
           }
-  })
-  return false;
-    }) ;
+      });
+  }
+  $("#fileToUpload").change('change', function(){
+    ajaxFileUp();
+  });
   $("#uploadfile").click(function(){
     var taskId=$("#id").val();
      var title=$("#title").val();

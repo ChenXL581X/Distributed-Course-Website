@@ -23,13 +23,14 @@ if (Input::exists('post')) {
                 else {
                     $rs=$teacher->_taskOperation->upfile($file,array(
                         'name'=> $file['name'],
-                        'type'=>$file['type'],
                         'url'=>FileUtils::GetPath()."/".$file['name'],
                         'task_id'=>Input::get('taskId')
                         ));
-                    $res["msg"] = "ok".$rs;
+                    Session::flash("taskdetail","上传成功");
+                    $res["msg"] = "ok";
                 }
             }catch(Exception $e){
+                Session::flash("taskdetail","上传失败");
                 $res["error"] = "error:".$e->getMessage();
             }
 
@@ -39,6 +40,7 @@ if (Input::exists('post')) {
                 //echo $error;
                 $errorInfo.=($error.'<br>');
             }
+            Session::flash("taskdetail","上传失败");
             $res["error"] = 'failed:'.$errorInfo;
         }
 

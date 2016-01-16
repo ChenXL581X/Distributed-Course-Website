@@ -49,8 +49,13 @@ class TaskOperation
 	public function upfile($file,$fields)
 	{
 		$rs=FileUtils::upfile($file,true);
-		if($rs != false) $fields['name']=$rs;
-		insertFile($fields);
+		if($rs != false)
+		{
+			$fields['name'] = $rs;
+			$fields['url'] = FileUtils::GetPath()."/".$fields['name'];
+		}
+		$this->insertFile($fields);
+		return $fields;
 	}
 	public function insertFile($fields)
 	{
