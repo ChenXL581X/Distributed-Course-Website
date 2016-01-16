@@ -23,10 +23,11 @@ class TaskSubmit {
     public function findWithUserAndTask($userId,$taskId){
         $data = $this->_db->action('select *','task_submit',array('user_id','=',$userId,'and','task_id','=',$taskId));
         if($data->count()){
-            return $data->results();
+            return $data->first();
         }
         else return false;
     }
+    
     public function update($data) {
         
         foreach ($data as $key => $value) {
@@ -45,5 +46,7 @@ class TaskSubmit {
         $data = $this->_db->get($this->_tableName);
         $this->_result = $data->results();
     }
+   
+    
 }
 ?>
