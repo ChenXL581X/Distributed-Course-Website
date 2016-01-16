@@ -55,12 +55,36 @@ $role = $privilege->judge($user);
             
             
             <?php if($user->isLoggedIn()){
-                
+                //var_dump($m1);
               ?>
-            <li >  
-              <a class="message" href="info.php#tab44">
-                <i class="fa fa-bell-o toggle-img"><font><?php echo count($m1)?></font></i>
+              <li class="dropdown">
+              <a href="#" class="message dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-bell-o toggle-img"><font><?php echo count($m1)?></font></i>  
               </a>
+              <ul class="dropdown-menu">
+                <?php
+                 foreach ($m1 as $key => $value) {
+                    # code...
+                  if($value['type']=="task"){
+                  
+                ?>
+
+                <li><a href=<?php echo "taskdetail.php?taskmark=".$value['taskId']?>><?php echo $value["message"]?></a></li>
+                
+                <?php 
+                }else if($value['type']=="post"){
+
+                ?>
+                <li><a href=<?php echo "post.php?postId=".$value['postId']?>><?php echo $value["message"]?></a></li>
+                <?php 
+                }
+                }?>
+              </ul>
+            </li>   
+            <li >  
+              <!-- <a class="message" href="info.php#tab44">
+                <i class="fa fa-bell-o toggle-img"><font><?php echo count($m1)?></font></i>
+              </a> -->
               <a class="head-container" href="info.php#tab11">
                 <img class="head-img" src=<?php echo Config::get('images/portraits').$user->data()->portraits;?>><font>您好：<?php echo $user->data()->name;?></font>
               </a> 

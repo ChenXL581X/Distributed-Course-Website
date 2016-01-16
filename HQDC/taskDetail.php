@@ -95,7 +95,7 @@ if(Input::exists('get'))
 
 			</div>
 				<div class="upbtn"><input id="homework" type="file" name='homework'></div>
-				<button class="btn btn-primary"><i class="fa fa-upload"></i> 提交作业</button>
+				<button id="uploadHomework" class="btn btn-primary"><i class="fa fa-upload"></i> 提交作业</button>
 				<button onclick="location='workScore.php?taskId=1'" class="btn btn-default"><i class="fa fa-pencil"></i> 为学生评分</button> 
 			</div>
 			<div class="info">

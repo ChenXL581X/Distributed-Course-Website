@@ -13,8 +13,21 @@ echo "<script type='text/javascript'>
 		
 		</script>";
 }else{
-	$postData = $post->find($postId)->data();
+	$post = $post->find($postId);
+	if(!$post){
+Session::flash('forum',"帖子不存在");
 
+echo "<script type='text/javascript'>
+
+	
+		window.location.href = 'forum.php';
+		
+		</script>";
+	}else{
+
+		$postData=$post->data();
+	}
+	$userN = new User();
 	$reply = new DBReply();
 	$reply = $reply->findWithPost($postId);
 	$replyData = false;
@@ -129,11 +142,21 @@ echo "<script type='text/javascript'>
 	    		<?php
 
 	    			if($replyData){
-	    				//var_dump($replyData);
+	    				
 	    				foreach ($replyData as $key => $value) {
 	    				
-	    				$sender = $user->find($value->sender)->data();
-	    				$receiver = $user->find($value->receiver)->data();
+	    				$sender = $userN->find($value->sender)->data();
+	    				$receiver = $userN->find($value->receiver)->data();
+	    				if($receiver->id == $user->data()->id){
+	    					
+	    					try {
+	    						$reply->update( array('is_readed' => '1'),$value->id);	
+	    					} catch (Exception $e) {
+	    						echo $e->getMessage();  
+	    					}
+	    					
+	    				}
+
 	    		?>
 	    		<div class="content-body">
 	    			<div class="head-box">
