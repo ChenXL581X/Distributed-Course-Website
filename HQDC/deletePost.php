@@ -31,9 +31,17 @@ if (!$user->isLoggedIn()) {
 
     	}else{
 	    	try {
-	    		$post->delete($postId);
-	    		Session::flash('forum',"删除成功");
-				Redirect::to('forum.php');
+	    		
+                $reply = new DBReply();
+                if($reply->deletePost($postId)){
+                    $post->delete($postId); 
+                    Session::flash('forum',"删除成功");
+                    Redirect::to('forum.php');  
+                }else{
+                    Session::flash('forum',"删除失败，请稍后再试");
+                    Redirect::to('forum.php');   
+                }
+	    		
 	    	} catch (Exception $e) {
 	    		Session::flash('forum',$e->getMessage());
 				Redirect::to('forum.php');

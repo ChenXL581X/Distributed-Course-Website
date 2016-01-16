@@ -25,5 +25,22 @@ class DBReply extends DBTable
             return $this;
         }else return false; 
 	}
+	public function deletePost($postId){
+		if($this->findWithPost($postId)){
+			$results = $this->data();
+			foreach ($results as $key => $value) {
+				# code...
+
+				if(!$this->delete($value->id)){
+					return false;
+				}
+
+
+			}
+			return true;
+		}
+		return false;
+
+	}
 }
 ?>

@@ -201,7 +201,7 @@ class DB{
 		}
 		
 		$sql = "update {$table} set {$set} where id = {$id}";
-
+		//echo $sql;
 		if(!$this -> query($sql , $fields)-> error()){
 			return true;
 		}
