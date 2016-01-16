@@ -23,15 +23,15 @@ $stu = $student->findAll();
             <div class="modal-body">
             <div class="task-box row">
                 <div class="col-md-10 col-md-offset-1">
-                    <p><a href="#">为各个作业分配1-10的权重<span class="caret"></span></a></p>
+                    <p>为各个作业分配1-10的权重</p>
                     <?php
-                        foreach ($taskAll as $key => $value) {
+                        if($taskAll)foreach ($taskAll as $key => $value) {
                                 # code...
                                 
                     ?>
                     <div class="tasks">
                         <input class="task-name" type="text" value=<?php echo $value->title;?> palceholder="服务名">
-                        <input class="importance" type="text" value="5" placeholder="请输入0~10之间的任务权重">
+                        <input class="importance" ref=<?php echo $value->id;?> type="text" value=<?php echo $value->importance;?> placeholder="请输入0~10之间的任务权重">
                         
                     </div>  
                     <?php 
@@ -41,7 +41,7 @@ $stu = $student->findAll();
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-              <button type="button" id="reply" class="btn btn-primary reply">确认</button>
+              <button type="button" id="change-importance" class="btn btn-primary">确认</button>
             </div>
           </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -85,18 +85,23 @@ $stu = $student->findAll();
                      echo "<td>{$user->find($value1->user_id)->data()->username}</td>";
                      echo "<td>{$user->find($value1->user_id)->data()->name}</td>";
                      $totalGrade = 0;
+                     $totalImportance = 0;
                      foreach ($taskAll as $key=>$value){
-                       
+                        $imp = $value->importance;
+                        $totalImportance+=$imp;
+                     }
+                     foreach ($taskAll as $key=>$value){
+                        $imp = $value->importance;
                         $taskS = $taskSubmit->findWithUserAndTask($value1->user_id, $value->id);
                         $grade = 0;
                         if($taskS){
                          
                           $grade = $taskS->score;  
                         }
-                        $totalGrade+=$grade;
+                        $totalGrade+=($grade*$imp/$totalImportance);
                         echo "<td>{$grade}</td>\n";
                     }
-                    $totalGrade/=count($taskAll);
+                    //$totalGrade/=count($taskAll);
                     echo "<td>{$totalGrade}</td>";
                     ?>
                     

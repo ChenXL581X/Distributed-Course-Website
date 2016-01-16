@@ -12,4 +12,54 @@
 		$(this).css("cssText","width: "+percent1); 
 		
 	});
+	var changeImportance = function(e){
+		$('.importance').each(function(i){
+			
+			var percent = e[i]*10+'%'+'!important',
+			percent1 = (100-e[i]*10)+'%'+'!important';
+			$(this).parent().find('.task-name').css("cssText","width: "+percent); 
+			$(this).css("cssText","width: "+percent1); 
+			$(this).val(e[i]);
+		});	
+	}
+
+	var importanceArr = [];
+	$('.importance').each(function(i){
+		importanceArr.push($(this).val());
+		}
+	)
+	
+	changeImportance(importanceArr);
+	$('#change-importance').click(function(){
+		var taskArr = [];
+
+		$('.importance').each(function(){
+			var task = {'id':$(this).attr('ref'),'importance':$(this).val()};
+			taskArr.push(task);
+
+		});
+		$.ajax({
+			url: 'changeTaskImportance.php',
+			type: "POST",
+			data: {data:taskArr},
+			success: function(data){
+				if(data == 'noLogin'){
+					
+					$(".main").showMessage("请先登录",4000);
+				}else if(data == "success"){
+					
+					//alert("您已成功发帖");
+					$(".main").showMessage("修改成功",4000);
+					//window.location.reload();
+				}else if($data="noRight"){
+					$(".main").showMessage("请以教师身份登录",4000);
+				}else if($data="later"){
+					$(".main").showMessage("更新失败，请稍后再试",4000);
+				}
+				console.log(data);
+				//location='forum.php';
+
+			}
+		});
+	});
 })();
