@@ -110,8 +110,27 @@ $token = Token::generate();
 				<p>您拥有的权限有：...............................</p>
 			</div>
 			<div id="tab44" class="centerbox" style="display: none;">
-                <div class="message">
-                    <ul>
+                <div class="message ul-box">
+                <ul class=" ">
+                <?php
+                 foreach ($m1 as $key => $value) {
+                    # code...
+                  if($value['type']=="task"){
+                  
+                ?>
+
+                <li><a href=<?php echo "taskdetail.php?taskmark=".$value['taskId']?>><?php echo $value["message"]?></a></li>
+                
+                <?php 
+                }else if($value['type']=="post"){
+
+                ?>
+                <li><a href=<?php echo "post.php?postId=".$value['postId']?>><?php echo $value["message"]?></a></li>
+                <?php 
+                }
+                }?>
+              </ul>
+                    <!-- <ul>
                         <li class="row">
                             <div class="col-md-2 head-img-box">
                             <img src="images/portraits/hp1.jpg">
@@ -128,7 +147,7 @@ $token = Token::generate();
                              	</span>
                          	</div>
                          </li>
-                        <!--  <img src="svg/spinner.svg"> -->
+                        <!--  <img src="svg/spinner.svg"> 
                          <li class="reply-li row">
                             <div class="col-md-2 ">
                             <img src="images/portraits/hp13.jpg">
@@ -144,7 +163,7 @@ $token = Token::generate();
                        
                         
                                           
-                    </ul>
+                    </ul> -->
                 </div>
             
             </div>	

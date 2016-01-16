@@ -268,3 +268,10 @@ transition:max-height .3s ease-in-out;
 i.fa.fa-reply{
   margin-right: 20px;
 }
+.ul-box ul li {
+    list-style: none;
+    font-size: 13px;
+    border-bottom: 1px dashed #efefef;
+    margin-top: 10px;
+    /*text-align: left;*/
+}
