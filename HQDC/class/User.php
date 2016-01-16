@@ -94,15 +94,19 @@
             
             public function adminLogin($adminId, $adminPassword) {
                 $user = $this->find($adminId);
-              
-                if ($user->data()->password === Hash::make($adminPassword, $user->data()->salt)){
-                    if ($user->data()->group == 'M') {
-                        Session::put("adminSession", $user->data()->id);
-                        Session::put("loginTime", time());
-                        return  true;
-                    }
+                if($user){
+                    if ($user->data()->password === Hash::make($adminPassword, $user->data()->salt)){
+                        if ($user->data()->group == 'M') {
+                            Session::put("adminSession", $user->data()->id);
+                            Session::put("loginTime", time());
+                            return "success";
+                        }else{
+                            return "roleFalse";
+
+                        }
+                    }   
                 }
-                return false;
+                return "loginFalse";
             }
             
             public function delete($field) {
@@ -181,6 +185,7 @@
                 $this->_db->delete('users_session', array('user_id', '=', $this->data()->id));
                 Session::delete("adminSession");
                 Session::delete("loginTime");
+
                 Session::delete($this->_sessionName);
                 Cookie::delete($this->_cookieName);
             }
