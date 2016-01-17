@@ -203,10 +203,10 @@ echo "<script type='text/javascript'>
 	      		
 	      	
 		      	<div class="section">
-		      	<button class="btn btn-smaller btn-success new">
+		      	<a href="newPost.php" class="btn btn-smaller btn-success new">
 		      		<i class="fa fa-plus"></i>
 		      		点此创建新话题
-		      	</button>	
+		      	</a>	
 		      	</div>
 		      	<div class="section">
 		      		<b>最新帖子</b>
