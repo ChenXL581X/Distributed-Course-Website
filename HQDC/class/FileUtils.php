@@ -40,6 +40,37 @@ class FileUtils
 		}
 		else return false;
 	}
+
+	public static function UpLoadNoReplace($filepath,$file)
+	{
+		if ($file["error"] > 0)
+		{
+		    // echo "Error! Return Code: " . $file["error"] . "<br />";
+		    return false;
+		}
+	 	 else
+	    {
+	    	if($filepath&&!file_exists($filepath))
+	    	{ 
+	    	  mkdir($filepath);
+	    	}
+	    	$path = $filepath."/" . mb_convert_encoding($file["name"],"gbk", "utf-8");
+	    	// echo "Upload: " . $file["name"] . "<br />";
+	    	// echo "Type: " . $file["type"] . "<br />";
+	    	// echo "Size: " . ($file["size"] / 1024) . " Kb<br />";
+	    	// echo "Temp file: " . $file["tmp_name"] . "<br />";
+	      if(move_uploaded_file($file["tmp_name"],$path))
+	      {
+	      	// echo "Stored in: " . $path."<br />";
+	      	return $file['name'];
+	      }
+	      else {
+	      	echo "Stored Error!<br />";
+	      	return false;
+	      }
+	    }
+	}
+
 	public static function UpWare($file,$isExisted=false)
 	{
 		if ($file["error"] > 0)

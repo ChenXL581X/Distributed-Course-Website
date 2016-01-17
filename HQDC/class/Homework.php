@@ -8,8 +8,13 @@ class Homework
 	}
 	public function submit($file,$fields = array())
 	{
-		$rs=FileUtils::upfile($file);
-		$this->_dbSubmit->create($fields);
+		
+		$rs=FileUtils::UpLoadNoReplace("upload/homework",$file);
+		$this->_dbSubmit->replace($fields);
+	}
+	public function findSubmitByStudentTaskId($studentId,$taskId)
+	{
+		return $this->_dbSubmit->findByAnd(array('user_id','task_id'),array('=','='),array($studentId,$taskId));
 	}
 }
 ?>

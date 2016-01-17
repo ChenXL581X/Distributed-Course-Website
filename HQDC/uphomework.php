@@ -24,9 +24,10 @@ if (Input::exists('post')) {
                     $rs=$user->_homework->submit($file,array(
                         'task_id'=> Input::get('taskId'),
                         'user_id'=> $user->data()->id,
-                        'file_link'=>FileUtils::GetPath()."/".$file['name'],
+                        'file_link'=>"upload/homework"."/".$file['name'],
                         ));
                     $res["msg"] = "ok".$rs;
+                    Session::flash("taskdetail","上传成功");
                 }
             }catch(Exception $e){
                 $res["error"] = "error:".$e->getMessage();

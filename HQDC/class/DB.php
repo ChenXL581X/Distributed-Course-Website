@@ -96,6 +96,7 @@ class DB{
 	{
 		$sql = $sql." where";
 		for ($i=0; $i < count($fields); $i++) { 
+			if($i) $sql .= " and ";
 			$sql = $sql." ".$fields[$i]." ".$ops[$i]." '".$values[$i]."'";
 		}
 		// echo $sql;
@@ -162,6 +163,31 @@ class DB{
 	public function delete($table,$where){
 		return $this -> action('delete', $table ,$where);
 
+	}
+	public function replace($table, $fields = array()){
+		
+		$keys = array_keys($fields);
+		$values = null;
+		$x =1;
+
+		foreach ($fields as $field) {
+			$values .= "?";
+			if($x < count ($fields)){
+				$values .=  ', ';
+			}
+			$x++;
+			
+		}
+		//var_dump($fields);
+		// die();
+		$sql = "replace into {$table} (`"   .  implode('`,`', $keys)  .    "`) values ({$values})";
+		echo $sql;
+
+		if (!$this -> query($sql , $fields)->error()){
+			return true;
+		}
+
+		return false;
 	}
 	public function insert($table, $fields = array()){
 		

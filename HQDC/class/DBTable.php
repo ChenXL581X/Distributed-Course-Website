@@ -24,6 +24,14 @@ class DBTable{
 	    return true;
 	}
 
+	public function replace($fields = array()) 
+	{
+	    if (!$this->_db->replace($this->_tablename, $fields)) {
+	        throw new Exception("There was a problem inserting in $this->_tablename");
+	    }
+	    return true;
+	}
+
 	public function findByID($id) 
 	{
         $data = $this->_db->get($this->_tablename, array("id","=",$id));

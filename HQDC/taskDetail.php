@@ -6,7 +6,11 @@ if(Input::get('edit')=='true')
 	echo "<script>var editmodel=true;</script>";
 }
 $token = Token::generate();
-$user = new User();
+if($role=='student')
+{
+	$user = new Student();
+}
+else $user = new User();
 if(Input::exists('get'))
 {
       $id = Input::get('taskmark');
@@ -90,12 +94,32 @@ if(Input::exists('get'))
 			  </div>
 			  
 			</div>
+			<?php
+			if($role=='student')
+			{
+			?>
 			<div class="files">
-				<label>你尚未提交作业</label>
+				<?php
+				$hData = $user->_homework->findSubmitByStudentTaskId($user->data()->id,$id);
+				?>
+				<label>
+					<?php 
+					if(count($hData))
+					{
+						echo "作业<br />";
+						foreach ($hData as $homework) {
+							$filename = substr($homework->file_link, strrpos($homework->file_link,"/")+1);
+							echo "<a href='$homework->file_link' target='_blank'>$filename</a><br />";
+						}
+					}
+					else echo '你尚未提交作业';
+					?>
+				</label>
 
 			</div>
 				<div class="upbtn"><input id="homework" type="file" name='homework'></div>
-				<button id="uploadHomework" class="btn btn-primary"><i class="fa fa-upload"></i> 提交作业</button>
+				<?php }?>
+				<button id="uploadHomework" class="btn btn-primary"><i class="fa fa-upload" ></i> 提交作业</button>
 				<button onclick="location='workScore.php?taskId=1'" class="btn btn-default"><i class="fa fa-pencil"></i> 为学生评分</button> 
 			</div>
 			<div class="info">
