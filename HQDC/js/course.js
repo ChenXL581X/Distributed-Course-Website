@@ -35,4 +35,44 @@ $(document).ready(function(){
           }
      });
   });
+  function uploadHomework(taskId){
+        $.ajaxFileUpload({
+            url:'uphomework.php',
+            secureuri :false,
+            fileElementId :'homework',
+            dataType : 'JSON',
+            data:{
+              "taskId":taskId
+            },
+            success : function (data, status){
+                if(typeof(data.error) != 'undefined'){
+                    if(data.error != ''){
+                      // alert(data.error);
+                        $('.main').showMessage(data.error,4000);
+                        location.reload();
+                    }else{
+                        // alert(data.msg);
+                        location.reload();
+                    }
+                }
+                $("#homework").change('change', function(){
+                  uploadHomework($(this).attr('class'));
+                });
+                window.location.reload();
+            },
+            error: function(data, status, e){
+                $('.main').showMessage(e,4000);
+                $("#homework").change('change', function(){
+                  uploadHomework($(this).attr('class'));
+                });
+                window.location.reload();
+            }
+    })    
+  }
+  $("#homework").change('change', function(){
+    uploadHomework($(this).attr('class'));
+  });
+  $(".look").click(function(){
+    $(this).parent().parent().children(".homeworkList").slideToggle();
+  });
 });

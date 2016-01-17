@@ -8,6 +8,11 @@ if($role == 'teacher')
 	$data = $user->taskFindAll();
 	$name = $user->data()->name;
 }
+else if($role == 'student')
+{
+	$user = new Student();
+	$data = $user->taskFindAll();
+}
 else
 {
 	$user = new User();
@@ -18,7 +23,7 @@ $nowtime=strtotime('now');
 		<link rel="stylesheet" type="text/css" href="css/timeline/default.css" />
 		<link rel="stylesheet" type="text/css" href="css/timeline/component.css" />
 		<link rel="stylesheet" type="text/css" href="css/course.css">
-	
+	<script src="js/ajaxfileupload.js"></script>
 		<div class="row main-box">
 			<div class="col-md-8 ">	
 
@@ -81,7 +86,7 @@ $nowtime=strtotime('now');
 				      	      		if($files)
 				      	      		{
 				      	      			?>
-				      	      			<div class="download">
+				      	      	<div class="download">
 				      	      				<?php
 				      	      			foreach ($files as $file) {
 				      	      	?>
@@ -106,9 +111,37 @@ $nowtime=strtotime('now');
 								  </div>
 								  
 								</div>
-
-									<button class="btn btn-default"><i class="fa fa-search"></i> 查看已提交附件</button>
+								<?php
+								if($role=='student') $hData = $user->_homework->findSubmitByStudentTaskId($user->data()->id,$data[$i]->id);
+								?>
+								<input type="hidden" class="h_taskId" value="<?php echo $data[$i]->id; ?>">
+								<?php if(!(isset($hData)&&count($hData))) echo '<div class="upbtn"><input id="homework" class="'.$data[$i]->id.'" type="file" name="homework"></div>'; ?>
+									<button class="btn btn-default look" <?php if($role!='student') echo "disabled";?>><i class="fa fa-search"></i>
+									<?php 
+										if(isset($hData)&&count($hData))
+										{
+											echo "查看已提交作业";
+										}
+										else 
+										{
+											echo "提交作业";
+										}
+									?>
+									</button>
 									<button class="btn btn-default"><i class="fa fa-search"></i> 查看评分</button>
+								</div>
+								<div class="homeworkList">
+								<?php 
+								if(isset($hData)&&count($hData))
+								{
+									foreach ($hData as $homework) {
+										$filename = substr($homework->file_link, strrpos($homework->file_link,"/")+1);
+										echo "<a href='$homework->file_link' target='_blank'>$filename</a><br />";
+										echo '<div class="upbtn" style="margin-top:10px"><input id="homework" class="'.$data[$i]->id.'" type="file" name="homework"></div>';
+										echo '<button class="btn btn-default" style="margin-top:10px"><i class="fa fa-search"></i> 重新提交</button>';
+									}
+								}
+								?>
 								</div>
 								
 								<div class="info">

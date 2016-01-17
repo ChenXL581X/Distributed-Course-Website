@@ -207,3 +207,23 @@ a.delete-task{
     margin-right: 20px;
     color: #777;
 }
+.homeworkList{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+.upbtn{
+    position: absolute;
+    background-color: #ccc;
+    height: 31px;
+    width: 89px;
+    opacity: 0;
+    cursor: pointer;
+}
+.upbtn input{
+    position: absolute;
+    height: 31px;
+    width: 89px;
+    opacity: 0;
+    cursor: pointer
+}
