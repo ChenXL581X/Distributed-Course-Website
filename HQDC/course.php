@@ -121,7 +121,7 @@ $nowtime=strtotime('now');
 								?>
 								<input type="hidden" class="h_taskId" value="<?php echo $data[$i]->id; ?>">
 								<?php if(!(isset($hData)&&count($hData))) echo '<div class="upbtn"><input id="homework" class="'.$data[$i]->id.'" type="file" name="homework"></div>'; ?>
-									<button class="btn btn-default look" <?php if($role!='student') echo "disabled";?>>
+									<a class="btn btn-default look" <?php if($role!='student') echo "disabled";?>>
 									<?php 
 										if(isset($hData)&&count($hData))
 										{
@@ -132,8 +132,8 @@ $nowtime=strtotime('now');
 											echo "<i class='fa fa-upload'></i>提交作业";
 										}
 									?>
-									</button>
-									<button class="btn btn-default"><i class="fa fa-search"></i> 查看评分</button>
+									</a>
+									<a href='grade.php' class="btn btn-default"><i class="fa fa-search"></i> 查看评分</a>
 								</div>
 								<div class="homeworkList">
 								<?php 
