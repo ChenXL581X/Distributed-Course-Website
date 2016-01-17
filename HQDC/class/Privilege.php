@@ -2,7 +2,9 @@
 	class Privilege{
 		private $_db,$_role,$_result;
 		public function __construct(){
+			
 			$this->_db = DB::getInstance();
+
 		}
 		public function hasPermission($user,$page){
 

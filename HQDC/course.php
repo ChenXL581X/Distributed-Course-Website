@@ -32,6 +32,8 @@ $nowtime=strtotime('now');
 				 		?>
 				 	<span class="new-task"><a href="newtask.php"><i class="fa fa-plus"></i> 新建课程或作业</a></span>
 					<?php } ?>
+
+					<span class="new-task"><a href="grade.php"><i class="fa fa-search"></i> 查看成绩</a></span>
 				</h3>
 
 
