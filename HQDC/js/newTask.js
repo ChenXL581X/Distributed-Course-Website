@@ -36,29 +36,49 @@ $(document).ready(function(){
 		}
 		else $("#submit").removeAttr("disabled");
 	});
+	$(".fileDel").click(function(){
+	//  $.post("filedel.php",
+	//    {
+	//      'fileId':mark,
+	//      'token':$("[name$='token']").val()
+	//    },
+	//    function(data,status){
+	//        if(status=='success'){
+	//           window.location.href="taskdetail.php?taskmark="+$("#id").val()+"&edit=true";
+	//        }
+	//        else $('.main').showMessage('删除失败！',4000);
+	//    });
+	});
 	jQuery(function(){   
-	    $("#inputFile").change(function(){   
-	      $.ajaxFileUpload({
-	          url:'createfile_run.php',
-	          secureuri :false,
-	          fileElementId :'inputFile',
-	          dataType : 'json',
-	          success : function (data, status){
-	              if(typeof(data.error) != 'undefined'){
-	              	console.log(data);
-	                  if(data.error != ''){
-	                      alert(data.error);
-	                  }else{
-	                      var rs=data.msg;
-	                      $(".filelist").append("<span>"+rs+"</span>").append("<input type='hidden' name='uploadfile[]' value='"+rs+"'>");
-	                  }
-	              }
-	          },
-	          error: function(data, status, e){
-	              alert(e);
-	          }
-	  })
-	  return false;
-	    }) 
+		function ajaxFileUp(){
+		    $.ajaxFileUpload({
+		        url:'createfile_run.php',
+		        secureuri :false,
+		        fileElementId :'inputFile',
+		        dataType : 'json',
+		        success : function (data, status){
+		            if(typeof(data.error) != 'undefined'){
+		                if(data.error != ''){
+		                    alert(data.error);
+		                }else{
+		                    var rs=data.msg;
+		                    $(".filelist").append("<span><a href='"+data.url+"' target='_black'>"+rs+"</a></span><span class='fileDel'>[删除]</span><br />").append("<input type='hidden' name='uploadfile[]' value='"+rs+"'>");
+		                }
+		            }
+		            $("#inputFile").change('change', function(){
+		              ajaxFileUp();
+		            });
+		        },
+		        error: function(data, status, e){
+		            alert(e);
+		            $("#inputFile").change('change', function(){
+		              ajaxFileUp();
+		            });
+		        }
+			})
+		}
+		$("#inputFile").change('change', function(){
+		  ajaxFileUp();
+		});
 	});
 })

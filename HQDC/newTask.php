@@ -64,7 +64,7 @@ $token = Token::generate();
 
 <!-- 			  </div> -->
 			  <div class="form-group">
-			     <label for="inputFile">添加附件</label>
+			     <label for="inputLabel">添加附件</label>
 			     <div class="filelist">
 			     </div>
 			     <input type="file" name="inputFile" id="inputFile">

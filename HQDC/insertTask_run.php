@@ -44,16 +44,18 @@ if (Input::exists('post')) {
                 if($validation->passed())
                 {
                     $arr=Input::get('uploadfile');
+                    $taskID=$teacher->_taskOperation->getLastId();
                     foreach ($arr as $file) {
                         echo $file;
                         $teacher->_taskOperation->insertFile(array(
                             'name'=>$file,
                             'teacher_id'=>$teacher->data()->id,
                             'url'=>FileUtils::GetPath()."/".$file,
+                            'task_id'=>$taskID,
                             ));
                     }
                 }
-                    Redirect::to('taskdetail.php?taskmark='.$teacher->_taskOperation->getLastId());
+                    Redirect::to('taskdetail.php?taskmark='.$taskID);
                 // Redirect::to('course.php');
             }catch(Exception $e){
                 die($e->getMessage());

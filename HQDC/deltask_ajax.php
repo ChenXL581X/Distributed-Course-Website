@@ -15,18 +15,21 @@ if (Input::exists('post')) {
             $id = Input::get('taskid');
             try{
                 $teacher->_taskOperation->taskDelete($id);
-            	echo "success";
+        	    Session::flash("course","删除成功");
+                Redirect::to('course.php');
             }catch(Exception $e){
                 die('error'.$e->getMessage());
             }
-            echo "success";
+            Session::flash("course","删除成功");
+            Redirect::to('course.php');
         }else {
              $errorInfo = '';
             foreach ($validation->errors() as $error) {
                 //echo $error;
                 $errorInfo.=($error.'<br>');
             }
-            echo 'error';
+            Session::flash("course","删除成功");
+            Redirect::to('course.php');
         }
 }
 

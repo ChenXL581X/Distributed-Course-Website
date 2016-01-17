@@ -26,13 +26,13 @@ $(document).ready(function(){
      },
      function(data,status){
          if(status=='success'){
-            alert(data);
-            window.location.href="course.php";
+            // alert(data);
+            window.location.reload();
          }
          else 
-            {
-            alert('删除失败！');
-            }
+          {
+          // alert('删除失败！');
+          }
      });
   });
 });

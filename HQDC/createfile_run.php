@@ -10,7 +10,11 @@ try{
     }
     else {
         $rs=FileUtils::upfile($file,true);
-        if($rs != false) $res["msg"] = $rs;
+        if($rs != false)
+		{
+        	$res["msg"] = $rs;
+        	$res["url"] = FileUtils::GetPath()."/".$file['name'];
+        }
     }
 }catch(Exception $e){
     $res["error"] = "error:".$e->getMessage();

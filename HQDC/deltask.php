@@ -15,9 +15,12 @@ if (Input::exists('post')) {
             $id = Input::get('taskid');
             try{
                 $teacher->_taskOperation->taskDelete($id);
+                Session::flash("course","删除成功");
             	Redirect::to('course.php');
             }catch(Exception $e){
                 die('error'.$e->getMessage());
+                Session::flash("course","删除失败");
+                Redirect::to('course.php');
             }
 
         }else {
@@ -26,7 +29,8 @@ if (Input::exists('post')) {
                 //echo $error;
                 $errorInfo.=($error.'<br>');
             }
-            echo 'error';
+            Session::flash("course","删除失败");
+            Redirect::to('course.php');
         }
     }
 }
