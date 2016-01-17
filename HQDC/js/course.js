@@ -17,23 +17,28 @@
 	});
 })();
 $(document).ready(function(){
-  $(".delete-task").click(function(){
-   var mark;
-   mark=$(this).parent().children(".taskid").val();
+
+  $(".delete-task").click(function(e){
+    e.preventDefault();
+    if(confirm("是否确认删除该任务？")){
+     var mark;
+    mark=$(this).parent().children(".taskid").val();
    $.post("deltask_ajax.php",
      {
        'taskid':mark
      },
      function(data,status){
          if(status=='success'){
-            // alert(data);
+            
             window.location.reload();
          }
          else 
           {
           // alert('删除失败！');
           }
-     });
+     }); 
+    }
+   
   });
   function uploadHomework(taskId){
         $.ajaxFileUpload({

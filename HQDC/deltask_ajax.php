@@ -9,27 +9,32 @@ if (Input::exists('post')) {
                 'name' => 'taskid'
             )
         ));
+        Session::delete("course");
         if($validation->passed())
         {
+
             $teacher = new Teacher();
             $id = Input::get('taskid');
             try{
                 $teacher->_taskOperation->taskDelete($id);
+                echo 'success';
         	    Session::flash("course","删除成功");
-                Redirect::to('course.php');
+                
             }catch(Exception $e){
-                die('error'.$e->getMessage());
+                echo 'later';
+                Session::flash("course",$e->getMessage());
+                
             }
-            Session::flash("course","删除成功");
-            Redirect::to('course.php');
+            
         }else {
              $errorInfo = '';
             foreach ($validation->errors() as $error) {
                 //echo $error;
                 $errorInfo.=($error.'<br>');
             }
-            Session::flash("course","删除成功");
-            Redirect::to('course.php');
+            echo 'Verror';
+            Session::flash("course",$error);
+           
         }
 }
 
