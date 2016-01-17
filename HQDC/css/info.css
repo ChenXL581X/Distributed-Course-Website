@@ -275,3 +275,42 @@ i.fa.fa-reply{
     margin-top: 10px;
     /*text-align: left;*/
 }
+.privelege {
+
+}
+.privelege p{
+  font-size: 13px;
+  margin-top: 10px;
+  margin-left: 10px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+.pri-box{
+  height: 100px;
+  width: 100px;
+  background: #fff;
+  box-shadow: 0 0 4px rgba(221, 216, 216, 0.74);
+  border-radius: 5px;
+  display: inline-block;
+  transition:all .3s;
+  cursor: pointer;
+  margin: 5px;
+  float: left;
+  text-align: center;
+  font-size: 13px;
+  padding-top: 20px;
+  color: #8D8D8D;
+
+}
+.pri-box i.fa{
+  font-size: 30px;
+  color: #B6B6B6;
+}
+.pri-box:hover{
+  background: #246EB8;
+  text-decoration: none;
+  color: #fff;
+}
+.pri-box:hover i{
+  color: #fff;
+}

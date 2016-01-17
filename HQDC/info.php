@@ -47,7 +47,7 @@ $token = Token::generate();
 				<ul>
 					<li class="active"><a href="#tab11" rel="#tab11">用户信息</a></li>
 					<li class=""><a href="#tab22" rel="#tab22">更改密码</a></li>
-					<li class=""><a href="#tab33" rel="#tab33">升级权限</a></li>
+					<li class=""><a href="#tab33" rel="#tab33">用户</a></li>
 					<li class=""><a href="#tab44" rel="#tab44">用户消息</a></li>
 				</ul>
 			</nav>
@@ -107,7 +107,43 @@ $token = Token::generate();
 					</form>		
 			</div>
 			<div id="tab33" class="centerbox" style="display: none;">
-				<p>您拥有的权限有：...............................</p>
+				<div class="privelege">
+					<p>您的身份为<?php if($role=='teacher'){
+					echo '教师';
+				}else if($role=='student'){
+					echo "学生";
+				}else if($role=='admin'){
+					echo "管理员";
+				}
+
+				?>，拥有的权限有：</p>	
+				</div>
+				<a href="login.php" class="pri-box"><i class="fa fa-lock"></i><br><span>登录网站</span></a>
+				<a href="forum.php"  class="pri-box"><i class="fa fa-comments"></i><br><span>发帖回帖</span></a>
+				<a href="course.php"  class="pri-box"><i class="fa fa-mortar-board"></i><br><span>查看课程</span></a>
+				<a href="calendar.php"  class="pri-box"><i class="fa fa-calendar"></i><br><span>查看日历</span></a>
+				<a href="grade.php"  href="login.php"  class="pri-box"><i class="fa fa-calendar"></i><br><span>查看成绩</span></a>
+				<?php
+					if($role=="teacher"){
+						?>
+						<a href="newTask.php"  class="pri-box"><i class="fa fa-upload"></i><br><span>发布作业</span></a>
+						<a href="course.php"  class="pri-box"><i class="fa fa-edit"></i><br><span>作业评分</span></a>
+
+						<?php
+					}else if($role=="student"){
+						?>
+						<a href="course.php"  class="pri-box"><i class="fa fa-upload"></i><br><span>提交作业</span></a>
+						
+
+						<?php
+					}else if($role=="admin"){
+						?>
+						<a href="admin.php"  class="pri-box"><i class="fa fa-upload"></i><br><span>发布通知，公告</span></a>
+						<a href="admin.php"  class="pri-box"><i class="fa fa-user"></i><br><span>用户管理</span></a>
+
+						<?php
+					}
+				?>
 			</div>
 			<div id="tab44" class="centerbox" style="display: none;">
                 <div class="message ul-box">
