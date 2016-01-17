@@ -48,7 +48,8 @@ $nowtime=strtotime('now');
 							</time>
 							<div class="cbp_tmicon cbp_tmicon-phone"></div>
 							<div class="cbp_tmlabel">
-						      <h6 onclick="location=<?php echo '\'taskdetail.php?taskmark='.$data[$i]->id.'\''; ?>">
+						      <h6>
+						       <div><b style="cursor:pointer;" onclick="location=<?php echo '\'taskdetail.php?taskmark='.$data[$i]->id.'\''; ?>">
 						            <?php
 						            if($data[$i]->type==='H')
 						            echo "作业：";
@@ -57,6 +58,8 @@ $nowtime=strtotime('now');
 						            <?php 
 						            echo $data[$i]->title; 
 						            ?>
+						        </b>
+						        </div>
 						        <input type="hidden" class="taskid" name="taskid" value="<?php echo $data[$i]->id; ?>">
 
 								<a href="#" class="showContext pull-right"><i class="fa fa-arrow-down"></i><span>展开</span></a>
