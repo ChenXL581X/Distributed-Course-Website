@@ -98,15 +98,20 @@ $nowtime=strtotime('now');
 								<?php } ?>
 								<div class="operate tool-box">
 									<?php 
+
+									$studentData=$user->findStudent();
+								  	$submitData=$user->findMaterailStudent($data[$i]->id);
+								  	$submitNum = count($submitData);
+								  	$stdNum = count($studentData);
+
 									?>
-								<label><?php if($nowtime<$endtime) echo '该实验持续中';else echo '该实验已完成'; ?></label>
+								<label><?php if($nowtime<$endtime) echo '该实验持续中';else echo '该实验已截止，'; echo "已有".$submitNum.'(共'.$stdNum.')'."名同学提交作业"?></label>
 								<div class="progress">
 								  <?php
-								  $studentData=$user->findStudent();
-								  $submitData=$user->findMaterailStudent($data[$i]->id);
+								  
 								  $percent=count($submitData)/count($studentData)*100;
 								  ?>
-								  <div class="progress-bar progress-bar-success progress-bar-striped " style="width: <?php echo $percent."%";?>">
+								  <div class="progress-bar progress-bar-striped <?php if($nowtime<$endtime) echo 'active progress-bar-info';else echo 'progress-bar-success';?>" style="width: <?php if($percent==0)echo '2%';else echo $percent."%";?>">
 								    
 								  </div>
 								  
@@ -116,15 +121,15 @@ $nowtime=strtotime('now');
 								?>
 								<input type="hidden" class="h_taskId" value="<?php echo $data[$i]->id; ?>">
 								<?php if(!(isset($hData)&&count($hData))) echo '<div class="upbtn"><input id="homework" class="'.$data[$i]->id.'" type="file" name="homework"></div>'; ?>
-									<button class="btn btn-default look" <?php if($role!='student') echo "disabled";?>><i class="fa fa-search"></i>
+									<button class="btn btn-default look" <?php if($role!='student') echo "disabled";?>>
 									<?php 
 										if(isset($hData)&&count($hData))
 										{
-											echo "查看已提交作业";
+											echo "<i class='fa fa-search'></i>查看已提交作业";
 										}
 										else 
 										{
-											echo "提交作业";
+											echo "<i class='fa fa-upload'></i>提交作业";
 										}
 									?>
 									</button>
@@ -138,7 +143,7 @@ $nowtime=strtotime('now');
 										$filename = substr($homework->file_link, strrpos($homework->file_link,"/")+1);
 										echo "<a href='$homework->file_link' target='_blank'>$filename</a><br />";
 										echo '<div class="upbtn" style="margin-top:10px"><input id="homework" class="'.$data[$i]->id.'" type="file" name="homework"></div>';
-										echo '<button class="btn btn-default" style="margin-top:10px"><i class="fa fa-search"></i> 重新提交</button>';
+										echo '<button class="btn btn-default" style="margin-top:10px"><i class="fa fa-upload"></i> 重新提交</button>';
 									}
 								}
 								?>
