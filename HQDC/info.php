@@ -47,7 +47,7 @@ $token = Token::generate();
 				<ul>
 					<li class="active"><a href="#tab11" rel="#tab11">用户信息</a></li>
 					<li class=""><a href="#tab22" rel="#tab22">更改密码</a></li>
-					<li class=""><a href="#tab33" rel="#tab33">用户</a></li>
+					<li class=""><a href="#tab33" rel="#tab33">用户权限</a></li>
 					<li class=""><a href="#tab44" rel="#tab44">用户消息</a></li>
 				</ul>
 			</nav>
