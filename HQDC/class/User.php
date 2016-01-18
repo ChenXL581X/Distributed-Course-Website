@@ -247,4 +247,16 @@
                 $db=new DBTaskSubmit();
                 return $db->findByAnd(array('task_id'),array('='),array($taskID));
             }
+            public function downfile($fileurl)
+            {
+             ob_start(); 
+             $filename=$fileurl;
+             $name=substr($filename,strrpos($filename, "/")+1);
+             $date=date("Ymd-H:i:m");
+             header( "Content-type:  application/octet-stream "); 
+             header( "Accept-Ranges:  bytes "); 
+             header( "Content-Disposition:  attachment;  filename= $name"); 
+             $size=readfile($filename); 
+              header( "Accept-Length: " .$size);
+            }
         }

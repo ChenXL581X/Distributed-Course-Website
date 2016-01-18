@@ -63,7 +63,7 @@ if(Input::exists('get'))
 				foreach ($files as $file) {
 					?>
 			<div>   
-				<a class="" href="<?php echo $file->url; ?>" id="<?php echo "fl".$file->id; ?>">
+				<a class="" href="download.php?path='<?php echo $file->url; ?>'" id="<?php echo "fl".$file->id; ?>">
 					<i class="fa fa-download">
 					</i> <?php echo $file->name; ?>
 				</a>
@@ -111,7 +111,7 @@ if(Input::exists('get'))
 						echo "作业<br />";
 						foreach ($hData as $homework) {
 							$filename = substr($homework->file_link, strrpos($homework->file_link,"/")+1);
-							echo "<a href='$homework->file_link' target='_blank'>$filename</a><br />";
+							echo "<a href=\"download.php?path='$homework->file_link'\" target='_blank'>$filename</a><br />";
 						}
 					}
 					else echo '你尚未提交作业';
@@ -131,12 +131,12 @@ if(Input::exists('get'))
 			<?php }?>
 			</div>
 			<div class="info">
-				<span>截止时间:11/16 12:00</span>
+				<span>截止时间:<?php echo date("d/m h:i",$end);?></span>
 				<?php
 				if($role=='teacher')
 				{
 					?>
-				<a href="#" class="delete-task pull-right"><i class="fa fa-times"></i><span>删除此任务</span></a>
+				<a href="#" class="delete-task pull-right" taskid="<?php echo $id;?>"><i class="fa fa-times"></i><span>删除此任务</span></a>
 				<a href="#" class="edit pull-right" id="edit">编辑 <i class="fa fa-pencil"></i></a>
 				<?php }?>
 				<span class="pull-right">由<a href=""><?php if(isset($teacher_id)) echo $user->findCreateMan($teacher_id); ?></a>老师发起</span>

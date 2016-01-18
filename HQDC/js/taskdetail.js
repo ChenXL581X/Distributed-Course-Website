@@ -106,14 +106,13 @@ $(document).ready(function(){
   });
   $(".delete-task").click(function(){
    var mark;
-   mark=$(this).parent().children(".taskid").val();
+   mark=$(this).attr("taskid");
    $.post("deltask_ajax.php",
      {
        'taskid':mark
      },
      function(data,status){
          if(status=='success'){
-            alert(data);
             window.location.href="course.php";
          }
          else 

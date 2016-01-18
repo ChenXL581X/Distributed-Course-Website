@@ -62,7 +62,7 @@ if (!$user->isLoggedIn()) {
 				<tr>
 					<td submitId=<?php echo $value->id?> class="number"><?php echo $number?></td>
 					<td class="name"><?php echo $name?></td>
-					<td class="file_link"><a href=<?php echo $value->file_link?>> <?php echo $number."_".$name.".zip"?></a></td>
+					<td class="file_link"><a href="download.php?path='<?php echo $value->file_link?>"> <?php echo $number."_".$name.".zip"?></a></td>
 					<td class="score"> <input class="score" type="text" value=<?php echo $value->score?>></td>
 					
 				</tr>
