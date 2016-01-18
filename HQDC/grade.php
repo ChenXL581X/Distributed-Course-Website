@@ -23,7 +23,7 @@ $stu = $student->findAll();
             <div class="modal-body">
             <div class="task-box row">
                 <div class="col-md-10 col-md-offset-1">
-                    <p>为各个作业分配1-10的权重</p>
+                    <p>为各个作业分配0-10的权重</p>
                     <?php
                         if($taskAll)foreach ($taskAll as $key => $value) {
                                 # code...

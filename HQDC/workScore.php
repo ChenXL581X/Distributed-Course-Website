@@ -3,6 +3,29 @@ include "includes/header.php";
 $taskSubmit = new TaskSubmit();
 $taskSubmit = $taskSubmit->findWithTaskId(Input::get('taskId'));
 $user = new User();
+if (!$user->isLoggedIn()) {
+    echo "<script type='text/javascript'>
+    
+		
+        if(confirm('您没有登录，是否跳转到登录页面？')){
+        window.location.href = 'login.php';
+        }else{
+        window.location.href = 'index.php';
+        }
+        
+		</script>";
+}else if($role != 'teacher'){
+	echo "<script type='text/javascript'>
+    
+		
+        if(confirm('您不是教师，是否重新登录？')){
+        window.location.href = 'login.php';
+        }else{
+        window.location.href = 'index.php';
+        }
+        
+		</script>";
+}
 
 ?>
 <link rel="stylesheet" type="text/css" href="css/table/component.css">

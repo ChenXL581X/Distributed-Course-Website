@@ -122,7 +122,7 @@ $token = Token::generate();
 				<a href="forum.php"  class="pri-box"><i class="fa fa-comments"></i><br><span>发帖回帖</span></a>
 				<a href="course.php"  class="pri-box"><i class="fa fa-mortar-board"></i><br><span>查看课程</span></a>
 				<a href="calendar.php"  class="pri-box"><i class="fa fa-calendar"></i><br><span>查看日历</span></a>
-				<a href="grade.php"  href="login.php"  class="pri-box"><i class="fa fa-calendar"></i><br><span>查看成绩</span></a>
+				<a href="grade.php"  href="login.php"  class="pri-box"><i class="fa fa-bar-chart "></i><br><span>查看成绩</span></a>
 				<?php
 					if($role=="teacher"){
 						?>

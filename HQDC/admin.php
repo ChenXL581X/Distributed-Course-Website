@@ -3,7 +3,7 @@ include 'includes/header.php';
 if ($role == 'tourist') {
     echo "<script type='text/javascript'>
     
-		window.location.href = 'login.php';
+		
         if(confirm('您没有登录，是否跳转到登录页面？')){
         window.location.href = 'login.php';
         }else{

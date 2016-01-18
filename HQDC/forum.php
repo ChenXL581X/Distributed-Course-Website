@@ -19,14 +19,14 @@ if($post) $postData = $post->data();
 	<div class="row show-grid">
       <div class="col-md-7 col-md-offset-1">
       	<div class="tools">
-      		<button class="btn btn-success">
+      		<a href="#" class="btn btn-success">
       			<i class="fa fa-refresh"></i>
       			刷新
-      		</button>
-      		<button class="btn btn-smaller btn-primary new">
+      		</a>
+      		<a href="newPost.php" class="btn btn-smaller btn-primary new">
 	      		<i class="fa fa-plus"></i>
 	      		<span>发帖</span>
-	      	</button>
+	      	</a>
       		
 			
       		<div class="btn-group" role="group" aria-label="...">

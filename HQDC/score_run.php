@@ -5,6 +5,7 @@ $data = Input::get('data');
 $success = Array("info"=>"success");
 $fail = Array("info"=>"fail");
 //echo json_encode($data);
+
 if ($taskSubmit->update($data)) {
     echo json_encode($success);
 }

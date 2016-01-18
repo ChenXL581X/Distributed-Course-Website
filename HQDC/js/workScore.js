@@ -22,7 +22,7 @@
 	             success: function(data){
 	                         console.log(data);
 	                         $.updateProgress("100%");
-	                         
+	                         $.hideProgress();
 	                      }
 	         	});	
 		});
