@@ -181,7 +181,7 @@ class DB{
 		//var_dump($fields);
 		// die();
 		$sql = "replace into {$table} (`"   .  implode('`,`', $keys)  .    "`) values ({$values})";
-		echo $sql;
+		// echo $sql;
 
 		if (!$this -> query($sql , $fields)->error()){
 			return true;

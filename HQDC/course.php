@@ -118,18 +118,20 @@ $nowtime=strtotime('now');
 								</div>
 								<?php
 								if($role=='student') $hData = $user->_homework->findSubmitByStudentTaskId($user->data()->id,$data[$i]->id);
+								else if($role=='teacher') $hData = $user->submitByTaskId($data[$i]->id);
 								?>
 								<input type="hidden" class="h_taskId" value="<?php echo $data[$i]->id; ?>">
-								<?php if(!(isset($hData)&&count($hData))) echo '<div class="upbtn"><input id="homework" class="'.$data[$i]->id.'" type="file" name="homework"></div>'; ?>
-									<a class="btn btn-default look" <?php if($role!='student') echo "disabled";?>>
+								<?php if($role=='student'&&!(isset($hData)&&count($hData))) echo '<div class="upbtn"><input class="homework" id="'.$data[$i]->id.'" type="file" name="homework"></div>'; ?>
+									<a class="btn btn-default look" <?php if($role!='student'&&$role!='teacher') echo "disabled";?>>
 									<?php 
 										if(isset($hData)&&count($hData))
 										{
 											echo "<i class='fa fa-search'></i>查看已提交作业";
 										}
-										else 
+										else
 										{
-											echo "<i class='fa fa-upload'></i>提交作业";
+											if($role=='teacher') echo "<i class='fa fa-search'></i>尚未有学生提交作业";
+											else echo "<i class='fa fa-upload'></i>提交作业";
 										}
 									?>
 									</a>
@@ -142,7 +144,7 @@ $nowtime=strtotime('now');
 									foreach ($hData as $homework) {
 										$filename = substr($homework->file_link, strrpos($homework->file_link,"/")+1);
 										echo "<a href='$homework->file_link' target='_blank'>$filename</a><br />";
-										echo '<div class="upbtn" style="margin-top:10px"><input id="homework" class="'.$data[$i]->id.'" type="file" name="homework"></div>';
+										echo '<div class="upbtn" style="margin-top:10px"><input class="homework" id="'.$data[$i]->id.'" type="file" name="homework"></div>';
 										echo '<button class="btn btn-default" style="margin-top:10px"><i class="fa fa-upload"></i> 重新提交</button>';
 									}
 								}

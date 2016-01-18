@@ -56,5 +56,10 @@ class Teacher extends User
 	{
 		return $this->_info;
 	}
+	function submitByTaskId($taskId)
+	{
+		$dbsubmit = new DBTaskSubmit();
+		return $dbsubmit->findByAnd(array('task_id'),array('='),array($taskId));
+	}
 }
 ?>

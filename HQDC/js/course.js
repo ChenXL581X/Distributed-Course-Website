@@ -44,12 +44,13 @@ $(document).ready(function(){
         $.ajaxFileUpload({
             url:'uphomework.php',
             secureuri :false,
-            fileElementId :'homework',
+            fileElementId :taskId,
             dataType : 'JSON',
             data:{
               "taskId":taskId
             },
             success : function (data, status){
+              console.log(data);
                 if(typeof(data.error) != 'undefined'){
                     if(data.error != ''){
                       // alert(data.error);
@@ -60,22 +61,22 @@ $(document).ready(function(){
                         location.reload();
                     }
                 }
-                $("#homework").change('change', function(){
-                  uploadHomework($(this).attr('class'));
+                $(".homework").change('change', function(){
+                  uploadHomework($(this).attr('id'));
                 });
                 window.location.reload();
             },
             error: function(data, status, e){
                 $('.main').showMessage(e,4000);
-                $("#homework").change('change', function(){
-                  uploadHomework($(this).attr('class'));
+                $(".homework").change('change', function(){
+                  uploadHomework($(this).attr('id'));
                 });
                 window.location.reload();
             }
     })    
   }
-  $("#homework").change('change', function(){
-    uploadHomework($(this).attr('class'));
+  $(".homework").change('change', function(){
+    uploadHomework($(this).attr('id'));
   });
   $(".look").click(function(){
     $(this).parent().parent().children(".homeworkList").slideToggle();
