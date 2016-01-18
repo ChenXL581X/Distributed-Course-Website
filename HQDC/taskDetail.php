@@ -11,6 +11,7 @@ if($role=='student')
 	$user = new Student();
 }
 else $user = new User();
+$nowtime=strtotime('now');
 if(Input::exists('get'))
 {
       $id = Input::get('taskmark');
@@ -121,7 +122,7 @@ if(Input::exists('get'))
 			</div>
 				<div class="upbtn"><input id="homework" type="file" name='homework'></div>
 				<?php }?>
-				<button id="uploadHomework" class="btn btn-primary"><i class="fa fa-upload" ></i> 提交作业</button>
+				<button id="uploadHomework" class="btn btn-primary" <?php if($nowtime>$end) echo "disabled";?>><i class="fa fa-upload" ></i> 提交作业</button>
 				<?php
 				if($role=='teacher')
 				{
