@@ -8,7 +8,6 @@ $(document).ready(function(){
 	    return true;
 	};
 	function checkFrom(){
-		alert();
 		if($("#title").val()=='')
 		{
 			$("#title").focus();
@@ -22,19 +21,30 @@ $(document).ready(function(){
 		}
 		else $("#submit").removeAttr("disabled");
 	}
-	$('form :input').blur(function(){
-		if($("#title").val()=='')
+	$("#title").blur(function(){
+		if ($(this).val()=='') {
+			$(".main").showMessage("标题不能为空",3000);
+			$("#submit").attr("disabled",true);
+		};
+	});
+	$("#endtime").blur(function(){
+		if (checkEndTime($(this).val())) {
+			$(".main").showMessage("截止时间有误",3000);
+			$("#submit").attr("disabled",true);
+		};
+	});
+	$("#context").blur(function(){
+		if ($("#context").val()=='') {
+			$(".main").showMessage("内容不能为空",3000);
+			$("#submit").attr("disabled",true);
+		};
+	});
+	$('form :input').keydown(function(){
+		if($("#title").val()!=''&&!checkEndTime($("#endtime").val())&&
+			$("#context").val()!='')
 		{
-			$("#title").focus();
+			$("#submit").removeAttr("disabled");
 		}
-		else if(checkEndTime($("#endtime").val())){
-			$("#endtime").focus();
-		}
-		else if($("#context").val()=='')
-		{
-			$("#context").focus();
-		}
-		else $("#submit").removeAttr("disabled");
 	});
 	// $(".fileDel").click(function(){
 	// //  $.post("filedel.php",
@@ -59,9 +69,10 @@ $(document).ready(function(){
 		        success : function (data, status){
 		            if(typeof(data.error) != 'undefined'){
 		                if(data.error != ''){
-		                    alert(data.error);
+		                    $('main').showMessage('删除失败！',3000);
 		                }else{
 		                    var rs=data.msg;
+		                    $(".main").showMessage("添加附件",3000);
 		                    $(".filelist").append("<span><a href='"+data.url+"' target='_black'>"+rs+"</a><span class='fileDel' id='"+data.url+"'>[删除]</span><br /></span>").append("<input type='hidden' name='uploadfile[]' value='"+rs+"'>");
 		                }
 		            }
@@ -70,7 +81,7 @@ $(document).ready(function(){
 		            });
 		        },
 		        error: function(data, status, e){
-		            alert(e);
+		            $('main').showMessage('删除失败！',3000);
 		            $("#inputFile").change('change', function(){
 		              ajaxFileUp();
 		            });
@@ -88,12 +99,12 @@ $(document).ready(function(){
 			  },
 			  function(data,status){
 			      if(status=='success'){
-			      	alert(filepath);
+			      	$(".main").showMessage("已删除",3000);
 			      	$("span[id = '"+ filepath +"']").parent().remove();
 			      }
 			      else 
 			         {
-			         $('main').showMessage('删除失败！');
+			         $('main').showMessage('删除失败！',3000);
 			         }
 			  });
 		});

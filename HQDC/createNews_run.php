@@ -1,6 +1,6 @@
 <?php
 require_once "core/init.php";
-
+$user = new User();
 $type = $_POST['type'];
 $title = $_POST['title'];
 $context = $_POST['context'];
@@ -14,7 +14,7 @@ $fields = array(
     'context' => $context,
     'upload_time' => $upload_time,
     'type' => $type,
-    'upload_people' => "chenxiaolei"
+    'upload_people' => $user->data()->name
 );
 
 $news = new News();

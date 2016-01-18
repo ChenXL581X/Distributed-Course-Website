@@ -34,12 +34,20 @@ include 'includes/header.php';
 		</div>
 		<div class="tab3">
 			<div class="info">
-			<img src="/upload/xxx.jps" />
 			<?php 
 			$teacherInfo = new DBTeacher();
 			$detail = $teacherInfo->getAllIntroduce();
 			foreach ($detail as $value) {
 			    $value = (array)$value;
+			    echo "<div>";
+			    echo "教师图片：<img src=' ".Config::get('images/portraits').$value['portraits']."' /><br>";
+			    echo "姓名：<p>".$value['name']."</p><br>";
+			    echo "职称：<p>".$value['professional_title']."</p>";
+			    echo "主要工作：<p>".$value['main_job']."</p>";
+			    echo "研究经历：<p>".$value['research_achievements']."</p>";
+			    echo "获奖信息：<p>".$value['record_information']."</p>";
+			    echo "</div>";
+// 			    print_r($value);
 			}
 			?>
 			</div>

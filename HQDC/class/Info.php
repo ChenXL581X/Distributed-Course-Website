@@ -44,6 +44,16 @@ class Info {
         return $this->_db->results();
     }
     
+    public function getInfoByID($id) {
+        try {
+            $this->_db->get($this->_tableName,array("id","=",$id));
+        } catch (Exception $e) {
+            $e->getMessage();
+        }
+    
+        return $this->_db->first();
+    }
+    
     public function deleteInfo($id) {
         $where = array('id' => $id);
         try {
