@@ -41,7 +41,7 @@ var codropsEvents = $codropsEvents;
 
 						<span id="custom-month" class="custom-month"></span>
 						<span id="custom-year" class="custom-year"></span>
-						<button id="new-event" class="new-event" data-toggle="modal" data-target="#gridSystemModal">建立新事项</button>
+						<!-- <button id="new-event" class="new-event" data-toggle="modal" data-target="#gridSystemModal">建立新事项</button> -->
 						
 						<nav>
 							<span id="custom-prev" class="custom-prev"></span>
