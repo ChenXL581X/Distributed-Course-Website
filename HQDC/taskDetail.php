@@ -99,6 +99,7 @@ if(Input::exists('get'))
 			{
 			?>
 			<div class="files">
+				<div class="homeworklist">
 				<?php
 				$hData = $user->_homework->findSubmitByStudentTaskId($user->data()->id,$id);
 				?>
@@ -115,12 +116,18 @@ if(Input::exists('get'))
 					else echo '你尚未提交作业';
 					?>
 				</label>
+			</div>
 
 			</div>
 				<div class="upbtn"><input id="homework" type="file" name='homework'></div>
 				<?php }?>
 				<button id="uploadHomework" class="btn btn-primary"><i class="fa fa-upload" ></i> 提交作业</button>
+				<?php
+				if($role=='teacher')
+				{
+				?>
 				<button onclick="location=<?php echo '\'workScore.php?taskId='.$id.'\''?>" class="btn btn-default"><i class="fa fa-pencil"></i> 为学生评分</button> 
+			<?php }?>
 			</div>
 			<div class="info">
 				<span>截止时间:11/16 12:00</span>
