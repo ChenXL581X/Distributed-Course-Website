@@ -145,7 +145,7 @@ $nowtime=strtotime('now');
 										$filename = substr($homework->file_link, strrpos($homework->file_link,"/")+1);
 										echo "<a href='$homework->file_link' target='_blank'>$filename</a><br />";
 										echo '<div class="upbtn" style="margin-top:10px"><input class="homework" id="'.$data[$i]->id.'" type="file" name="homework"></div>';
-										echo '<button class="btn btn-default" style="margin-top:10px"><i class="fa fa-upload"></i> 重新提交</button>';
+										if($role!='teacher') echo '<button class="btn btn-default" style="margin-top:10px"><i class="fa fa-upload"></i> 重新提交</button>';
 									}
 								}
 								?>
