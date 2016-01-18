@@ -52,10 +52,10 @@ function submitNews(type, title, context) {
 			result = JSON.parse(result);
 			var message = result.message;
 			if(result.state == 'success') {
-				alert(message);
+				$('.main').showMessage(message,4000);
 			}
 			else {
-				alert(message);
+				$('.main').showMessage(message,4000);
 			}
 		}
 	});
