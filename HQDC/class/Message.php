@@ -17,15 +17,18 @@
 				$reply = new DBReply();
 				$taskSubmit = new TaskSubmit();
 				//$date = new Date();
-				$date = 1448060300;
-				$date1 = 1448060500;
+				$date = strtotime('now');
+				$date1 = $date+24*3600;
+				
+				
 				$taskArray = $task->findWithDateBetween($date,$date1);	//在task里寻找截止时间在$date和$date+1的；
 				if($taskArray)foreach ($taskArray as $key => $value) {
+
 					if(!$taskSubmit->findWithUserAndTask($this->_user->data()->id,$value->id)){//查找数据库里有没有改学生提交作业的记录
-					
+						
 						array_push($this->_calendarArray, $value); 
 						$message = '';
-						if($this->_user->data()->group=="M"){
+						if($this->_user->data()->group=="S"){
 							if($value->type=="H"){
 								$message = "您的实验尚未完成，该试验为".$value->title;
 							}else if($value->type == "E"){
@@ -36,6 +39,7 @@
 							'taskId' => $value->id,
 							'message' => $message
 							);
+
 						array_push($this->_messageArray, $array); 
 						}
 						
