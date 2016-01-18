@@ -25,17 +25,21 @@
 					
 						array_push($this->_calendarArray, $value); 
 						$message = '';
-						if($value->type=="H"){
-							$message = "您的实验尚未完成，该试验为".$value->title;
-						}else if($value->type == "E"){
-							$message = "您的作业尚未完成，该作业为".$value->title;
-						}
+						if($this->_user->data()->group=="M"){
+							if($value->type=="H"){
+								$message = "您的实验尚未完成，该试验为".$value->title;
+							}else if($value->type == "E"){
+								$message = "您的作业尚未完成，该作业为".$value->title;
+							}	
 						$array = Array(
 							'type' => 'task',
 							'taskId' => $value->id,
 							'message' => $message
 							);
 						array_push($this->_messageArray, $array); 
+						}
+						
+
 
 					}
 				}

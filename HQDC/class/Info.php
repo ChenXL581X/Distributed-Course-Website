@@ -2,7 +2,11 @@
 class Info {
     protected $_db;
     protected $_tableName;
-    
+    function __construct() 
+    {
+        $this->_db = DB::getInstance();
+        
+    }
     public function setTableName($tableName) {
         $this->_tableName = $tableName;
     }
@@ -21,7 +25,15 @@ class Info {
             return false;
         }
     }
-    
+    public function find($id) {
+        try {
+            $this->_db->get($this->_tableName,array('id','=',$id));
+        } catch (Exception $e) {
+            $e->getMessage();
+        }
+        
+        return $this->_db->first();
+    }
     public function getInfo() {
         try {
             $this->_db->get($this->_tableName);

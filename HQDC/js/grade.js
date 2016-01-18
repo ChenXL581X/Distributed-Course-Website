@@ -57,6 +57,7 @@
 				}else if(data == "success"){
 					
 					//alert("您已成功发帖");
+					
 					$(".main").showMessage("修改成功",4000);
 					//window.location.reload();
 				}else if($data="noRight"){

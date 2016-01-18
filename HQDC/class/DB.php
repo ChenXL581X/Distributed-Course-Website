@@ -60,6 +60,7 @@ class DB{
 			$value      =  $where[2];
 			if(in_array($operator, $operators)){
 				$sql = "{$action} from {$table} where {$field} {$operator} ?";
+
 				if(!$this -> query ($sql , array($value))->error()){
 					
 					return $this;
@@ -106,7 +107,9 @@ class DB{
 	}
 
 	public function get($table,$where = ''){
+		
 		return $this -> action('select * ', $table ,$where);
+
 	}
 	
 	public function getLimit($table, $limit, $long = -1) {
