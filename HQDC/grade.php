@@ -102,6 +102,7 @@ $stu = $student->findAll();
                         echo "<td>{$grade}</td>\n";
                     }
                     //$totalGrade/=count($taskAll);
+                    $totalGrade = intval($totalGrade);
                     echo "<td>{$totalGrade}</td>";
                     ?>
                     
