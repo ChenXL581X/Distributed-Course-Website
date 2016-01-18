@@ -40,7 +40,7 @@ if($post) $postData = $post->data();
 			</div>
       	</div>
       	
-		<h6>今日有<span>12</span>个新话题
+		<h6>最新话题
 			
 		</h6>
       	<table class="table forum-table">
