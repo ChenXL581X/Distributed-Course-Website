@@ -36,19 +36,19 @@ $(document).ready(function(){
 		}
 		else $("#submit").removeAttr("disabled");
 	});
-	$(".fileDel").click(function(){
-	//  $.post("filedel.php",
-	//    {
-	//      'fileId':mark,
-	//      'token':$("[name$='token']").val()
-	//    },
-	//    function(data,status){
-	//        if(status=='success'){
-	//           window.location.href="taskdetail.php?taskmark="+$("#id").val()+"&edit=true";
-	//        }
-	//        else $('.main').showMessage('删除失败！',4000);
-	//    });
-	});
+	// $(".fileDel").click(function(){
+	// //  $.post("filedel.php",
+	// //    {
+	// //      'fileId':mark,
+	// //      'token':$("[name$='token']").val()
+	// //    },
+	// //    function(data,status){
+	// //        if(status=='success'){
+	// //           window.location.href="taskdetail.php?taskmark="+$("#id").val()+"&edit=true";
+	// //        }
+	// //        else $('.main').showMessage('删除失败！',4000);
+	// //    });
+	// });
 	jQuery(function(){   
 		function ajaxFileUp(){
 		    $.ajaxFileUpload({
@@ -62,7 +62,7 @@ $(document).ready(function(){
 		                    alert(data.error);
 		                }else{
 		                    var rs=data.msg;
-		                    $(".filelist").append("<span><a href='"+data.url+"' target='_black'>"+rs+"</a></span><span class='fileDel'>[删除]</span><br />").append("<input type='hidden' name='uploadfile[]' value='"+rs+"'>");
+		                    $(".filelist").append("<span><a href='"+data.url+"' target='_black'>"+rs+"</a><span class='fileDel' id='"+data.url+"'>[删除]</span><br /></span>").append("<input type='hidden' name='uploadfile[]' value='"+rs+"'>");
 		                }
 		            }
 		            $("#inputFile").change('change', function(){
@@ -79,6 +79,23 @@ $(document).ready(function(){
 		}
 		$("#inputFile").change('change', function(){
 		  ajaxFileUp();
+		});
+		$(".filelist").on("click",".fileDel",function(){
+			var filepath=$(this).attr('id');
+			$.post("delfile_ajax.php",
+			  {
+			    'filepath':filepath
+			  },
+			  function(data,status){
+			      if(status=='success'){
+			      	alert(filepath);
+			      	$("span[id = '"+ filepath +"']").parent().remove();
+			      }
+			      else 
+			         {
+			         $('main').showMessage('删除失败！');
+			         }
+			  });
 		});
 	});
 })
