@@ -11,6 +11,7 @@ require_once "core/init.php";
     <title>Bootstrap 101 Template</title>
 
     <!-- Bootstrap -->
+    <link href="images/main.ico" rel="shortcut icon">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="bootstrap/css/font-awesome.min.css" />
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
