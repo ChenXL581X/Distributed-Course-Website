@@ -59,6 +59,7 @@ $stu = $student->findAll();
             <a href="#" class="btn btn-default new-event" data-toggle="modal" data-target="#modal"><i class="fa fa-pencil"></i> 为各个任务分配权重</span></a>
             <?php }?>
              <a class="save btn btn-primary" href="course.php"><i class="fa fa-arrow-left"></i> 返回课程</a>
+             <a class=" btn btn-primary" href="#"> 导出excel表 <i class="fa fa-arrow-right"></i></a>
              </p>                      
         </div>
     </div>
@@ -105,7 +106,7 @@ $stu = $student->findAll();
                         //$totalGrade/=count($taskAll);
                         $totalGrade = intval($totalGrade);
                      }else{
-                        echo "请先分配权重"；
+                        echo "请先分配权重";
                      }
                      
                     echo "<td>{$totalGrade}</td>";
