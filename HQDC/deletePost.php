@@ -7,7 +7,7 @@ if (!$user->isLoggedIn()) {
     Redirect::to('forum.php');
 }else if (Input::exists('get')) {
 	
-	Session::delete('home');
+	Session::delete('forum');
 
     $validate = new Validate();
     $validation = $validate->check($_GET, array(

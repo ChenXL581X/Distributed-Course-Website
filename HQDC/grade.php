@@ -53,7 +53,7 @@ $stu = $student->findAll();
     <div class="task-box row">
         <div class="col-md-8 col-md-offset-2">
             <h4>本学期课程成绩</h4>
-            <p>截止目前，已有个任务发布，以下是所有学生关于所有任务的成绩，以及根据权重计算的总成绩</p>
+            <p>截止目前，已有<?php echo count($taskAll)?>个任务发布，以下是所有学生关于所有任务的成绩，以及根据权重计算的总成绩</p>
             <p>
             <?php if($role=='teacher'){?>
             <a href="#" class="btn btn-default new-event" data-toggle="modal" data-target="#modal"><i class="fa fa-pencil"></i> 为各个任务分配权重</span></a>
@@ -105,7 +105,7 @@ $stu = $student->findAll();
                         //$totalGrade/=count($taskAll);
                         $totalGrade = intval($totalGrade);
                      }else{
-                        echo "请先分配权重"；
+                        echo "请先分配权重";
                      }
                      
                     echo "<td>{$totalGrade}</td>";
