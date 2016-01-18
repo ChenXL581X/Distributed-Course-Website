@@ -40,7 +40,7 @@ if($post) $postData = $post->data();
 			</div>
       	</div>
       	
-		<h6>今日有<span>12</span>个新话题
+		<h6>最新话题
 			
 		</h6>
       	<table class="table forum-table">
@@ -50,6 +50,13 @@ if($post) $postData = $post->data();
 		<?php 
 			if(isset($postData)&&$postData)foreach ($postData as $key => $value) {
 				$sender = $user->find($value->release_people)->data()->name;
+				$senderRole = '学';
+				$sRolo = $user->find($value->release_people)->data()->group;
+				if($sRolo=='M'){
+					$senderRole="管";
+				}else if($sRolo=='T'){
+					$senderRole="师";
+				}
 				$senderPortrait = $user->find($value->release_people)->data()->portraits;
 				//var_dump($value->imgs);
 				if($value->imgs!=''){
@@ -70,7 +77,7 @@ if($post) $postData = $post->data();
                             <div  class="clear-both"></div>
                             
 
-                            <span class="teacher">师</span><a class="name"><?php echo $sender;?></a>
+                            <span class="teacher"><?php echo $senderRole;?></span><a class="name"><?php echo $sender;?></a>
                              <div class="clear-both"></div>
                             <span class="reply-num">100</span>
                     </div>

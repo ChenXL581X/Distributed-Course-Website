@@ -13,9 +13,9 @@ if(Input::exists('get')) $filetype=Input::get('type')
            <input type="hidden" name=type value="<?php if($filetype) echo $filetype;?>">
         </div>
            <div class="form-group">
-              <label  class="col-sm-2 ">文件</label>
+              <!-- <label  class="col-sm-2 ">文件</label> -->
               <div class="col-sm-10">
-                 <input type="file" class="form-control" name="ware">
+                 <input style="box-shadow: none;font-size: 12px;height: 80px;padding-top: 25px;border: 1px dashed #ccc;background: #F9F9F9;" type="file" class="form-control" name="ware">
               </div>
             </div>
               <input type="hidden" id="token" name="token" value="<?php echo $token; ?>">

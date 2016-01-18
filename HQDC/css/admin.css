@@ -91,6 +91,9 @@ span.lbl{
 	transition:width 1s;
 	z-index: 900;
 	background: url("../images/adminBG.png");
+/*	background: -webkit-linear-gradient(top, #086ed5, #055db5);
+	background: linear-gradient(to bottom, #086ed5, #055db5);*/
+	
 }
 .left.bg{
 	background: #565656;

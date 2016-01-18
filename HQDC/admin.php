@@ -123,6 +123,7 @@ if(Session::exists("loginTime")){
 
                 	<form method="post"  action="createAccount_run.php" enctype="multipart/form-data" id="form">
                     	<h3>导入Excel表：</h3>
+                    	<a href="upfile/Excel/用户账号表_模板.xlsx">导出账号表模板</a>
                     	<input type="button"  class='btn btn-default' id="exportExcelModel" value="导出Excel模板"/><br>
                     	<input type="file" id="file_stu" name="file_stu" /><br>
      <!-- <input type="submit"  value="fromExcel" /> -->

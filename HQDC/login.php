@@ -97,7 +97,7 @@ $token = Token::generate();
 												</div>
 											</div> <!--/widget-main-->
 
-											<div class="toolbar clearfix">
+											<!-- <div class="toolbar clearfix">
 												<span>
 													<a href="#" onclick="show_box('forgot-box'); return false;" class="forgot-password-link">
 														<i class="fa fa-arrow-left icon-arrow-left"></i>
@@ -111,7 +111,7 @@ $token = Token::generate();
 														<i class="fa fa-arrow-right icon-arrow-right"></i>
 													</a>
 												</span>
-											</div>
+											</div> -->
 										</div><!--/widget-body-->
 									</div><!--/login-box-->
 

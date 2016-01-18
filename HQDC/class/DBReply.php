@@ -39,7 +39,7 @@ class DBReply extends DBTable
 			}
 			return true;
 		}
-		return false;
+		return true;
 
 	}
 }
