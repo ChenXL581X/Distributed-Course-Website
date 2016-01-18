@@ -73,7 +73,7 @@ $(document).ready(function(){
 		                }else{
 		                    var rs=data.msg;
 		                    $(".main").showMessage("添加附件",3000);
-		                    $(".filelist").append("<span><a href='"+data.url+"' target='_black'>"+rs+"</a><span class='fileDel' id='"+data.url+"'>[删除]</span><br /></span>").append("<input type='hidden' name='uploadfile[]' value='"+rs+"'>");
+		                    $(".filelist").append("<span>"+rs+"<span class='fileDel' id='"+data.url+"'>[<a>删除</a>]</span><br /></span>").append("<input type='hidden' name='uploadfile[]' value='"+rs+"'>");
 		                }
 		            }
 		            $("#inputFile").change('change', function(){

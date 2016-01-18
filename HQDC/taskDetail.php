@@ -63,7 +63,7 @@ if(Input::exists('get'))
 				foreach ($files as $file) {
 					?>
 			<div>   
-				<a class="" href="download.php?path='<?php echo $file->url; ?>'" id="<?php echo "fl".$file->id; ?>">
+				<a class="" href="download.php?path=<?php echo $file->url; ?>" id="<?php echo "fl".$file->id; ?>">
 					<i class="fa fa-download">
 					</i> <?php echo $file->name; ?>
 				</a>
@@ -111,7 +111,7 @@ if(Input::exists('get'))
 						echo "作业<br />";
 						foreach ($hData as $homework) {
 							$filename = substr($homework->file_link, strrpos($homework->file_link,"/")+1);
-							echo "<a href=\"download.php?path='$homework->file_link'\" target='_blank'>$filename</a><br />";
+							echo "<a href=\"download.php?path=$homework->file_link\" target='_blank'>$filename</a><br />";
 						}
 					}
 					else echo '你尚未提交作业';

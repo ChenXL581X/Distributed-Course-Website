@@ -5,7 +5,8 @@ if(Input::exists('get'))
 {
 	$user = new User();
 	$filepath = Input::get('path');
-	$fileName = Input::get('name');
+	// $fileName = Input::get('name');
+	// echo $filepath;
 	$user->downfile($filepath);
 }
 ?>

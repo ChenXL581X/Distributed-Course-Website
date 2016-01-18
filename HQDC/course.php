@@ -90,7 +90,7 @@ $nowtime=strtotime('now');
 				      	      				<?php
 				      	      			foreach ($files as $file) {
 				      	      	?>
-				      	      	<a class="" target="_blank" href="<?php echo $file->url; ?>"><i class="fa fa-download"></i> <?php echo $file->name; ?></a><br />
+				      	      	<a class="" target="_blank" href="download.php?path=<?php echo $file->url; ?>"><i class="fa fa-download"></i> <?php echo $file->name; ?></a><br />
 				      	      	<?php
 				      	      		}
 				      	      	?>
@@ -147,7 +147,7 @@ $nowtime=strtotime('now');
 								{
 									foreach ($hData as $homework) {
 										$filename = substr($homework->file_link, strrpos($homework->file_link,"/")+1);
-										echo "<a href='$homework->file_link' target='_blank'>$filename</a><br />";
+										echo "<a href='download.php?path=$homework->file_link' target='_blank'>$filename</a><br />";
 										echo '<div class="upbtn" style="margin-top:10px"><input class="homework" id="'.$data[$i]->id.'" type="file" name="homework"></div>';
 										if($role!='teacher') echo '<button class="btn btn-default" style="margin-top:10px"><i class="fa fa-upload"></i> 重新提交</button>';
 									}
