@@ -105,7 +105,20 @@ $stu = $student->findAll();
                         //$totalGrade/=count($taskAll);
                         $totalGrade = intval($totalGrade);
                      }else{
-                        echo "请先分配权重";
+                      foreach ($taskAll as $key=>$value){
+                          $imp = $value->importance;
+                          $taskS = $taskSubmit->findWithUserAndTask($value1->user_id, $value->id);
+                          $grade = 0;
+                          if($taskS){
+                           
+                            $grade = $taskS->score;  
+                          }
+                          $totalGrade+=$grade;
+                          echo "<td>{$grade}</td>\n";
+                        }
+                        $totalGrade/=count($taskAll);
+                        //$totalGrade = intval($totalGrade);
+                        
                      }
                      
                     echo "<td>{$totalGrade}</td>";
