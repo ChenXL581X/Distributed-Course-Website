@@ -14,7 +14,7 @@ $fields = array(
     'context' => $context,
     'upload_time' => $upload_time,
     'type' => $type,
-    'upload_people' => $user->data()->id
+    'upload_people' => $user->data()->name
 );
 
 $news = new News();
