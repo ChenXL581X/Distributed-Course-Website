@@ -90,19 +90,24 @@ $stu = $student->findAll();
                         $imp = $value->importance;
                         $totalImportance+=$imp;
                      }
-                     foreach ($taskAll as $key=>$value){
-                        $imp = $value->importance;
-                        $taskS = $taskSubmit->findWithUserAndTask($value1->user_id, $value->id);
-                        $grade = 0;
-                        if($taskS){
-                         
-                          $grade = $taskS->score;  
+                     if($totalImportance!=0){
+                        foreach ($taskAll as $key=>$value){
+                          $imp = $value->importance;
+                          $taskS = $taskSubmit->findWithUserAndTask($value1->user_id, $value->id);
+                          $grade = 0;
+                          if($taskS){
+                           
+                            $grade = $taskS->score;  
+                          }
+                          $totalGrade+=($grade*$imp/$totalImportance);
+                          echo "<td>{$grade}</td>\n";
                         }
-                        $totalGrade+=($grade*$imp/$totalImportance);
-                        echo "<td>{$grade}</td>\n";
-                    }
-                    //$totalGrade/=count($taskAll);
-                    $totalGrade = intval($totalGrade);
+                        //$totalGrade/=count($taskAll);
+                        $totalGrade = intval($totalGrade);
+                     }else{
+                        echo "请先分配权重"；
+                     }
+                     
                     echo "<td>{$totalGrade}</td>";
                     ?>
                     

@@ -2,6 +2,18 @@
 include 'includes/header.php';
 $data = $user->data();
 $token = Token::generate();
+if ($role == 'tourist') {
+    echo "<script type='text/javascript'>
+    
+		
+        if(confirm('您没有登录，是否跳转到登录页面？')){
+        window.location.href = 'login.php';
+        }else{
+        window.location.href = 'index.php';
+        }
+        
+		</script>";
+}
 ?>
 <link rel="stylesheet" type="text/css" href="css/info.css">
 <div id="main" class="main">
