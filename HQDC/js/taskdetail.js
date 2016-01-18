@@ -70,14 +70,14 @@ $(document).ready(function(){
               $("#fileToUpload").change('change', function(){
                 ajaxFileUp();
               });
-              window.location.reload();
+              window.location.href="taskdetail.php?taskmark="+$("#id").val()+"&edit=true";
           },
           error: function(data, status, e){
               $('.main').showMessage(e,4000);
               $("#fileToUpload").change('change', function(){
                 ajaxFileUp();
               });
-              window.location.reload();
+              window.location.href="taskdetail.php?taskmark="+$("#id").val()+"&edit=true";
           }
       });
   }

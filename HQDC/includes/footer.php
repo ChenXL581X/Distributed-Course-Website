@@ -9,7 +9,7 @@
 	$url = substr($url, strrpos($url,'/')+1);
 	$url = substr($url, 0,strrpos($url,'.'));
 	$message =  Session::flash("$url");
-	//echo $message;
+	// echo $message;
 	if($message!=''){
 		?>
 	<script type='text/javascript'>
