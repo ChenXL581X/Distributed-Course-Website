@@ -6,8 +6,8 @@ $(document).ready(function(){
 		var name= $('#name').val();
 		var password = $('#password').val();
 		var password_confirm = $('#password_confirm').val();
-		var group = $('#group').val();
-		var sex = $('#sex').val();
+		var group = $('#group:checked').val();
+		var sex = $('#sex:checked').val();
 
 		if(username == '' || password == '') {
 			$('.main').showMessage("用户名和密码不能为空",4000);
